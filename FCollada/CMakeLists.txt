@@ -237,7 +237,6 @@ install(FILES
     FUtils/FUStringConversion.hpp
     FUtils/FUSynchronizableObject.h
     FUtils/FUTestBed.h
-    FUtils/FUThread.h
     FUtils/FUtils.h
     FUtils/FUTracker.h
     FUtils/FUUniqueStringMap.h
