@@ -58,6 +58,23 @@ if(NOT MSVC)
     )
 endif()
 
+
+if(BUILD_TESTS)
+    # TODO: Some tests are built as part of the library.
+    # TODO: Copy required assets for running tests.
+    # TODO: Integrate tests with ctest
+    file(GLOB TEST_SOURCE_FILES
+        "FColladaTest/FCTestExportImport/*.cpp"
+        "FColladaTest/FCTestXRef/*.cpp"
+        "FColladaTest/FCTestAssetManagement/*.cpp"
+        "FColladaTest/*.cpp"
+    )
+
+    add_executable(FColladaTest ${TEST_SOURCE_FILES})
+    target_link_libraries(FColladaTest ${LIBRARY_NAME})
+endif()
+
+
 install(TARGETS ${LIBRARY_NAME} DESTINATION lib)
 
 install(FILES
@@ -231,8 +248,3 @@ install(FILES
     FUtils/Platforms.h
     DESTINATION include/FCollada/FUtils
 )
-
-if(BUILD_TESTS)
-    add_subdirectory(FColladaTest)
-endif()
-
