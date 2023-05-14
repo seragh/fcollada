@@ -228,7 +228,6 @@ install(FILES
     FUtils/FUParameterizable.h
     FUtils/FUPlugin.h
     FUtils/FUPluginManager.h
-    FUtils/FUSemaphore.h
     FUtils/FUSingleton.h
     FUtils/FUString.h
     FUtils/FUStringBuilder.h
