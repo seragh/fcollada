@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.25)
 cmake_policy(VERSION 3.25)
-project(FCollada)
+project(FCollada
+    VERSION 3.5.99
+    DESCRIPTION "Fork of Feeling Softwares FCollada"
+    HOMEPAGE_URL "https://github.com/seragh/fcollada"
+    LANGUAGES CXX
+)
 
 if(NOT CMAKE_BUILD_TYPE)
     message(STATUS "No build type selected, defaulting to Debug")
