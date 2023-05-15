@@ -16,7 +16,8 @@ option(BUILD_SHARED_LIBS "Build FCollada as a shared library." OFF)
 option(BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
 option(BUILD_TESTS "Build the test suite." OFF)
 option(BUILD_DOCS "Build html docs using doxygen" OFF)
-option(USE_SYSTEM_LIBXML2 "Use system provided libxml2" OFF)
+# TODO: Support vcpkg or similar
+#option(USE_SYSTEM_LIBXML2 "Use system provided libxml2" ON)
 
 if(BUILD_DOCS)
     find_package(Doxygen REQUIRED)

@@ -23,22 +23,12 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     add_definitions(-DLINUX)
 endif()
 
-if(USE_SYSTEM_LIBXML2)
-    # cmake 3.12 provides an imported target, update when possible to use
-    # target_link_libraries
-    find_package(LibXml2 REQUIRED)
-    add_definitions(${LIBXML2_DEFINITIONS})
-    include_directories(${LIBXML2_INCLUDE_DIR})
-    link_libraries(${LIBXML2_LIBRARIES})
-else()
-    include(CheckIncludeFiles)
-    check_include_files(unistd.h HAVE_UNISTD_H)
-    if(HAVE_UNISTD_H)
-        add_definitions(-DHAVE_UNISTD_H=1)
-    endif()
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../External/LibXML/include)
-    file(GLOB SOURCE_FILES_LIBXML "../External/LibXML/*.c")
-endif()
+# cmake 3.12 provides an imported target, update when possible to use
+# target_link_libraries
+find_package(LibXml2 REQUIRED)
+add_definitions(${LIBXML2_DEFINITIONS})
+include_directories(${LIBXML2_INCLUDE_DIR})
+link_libraries(${LIBXML2_LIBRARIES})
 
 file(GLOB SOURCE_FILES
     "FCDocument/*.cpp"
@@ -49,7 +39,7 @@ file(GLOB SOURCE_FILES
 )
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-add_library(${LIBRARY_NAME} ${SOURCE_FILES} ${SOURCE_FILES_LIBXML})
+add_library(${LIBRARY_NAME} ${SOURCE_FILES})
 target_link_libraries(${LIBRARY_NAME} ${CMAKE_DL_LIBS})
 
 if(NOT MSVC)
