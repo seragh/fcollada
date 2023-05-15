@@ -31,6 +31,7 @@ endif()
 add_subdirectory(FCollada)
 
 set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
-CONFIGURE_FILE("fcollada.pc.in" "fcollada.pc" @ONLY)
 
-install(FILES fcollada.pc DESTINATION lib/pkgconfig)
+configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"
+    DESTINATION "lib/pkgconfig")
