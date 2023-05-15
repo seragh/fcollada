@@ -23,12 +23,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     add_definitions(-DLINUX)
 endif()
 
-# cmake 3.12 provides an imported target, update when possible to use
-# target_link_libraries
 find_package(LibXml2 REQUIRED)
-add_definitions(${LIBXML2_DEFINITIONS})
-include_directories(${LIBXML2_INCLUDE_DIR})
-link_libraries(${LIBXML2_LIBRARIES})
 
 file(GLOB SOURCE_FILES
     "FCDocument/*.cpp"
@@ -40,7 +35,9 @@ file(GLOB SOURCE_FILES
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 add_library(${LIBRARY_NAME} ${SOURCE_FILES})
-target_link_libraries(${LIBRARY_NAME} ${CMAKE_DL_LIBS})
+target_link_libraries(${LIBRARY_NAME}
+    LibXml2::LibXml2
+    ${CMAKE_DL_LIBS})
 
 if(NOT MSVC)
     set_target_properties(${LIBRARY_NAME} PROPERTIES
