@@ -26,10 +26,6 @@ endif()
 find_package(LibXml2 REQUIRED)
 
 file(GLOB SOURCE_FILES
-    "FCDocument/*.cpp"
-    "FMath/*.cpp"
-    "FUtils/*.cpp"
-    "*.cpp"
     "../FColladaPlugins/FArchiveXML/*.cpp"
 )
 
@@ -50,6 +46,20 @@ if(NOT MSVC)
     )
 endif()
 
+target_sources(FCollada
+    PRIVATE
+        DLLEntry.cpp
+        FCollada.cpp
+        FColladaPlugin.cpp
+        StdAfx.cpp
+        StdAfx.h
+    PUBLIC FILE_SET HEADERS
+    BASE_DIRS "${PROJECT_SOURCE_DIR}"
+    FILES
+        FCollada.h
+        FColladaPlugin.h
+)
+
 
 if(BUILD_TESTS)
     # TODO: Some tests are built as part of the library.
@@ -67,174 +77,10 @@ if(BUILD_TESTS)
 endif()
 
 
-install(TARGETS FCollada DESTINATION lib)
-
-install(FILES
-    FCollada.h
-    FColladaPlugin.h
-    DESTINATION include/FCollada
-)
-install(FILES
-    FCDocument/FCDAnimated.h
-    FCDocument/FCDAnimation.h
-    FCDocument/FCDAnimationChannel.h
-    FCDocument/FCDAnimationClip.h
-    FCDocument/FCDAnimationClipTools.h
-    FCDocument/FCDAnimationCurve.h
-    FCDocument/FCDAnimationCurveTools.h
-    FCDocument/FCDAnimationKey.h
-    FCDocument/FCDAnimationMultiCurve.h
-    FCDocument/FCDAsset.h
-    FCDocument/FCDCamera.h
-    FCDocument/FCDController.h
-    FCDocument/FCDControllerInstance.h
-    FCDocument/FCDControllerTools.h
-    FCDocument/FCDEffect.h
-    FCDocument/FCDEffectCode.h
-    FCDocument/FCDEffectParameter.h
-    FCDocument/FCDEffectParameter.hpp
-    FCDocument/FCDEffectParameterFactory.h
-    FCDocument/FCDEffectParameterSampler.h
-    FCDocument/FCDEffectParameterSurface.h
-    FCDocument/FCDEffectPass.h
-    FCDocument/FCDEffectPassShader.h
-    FCDocument/FCDEffectPassState.h
-    FCDocument/FCDEffectProfile.h
-    FCDocument/FCDEffectProfileFX.h
-    FCDocument/FCDEffectStandard.h
-    FCDocument/FCDEffectTechnique.h
-    FCDocument/FCDEffectTools.h
-    FCDocument/FCDEmitter.h
-    FCDocument/FCDEmitterInstance.h
-    FCDocument/FCDEmitterObject.h
-    FCDocument/FCDEmitterParticle.h
-    FCDocument/FCDEntity.h
-    FCDocument/FCDEntityInstance.h
-    FCDocument/FCDEntityReference.h
-    FCDocument/FCDExternalReferenceManager.h
-    FCDocument/FCDExtra.h
-    FCDocument/FCDForceDeflector.h
-    FCDocument/FCDForceDrag.h
-    FCDocument/FCDForceField.h
-    FCDocument/FCDForceGravity.h
-    FCDocument/FCDForcePBomb.h
-    FCDocument/FCDForceTyped.h
-    FCDocument/FCDForceWind.h
-    FCDocument/FCDGeometry.h
-    FCDocument/FCDGeometryInstance.h
-    FCDocument/FCDGeometryMesh.h
-    FCDocument/FCDGeometryNURBSSurface.h
-    FCDocument/FCDGeometryPolygons.h
-    FCDocument/FCDGeometryPolygonsInput.h
-    FCDocument/FCDGeometryPolygonsTools.h
-    FCDocument/FCDGeometrySource.h
-    FCDocument/FCDGeometrySpline.h
-    FCDocument/FCDImage.h
-    FCDocument/FCDLibrary.h
-    FCDocument/FCDLibrary.hpp
-    FCDocument/FCDLight.h
-    FCDocument/FCDLightTools.h
-    FCDocument/FCDMaterial.h
-    FCDocument/FCDMaterialInstance.h
-    FCDocument/FCDMorphController.h
-    FCDocument/FCDObject.h
-    FCDocument/FCDObjectWithId.h
-    FCDocument/FCDocument.h
-    FCDocument/FCDocumentTools.h
-    FCDocument/FCDParameterAnimatable.h
-    FCDocument/FCDParameterAnimatable.hpp
-    FCDocument/FCDParticleEmitter.h
-    FCDocument/FCDParticleModifier.h
-    FCDocument/FCDPhysicsAnalyticalGeometry.h
-    FCDocument/FCDPhysicsForceFieldInstance.h
-    FCDocument/FCDPhysicsMaterial.h
-    FCDocument/FCDPhysicsModel.h
-    FCDocument/FCDPhysicsModelInstance.h
-    FCDocument/FCDPhysicsRigidBody.h
-    FCDocument/FCDPhysicsRigidBodyInstance.h
-    FCDocument/FCDPhysicsRigidBodyParameters.h
-    FCDocument/FCDPhysicsRigidConstraint.h
-    FCDocument/FCDPhysicsRigidConstraintInstance.h
-    FCDocument/FCDPhysicsScene.h
-    FCDocument/FCDPhysicsShape.h
-    FCDocument/FCDPlaceHolder.h
-    FCDocument/FCDSceneNode.h
-    FCDocument/FCDSceneNodeIterator.h
-    FCDocument/FCDSceneNodeIterator.hpp
-    FCDocument/FCDSceneNodeTools.h
-    FCDocument/FCDSkinController.h
-    FCDocument/FCDTargetedEntity.h
-    FCDocument/FCDTexture.h
-    FCDocument/FCDTransform.h
-    FCDocument/FCDVersion.h
-    DESTINATION include/FCollada/FCDocument
+install(TARGETS FCollada
+    FILE_SET HEADERS
 )
 
-install(FILES
-    FMath/FMAllocator.h
-    FMath/FMAngleAxis.h
-    FMath/FMArray.h
-    FMath/FMArrayPointer.h
-    FMath/FMath.h
-    FMath/FMColor.h
-    FMath/FMFloat.h
-    FMath/FMInteger.h
-    FMath/FMInterpolation.h
-    FMath/FMLookAt.h
-    FMath/FMMatrix33.h
-    FMath/FMMatrix44.h
-    FMath/FMQuaternion.h
-    FMath/FMRandom.h
-    FMath/FMSkew.h
-    FMath/FMSort.h
-    FMath/FMTree.h
-    FMath/FMVector2.h
-    FMath/FMVector3.h
-    FMath/FMVector4.h
-    FMath/FMVolume.h
-    DESTINATION include/FCollada/FMath
-)
-
-install(FILES
-    FUtils/FUAssert.h
-    FUtils/FUBase64.h
-    FUtils/FUBoundingBox.h
-    FUtils/FUBoundingSphere.h
-    FUtils/FUCrc32.h
-    FUtils/FUCriticalSection.h
-    FUtils/FUDaeEnum.h
-    FUtils/FUDaeEnumSyntax.h
-    FUtils/FUDaeSyntax.h
-    FUtils/FUDateTime.h
-    FUtils/FUDebug.h
-    FUtils/FUError.h
-    FUtils/FUErrorLog.h
-    FUtils/FUEvent.h
-    FUtils/FUFile.h
-    FUtils/FUFileManager.h
-    FUtils/FUFunctor.h
-    FUtils/FULogFile.h
-    FUtils/FUObject.h
-    FUtils/FUObjectType.h
-    FUtils/FUParameter.h
-    FUtils/FUParameterizable.h
-    FUtils/FUPlugin.h
-    FUtils/FUPluginManager.h
-    FUtils/FUSingleton.h
-    FUtils/FUString.h
-    FUtils/FUStringBuilder.h
-    FUtils/FUStringBuilder.hpp
-    FUtils/FUStringConversion.h
-    FUtils/FUStringConversion.hpp
-    FUtils/FUSynchronizableObject.h
-    FUtils/FUTestBed.h
-    FUtils/FUtils.h
-    FUtils/FUTracker.h
-    FUtils/FUUniqueStringMap.h
-    FUtils/FUUri.h
-    FUtils/FUXmlDocument.h
-    FUtils/FUXmlParser.h
-    FUtils/FUXmlWriter.h
-    FUtils/Platforms.h
-    DESTINATION include/FCollada/FUtils
-)
+add_subdirectory(FCDocument)
+add_subdirectory(FMath)
+add_subdirectory(FUtils)

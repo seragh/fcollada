@@ -1,0 +1,44 @@
+target_sources(FCollada
+    PRIVATE
+        FMAllocator.cpp
+        FMAngleAxis.cpp
+        FMArrayTest.cpp
+        FMColor.cpp
+        FMInterpolation.cpp
+        FMLookAt.cpp
+        FMMatrix33.cpp
+        FMMatrix44.cpp
+        FMQuaternion.cpp
+        FMQuaternionTest.cpp
+        FMRandom.cpp
+        FMSkew.cpp
+        FMTreeTest.cpp
+        FMVector3.cpp
+        FMVolume.cpp
+        StdAfx.cpp
+        StdAfx.h
+    PUBLIC FILE_SET HEADERS
+    BASE_DIRS ${PROJECT_SOURCE_DIR}
+    FILES
+        FMAllocator.h
+        FMAngleAxis.h
+        FMArray.h
+        FMArrayPointer.h
+        FMColor.h
+        FMFloat.h
+        FMInteger.h
+        FMInterpolation.h
+        FMLookAt.h
+        FMMatrix33.h
+        FMMatrix44.h
+        FMQuaternion.h
+        FMRandom.h
+        FMSkew.h
+        FMSort.h
+        FMTree.h
+        FMVector2.h
+        FMVector3.h
+        FMVector4.h
+        FMVolume.h
+        FMath.h
+)
