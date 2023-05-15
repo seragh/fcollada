@@ -34,14 +34,19 @@ file(GLOB SOURCE_FILES
 )
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-add_library(${LIBRARY_NAME} ${SOURCE_FILES})
-target_link_libraries(${LIBRARY_NAME}
+add_library(FCollada ${SOURCE_FILES})
+target_link_libraries(FCollada
     LibXml2::LibXml2
     ${CMAKE_DL_LIBS})
+set_target_properties(FCollada
+    PROPERTIES
+        OUTPUT_NAME "${LIBRARY_NAME}"
+)
 
 if(NOT MSVC)
-    set_target_properties(${LIBRARY_NAME} PROPERTIES
-        OUTPUT_NAME_DEBUG ${LIBRARY_NAME}D
+    set_target_properties(FCollada
+        PROPERTIES
+            OUTPUT_NAME_DEBUG ${LIBRARY_NAME}D
     )
 endif()
 
@@ -58,11 +63,11 @@ if(BUILD_TESTS)
     )
 
     add_executable(FColladaTest ${TEST_SOURCE_FILES})
-    target_link_libraries(FColladaTest ${LIBRARY_NAME})
+    target_link_libraries(FColladaTest FCollada)
 endif()
 
 
-install(TARGETS ${LIBRARY_NAME} DESTINATION lib)
+install(TARGETS FCollada DESTINATION lib)
 
 install(FILES
     FCollada.h
