@@ -34,23 +34,28 @@ elseif(NOT APPLE)
     add_definitions(-DLINUX)
 endif()
 
-set(LIBRARY_NAME FCollada)
-
 if(BUILD_SHARED_LIBS)
     add_definitions(-DFCOLLADA_DLL)
-elseif(NOT MSVC)
-    set(LIBRARY_NAME "${LIBRARY_NAME}S")
 endif()
 
 if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
-    set(LIBRARY_NAME "${LIBRARY_NAME}U")
 endif()
 
 if(NOT BUILD_TESTS)
     add_definitions(-DRETAIL)
 endif()
 
+
+set(LIBRARY_NAME FCollada)
+
+if(NOT BUILD_SHARED_LIBS AND NOT MSVC)
+    set(LIBRARY_NAME "${LIBRARY_NAME}S")
+endif()
+
+if(BUILD_UNICODE)
+    set(LIBRARY_NAME "${LIBRARY_NAME}U")
+endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
 add_library(FCollada)
