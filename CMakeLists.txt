@@ -28,6 +28,12 @@ option(BUILD_DOCS "Build html docs using doxygen" OFF)
 find_package(LibXml2 REQUIRED)
 
 
+if(WIN32)
+    add_definitions(-DWIN32)
+elseif(NOT APPLE)
+    add_definitions(-DLINUX)
+endif()
+
 set(LIBRARY_NAME FCollada)
 
 if(BUILD_SHARED_LIBS)
@@ -45,13 +51,6 @@ if(NOT BUILD_TESTS)
     add_definitions(-DRETAIL)
 endif()
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    add_definitions(-DWIN32)
-endif()
-
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    add_definitions(-DLINUX)
-endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
 add_library(FCollada)
