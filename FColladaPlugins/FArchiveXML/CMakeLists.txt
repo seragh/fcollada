@@ -1,0 +1,37 @@
+target_sources(FCollada
+    PRIVATE
+        FAXAnimationExport.cpp
+        FAXAnimationImport.cpp
+        FAXCameraExport.cpp
+        FAXCameraImport.cpp
+        FAXColladaParser.cpp
+        FAXColladaParser.h
+        FAXColladaWriter.cpp
+        FAXColladaWriter.h
+        FAXControllerExport.cpp
+        FAXControllerImport.cpp
+        FAXEmitterExport.cpp
+        FAXEmitterImport.cpp
+        FAXEntityExport.cpp
+        FAXEntityImport.cpp
+        FAXForceFieldExport.cpp
+        FAXForceFieldImport.cpp
+        FAXGeometryExport.cpp
+        FAXGeometryImport.cpp
+        FAXImportLinking.cpp
+        FAXInstanceExport.cpp
+        FAXInstanceImport.cpp
+        FAXLightExport.cpp
+        FAXLightImport.cpp
+        FAXMaterialExport.cpp
+        FAXMaterialImport.cpp
+        FAXPhysicsExport.cpp
+        FAXPhysicsImport.cpp
+        FAXSceneExport.cpp
+        FAXSceneImport.cpp
+        FAXStructures.h
+        FArchiveXML.cpp
+        FArchiveXML.h
+        StdAfx.cpp
+        StdAfx.h
+)

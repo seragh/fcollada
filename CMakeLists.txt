@@ -48,12 +48,8 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     add_definitions(-DLINUX)
 endif()
 
-file(GLOB SOURCE_FILES
-    "FColladaPlugins/FArchiveXML/*.cpp"
-)
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
-add_library(FCollada ${SOURCE_FILES})
+add_library(FCollada)
 target_link_libraries(FCollada
     LibXml2::LibXml2
     ${CMAKE_DL_LIBS})
@@ -78,8 +74,12 @@ if(BUILD_DOCS)
         COMMENT "Generate html pages")
 endif()
 
-add_subdirectory(FCollada)
 
+# Make the fileset known to the parser
+target_sources(FCollada
+    PUBLIC FILE_SET HEADERS
+    BASE_DIRS ${PROJECT_SOURCE_DIR}
+)
 install(TARGETS FCollada
     FILE_SET HEADERS
 )
@@ -90,3 +90,6 @@ set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
 configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"
     DESTINATION "lib/pkgconfig")
+
+add_subdirectory(FCollada)
+add_subdirectory(FColladaPlugins)
