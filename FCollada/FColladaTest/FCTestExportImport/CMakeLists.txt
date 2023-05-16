@@ -1,0 +1,14 @@
+target_sources(FColladaTest
+    PRIVATE
+        FCTEIAnimation.cpp
+        FCTEICamera.cpp
+        FCTEIEmitter.cpp
+        FCTEIExtra.cpp
+        FCTEIGeometry.cpp
+        FCTEILight.cpp
+        FCTEIMaterial.cpp
+        FCTEIPhysics.cpp
+        FCTEIVisualScene.cpp
+        FCTestExportImport.cpp
+        FCTestExportImport.h
+)

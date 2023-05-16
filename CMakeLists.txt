@@ -65,6 +65,28 @@ if(NOT MSVC)
 endif()
 
 
+if(BUILD_TESTS)
+    # TODO: Some tests are built as part of the library.
+    # TODO: Integrate tests with ctest
+    # NOTE: for now run with
+    #   cd <path to FColladaTest executable>
+    #   ./FColladaTest -h
+
+    add_executable(FColladaTest)
+    target_link_libraries(FColladaTest FCollada)
+
+    add_custom_command(
+        TARGET FColladaTest POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/Eagle.DAE
+            "$<TARGET_FILE_DIR:FColladaTest>"
+        COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/TestSphere.dae
+            "$<TARGET_FILE_DIR:FColladaTest>"
+    )
+endif()
+
+
 if(BUILD_DOCS)
     find_package(Doxygen REQUIRED)
     doxygen_add_docs(
