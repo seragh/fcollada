@@ -50,6 +50,7 @@ endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
 add_library(FCollada)
+target_compile_features(FCollada PUBLIC cxx_std_17)
 target_link_libraries(FCollada
     LibXml2::LibXml2
     ${CMAKE_DL_LIBS})
