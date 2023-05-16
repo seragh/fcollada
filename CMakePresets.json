@@ -1,0 +1,63 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "displayName": "Default",
+            "description": "Default build using Ninja generator",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "hidden": true,
+            "cacheVariables": {
+                "BUILD_DOCS": "OFF",
+                "BUILD_SHARED_LIBS": "OFF",
+                "BUILD_TESTS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+            }
+        },
+        {
+            "name": "ci-linux",
+            "displayName": "Linux",
+            "description": "Build on Linux (Ubuntu)",
+            "inherits": [
+                "default"
+            ]
+        },
+        {
+            "name": "ci-macos",
+            "displayName": "MacOS latest",
+            "description": "Build on MacOS",
+            "inherits": [
+                "default"
+            ]
+        },
+        {
+            "name": "ci-windows",
+            "displayName": "Windows latest",
+            "description": "Build on Windows",
+            "inherits": [
+                "default"
+            ]
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "ci-linux",
+            "configurePreset": "ci-linux"
+        },
+        {
+            "name": "ci-macos",
+            "configurePreset": "ci-macos"
+        },
+        {
+            "name": "ci-windows",
+            "configurePreset": "ci-windows"
+        }
+    ]
+}
