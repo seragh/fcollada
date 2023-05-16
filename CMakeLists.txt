@@ -12,6 +12,11 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
+if(NOT DEFINED POSITION_INDEPENDENT_CODE)
+    set(POSITION_INDEPENDENT_CODE ON)
+endif()
+
+
 option(BUILD_SHARED_LIBS "Build FCollada as a shared library." OFF)
 option(BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
 option(BUILD_TESTS "Build the test suite." OFF)
