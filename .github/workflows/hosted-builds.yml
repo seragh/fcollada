@@ -26,3 +26,43 @@ jobs:
       - name: Build
         run: |
           cmake --build --preset ci-linux
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Get sources
+        uses: actions/checkout@v3
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "~3.25.0"
+          ninjaVersion: "^1.11.1"
+
+      - name: Configure
+        run: |
+          cmake --preset ci-macos
+
+      - name: Build
+        run: |
+          cmake --build --preset ci-macos
+
+  windows:
+    runs-on: window-latest
+    steps:
+      - name: Get sources
+        uses: actions/checkout@v3
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "~3.25.0"
+          ninjaVersion: "^1.11.1"
+
+      - name: Configure
+        run: |
+          cmake --preset ci-windows
+
+      - name: Build
+        run: |
+          cmake --build --preset ci-windows
