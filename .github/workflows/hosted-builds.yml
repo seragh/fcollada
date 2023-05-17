@@ -53,7 +53,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+      VCPKG_ROOT: ${{ github.workspace }}\vcpkg
 
     steps:
       - name: checkout sources
