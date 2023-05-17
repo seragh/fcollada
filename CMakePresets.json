@@ -43,7 +43,16 @@
             "description": "Build on Windows",
             "inherits": [
                 "default"
-            ]
+            ],
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": {
+                    "type": "FILEPATH",
+                    "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+                }
+            },
+            "environment": {
+                "VCPKG_ROOT": "./vcpkg"
+            }
         }
     ],
     "buildPresets": [

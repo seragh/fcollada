@@ -9,62 +9,76 @@ on:
 jobs:
   linux:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Get sources
+      - name: checkout sources
         uses: actions/checkout@v3
 
-      - name: Setup CMake
+      - name: setup cmake
         uses: lukka/get-cmake@latest
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
 
-      - name: Configure
+      - name: configure
         run: |
           cmake --preset ci-linux
 
-      - name: Build
+      - name: build
         run: |
           cmake --build --preset ci-linux
 
   macos:
     runs-on: macos-latest
+
     steps:
-      - name: Get sources
+      - name: checkout sources
         uses: actions/checkout@v3
 
-      - name: Setup CMake
+      - name: setup
         uses: lukka/get-cmake@latest
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
 
-      - name: Configure
+      - name: configure
         run: |
           cmake --preset ci-macos
 
-      - name: Build
+      - name: build
         run: |
           cmake --build --preset ci-macos
 
   windows:
     runs-on: windows-latest
+
+    env:
+      VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+
     steps:
-      - name: Get sources
+      - name: checkout sources
         uses: actions/checkout@v3
 
-      - name: Setup CMake
+      - name: setup cmake
         uses: lukka/get-cmake@latest
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
 
-      - uses: ilammy/msvc-dev-cmd@v1
+      - name: set msvc toolchain
+        uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Configure
+      - name: vcpkg build
+        uses: johnwason/vcpkg-action@v4
+        with:
+          manifest-dir: ${{ github.workspace }}
+          triplet: x64-windows-release
+          token: ${{ github.token }}
+
+      - name: configure
         run: |
           cmake --preset ci-windows
 
-      - name: Build
+      - name: build
         run: |
           cmake --build --preset ci-windows
