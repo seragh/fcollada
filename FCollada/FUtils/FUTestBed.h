@@ -16,6 +16,8 @@
 #include "FUtils/FUAssert.h"
 #endif // _FU_ASSERT_H_
 
+#include <limits>
+
 class FUTestSuite;
 
 /**
