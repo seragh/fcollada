@@ -59,6 +59,8 @@ jobs:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
 
+      - uses: ilammy/msvc-dev-cmd@v1
+
       - name: Configure
         run: |
           cmake --preset ci-windows
