@@ -88,7 +88,7 @@ FCOLLADA_EXPORT float FUStringConversion::ToFloat(const CH** value)
 		case '9': val = val * 10.0 + 9.0; decimals *= 10.0; break;
 		case 'e':
 		case 'E': ++s; exponent = ToInt32(&s); s -= 2; nonValidFound = true; break;
-		case 'I': infinity = true; // intentional pass-through.
+		case 'I': infinity = true; [[fallthrough]];
 		default: nonValidFound = true; --s; break;
 		}
 		++s;
