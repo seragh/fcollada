@@ -17,6 +17,7 @@
 #include "FUFileManager.h"
 #include "FUStringConversion.h"
 
+#include <cstdint>
 #include <errno.h>
 
 #if defined(WIN32)
@@ -398,7 +399,7 @@ fstring FUFileManager::GetApplicationFolderName()
 	_uri = TO_FSTRING(exeName);
 #elif defined(__APPLE__)
 	char path[1024];
-	size_t pathLength = 1023;
+	uint32_t pathLength = 1023;
 	if(_NSGetExecutablePath(path, &pathLength))
 	{
 		// doesn't fit
