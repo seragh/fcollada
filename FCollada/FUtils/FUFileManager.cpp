@@ -23,7 +23,6 @@
 	#include <direct.h>
 #elif defined(__APPLE__)
 	#include <mach-o/dyld.h>
-	typedef int (*NSGetExecutablePathProcPtr)(char *buf, size_t *bufsize);
 	#include <sys/stat.h>
 #elif defined(LINUX)
 #include <sys/types.h>
@@ -400,15 +399,10 @@ fstring FUFileManager::GetApplicationFolderName()
 #elif defined(__APPLE__)
 	char path[1024];
 	size_t pathLength = 1023;
-	static NSGetExecutablePathProcPtr NSGetExecutablePath = NULL;
-	if (NSGetExecutablePath == NULL)
+	if(_NSGetExecutablePath(path, &pathLength))
 	{
-		NSGetExecutablePath = (NSGetExecutablePathProcPtr) NSAddressOfSymbol(NSLookupAndBindSymbol("__NSGetExecutablePath"));
-	}
-	if (NSGetExecutablePath != NULL)
-	{
-		(*NSGetExecutablePath)(path, &pathLength);
-		path[1023] = 0;
+		// doesn't fit
+		path[0] = '\0';
 	}
 	_uri = TO_FSTRING((const char*) path);
 #endif // WIN32
