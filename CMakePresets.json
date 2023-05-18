@@ -51,7 +51,8 @@
                 }
             },
             "environment": {
-                "VCPKG_ROOT": "./vcpkg"
+                "VCPKG_ROOT": "./vcpkg",
+                "VCPKG_TARGET_TRIPLET": "x64-windows-static"
             }
         }
     ],

@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
+      - ci-*
   pull_request:
     branches: [ "master" ]
 
@@ -72,7 +74,7 @@ jobs:
         uses: johnwason/vcpkg-action@v4
         with:
           manifest-dir: ${{ github.workspace }}
-          triplet: x64-windows-release
+          triplet: x64-windows-static
           token: ${{ github.token }}
 
       - name: configure
