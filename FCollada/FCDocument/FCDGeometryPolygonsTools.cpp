@@ -1032,7 +1032,7 @@ namespace FCDGeometryPolygonsTools
 
 	void RevertUniqueIndices(const FCDGeometryPolygonsInput& inPInput, FCDGeometryPolygonsInput& outPInput, const FCDGeometryIndexTranslationMap& translationMap)
 	{
-		FUFail("NOT_TESTED");
+		FUFail([[maybe_unused]] const char* unused_note = "NOT_TESTED");
 		size_t tmSize = translationMap.size();
 		uint32 largest = 0;
 		for (FCDGeometryIndexTranslationMap::const_iterator it = translationMap.begin(), itEnd = translationMap.end(); it != itEnd; ++it)

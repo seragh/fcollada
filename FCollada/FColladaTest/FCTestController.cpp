@@ -59,7 +59,7 @@ TESTSUITE_TEST(0, ReduceInfluences)
 		case 1: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.44444f)); break;
 		case 2: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.13333f)); break;
 		case 3: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.20000f)); break;
-		default: FUFail("");
+		default: FUFail([[maybe_unused]] const char* unused_note = "");
 		}
 	}
 
@@ -75,7 +75,7 @@ TESTSUITE_TEST(0, ReduceInfluences)
 		{
 		case 0: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 1.0f / 3.0f)); break;
 		case 1: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 2.0f / 3.0f)); break;
-		default: FUFail("");
+		default: FUFail([[maybe_unused]] const char* unused_note = "");
 		}
 	}
 
@@ -126,7 +126,7 @@ TESTSUITE_TEST(1, ReduceInfluences_LargestLast)
 		case 3: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.44444f)); break;
 		case 4: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.13333f)); break;
 		case 1: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.20000f)); break;
-		default: FUFail("");
+		default: FUFail([[maybe_unused]] const char* unused_note = "");
 		}
 	}
 
@@ -142,7 +142,7 @@ TESTSUITE_TEST(1, ReduceInfluences_LargestLast)
 		{
 		case 2: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 1.0f / 3.0f)); break;
 		case 3: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 2.0f / 3.0f)); break;
-		default: FUFail("");
+		default: FUFail([[maybe_unused]] const char* unused_note = "");
 		}
 	}
 
@@ -200,7 +200,7 @@ TESTSUITE_TEST(2, ReduceInfluence_Bulvan)
 		case 2: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.33333f)); break;
 		case 3: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.33333f)); break;
 		case 4: PassIf(IsEquivalent(vertex->GetPair(i)->weight, 0.22222f)); break;
-		default: FUFail("");
+		default: FUFail([[maybe_unused]] const char* unused_note = "");
 		}
 	}
 
