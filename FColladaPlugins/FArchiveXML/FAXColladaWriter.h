@@ -14,8 +14,6 @@
 #ifndef _FU_DAE_WRITER_H_
 #define _FU_DAE_WRITER_H_
 
-#ifdef HAS_LIBXML
-
 #ifndef _FU_DAE_ENUM_H_
 #include "FUtils/FUDaeEnum.h"
 #endif // _FU_DAE_ENUM_H_
@@ -28,6 +26,8 @@
 #ifndef _FU_XML_WRITER_H_
 #include "FUtils/FUXmlWriter.h"
 #endif // _FU_XML_WRITER_H_
+
+#include <libxml/tree.h>
 
 /**
 	Common COLLADA XML writing functions.
@@ -309,7 +309,5 @@ namespace FUDaeWriter
 	 void AddNodeSid(xmlNode* node, fstring& subId); /**< See above. */
 #endif
 };
-
-#endif // HAS_LIBXML
 
 #endif // _FU_DAE_WRITER_H_

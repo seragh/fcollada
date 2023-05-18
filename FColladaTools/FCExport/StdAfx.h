@@ -16,5 +16,4 @@
 
 #include <iostream>
 
-#define NO_LIBXML
 #include "FCollada.h"

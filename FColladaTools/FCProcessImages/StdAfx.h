@@ -22,7 +22,6 @@
 #include <iostream>
 #endif
 
-#define NO_LIBXML
 #include "FCollada.h"
 
 #ifdef WIN32

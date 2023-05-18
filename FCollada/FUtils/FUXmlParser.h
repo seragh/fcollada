@@ -15,7 +15,7 @@
 #ifndef _FU_XML_PARSER_H_
 #define _FU_XML_PARSER_H_
 
-#ifdef HAS_LIBXML
+#include <libxml/tree.h>
 
 typedef fm::pvector<struct _xmlNode> xmlNodeList; /**< A dynamically-sized array of XML nodes. */
 
@@ -43,7 +43,5 @@ namespace FUXmlParser
 };
 
 inline bool IsEquivalent(const xmlChar* sz1, const char* sz2) { return IsEquivalent((const char*) sz1, sz2); }
-
-#endif // HAS_LIBXML
 
 #endif //_FU_XML_PARSER_H_

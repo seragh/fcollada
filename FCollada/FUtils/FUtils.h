@@ -81,16 +81,6 @@ inline const T& min(const T& x,const T& y) { return (x < y) ? x : y; } /**< See 
 #include "FMath/FMath.h"
 #endif // _F_MATH_H_
 
-// LibXML
-#ifndef NO_LIBXML
-#define HAS_LIBXML /**< Used by FCollada, implies that we are including LibXML functions in the library interface. */
-#ifndef __XML_TREE_H__
-#include <libxml/tree.h>
-#endif // __XML_TREE_H__
-#else // NO_LIBXML
-typedef struct _xmlNode xmlNode;
-#endif // NO_LIBXML
-
 // SAFE_DELETE Macro set.
 #define SAFE_DELETE(ptr) if ((ptr) != NULL) { delete (ptr); (ptr) = NULL; } /**< This macro safely deletes a pointer and sets the given pointer to NULL. */
 #define SAFE_DELETE_ARRAY(ptr) if (ptr != NULL) { delete [] ptr; ptr = NULL; } /**< This macro safely deletes an heap array and sets the given pointer to NULL. */

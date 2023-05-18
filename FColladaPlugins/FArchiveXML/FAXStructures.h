@@ -9,6 +9,8 @@
 #ifndef _FAXSTRUCTURES_H_
 #define _FAXSTRUCTURES_H_
 
+#include <libxml/tree.h>
+
 class FCDObject;
 class FCDENode;
 class FCDEType;

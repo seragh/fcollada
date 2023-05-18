@@ -24,6 +24,8 @@
 #include "FCDocument/FCDObject.h"
 #endif // __FCD_OBJECT_H_
 
+#include <libxml/tree.h>
+
 class FCDocument;
 class FCDAnimated;
 class FCDAnimationCurve;

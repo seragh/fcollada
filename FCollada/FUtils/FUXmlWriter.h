@@ -14,7 +14,7 @@ This file defines the FUXmlWriter namespace.
 #ifndef _FU_XML_WRITER_H_
 #define _FU_XML_WRITER_H_
 
-#ifdef HAS_LIBXML
+#include <libxml/tree.h>
 
 /**
 Common XML writing utility functions.
@@ -191,7 +191,5 @@ namespace FUXmlWriter
 		@param newParent The new parent XML tree node. */
 	FCOLLADA_EXPORT void ReParentNode(xmlNode* node, xmlNode* newParent);
 };
-
-#endif // HAS_LIBXML
 
 #endif // _FU_XML_WRITER_H_

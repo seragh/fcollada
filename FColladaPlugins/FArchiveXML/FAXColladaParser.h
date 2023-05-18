@@ -15,8 +15,6 @@
 #ifndef _FU_DAE_PARSER_
 #define _FU_DAE_PARSER_
 
-#ifdef HAS_LIBXML
-
 #ifndef _DAE_SYNTAX_H_
 #include "FUtils/FUDaeSyntax.h"
 #endif // _DAE_SYNTAX_H_
@@ -26,6 +24,8 @@
 #ifndef _FU_XML_PARSER_H_
 #include "FUtils/FUXmlParser.h"
 #endif // _FU_XML_PARSER_H_
+
+#include <libxml/tree.h>
 
 typedef fm::pair<xmlNode*, uint32> FAXNodeIdPair;
 typedef fm::vector<FAXNodeIdPair> FAXNodeIdPairList;
@@ -74,7 +74,5 @@ namespace FUDaeParser
 	// Skip the pound(#) character from a COLLADA id string
 	const char* SkipPound(const fm::string& id);
 };
-
-#endif // HAS_LIBXML
 
 #endif // _FU_DAE_PARSER_

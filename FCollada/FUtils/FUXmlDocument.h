@@ -9,11 +9,12 @@
 #ifndef _XML_DOCUMENT_H_
 #define _XML_DOCUMENT_H_
 
+#include <libxml/tree.h>
+
 class FUFileManager;
 struct _xmlDoc;
 typedef struct _xmlDoc xmlDoc;
 
-#ifdef HAS_LIBXML
 
 /** Simple container for a XML document.
 	When this container is released, it will automatically release the XML document. */
@@ -60,7 +61,5 @@ public:
 		@return Whether the XML document was written out successfully. */
 	bool Write(const char* encoding = "utf-8");
 };
-
-#endif // HAS_LIBXML
 
 #endif // _XML_DOCUMENT_H_

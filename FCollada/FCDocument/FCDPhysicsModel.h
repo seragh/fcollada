@@ -21,6 +21,8 @@
 #include "FUtils/FUUri.h"
 #endif // _FU_URI_H_
 
+#include <libxml/tree.h>
+
 class FCDocument;
 class FCDPhysicsRigidBody;
 class FCDPhysicsRigidConstraint;
