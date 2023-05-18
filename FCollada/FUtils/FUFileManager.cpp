@@ -287,7 +287,7 @@ fstring FUFileManager::CleanUri(const FUUri& uri)
 	return out;
 }
 
-fstring FUFileManager::ExtractNetworkHostname(fstring& filename)
+fstring FUFileManager::ExtractNetworkHostname([[maybe_unused]] fstring& filename)
 {
 	fstring hostname;
 #ifdef WIN32
