@@ -19,6 +19,7 @@
 
 #include <cstdint>
 #include <errno.h>
+#include <limits>
 
 #if defined(WIN32)
 	#include <direct.h>
@@ -212,7 +213,8 @@ bool FUFileManager::MakeDirectory(const fstring& directory)
 	errno_t err; _get_errno(&err);
 	if (err == EEXIST) return true;
 #elif defined(LINUX) || defined(__APPLE__)
-	if (mkdir(TO_STRING(absoluteDirectory).c_str(), ~0u) == 0) return true; // I think this means all permissions..
+	if (mkdir(TO_STRING(absoluteDirectory).c_str(), std::numeric_limits<mode_t>::max()) == 0)
+		return true; // I think this means all permissions..
 #endif // WIN32
 
 	return false;
