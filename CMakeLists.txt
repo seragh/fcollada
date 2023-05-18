@@ -48,13 +48,14 @@ endif()
 
 
 set(LIBRARY_NAME FCollada)
-
 if(NOT BUILD_SHARED_LIBS AND NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}S")
 endif()
-
 if(BUILD_UNICODE)
     set(LIBRARY_NAME "${LIBRARY_NAME}U")
+endif()
+if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT MSVC)
+    set(LIBRARY_NAME "${LIBRARY_NAME}D")
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
@@ -67,12 +68,6 @@ set_target_properties(FCollada
     PROPERTIES
         OUTPUT_NAME "${LIBRARY_NAME}"
 )
-if(NOT MSVC)
-    set_target_properties(FCollada
-        PROPERTIES
-            OUTPUT_NAME_DEBUG ${LIBRARY_NAME}D
-    )
-endif()
 
 
 if(BUILD_TESTS)
@@ -116,8 +111,6 @@ install(TARGETS FCollada
     FILE_SET HEADERS
 )
 
-
-set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
 
 configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"

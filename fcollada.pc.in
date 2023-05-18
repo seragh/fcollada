@@ -1,12 +1,12 @@
-prefix=@DEST_DIR@
+prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
 Name: fcollada
 Description: FCollada library for working with COLLADA 3D models
-Version: 3.5.1.0
-Requires:
+Version: @PROJECT_VERSION@
+Requires: libxml-2.0
 Conflicts:
-Libs: -L${libdir} -lFColladaSD
+Libs: -L${libdir} -l@LIBRARY_NAME@
 Cflags: -I${includedir}/FCollada
