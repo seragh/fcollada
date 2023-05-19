@@ -32,6 +32,7 @@ target_sources(FCollada
         FAXStructures.h
         FArchiveXML.cpp
         FArchiveXML.h
+        FArchiveXML.hpp
         StdAfx.cpp
         StdAfx.h
 )

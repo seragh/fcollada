@@ -573,4 +573,6 @@ public:
 	static xmlNode* WriteLibrary(FCDLibrary<T>* library, xmlNode* node);
 };
 
+#include "FArchiveXML.hpp"
+
 #endif //_FCPARCHIVECOLLADA_H_
