@@ -369,9 +369,7 @@ public:
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Value")); /**< The annotation value. */
 };
 
-#if defined(__APPLE__) || defined(LINUX)
 #include <FCDocument/FCDEffectParameter.hpp>
-#endif
 
 #endif // _FCD_EFFECT_PARAMETER_H_
 

@@ -14,9 +14,6 @@
 #include "FCDEffectParameter.h"
 #include "FCDEffectParameterFactory.h"
 #include "FCDImage.h"
-#if !defined(__APPLE__) && !defined(LINUX)
-#include "FCDEffectParameter.hpp"
-#endif
 
 //
 // FCDEffectParameter
@@ -167,52 +164,16 @@ template <> FCDEffectParameterColor4::FCDEffectParameterAnimatableT(FCDocument* 
 template <> FCDEffectParameterMatrix::FCDEffectParameterAnimatableT(FCDocument* document)
 :	FCDEffectParameter(document), floatType(FLOAT),	InitializeParameterAnimatable(value, FMMatrix44::Identity) {}
 
+
 //
-// Another TrickLinker...
+// Explicit instanciation
 //
+template class FCDEffectParameterT<int32>;
+template class FCDEffectParameterT<bool>;
+template class FCDEffectParameterT<fm::string>;
 
-template <class T> void TrickLinkerEffectParameterT()
-{
-	static bool toBe = false;
-	FCDEffectParameterT<T> parameter(NULL);
-	parameter.GetType();
-	parameter.SetValue(parameter.GetValue());
-	toBe = parameter.IsValueEqual(&parameter);
-	if (toBe)
-	{
-		FCDEffectParameterT<T>* other = (FCDEffectParameterT<T>*) parameter.Clone();
-		other->Overwrite(&parameter);
-		delete other;
-	}
-}
-
-template <class T, int Q> void TrickLinkerEffectParameterAnimatableT()
-{
-	static bool toBe = false;
-	FCDEffectParameterAnimatableT<T,Q> parameter(NULL);
-	parameter.GetType();
-	parameter.SetValue(parameter.GetValue());
-	parameter.SetFloatType(parameter.GetFloatType());
-	toBe = parameter.IsValueEqual(&parameter);
-	if (toBe)
-	{
-		FCDEffectParameterAnimatableT<T,Q>* other = (FCDEffectParameterAnimatableT<T,Q>*) parameter.Clone();
-		other->Overwrite(&parameter);
-		delete other;
-	}
-}
-
-extern void TrickLinkerEffectParameter()
-{
-	TrickLinkerEffectParameterT<int32>();
-	TrickLinkerEffectParameterT<bool>();
-	TrickLinkerEffectParameterT<fm::string>();
-
-	TrickLinkerEffectParameterAnimatableT<float, FUParameterQualifiers::SIMPLE>();
-	TrickLinkerEffectParameterAnimatableT<FMVector2, FUParameterQualifiers::SIMPLE>();
-	TrickLinkerEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::VECTOR>();
-	TrickLinkerEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::COLOR>();
-	TrickLinkerEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::VECTOR>();
-	TrickLinkerEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::COLOR>();
-	TrickLinkerEffectParameterAnimatableT<FMMatrix44, FUParameterQualifiers::SIMPLE>();
-}
+template class FCDEffectParameterAnimatableT<float, FUParameterQualifiers::SIMPLE>;
+template class FCDEffectParameterAnimatableT<FMVector2, FUParameterQualifiers::SIMPLE>;
+template class FCDEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::VECTOR>;
+template class FCDEffectParameterAnimatableT<FMVector3, FUParameterQualifiers::COLOR>;
+template class FCDEffectParameterAnimatableT<FMMatrix44, FUParameterQualifiers::SIMPLE>;
