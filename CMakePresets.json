@@ -7,18 +7,16 @@
     },
     "configurePresets": [
         {
-            "name": "default",
-            "displayName": "Default",
-            "description": "Default build using Ninja generator",
+            "name": "defaults",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}",
             "hidden": true,
             "cacheVariables": {
                 "BUILD_DOCS": "OFF",
                 "BUILD_SHARED_LIBS": "OFF",
-                "BUILD_TESTS": "ON",
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+                "BUILD_TESTING": "ON",
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
@@ -26,7 +24,7 @@
             "displayName": "Linux",
             "description": "Build on Linux (Ubuntu)",
             "inherits": [
-                "default"
+                "defaults"
             ]
         },
         {
@@ -34,7 +32,7 @@
             "displayName": "MacOS latest",
             "description": "Build on MacOS",
             "inherits": [
-                "default"
+                "defaults"
             ]
         },
         {
@@ -42,7 +40,7 @@
             "displayName": "Windows latest",
             "description": "Build on Windows",
             "inherits": [
-                "default"
+                "defaults"
             ],
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": {
@@ -68,6 +66,40 @@
         {
             "name": "ci-windows",
             "configurePreset": "ci-windows"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "defaults",
+            "hidden": true,
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "ci-linux",
+            "configurePreset": "ci-linux",
+            "inherits": [
+                "defaults"
+            ]
+        },
+        {
+            "name": "ci-macos",
+            "configurePreset": "ci-macos",
+            "inherits": [
+                "defaults"
+            ]
+        },
+        {
+            "name": "ci-windows",
+            "configurePreset": "ci-windows",
+            "inherits": [
+                "defaults"
+            ]
         }
     ]
 }

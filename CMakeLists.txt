@@ -7,6 +7,8 @@ project(FCollada
     LANGUAGES CXX
 )
 
+include(CTest)
+
 if(NOT CMAKE_BUILD_TYPE)
     message(STATUS "No build type selected, defaulting to Debug")
     set(CMAKE_BUILD_TYPE "Debug")
@@ -19,10 +21,8 @@ endif()
 
 option(BUILD_SHARED_LIBS "Build FCollada as a shared library." OFF)
 option(BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
-option(BUILD_TESTS "Build the test suite." OFF)
+option(BUILD_TESTING "Build the test suite." OFF)
 option(BUILD_DOCS "Build html docs using doxygen" OFF)
-# TODO: Support vcpkg or similar
-#option(USE_SYSTEM_LIBXML2 "Use system provided libxml2" ON)
 
 
 find_package(LibXml2 REQUIRED)
@@ -42,7 +42,7 @@ if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
 endif()
 
-if(NOT BUILD_TESTS)
+if(NOT BUILD_TESTING)
     add_definitions(-DRETAIL)
 endif()
 
@@ -70,26 +70,37 @@ set_target_properties(FCollada
 )
 
 
-if(BUILD_TESTS)
-    # TODO: Some tests are built as part of the library.
-    # TODO: Integrate tests with ctest
-    # NOTE: for now run with
-    #   cd <path to FColladaTest executable>
-    #   ./FColladaTest -h
+# TODO: Some tests are built as part of the library.
+add_executable(FColladaTest)
+set_target_properties(FColladaTest
+    PROPERTIES
+        EXCLUDE_FROM_ALL "$<NOT:$<BOOL:${BUILD_TESTING}>>"
+)
+target_link_libraries(FColladaTest FCollada)
 
-    add_executable(FColladaTest)
-    target_link_libraries(FColladaTest FCollada)
+add_custom_command(
+    TARGET FColladaTest POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/Eagle.DAE
+        "$<TARGET_FILE_DIR:FColladaTest>"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/TestSphere.dae
+        "$<TARGET_FILE_DIR:FColladaTest>"
+)
 
-    add_custom_command(
-        TARGET FColladaTest POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/Eagle.DAE
-            "$<TARGET_FILE_DIR:FColladaTest>"
-        COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/TestSphere.dae
-            "$<TARGET_FILE_DIR:FColladaTest>"
-    )
-endif()
+add_test(NAME runTests
+    COMMAND FColladaTest
+    WORKING_DIRECTORY "$<TARGET_FILE_DIR:FColladaTest>"
+)
+
+# TODO: clumsy approch without changing the test runner
+add_test(NAME checkTestLog
+    COMMAND "$<IF:$<BOOL:${WIN32}>,type,cat>"
+        "$<SHELL_PATH:$<TARGET_FILE_DIR:FColladaTest>/FColladaTestLog.txt>"
+)
+set_tests_properties(checkTestLog PROPERTIES
+  FAIL_REGULAR_EXPRESSION "failed"
+)
 
 
 if(BUILD_DOCS)

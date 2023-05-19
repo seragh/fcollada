@@ -14,9 +14,6 @@ target_sources(FCollada
 
 
 add_subdirectory(FCDocument)
+add_subdirectory(FColladaTest)
 add_subdirectory(FMath)
 add_subdirectory(FUtils)
-
-if(BUILD_TESTS)
-    add_subdirectory(FColladaTest)
-endif()
