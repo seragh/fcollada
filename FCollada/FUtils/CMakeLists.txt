@@ -22,7 +22,6 @@ target_sources(FCollada
         FUObject.cpp
         FUObjectTest.cpp
         FUObjectType.cpp
-        FUParameter.cpp
         FUParameterizable.cpp
         FUPluginManager.cpp
         FUStringBuilder.cpp
