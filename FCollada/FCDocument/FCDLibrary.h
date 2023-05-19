@@ -119,8 +119,6 @@ public:
 	inline const FCDExtra* GetExtra() const { return extra; } /** See above. */
 };
 
-#ifdef __APPLE__
 #include "FCDocument/FCDLibrary.hpp"
-#endif // __APPLE__
 
 #endif // _FCD_LIBRARY_

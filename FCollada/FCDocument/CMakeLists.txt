@@ -77,7 +77,6 @@ target_sources(FCollada
         FCDPhysicsShape.cpp
         FCDPlaceHolder.cpp
         FCDSceneNode.cpp
-        FCDSceneNodeIterator.cpp
         FCDSceneNodeTools.cpp
         FCDSkinController.cpp
         FCDTargetedEntity.cpp

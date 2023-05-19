@@ -86,8 +86,6 @@ public:
 typedef FCDSceneNodeIteratorT<FCDSceneNode> FCDSceneNodeIterator; /**< A scene node iterator. */
 typedef FCDSceneNodeIteratorT<const FCDSceneNode> FCDSceneNodeConstIterator; /**< A constant scene node iterator. */
 
-#ifdef __APPLE__
 #include "FCDocument/FCDSceneNodeIterator.hpp"
-#endif // __APPLE__
 
 #endif // _FCD_SCENE_NODE_ITERATOR_H_

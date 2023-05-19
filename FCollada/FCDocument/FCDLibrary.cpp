@@ -25,9 +25,6 @@
 #include "FCDocument/FCDPhysicsModel.h"
 #include "FCDocument/FCDPhysicsScene.h"
 #include "FCDocument/FCDSceneNode.h"
-#ifndef __APPLE__
-#include "FCDocument/FCDLibrary.hpp"
-#endif // __APPLE__
 
 //
 // FCDLibrary
@@ -126,23 +123,4 @@ inline void LibraryExport()
 	cptr = ptr;
 	FCDAsset* asset = l1->GetAsset();
 	asset->SetFlag(11);
-}
-
-FCOLLADA_EXPORT void TrickLinkerFCDLibrary()
-{
-	LibraryExport<FCDAnimation>();
-	LibraryExport<FCDAnimationClip>();
-	LibraryExport<FCDCamera>();
-	LibraryExport<FCDController>();
-	LibraryExport<FCDEffect>();
-	LibraryExport<FCDEmitter>();
-	LibraryExport<FCDForceField>();
-	LibraryExport<FCDGeometry>();
-	LibraryExport<FCDImage>();
-	LibraryExport<FCDLight>();
-	LibraryExport<FCDMaterial>();
-	LibraryExport<FCDSceneNode>();
-	LibraryExport<FCDPhysicsModel>();
-	LibraryExport<FCDPhysicsMaterial>();
-	LibraryExport<FCDPhysicsScene>();
 }

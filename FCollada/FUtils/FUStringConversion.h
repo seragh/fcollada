@@ -387,8 +387,6 @@ public:
 	static FCOLLADA_EXPORT size_t CountValues(const CH* sz);
 };
 
-#ifdef __APPLE__
 #include "FUtils/FUStringConversion.hpp"
-#endif // __APPLE__
 
 #endif // _FCU_STRING_CONVERSION_

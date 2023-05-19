@@ -228,9 +228,7 @@ private:
 typedef FUStringBuilderT<fchar> FUStringBuilder; /**< A Unicode string builder. */
 typedef FUStringBuilderT<char> FUSStringBuilder;  /**< A 8-bit string builder. */
 
-#if defined(__APPLE__)
 #include "FUtils/FUStringBuilder.hpp"
-#endif // __APPLE__
 
 #endif // _FCU_STRING_BUILDER_
 
