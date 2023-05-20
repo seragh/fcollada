@@ -94,10 +94,16 @@ add_test(NAME runTests
 )
 
 # TODO: clumsy approch without changing the test runner
-add_test(NAME checkTestLog
-    COMMAND "$<IF:$<BOOL:${WIN32}>,type,cat>"
-        "$<SHELL_PATH:$<TARGET_FILE_DIR:FColladaTest>/FColladaTestLog.txt>"
-)
+set(TEST_LOG "$<SHELL_PATH:$<TARGET_FILE_DIR:FColladaTest>/FColladaTestLog.txt>")
+if(WIN32)
+    add_test(NAME checkTestLog
+        COMMAND powershell type ${TEST_LOG}
+    )
+else()
+    add_test(NAME checkTestLog
+        COMMAND cat ${TEST_LOG}
+    )
+endif()
 set_tests_properties(checkTestLog PROPERTIES
   FAIL_REGULAR_EXPRESSION "failed"
 )
