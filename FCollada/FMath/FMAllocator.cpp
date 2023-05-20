@@ -9,11 +9,12 @@
 #include "StdAfx.h"
 #include "FMAllocator.h"
 
+#include <cstdlib>
+
 namespace fm
 {
-	// default to something: static initialization!
-	AllocateFunc af = malloc;
-	FreeFunc ff = free;
+	AllocateFunc af;
+	FreeFunc ff;
 
 	void SetAllocationFunctions(AllocateFunc a, FreeFunc f)
 	{
@@ -25,12 +26,13 @@ namespace fm
 	// always allocating/releasing memory from the same heap.
 	void* Allocate(size_t byteCount)
 	{
+		if (!af) af = std::malloc;
 		return (*af)(byteCount);
 	}
 
 	void Release(void* buffer)
 	{
+		if (!ff) ff = std::free;
 		(*ff)(buffer);
 	}
-};
-
+}
