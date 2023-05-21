@@ -187,11 +187,10 @@ void FUStringBuilderT<Char>::append(float f)
 template <class Char>
 void FUStringBuilderT<Char>::append(double f)
 {
-	if(std::isfinite(f) && IsEquivalent(f, 0.0f, std::numeric_limits<double>::epsilon()))
+	if(std::isfinite(f) && IsEquivalent(f, 0.0, std::numeric_limits<double>::epsilon()))
 	{
 		append((Char)'0');
 	}
-	if (IsEquivalent(f, 0.0, std::numeric_limits<double>::epsilon())) append((Char)'0');
 	else
 	{
 		std::array<Char,128> sz {'\0'};
