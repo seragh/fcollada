@@ -55,19 +55,19 @@ TESTSUITE_TEST(2, ExtremeNumbers)
 	PassIf(IsEquivalent(builder.ToCharPtr(), "-10231.5"));
 
 	builder.set(123456789.0f);
-	PassIf(IsEquivalent(builder.ToCharPtr(), "1.23457e+08"));
+	PassIf(IsEquivalent(builder.ToCharPtr(), "1.23457e8"));
 
 	builder.set(1e16f);
-	PassIf(IsEquivalent(builder.ToCharPtr(), "1e+16"));
+	PassIf(IsEquivalent(builder.ToCharPtr(), "1e16"));
 
 	builder.set(-1e16f);
-	PassIf(IsEquivalent(builder.ToCharPtr(), "-1e+16"));
+	PassIf(IsEquivalent(builder.ToCharPtr(), "-1e16"));
 
 	builder.set(-1.5e10f);
-	PassIf(IsEquivalent(builder.ToCharPtr(), "-1.5e+10"));
+	PassIf(IsEquivalent(builder.ToCharPtr(), "-1.5e10"));
 
 	builder.set(9.55e9f);
-	PassIf(IsEquivalent(builder.ToCharPtr(), "9.55e+09"));
+	PassIf(IsEquivalent(builder.ToCharPtr(), "9.55e9"));
 
 	// Right now, the expected behavior for very small numbers is to output a zero.
 	builder.set(-1e-16f);
