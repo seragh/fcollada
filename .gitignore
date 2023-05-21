@@ -1,2 +1,21 @@
-CMakeUserPresets.json
-out/
+/CMakeUserPresets.json
+/out/
+/vcpkg/
+/vcpkg_install/
+
+# Vim
+*swp
+
+# Visual Studio
+/.vs
+
+# Visual Studio Code
+.vscode/*
+#!.vscode/settings.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
+#!.vscode/extensions.json
+#!.vscode/*.code-snippets
+
+# Apple
+.DS_Store
