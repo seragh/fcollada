@@ -8,12 +8,6 @@
 
 #include "StdAfx.h"
 
-#ifdef WIN32
-#include <direct.h>
-#else
-#include <unistd.h>
-#endif // WIN32
-
 fstring logFilename = FC("FColladaTestLog.txt");
 bool isVerbose = true;
 
@@ -75,8 +69,6 @@ int main(int argc, char* argv[])
 #ifndef _DEBUG
 	try {
 #endif
-	// Set the current folder to the folder with the samples DAE files
-	_chdir("Samples");
 
 	// FMath tests
 	RUN_TESTSUITE(FCTestAll)
