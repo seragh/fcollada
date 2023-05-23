@@ -10,7 +10,6 @@
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDExternalReferenceManager.h"
 #include "FCDocument/FCDPlaceHolder.h"
-#include "FUtils/FUTestBed.h"
 #include "FColladaPlugin.h"
 #include "FCollada.h"
 
@@ -168,30 +167,3 @@ namespace FCollada
 		return false;
 	}
 };
-
-#ifndef RETAIL
-extern FUTestSuite* _testFMArray,* _testFMTree, * _testFMQuaternion;
-extern FUTestSuite* _testFUObject, * _testFUCrc32, * _testFUFunctor;
-extern FUTestSuite* _testFUEvent, * _testFUString, * _testFUFileManager;
-extern FUTestSuite* _testFUBoundingTest;
-
-namespace FCollada
-{
-	FCOLLADA_EXPORT void RunTests(FUTestBed& testBed)
-	{
-		// FMath tests
-		testBed.RunTestSuite(::_testFMArray);
-		testBed.RunTestSuite(::_testFMTree);
-		testBed.RunTestSuite(::_testFMQuaternion);
-
-		// FUtils tests
-		testBed.RunTestSuite(::_testFUObject);
-		testBed.RunTestSuite(::_testFUCrc32);
-		testBed.RunTestSuite(::_testFUFunctor);
-		testBed.RunTestSuite(::_testFUEvent);
-		testBed.RunTestSuite(::_testFUString);
-		testBed.RunTestSuite(::_testFUFileManager);
-		testBed.RunTestSuite(::_testFUBoundingTest);
-	}
-};
-#endif // RETAIL

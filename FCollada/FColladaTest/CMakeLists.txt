@@ -15,3 +15,5 @@ target_sources(FColladaTest
 add_subdirectory(FCTestAssetManagement)
 add_subdirectory(FCTestExportImport)
 add_subdirectory(FCTestXRef)
+add_subdirectory(FMath)
+add_subdirectory(FUtils)

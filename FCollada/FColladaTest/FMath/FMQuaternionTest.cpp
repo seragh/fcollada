@@ -7,7 +7,7 @@
 */
 
 #include "StdAfx.h"
-#include "FMQuaternion.h"
+#include "FCollada/FMath/FMQuaternion.h"
 #include "FUtils/FUTestBed.h"
 
 //

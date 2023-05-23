@@ -4,37 +4,26 @@ target_sources(FCollada
         FUBase64.cpp
         FUBoundingBox.cpp
         FUBoundingSphere.cpp
-        FUBoundingTest.cpp
         FUCrc32.cpp
-        FUCrc32Test.cpp
         FUCriticalSection.cpp
         FUDaeEnum.cpp
         FUDateTime.cpp
         FUDebug.cpp
         FUError.cpp
         FUErrorLog.cpp
-        FUEventTest.cpp
         FUFile.cpp
         FUFileManager.cpp
-        FUFileManagerTest.cpp
-        FUFunctorTest.cpp
         FULogFile.cpp
         FUObject.cpp
-        FUObjectTest.cpp
         FUObjectType.cpp
         FUParameterizable.cpp
         FUPluginManager.cpp
         FUStringBuilder.cpp
-        FUStringBuilderTest.cpp
         FUStringConversion.cpp
-        FUStringConversionTest.cpp
-        FUStringTest.cpp
         FUSynchronizableObject.cpp
         FUSynchronizableObject.h
-        FUTestBed.cpp
         FUTracker.cpp
         FUUniqueStringMap.cpp
-        FUUniqueStringMapTest.cpp
         FUUri.cpp
         FUXmlDocument.cpp
         FUXmlParser.cpp
@@ -74,7 +63,6 @@ target_sources(FCollada
         FUStringBuilder.hpp
         FUStringConversion.h
         FUStringConversion.hpp
-        FUTestBed.h
         FUTracker.h
         FUUniqueStringMap.h
         FUUri.h

@@ -7,7 +7,7 @@
 */
 
 #include "StdAfx.h"
-#include "FUCrc32.h"
+#include "FCollada/FUtils/FUCrc32.h"
 #include "FUTestBed.h"
 using namespace FUCrc32;
 

@@ -7,9 +7,9 @@
 */
 
 #include "StdAfx.h"
-#include "FUUniqueStringMap.h"
+#include "FCollada/FUtils/FUUniqueStringMap.h"
 #include "FUTestBed.h"
-#include "FMath/FMRandom.h"
+#include "FCollada/FMath/FMRandom.h"
 
 #define VERIFY_UNIQUE(c) { \
 	for (StringList::iterator itN = uniqueNames.begin(); itN != uniqueNames.end(); ++itN) { \

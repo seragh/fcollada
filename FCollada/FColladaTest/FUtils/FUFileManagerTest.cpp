@@ -8,8 +8,8 @@
 
 #include "StdAfx.h"
 #include "FUTestBed.h"
-#include "FUFileManager.h"
-#include "FUUri.h"
+#include "FCollada/FUtils/FUFileManager.h"
+#include "FCollada/FUtils/FUUri.h"
 #if defined(WIN32)
 	#include <direct.h>
 #endif // WIN32

@@ -2,17 +2,14 @@ target_sources(FCollada
     PRIVATE
         FMAllocator.cpp
         FMAngleAxis.cpp
-        FMArrayTest.cpp
         FMColor.cpp
         FMInterpolation.cpp
         FMLookAt.cpp
         FMMatrix33.cpp
         FMMatrix44.cpp
         FMQuaternion.cpp
-        FMQuaternionTest.cpp
         FMRandom.cpp
         FMSkew.cpp
-        FMTreeTest.cpp
         FMVector3.cpp
         FMVolume.cpp
         StdAfx.cpp

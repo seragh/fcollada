@@ -8,7 +8,7 @@
 
 #include "StdAfx.h"
 #include "FUTestBed.h"
-#include "FUEvent.h"
+#include "FCollada/FUtils/FUEvent.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 class FUTCaller

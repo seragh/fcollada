@@ -183,13 +183,6 @@ namespace FCollada
 		@return The plug-in manager. */
 	FCOLLADA_EXPORT FColladaPluginManager* GetPluginManager();
 
-#ifndef RETAIL
-	/** Runs the FCollada-specific automated tests and sets the
-		results within the given test bed.
-		@param testBed A test-bed against which the tests will be run. */
-	FCOLLADA_EXPORT void RunTests(FUTestBed& testBed);
-#endif // RETAIL
-
 	/** Registers a callback function that will be called to check if
 		we want to cancel the loading of the FCollada document.
 		@param callback The callback functor that will tell us if we cancel or not */

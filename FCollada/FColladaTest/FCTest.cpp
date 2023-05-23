@@ -8,6 +8,8 @@
 
 #include "StdAfx.h"
 
+#include "FUtils/FUTestBed.h"
+
 fstring logFilename = FC("FColladaTestLog.txt");
 bool isVerbose = true;
 
@@ -88,8 +90,23 @@ int main(int argc, char* argv[])
 TESTSUITE_START(FCTestAll)
 
 TESTSUITE_TEST(0, FColladaAll)
-	// FCollada internal tests.
-	FCollada::RunTests(testBed);
+
+	// FMath test
+	RUN_TESTSUITE(FMArray);
+	RUN_TESTSUITE(FMQuaternion);
+	RUN_TESTSUITE(FMTree);
+
+	// FCUtils test
+	RUN_TESTSUITE(FUBoundingTest);
+	RUN_TESTSUITE(FUCrc32);
+	RUN_TESTSUITE(FUEvent);
+	RUN_TESTSUITE(FUFileManager);
+	RUN_TESTSUITE(FUFunctor);
+	RUN_TESTSUITE(FUObject);
+	RUN_TESTSUITE(FUStringBuilder); // was disabled
+	RUN_TESTSUITE(FUStringConversion); // was disabled
+	RUN_TESTSUITE(FUString);
+	RUN_TESTSUITE(FUUniqueStringMap); // was disabled
 
 	// FCDocument test
 	RUN_TESTSUITE(FCDParameter);

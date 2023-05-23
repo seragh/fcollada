@@ -77,6 +77,7 @@ set_target_properties(FColladaTest
         EXCLUDE_FROM_ALL "$<NOT:$<BOOL:${BUILD_TESTING}>>"
 )
 target_link_libraries(FColladaTest FCollada)
+target_include_directories(FColladaTest PRIVATE FCollada/FColladaTest)
 
 add_custom_command(
     TARGET FColladaTest POST_BUILD
