@@ -42,10 +42,6 @@ if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
 endif()
 
-if(NOT BUILD_TESTING)
-    add_definitions(-DRETAIL)
-endif()
-
 
 set(LIBRARY_NAME FCollada)
 if(NOT BUILD_SHARED_LIBS AND NOT MSVC)

@@ -114,7 +114,6 @@ public:
 // TestSuite Generation Macros.
 // Do use the following macros, instead of writing your own.
 //
-#ifdef ENABLE_TEST
 #define TESTSUITE_START(suiteName) \
 FUTestSuite* _test##suiteName; \
 static class FUTestSuite##suiteName : public FUTestSuite \
@@ -151,18 +150,5 @@ public: \
 #define RUN_TESTBED(testBedObject, szTestSuiteHead, testPassed) { \
 	extern FUTestSuite* _test##szTestSuiteHead; \
 	testPassed = testBedObject.RunTestbed(_test##szTestSuiteHead); }
-
-#else // ENABLE_TEST
-
-// The code will still be compiled, but the linker should take it out.
-#define TESTSUITE_START(suiteName) \
-	FUTestSuite* _test##suiteName = NULL; \
-	inline bool __testCode##suiteName(FULogFile& fileOut, const char* szTestName) { { fileOut; szTestName;
-#define TESTSUITE_TEST(testIndex, testName) } {
-#define TESTSUITE_END } return true; }
-#define RUN_TESTSUITE(suiteName)
-#define RUN_TESTBED(testBedObject, szTestSuiteHead, testPassed) testPassed = true;
-
-#endif
 
 #endif // _FU_TESTBED_H_

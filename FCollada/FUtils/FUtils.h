@@ -116,8 +116,4 @@ inline const T& min(const T& x,const T& y) { return (x < y) ? x : y; } /**< See 
 #include "FUtils/FUError.h"
 #endif // _FU_ERROR_H_
 
-#ifndef RETAIL
-#define ENABLE_TEST /**< Used by FCollada, enables the compilation and gives access to the unit tests. Disabled in the retail configurations. */
-#endif
-
 #endif // _F_UTILS_H_
