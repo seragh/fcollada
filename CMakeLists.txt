@@ -30,6 +30,10 @@ find_package(LibXml2 REQUIRED)
 find_package(fmt REQUIRED)
 
 
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    add_definitions(-D_DEBUG)
+endif()
+
 if(WIN32)
     add_definitions(-DWIN32)
 elseif(NOT APPLE)
