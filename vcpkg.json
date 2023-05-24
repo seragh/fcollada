@@ -3,6 +3,7 @@
   "name": "fcollada",
   "version-string": "latest",
   "dependencies": [
-    "libxml2"
+    "libxml2",
+    "fmt"
   ]
 }

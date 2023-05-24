@@ -13,14 +13,11 @@
 */
 
 #include <limits>
+#include <fmt/format.h>
 
 #ifdef WIN32
 #include <float.h>
 #endif
-
-#ifdef WIN32
-#define ecvt _ecvt
-#endif // WIN32
 
 #ifndef SAFE_DELETE_ARRAY
 #define SAFE_DELETE_ARRAY(ptr) if (ptr != NULL) { delete [] ptr; ptr = NULL; }
@@ -29,58 +26,34 @@
 template <class Char, class FloatType>
 void FloatToString(FloatType f, Char* sz)
 {
-	Char* buffer = sz + 1;
-	static const int digitCount = 6;
-	int decimal, sign;
-
-	// ecvt rounds the string for us: http://www.datafocus.com/docs/man3/ecvt.3.asp
-	char* end = ecvt(f, digitCount, &decimal, &sign);
-
-	if (sign != 0) (*buffer++) = '-';
-	int count = digitCount;
-	if (decimal > digitCount)
+	bool expFound = false;
+	bool clearLeading = true;
+	size_t index = 0;
+	for (const auto c: fmt::format("{:.6g}", f))
 	{
-		// We use the scientific notation: P.MeX
-		(*buffer++) = (*end++); // P is one character.
-		(*buffer++) = '.';
+		if (c == '+')
+			continue;
+		if (expFound)
+		{
+			if(clearLeading)
+			{
+				if (c == '0')
+					continue;
+				else
+					clearLeading = false;
+			}
+		}
+		else
+		{
+			if (c == 'e')
+				expFound = true;
+		}
 
-		// Mantissa (cleaned for zeroes)
-		for (--count; count > 0; --count) if (end[count - 1] != '0') break;
-		for (int i = 0; i < count; ++i) (*buffer++) = (*end++);
-		if (buffer[-1] == '.') --buffer;
+		sz[index] = static_cast<Char>(c);
+		index++;
+	}
+	sz[index] = '\0';
 
-		// Exponent
-		(*buffer++) = 'e';
-		uint32 exponent = decimal - 1; // X
-		if (exponent >= 10) (*buffer++) = (Char) ('0' + (exponent / 10));
-		(*buffer++) = (Char) ('0' + (exponent % 10));
-		(*buffer) = 0;
-		return;
-	}
-	else if (decimal > 0)
-	{
-		// Simple number: A.B
-		for (int i = 0; i < decimal; ++i) (*buffer++) = (*end++);
-		if (decimal < digitCount) (*buffer++) = '.';
-		count = digitCount - decimal;
-	}
-	else if (decimal < -digitCount)
-	{
-		// What case is this?
-		decimal = count = 0;
-	}
-	else if (decimal < 0 || (decimal == 0 && *end != '0'))
-	{
-		// Tiny number: 0.Me-X
-		(*buffer++) = '0'; (*buffer++) = '.';
-		for (int i = 0; i < -decimal; ++i) (*buffer++) = '0';
-		count = digitCount + decimal;
-	}
-	for (; count > 0; --count) if (end[count - 1] != '0') break;
-	for (int i = 0; i < count; ++i) (*buffer++) = (*end++);
-	if (decimal == 0 && count == 0) (*buffer++) = '0';
-	if (buffer[-1] == '.') --buffer;
-	(*buffer) = 0;
 }
 
 template <class Char>
@@ -246,7 +219,7 @@ void FUStringBuilderT<Char>::append(float f)
 		{
 			Char sz[128];
 			FloatToString(f, sz);
-			append(sz + 1);
+			append(sz);
 		}
 	}
 	else if (f == std::numeric_limits<float>::infinity())
@@ -272,7 +245,7 @@ void FUStringBuilderT<Char>::append(double f)
 		{
 			Char sz[128];
 			FloatToString(f, sz);
-			append(sz + 1);
+			append(sz);
 		}
 	}
 	else if (f == std::numeric_limits<double>::infinity())

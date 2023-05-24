@@ -23,9 +23,11 @@ option(BUILD_SHARED_LIBS "Build FCollada as a shared library." OFF)
 option(BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
 option(BUILD_TESTING "Build the test suite." OFF)
 option(BUILD_DOCS "Build html docs using doxygen" OFF)
+option(USE_FMT_HEADER_ONLY "Use header only fmt library" OFF)
 
 
 find_package(LibXml2 REQUIRED)
+find_package(fmt REQUIRED)
 
 
 if(WIN32)
@@ -40,6 +42,10 @@ endif()
 
 if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
+endif()
+
+if(USE_FMT_HEADER_ONLY)
+    add_definitions(-DFMT_HEADER_ONLY)
 endif()
 
 
@@ -59,6 +65,7 @@ add_library(FCollada)
 target_compile_features(FCollada PUBLIC cxx_std_17)
 target_link_libraries(FCollada
     LibXml2::LibXml2
+    fmt::fmt
     ${CMAKE_DL_LIBS})
 set_target_properties(FCollada
     PROPERTIES
