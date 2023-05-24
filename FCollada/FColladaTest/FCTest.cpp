@@ -72,25 +72,6 @@ int main(int argc, char* argv[])
 	try {
 #endif
 
-	// FMath tests
-	RUN_TESTSUITE(FCTestAll)
-
-#ifndef _DEBUG
-	}
-	catch (const char* sz) { testBed.GetLogFile().WriteLine(sz); }
-#ifdef UNICODE
-	catch (const fchar* sz) { testBed.GetLogFile().WriteLine(sz); }
-#endif
-	catch (...) { testBed.GetLogFile().WriteLine("Exception caught!"); }
-#endif
-
-	return 0;
-}
-
-TESTSUITE_START(FCTestAll)
-
-TESTSUITE_TEST(0, FColladaAll)
-
 	// FMath test
 	RUN_TESTSUITE(FMArray);
 	RUN_TESTSUITE(FMQuaternion);
@@ -115,8 +96,18 @@ TESTSUITE_TEST(0, FColladaAll)
 	RUN_TESTSUITE(FCDGeometryPolygonsTools);
 	RUN_TESTSUITE(FCDExportReimport);
 	RUN_TESTSUITE(FCTestXRef);
-	RUN_TESTSUITE(FCTAssetManagement);
 	RUN_TESTSUITE(FCDControllers);
 	RUN_TESTSUITE(FCDSceneNode);
+	RUN_TESTSUITE(FCTAMCrossCloning)
 
-TESTSUITE_END
+#ifndef _DEBUG
+	}
+	catch (const char* sz) { testBed.GetLogFile().WriteLine(sz); }
+#ifdef UNICODE
+	catch (const fchar* sz) { testBed.GetLogFile().WriteLine(sz); }
+#endif
+	catch (...) { testBed.GetLogFile().WriteLine("Exception caught!"); }
+#endif
+
+	return 0;
+}
