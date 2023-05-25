@@ -372,7 +372,6 @@ namespace FCTestExportImport
 		}
 		FailIf(joint1 == NULL || joint2 == NULL);
 		PassIf(IsEquivalent(*joint1, FMMatrix44::Identity));
-		FMMatrix44 sbp = FMMatrix44(sampleBindPose1).Inverted();
 		PassIf(IsEquivalent(*joint2, FMMatrix44(sampleBindPose1).Inverted()));
 
 		// Verify the influences
