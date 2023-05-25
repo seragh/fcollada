@@ -24,7 +24,6 @@
 #include "FUtils/FUDaeSyntax.h"
 #include "FCTestExportImport.h"
 
-static const float sampleMatrix[16] = { 0.5f, 0.1f, 0.7f, 2.0f, 1.11f, 0.5e-2f, 111.0f, 0.5f, 0.0f, 0.0f, 0.557f, -10.02f, 0.001f, 12.0f, 1.02e-3f, 0.0f };
 static fm::string wantedImageId = "test_image";
 static fm::string wantedImage2Id = "test_image";
 static fm::string surfaceParameterImageId;
