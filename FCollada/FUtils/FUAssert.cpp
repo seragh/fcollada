@@ -8,9 +8,13 @@
 
 #include "StdAfx.h"
 #include "FUAssert.h"
-#ifdef __APPLE__
-#include <CoreServices/CoreServices.h>
+
+#include <fmt/format.h>
+
+#ifndef WIN32
+#  include <signal.h>
 #endif
+#include <string>
 
 
 static FUAssertion::FUAssertCallback* curAssertCallback = NULL;
@@ -22,35 +26,40 @@ void FUAssertion::SetAssertionFailedCallback(FUAssertCallback* assertionCallback
 
 bool FUAssertion::OnAssertionFailed(const char* file, uint32 line)
 {
-	char message[1024];
-	snprintf(message, 1024, "[%s@%u] Assertion failed.\nAbort: Enter debugger.\nRetry: Continue execution.\nIgnore: Do not assert at this line for the duration of the application.", file, (unsigned int) line);
-	message[1023] = 0;
+	std::string message = fmt::format("[{}@{}] Assertion failed.\n"
+			"Abort: Enter debugger.\n"
+			"Retry: Continue execution.\n"
+			"Ignore: Do not assert at this line for the duration of the application.",
+			file,
+			line);
 
-	if (curAssertCallback != NULL) return (*curAssertCallback)(message);
+	if (curAssertCallback != NULL)
+		return (*curAssertCallback)(message.c_str());
 #ifdef _DEBUG
 	else
 	{
-#ifdef WIN32
-		int32 buttonPressed = MessageBoxA(NULL, message, "Assertion failed.", MB_ABORTRETRYIGNORE | MB_ICONWARNING);
+#  ifdef WIN32
+		int32 buttonPressed = MessageBoxA(NULL,
+				message.c_str(),
+				"Assertion failed.",
+				MB_ABORTRETRYIGNORE | MB_ICONWARNING);
 		if (buttonPressed == IDABORT)
 		{
 			__debugbreak();
 		}
-		else if (buttonPressed == IDRETRY) {}
+		else if (buttonPressed == IDRETRY)
+		{
+		}
 		else if (buttonPressed == IDIGNORE)
 		{
 			return true;
 		}
-#elif defined (__APPLE__)
-		Debugger();
-		//SysBreak();
-#else
-		// AFAIK This is available on all X86 platforms
-		__asm__("int $0x03");
-#endif // WIN32
+#  else  // WIN32
+		raise(SIGTRAP);
+#  endif // WIN32
 		return false;
 	}
-#else // _DEBUG
+#else  // _DEBUG
 	return false;
 #endif // _DEBUG
 }
