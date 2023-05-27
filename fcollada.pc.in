@@ -6,7 +6,7 @@ includedir=${prefix}/include
 Name: fcollada
 Description: FCollada library for working with COLLADA 3D models
 Version: @PROJECT_VERSION@
-Requires: libxml-2.0
+Requires: libxml-2.0 fmt
 Conflicts:
 Libs: -L${libdir} -l@LIBRARY_NAME@
-Cflags: -I${includedir}/FCollada
+Cflags: -I${includedir}
