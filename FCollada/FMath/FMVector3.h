@@ -252,4 +252,11 @@ inline FMVector3 FMVector3::Projected(const FMVector3& unto) const { return ((*t
 /** A dynamically-sized array of 3D vectors or points. */
 typedef fm::vector<FMVector3> FMVector3List;
 
+inline const FMVector3 FMVector3::Zero(0.0f, 0.0f, 0.0f);
+inline const FMVector3 FMVector3::XAxis(1.0f, 0.0f, 0.0f);
+inline const FMVector3 FMVector3::YAxis(0.0f, 1.0f, 0.0f);
+inline const FMVector3 FMVector3::ZAxis(0.0f, 0.0f, 1.0f);
+inline const FMVector3 FMVector3::Origin = FMVector3::Zero;
+inline const FMVector3 FMVector3::One(1.0f, 1.0f, 1.0f);
+
 #endif // _FM_VECTOR3_H_

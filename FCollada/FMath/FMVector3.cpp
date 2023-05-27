@@ -11,21 +11,6 @@
 #include "FMVector3.h"
 #include "FMVector4.h"
 
-// Vector constants
-const FMVector2 FMVector2::Zero(0.0f, 0.0f);
-const FMVector2 FMVector2::Origin = FMVector2::Zero;
-const FMVector2 FMVector2::XAxis(1.0f, 0.0f);
-const FMVector2 FMVector2::YAxis(0.0f, 1.0f);
-const FMVector3 FMVector3::Zero(0.0f, 0.0f, 0.0f);
-const FMVector3 FMVector3::XAxis(1.0f, 0.0f, 0.0f);
-const FMVector3 FMVector3::YAxis(0.0f, 1.0f, 0.0f);
-const FMVector3 FMVector3::ZAxis(0.0f, 0.0f, 1.0f);
-const FMVector3 FMVector3::Origin = FMVector3::Zero;
-const FMVector3 FMVector3::One(1.0f, 1.0f, 1.0f);
-const FMVector4 FMVector4::Zero(0.0f, 0.0f, 0.0f, 0.0f);
-const FMVector4 FMVector4::One(1.0f, 1.0f, 1.0f, 1.0f);
-const FMVector4 FMVector4::AlphaOne(0.0f, 0.0f, 0.0f, 1.0f);
-
 FMVector3::FMVector3(const FMVector4& vect4)
 :	x(vect4.x), y(vect4.y), z(vect4.z)
 {

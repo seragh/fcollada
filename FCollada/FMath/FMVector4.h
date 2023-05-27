@@ -186,4 +186,8 @@ inline bool operator==(const FMVector4& p, const FMVector4& q) { return IsEquiva
 /** A dynamically-sized array of 4D vectors or points. */
 typedef fm::vector<FMVector4> FMVector4List;
 
+inline const FMVector4 FMVector4::Zero(0.0f, 0.0f, 0.0f, 0.0f);
+inline const FMVector4 FMVector4::One(1.0f, 1.0f, 1.0f, 1.0f);
+inline const FMVector4 FMVector4::AlphaOne(0.0f, 0.0f, 0.0f, 1.0f);
+
 #endif // _FM_VECTOR4_H_

@@ -143,4 +143,9 @@ inline bool operator==(const FMVector2& a, const FMVector2& b) { return IsEquiva
 /** A dynamically-sized array of 2D vectors or points. */
 typedef fm::vector<FMVector2> FMVector2List;
 
+inline const FMVector2 FMVector2::Zero(0.0f, 0.0f);
+inline const FMVector2 FMVector2::Origin = FMVector2::Zero;
+inline const FMVector2 FMVector2::XAxis(1.0f, 0.0f);
+inline const FMVector2 FMVector2::YAxis(0.0f, 1.0f);
+
 #endif // _FM_VECTOR2_H_
