@@ -399,7 +399,6 @@ bool FArchiveXML::ImportFile(const fchar* filePath, FCDocument* fcdocument)
 		}
 
 		// Clean-up the XML reader
-		xmlCleanupParser();
 		FArchiveXML::ClearIntermediateData();
 	}
 	_FCATCH_ALL
@@ -434,7 +433,6 @@ bool FArchiveXML::ImportFileFromMemory(const fchar* filePath, FCDocument* fcdocu
 		}
 
 		// Clean-up the XML reader
-		xmlCleanupParser();
 		FArchiveXML::ClearIntermediateData();
     }
     _FCATCH_ALL
