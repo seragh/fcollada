@@ -8,7 +8,7 @@
 
 #include "StdAfx.h"
 #include "FUTestBed.h"
-#include "FCollada/FUtils/FUFunctor.h"
+#include "FUtils/FUFunctor.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 class FUTestClass

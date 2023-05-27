@@ -8,7 +8,7 @@
 
 #include "StdAfx.h"
 #include "FUTestBed.h"
-#include "FCollada/FUtils/FUString.h"
+#include "FUtils/FUString.h"
 
 TESTSUITE_START(FUStringBuilder)
 

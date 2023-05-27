@@ -86,7 +86,6 @@ target_sources(FCollada
         FCDocument.cpp
         FCDocumentTools.cpp
     PUBLIC FILE_SET HEADERS
-    BASE_DIRS "${PROJECT_SOURCE_DIR}"
     FILES
         FCDAnimated.h
         FCDAnimation.h

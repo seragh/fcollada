@@ -40,10 +40,6 @@ elseif(NOT APPLE)
     add_definitions(-DLINUX)
 endif()
 
-if(BUILD_SHARED_LIBS)
-    add_definitions(-DFCOLLADA_DLL)
-endif()
-
 if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
 endif()
@@ -64,7 +60,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}D")
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FCollada)
 add_library(FCollada)
 target_compile_features(FCollada PUBLIC cxx_std_17)
 target_link_libraries(FCollada
@@ -75,9 +70,20 @@ set_target_properties(FCollada
     PROPERTIES
         OUTPUT_NAME "${LIBRARY_NAME}"
 )
+include(GenerateExportHeader)
+generate_export_header(FCollada)
+
+target_sources(FCollada
+    PUBLIC
+        FILE_SET HEADERS
+        BASE_DIRS
+            "${CMAKE_CURRENT_SOURCE_DIR}/FCollada"
+            "${CMAKE_CURRENT_BINARY_DIR}"
+        FILES
+            ${CMAKE_CURRENT_BINARY_DIR}/fcollada_export.h
+)
 
 
-# TODO: Some tests are built as part of the library.
 add_executable(FColladaTest)
 set_target_properties(FColladaTest
     PROPERTIES
@@ -127,19 +133,14 @@ if(BUILD_DOCS)
 endif()
 
 
-# Make the fileset known to the parser
-target_sources(FCollada
-    PUBLIC FILE_SET HEADERS
-    BASE_DIRS ${PROJECT_SOURCE_DIR}
-)
 install(TARGETS FCollada
     FILE_SET HEADERS
 )
 
-
 configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"
     DESTINATION "lib/pkgconfig")
+
 
 add_subdirectory(FCollada)
 add_subdirectory(FColladaPlugins)

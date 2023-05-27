@@ -7,7 +7,7 @@
 */
 
 #include "StdAfx.h"
-#include "FCollada/FMath/FMArray.h"
+#include "FMath/FMArray.h"
 #include "FUtils/FUTestBed.h"
 
 ////////////////////////////////////////////////////////////////////////

@@ -7,8 +7,8 @@
 */
 
 #include "StdAfx.h"
-#include "FCollada/FUtils/FUBoundingBox.h"
-#include "FCollada/FUtils/FUBoundingSphere.h"
+#include "FUtils/FUBoundingBox.h"
+#include "FUtils/FUBoundingSphere.h"
 #include "FUTestBed.h"
 
 TESTSUITE_START(FUBoundingTest)

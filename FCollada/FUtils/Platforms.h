@@ -15,26 +15,13 @@
 #ifndef _FU_PLATFORMS_H_
 #define _FU_PLATFORMS_H_
 
-#ifdef FCOLLADA_DLL
+#include "fcollada_export.h"
+
 #ifdef WIN32
 // Disable the "private member not available for export" warning,
 // because I don't feel like writing interfaces
 #pragma warning(disable:4251)
-#ifdef FCOLLADA_INTERNAL
-#define FCOLLADA_EXPORT __declspec(dllexport)
-#define FCOLLADA_LOCAL
-#else
-#define FCOLLADA_EXPORT __declspec(dllimport)
-#define FCOLLADA_LOCAL
-#endif // FCOLLADA_INTERNAL
-#elif defined(__APPLE__) || defined(LINUX)
-#define FCOLLADA_EXPORT __attribute__((visibility("default")))
-#define FCOLLADA_LOCAL __attribute__((visibility("hidden")))
-#endif
-#else // FCOLLADA_DLL
-#define FCOLLADA_EXPORT
-#define FCOLLADA_LOCAL
-#endif // FCOLLADA_DLL
+#endif // WIN32
 
 #ifdef __PPU__
 #define UNICODE

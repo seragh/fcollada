@@ -31,7 +31,6 @@ target_sources(FCollada
         StdAfx.cpp
         StdAfx.h
     PUBLIC FILE_SET HEADERS
-    BASE_DIRS ${PROJECT_SOURCE_DIR}
     FILES
         FUAssert.h
         FUBase64.h
