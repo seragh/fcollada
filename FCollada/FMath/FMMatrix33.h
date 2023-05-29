@@ -75,6 +75,12 @@ public:
 	float* operator[](int a) { return m[a]; }
 
 	/**
+	 * Create a copy of the given FMMatrix33.
+	 * @param copy The FMMatrix33 to make a copy of.
+	*/
+	FMMatrix33(const FMMatrix33& copy);
+
+	/**
 	 * Assign this FMMatrix33's elements to be the same as that of the given
 	 * FMMatrix33.
 	 *

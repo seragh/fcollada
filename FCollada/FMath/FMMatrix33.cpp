@@ -15,6 +15,14 @@ FMMatrix33::FMMatrix33(float* _m)
 	m[0][2] = _m[6]; m[1][2] = _m[7]; m[2][2] = _m[8];
 }
 
+FMMatrix33::FMMatrix33(const FMMatrix33& copy)
+{
+	m[0][0] = copy.m[0][0]; m[0][1] = copy.m[0][1]; m[0][2] = copy.m[0][2];
+	m[1][0] = copy.m[1][0]; m[1][1] = copy.m[1][1]; m[1][2] = copy.m[1][2];
+	m[2][0] = copy.m[2][0]; m[2][1] = copy.m[2][1]; m[2][2] = copy.m[2][2];
+}
+
+
 FMMatrix33& FMMatrix33::operator=(const FMMatrix33& copy)
 {
 	m[0][0] = copy.m[0][0]; m[0][1] = copy.m[0][1]; m[0][2] = copy.m[0][2];
