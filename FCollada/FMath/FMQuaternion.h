@@ -59,6 +59,12 @@ public:
 	inline operator float*() { return &x; }
 	inline operator const float*() const { return &x; } /**< See above. */
 
+	/**
+	 * Create a copy of the given FMQuaternion.
+	 * @param copy The FMQuaternion to make a copy of.
+	*/
+	FMQuaternion(const FMQuaternion& copy) = default;
+
 	/** Assign this FMQuaternion to the given \c float array.
 		Assigns each coordinate of this FMQuaternion to the elements in the
 		\c float array. The first element to the i component, the second to the
