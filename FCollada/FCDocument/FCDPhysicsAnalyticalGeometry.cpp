@@ -207,7 +207,7 @@ FCDPASTaperedCapsule::FCDPASTaperedCapsule(FCDocument* document) : FCDPASCapsule
 	radius2.y = 0.f;
 }
 
-FCDPhysicsAnalyticalGeometry* FCDPASTaperedCapsule::Clone(FCDPhysicsAnalyticalGeometry* _clone, bool cloneChildren) const
+FCDEntity* FCDPASTaperedCapsule::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
 	FCDPASTaperedCapsule* clone = NULL;
 	if (_clone == NULL) _clone = clone = new FCDPASTaperedCapsule(const_cast<FCDocument*>(GetDocument()));

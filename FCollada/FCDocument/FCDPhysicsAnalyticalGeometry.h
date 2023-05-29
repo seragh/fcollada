@@ -319,7 +319,7 @@ public:
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDPhysicsAnalyticalGeometry* Clone(FCDPhysicsAnalyticalGeometry* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
 
 public:
 	//inherits all other attributes from Capsule
