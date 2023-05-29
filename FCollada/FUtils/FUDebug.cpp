@@ -11,6 +11,10 @@
 #include "FULogFile.h"
 #include "FUStringConversion.h"
 
+#include <fmt/format.h>
+
+#include <cstdio>
+
 //
 // FUDebug
 //
@@ -20,9 +24,9 @@ FUDebug::~FUDebug() {}
 
 #if defined(LINUX) || defined(__APPLE__)
 #if defined(UNICODE)
-#define STRING_OUT(sz) fprintf(stderr, TO_STRING(sz).c_str()); fflush(stderr);
+#define STRING_OUT(sz) fmt::print(stderr, "{}", TO_STRING(sz).c_str()); std::fflush(stderr);
 #else
-#define STRING_OUT(sz) fprintf(stderr, sz); fflush(stderr);
+#define STRING_OUT(sz) fmt::print(stderr, "{}", sz); std::fflush(stderr);
 #endif // UNICODE
 #elif defined(WIN32)
 #define STRING_OUT(sz) OutputDebugString(sz); OutputDebugString(FC("\n"))
