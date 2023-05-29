@@ -32,7 +32,7 @@ public:
 	float y;	/**< The second coordinate. */
 	float z;	/**< The third coordinate. */
 private:
-	float w;	// For alignment purposes.
+	[[maybe_unused]] float w;	// For alignment purposes.
 
 public:
 	/**
