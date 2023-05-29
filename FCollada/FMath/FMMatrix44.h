@@ -59,6 +59,12 @@ public:
 	template <class Integer> float* operator[](Integer a) { return m[a]; }
 	template <class Integer> const float* operator[](Integer a) const { return m[a]; } /**< See above. */
 
+	/**
+	 * Create a copy of the given FMMatrix44.
+	 * @param copy The FMMatrix44 to make a copy of.
+	*/
+	FMMatrix44(const FMMatrix44& copy);
+
 	/** Assign this FMMatrix44's elements to be the same as that of the given
 		matrix.
 		@param copy The FMMatrix to copy elements from.
