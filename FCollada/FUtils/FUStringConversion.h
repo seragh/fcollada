@@ -44,8 +44,8 @@ class FUDateTime;
 */
 class FCOLLADA_EXPORT FUStringConversion
 {
-private: FUStringConversion() {}
 public:
+	FUStringConversion() = delete;
 
 	/** Converts a 8-bit string to a Unicode string.
 		@param value The 8-bit string.
