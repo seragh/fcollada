@@ -222,7 +222,7 @@ public:
 	template <class CH>
 	static FCOLLADA_EXPORT void ToInterleavedUInt32List(const CH* value, fm::pvector<UInt32List>& arrays);
 	template <class CH>
-	inline static void ToInterleavedUInt32List(const fm::stringT<CH>& value, fm::pvector<UInt32List>& arrays) { return ToInterleavedFloatList(value.c_str(), arrays); } /**< See above. */
+	inline static void ToInterleavedUInt32List(const fm::stringT<CH>& value, fm::pvector<UInt32List>& arrays) { return ToInterleavedUInt32List(value.c_str(), arrays); } /**< See above. */
 
 	/** Parses a string into a list of matrices.
 		@param value The string.
