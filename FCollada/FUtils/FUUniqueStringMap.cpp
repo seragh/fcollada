@@ -10,19 +10,6 @@
 #include "FUStringBuilder.h"
 #include "FUUniqueStringMap.h"
 
-// Externed by FUStringConversion.cpp
-void TrickLinkerFUUniqueStringMap()
-{
-	// Since the header file typedefs the ONLY two wanted unique-string-map types, these functions should be created
-	// by the "exercising" functions.
-
-	FUUniqueStringMap map1; FUSUniqueStringMap map2;
-	fstring test1(FC("Test1")); fm::string test2("Test2");
-	map1.insert(test1); map2.insert(test2);
-	if (map1.contains(test1)) map1.erase(test1);
-	if (map2.contains(test2)) map2.erase(test2);
-}
-
 template <class CH>
 inline void SplitString(const fm::stringT<CH>& str, fm::stringT<CH>& prefix, uint32& suffix)
 {
@@ -101,3 +88,8 @@ void FUUniqueStringMapT<CH>::erase(const fm::stringT<CH>& str)
 		itV->second.erase(suffix);
 	}
 }
+
+template class FUUniqueStringMapT<char>;
+#ifdef UNICODE
+template class FUUniqueStringMapT<fchar>;
+#endif
