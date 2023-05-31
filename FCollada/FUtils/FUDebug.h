@@ -14,6 +14,8 @@
 #ifndef _FU_DEBUG_H_
 #define _FU_DEBUG_H_
 
+// TODO: c++20 std::source_location and new style format strings
+
 /**
 	A debugging logging facility.
 	Do not use this static class directly. Instead, use the macros listed below.
