@@ -38,13 +38,15 @@ FCDPhysicsScene::~FCDPhysicsScene()
 
 FCDEntity* FCDPhysicsScene::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
-	FCDPhysicsScene* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDPhysicsScene(const_cast<FCDocument*>(GetDocument()));
-	else if (_clone->HasType(FCDPhysicsScene::GetClassType())) clone = (FCDPhysicsScene*) _clone;
+	FCDPhysicsScene* clone = nullptr;
+	if (_clone == nullptr)
+		_clone = clone = new FCDPhysicsScene(const_cast<FCDocument*>(GetDocument()));
+	else if (_clone->HasType(FCDPhysicsScene::GetClassType()))
+		clone = (FCDPhysicsScene*) _clone;
 
 	Parent::Clone(_clone, cloneChildren);
 
-	if (clone == NULL)
+	if (clone != nullptr)
 	{
 		// Clone the miscellaneous parameters
 		clone->gravity = gravity;
