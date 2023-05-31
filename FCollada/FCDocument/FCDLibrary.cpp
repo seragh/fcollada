@@ -109,18 +109,3 @@ ImplementParameterObjectT(FCDSceneNodeLibrary, FCDExtra, extra, new FCDExtra(par
 ImplementParameterObjectT(FCDPhysicsModelLibrary, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
 ImplementParameterObjectT(FCDPhysicsMaterialLibrary, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
 ImplementParameterObjectT(FCDPhysicsSceneLibrary, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
-
-template<class T>
-inline void LibraryExport()
-{
-	FCDLibrary<T>* l1 = new FCDLibrary<T>(NULL);
-	T* ptr = l1->AddEntity();
-	l1->AddEntity(ptr);
-	bool b = l1->IsEmpty();
-	if (b) { ptr = l1->FindDaeId(emptyCharString); }
-	ptr = l1->GetEntity(23);
-	const T* cptr = ((const FCDLibrary<T>*)l1)->GetEntity(0);
-	cptr = ptr;
-	FCDAsset* asset = l1->GetAsset();
-	asset->SetFlag(11);
-}
