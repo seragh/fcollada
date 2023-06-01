@@ -151,7 +151,18 @@ namespace fm
 			if constexpr (!std::is_trivially_copyable_v<T>)
 				(*it).~T();
 			if (end() - it - 1 > 0)
-				memmove(it, it+1, (end() - it - 1) * sizeof(T));
+			{
+				if constexpr (std::is_trivially_copyable_v<T>)
+					memmove(it, it+1, (end() - it - 1) * sizeof(T));
+				else
+				{
+					for (size_t i = 0; i < static_cast<size_t>(end() - it - 1); ++i)
+					{
+						fm::Construct(it + i, *(it + 1 + i));
+						(*(it + 1 + i)).~T();
+					}
+				}
+			}
 			--sized;
 			return it;
 		}
@@ -171,7 +182,18 @@ namespace fm
 					(*it).~T();
 			}
 			if (end() - last > 0)
-				memmove(first, last, (end() - last) * sizeof(T));
+			{
+				if constexpr (std::is_trivially_copyable_v<T>)
+					memmove(first, last, (end() - last) * sizeof(T));
+				else
+				{
+					for (size_t i = 0; i < static_cast<size_t>(end() - last); ++i)
+					{
+						fm::Construct(first + i, *(last + i));
+						(*(last + i)).~T();
+					}
+				}
+			}
 			sized -= last - first;
 		}
 
@@ -306,7 +328,17 @@ namespace fm
 					newValues = (T*) fm::Allocate(count * sizeof(T));
 					if (sized > 0)
 					{
-						memcpy(newValues, heapBuffer, sized * sizeof(T));
+						if constexpr (std::is_trivially_copyable_v<T>)
+						{
+							memcpy(newValues, heapBuffer, sized * sizeof(T));
+						}
+						else
+						{
+							for(size_t i = 0; i < sized; ++i)
+							{
+								fm::Construct(newValues + i, *(heapBuffer + i));
+							}
+						}
 					}
 				}
 				else newValues = NULL;
@@ -352,7 +384,17 @@ namespace fm
 			}
 			if (it < end())
 			{
-				memmove(it + 1, it, (end() - it) * sizeof(T));
+				if constexpr (std::is_trivially_copyable_v<T>)
+					memmove(it + 1, it, (end() - it) * sizeof(T));
+				else
+				{
+					for (size_t i = end() - it; i > 0; --i)
+					{
+						fm::Construct(it + i, *(it - 1 + i));
+						(*(it - 1 + i)).~T();
+					}
+
+				}
 			}
 			if constexpr (!std::is_trivially_copyable_v<T>)
 			{
@@ -425,7 +467,16 @@ namespace fm
 				}
 				if (it < end())
 				{
-					memmove(it + count, it, (end() - it) * sizeof(T));
+					if constexpr (std::is_trivially_copyable_v<T>)
+						memmove(it + count, it, (end() - it) * sizeof(T));
+					else
+					{
+						for (size_t i = end() - it; i > 0; --i)
+						{
+							fm::Construct(it - 1 + count + i, *(it - 1 + i));
+							(*(it - 1 + i)).~T();
+						}
+					}
 				}
 				sized += count;
 
@@ -476,7 +527,17 @@ namespace fm
 				}
 				if (it < end())
 				{
-					memmove(it + count, it, (end() - it) * sizeof(T));
+					if constexpr (std::is_trivially_copyable_v<T>)
+						memmove(it + count, it, (end() - it) * sizeof(T));
+					else
+					{
+						for (size_t i = end() - it; i > 0; --i)
+						{
+							fm::Construct(it - 1 + count + i, *(it - 1 + i));
+							(*(it - 1 + i)).~T();
+						}
+
+					}
 				}
 				sized += count;
 				if constexpr (!std::is_trivially_copyable_v<T>)
