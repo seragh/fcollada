@@ -187,7 +187,8 @@ namespace FCDGeometryPolygonsTools
 		// Allocate the tangential vertices.
 		// This temporary buffer is necessary to ensure we have smooth tangents/binormals.
 		TangentialVertexList* globalVertices = new TangentialVertexList[globalVertexCount];
-		memset(globalVertices, 0, sizeof(TangentialVertexList) * globalVertexCount);
+		for (size_t i = 0; i < globalVertexCount; i++)
+			new (globalVertices + i) TangentialVertexList();
 
 		// This operation is done on the tessellation: fill in the list of tangential vertices.
 		size_t polygonsCount = mesh->GetPolygonsCount();
