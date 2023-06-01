@@ -43,6 +43,9 @@ namespace fm
 			@param p A pair to clone. */
 		pair(const pair& p) : first(p.first), second(p.second) {}
 
+		/** Copy operator. @param p The pair to copy. */
+		pair& operator=(const pair& p) { first = p.first; second = p.second; return *this; }
+
 		/** Returns whether the two pairs are equal.
 			@param p A second pair of the same type.
 			@return Whether the two pairs are equal. */
@@ -170,9 +173,10 @@ namespace fm
 			iterator() {}
 			/** Constructor. @param n The tree node at which to start the iteration. */
 			iterator(node* n) : currentNode(n) {}
+			/** Copy constuctor. @param copy The tree iterator to copy. */
+			iterator(const iterator& copy) : currentNode(copy.currentNode) {};
 			/** Copy operator. @param copy The tree iterator to copy. */
 			iterator& operator=(const iterator& copy) { currentNode = copy.currentNode; return *this; }
-
 			/** Retrieves whether this iterator points to the same node as the given iterator.
 				@param other A second iterator.
 				@return Whether the two iterators are pointing to the same node. */
@@ -265,11 +269,11 @@ namespace fm
 		public:
 			/** Empty constructor. */
 			const_iterator() {}
-			/** Copy constructor.
-				@param copy The iterator to clone. */
-			const_iterator(const iterator& copy) : currentNode(copy.currentNode) {}
 			/** Constructor. @param n The tree node at which to start the iteration. */
 			const_iterator(const node* n) : currentNode(n) {}
+			/** Copy constructor. @param copy The iterator to clone. */
+			const_iterator(const iterator& copy) : currentNode(copy.currentNode) {}
+			const_iterator(const const_iterator& copy) : currentNode(copy.currentNode) {}
 			/** Copy operator. @param copy The tree iterator to copy. */
 			const_iterator& operator=(const iterator& copy) { currentNode = copy.currentNode; return *this; }
 			const_iterator& operator=(const const_iterator& copy) { currentNode = copy.currentNode; return *this; } /**< See above. */
