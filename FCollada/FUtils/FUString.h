@@ -33,10 +33,10 @@ namespace fm
 		fstring for UNICODE strings.
 		@ingroup FUtils */
 	template <class CH>
-	class FCOLLADA_EXPORT stringT : public fm::vector<CH, true>
+	class FCOLLADA_EXPORT stringT : public fm::vector<CH>
 	{
 	public:
-		typedef fm::vector<CH, true> Parent; /**< The parent class. */
+		typedef fm::vector<CH> Parent; /**< The parent class. */
 
 	public:
 		/** Constant for infinity length.

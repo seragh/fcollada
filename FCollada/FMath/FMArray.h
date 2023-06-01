@@ -21,6 +21,8 @@
 #include "FMath/FMSort.h"
 #endif // _FM_SORT_H_
 
+#include <type_traits>
+
 #ifdef WIN32
 #pragma warning(disable:4127)
 #endif //WIN32
@@ -39,7 +41,7 @@ namespace fm
 
 		@ingroup FMath
 	*/
-	template <class T, bool PRIMITIVE=false>
+	template <class T>
 	class vector
 	{
 	protected:
@@ -75,7 +77,7 @@ namespace fm
 
 		/** Copy constructor.
 			@param copy The dynamically-sized array to copy the values from. */
-		vector(const fm::vector<T,PRIMITIVE>& copy) : reserved(0), sized(0), heapBuffer(NULL)
+		vector(const fm::vector<T>& copy) : reserved(0), sized(0), heapBuffer(NULL)
 		{
 			insert(heapBuffer, copy.begin(), copy.size());
 		}
@@ -91,7 +93,7 @@ namespace fm
 		/** Destructor. */
 		~vector()
 		{
-			if (!PRIMITIVE)
+			if constexpr (!std::is_trivially_copyable_v<T>)
 			{
 				for (intptr_t i = sized - 1; i >= 0; --i)
 				{
@@ -146,8 +148,10 @@ namespace fm
 		iterator erase(iterator it)
 		{
 			FUAssert(it >= begin() && it < end(), return it);
-			if (!PRIMITIVE) (*it).~T();
-			if (end() - it - 1 > 0) memmove(it, it+1, (end() - it - 1) * sizeof(T));
+			if constexpr (!std::is_trivially_copyable_v<T>)
+				(*it).~T();
+			if (end() - it - 1 > 0)
+				memmove(it, it+1, (end() - it - 1) * sizeof(T));
 			--sized;
 			return it;
 		}
@@ -161,8 +165,13 @@ namespace fm
 		{
 			FUAssert(first >= begin() && first < end(), return);
 			FUAssert(last > begin() && last <= end(), return);
-			if (!PRIMITIVE) for (iterator it = first; it != last; ++it) (*it).~T();
-			if (end() - last > 0) memmove(first, last, (end() - last) * sizeof(T));
+			if constexpr (!std::is_trivially_copyable_v<T>)
+			{
+				for (iterator it = first; it != last; ++it)
+					(*it).~T();
+			}
+			if (end() - last > 0)
+				memmove(first, last, (end() - last) * sizeof(T));
 			sized -= last - first;
 		}
 
@@ -228,7 +237,7 @@ namespace fm
 		{
 			reserve(count);
 
-			if (!PRIMITIVE)
+			if constexpr (!std::is_trivially_copyable_v<T>)
 			{
 				T* it = end();
 				for (; sized < count; ++sized)
@@ -254,7 +263,7 @@ namespace fm
 			for (; sized < count; ++sized)
 			{
 				// For non-primitive types, make sure we call the constructors of all the values.
-				if (!PRIMITIVE)
+				if constexpr (!std::is_trivially_copyable_v<T>)
 				{
 					fm::Construct(it++, value);
 				}
@@ -281,7 +290,7 @@ namespace fm
 			if (reserved != count)
 			{
 				// For non-primitives, make sure we destroy all the values individually.
-				if (PRIMITIVE)
+				if constexpr (std::is_trivially_copyable_v<T>)
 				{
 					if (sized > count) sized = count;
 				}
@@ -345,7 +354,7 @@ namespace fm
 			{
 				memmove(it + 1, it, (end() - it) * sizeof(T));
 			}
-			if (!PRIMITIVE)
+			if constexpr (!std::is_trivially_copyable_v<T>)
 			{
 				fm::Construct(it, item);
 			}
@@ -376,7 +385,8 @@ namespace fm
 		void pop_back()
 		{
 			FUAssert(sized > 0, return);
-			if (!PRIMITIVE) (*(heapBuffer + sized - 1)).~T();
+			if constexpr (!std::is_trivially_copyable_v<T>)
+				(*(heapBuffer + sized - 1)).~T();
 			--sized;
 		}
 
@@ -421,7 +431,7 @@ namespace fm
 
 				if (!noInit)
 				{
-					if (!PRIMITIVE)
+					if constexpr (!std::is_trivially_copyable_v<T>)
 					{
 						do
 						{
@@ -469,7 +479,7 @@ namespace fm
 					memmove(it + count, it, (end() - it) * sizeof(T));
 				}
 				sized += count;
-				if (!PRIMITIVE)
+				if constexpr (!std::is_trivially_copyable_v<T>)
 				{
 					do
 					{
@@ -511,7 +521,7 @@ namespace fm
 		/** Retrieves whether two lists are equivalent.
 			@param other A second list.
 			@return Whether the two lists are equivalent. */
-		bool operator==(const fm::vector<T,PRIMITIVE>& other) const
+		bool operator==(const fm::vector<T>& other) const
 		{
 			bool equals = sized == other.size();
 			const T* e = end();
@@ -525,11 +535,11 @@ namespace fm
 		/** Copy operator. Copies the contents of one vector to another.
 			@param rhs The vector to copy (RHS of operation).
 			@return A reference to this (LHS of operation). */
-		vector<T,PRIMITIVE>& operator =(const fm::vector<T,PRIMITIVE>& rhs)
+		vector<T>& operator =(const fm::vector<T>& rhs)
 		{
 			if (this != &rhs)
 			{
-				if (PRIMITIVE)
+				if constexpr (std::is_trivially_copyable_v<T>)
 				{
 					resize(rhs.size());
 					memcpy(begin(), rhs.begin(), sizeof(T) * rhs.size());
@@ -554,8 +564,8 @@ namespace fm
 	@param cl A constant-sized array.
 	@param count The size of the constant-sized array.
 	@return Whether the two arrays are equivalent. */
-template <class T, bool PRIMITIVE>
-inline bool IsEquivalent(const fm::vector<T,PRIMITIVE>& dl, const T* cl, size_t count)
+template <class T>
+inline bool IsEquivalent(const fm::vector<T>& dl, const T* cl, size_t count)
 {
 	if (dl.size() != count) return false;
 	bool equivalent = true;

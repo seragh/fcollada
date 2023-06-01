@@ -15,17 +15,17 @@
 #define _FM_INTEGER_H_
 
 /** A dynamically-sized array of 32-bit signed integer values. */
-typedef fm::vector<int32, true> Int32List;
+typedef fm::vector<int32> Int32List;
 /** A dynamically-sized array of 32-bit unsigned integer values. */
-typedef fm::vector<uint32, true> UInt32List;
+typedef fm::vector<uint32> UInt32List;
 /** A dynamically-sized array of 16-bit unsigned integer values. */
-typedef fm::vector<uint16, true> UInt16List;
+typedef fm::vector<uint16> UInt16List;
 /** A dynamically-sized array of 8-bit unsigned integer values. */
-typedef fm::vector<uint8, true> UInt8List;
+typedef fm::vector<uint8> UInt8List;
 /** A dynamically-sized array of 8-bit signed integer values. */
-typedef fm::vector<int8, true> Int8List;
+typedef fm::vector<int8> Int8List;
 /** A dynamically-sized array of boolean values. */
-typedef fm::vector<bool, true> BooleanList;
+typedef fm::vector<bool> BooleanList;
 
 /** Returns whether two signed or unsigned integers are equivalent.
 	For integers, this function simply wraps around the operator==.

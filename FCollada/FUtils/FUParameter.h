@@ -81,17 +81,17 @@ typedef FUParameterT<uint32> FUParameterUInt32; /**< An unsigned integer or enum
 typedef FUParameterT<fm::string> FUParameterString; /**< A UTF8 string parameter. */
 typedef FUParameterT<fstring> FUParameterFString; /**< A Unicode string parameter. */
 
-typedef fm::vector<float, true> FUParameterFloatList; /**< A simple floating-point value list parameter. */
-typedef fm::vector<FMVector2, true> FUParameterVector2List; /**< A 2D vector list parameter. */
-typedef fm::vector<FMVector3, true> FUParameterVector3List; /**< A 3D vector list parameter. */
-typedef fm::vector<FMVector3, true> FUParameterColor3List; /**< A 3D vector list parameter. */
-typedef fm::vector<FMVector4, true> FUParameterVector4List; /**< A 4D vector list parameter. */
-typedef fm::vector<FMVector4, true> FUParameterColor4List; /**< A 4D vector list parameter. */
-typedef fm::vector<FMMatrix44, true> FUParameterMatrix44List; /**< A matrix list parameter. */
-typedef fm::vector<int32, true> FUParameterInt32List; /**< An integer type list parameter. */
-typedef fm::vector<uint32, true> FUParameterUInt32List; /**< An unsigned integer or enumerated-type list parameter. */
-typedef fm::vector<fm::string, false> FUParameterStringList; /**< A UTF8 string list parameter. */
-typedef fm::vector<fstring, false> FUParameterFStringList; /**< A Unicode string list parameter. */
+typedef fm::vector<float> FUParameterFloatList; /**< A simple floating-point value list parameter. */
+typedef fm::vector<FMVector2> FUParameterVector2List; /**< A 2D vector list parameter. */
+typedef fm::vector<FMVector3> FUParameterVector3List; /**< A 3D vector list parameter. */
+typedef fm::vector<FMVector3> FUParameterColor3List; /**< A 3D vector list parameter. */
+typedef fm::vector<FMVector4> FUParameterVector4List; /**< A 4D vector list parameter. */
+typedef fm::vector<FMVector4> FUParameterColor4List; /**< A 4D vector list parameter. */
+typedef fm::vector<FMMatrix44> FUParameterMatrix44List; /**< A matrix list parameter. */
+typedef fm::vector<int32> FUParameterInt32List; /**< An integer type list parameter. */
+typedef fm::vector<uint32> FUParameterUInt32List; /**< An unsigned integer or enumerated-type list parameter. */
+typedef fm::vector<fm::string> FUParameterStringList; /**< A UTF8 string list parameter. */
+typedef fm::vector<fstring> FUParameterFStringList; /**< A Unicode string list parameter. */
 
 /** Declares a parameter for the objects of the current class.
     Use this macro within a class declaration to add a parameter to it.

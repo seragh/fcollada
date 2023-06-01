@@ -30,7 +30,7 @@ namespace fm
 		@ingroup FMath
 	*/
 	template <class T>
-	class pvector : public fm::vector<const void*, true>
+	class pvector : public fm::vector<const void*>
 	{
 	private:
 		/** Use this pointer to get typed information in the debugger.
@@ -38,7 +38,7 @@ namespace fm
 		T*** first;
 
 	public:
-		typedef typename fm::vector<const void*, true> Parent; /**< Defines the parent class to the pointer array. */
+		typedef typename fm::vector<const void*> Parent; /**< Defines the parent class to the pointer array. */
 		typedef T* item; /**< Defines the item pointer type contained by the pointer array. */
 		typedef const T* const_item; /**< Defines the constant-version of the item pointer type contained by the pointer array. */
 		typedef item* iterator; /**< Defines the item pointer iterator for the pointer array. */

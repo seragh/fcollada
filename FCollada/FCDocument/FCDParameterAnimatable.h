@@ -210,7 +210,7 @@ template <class TYPE, int QUALIFIERS>
 class FCOLLADA_EXPORT FCDParameterListAnimatableT : public FCDParameterListAnimatable
 {
 private:
-	fm::vector<TYPE, true> values;
+	fm::vector<TYPE> values;
 
 public:
 	/** Constructor.
@@ -326,8 +326,8 @@ public:
 
 	/** [INTERNAL] Retrieves a reference to the inner value list. Not recommended.
 		@return A reference to the value list. */
-	inline fm::vector<TYPE, true>& GetDataList() { return values; }
-	inline const fm::vector<TYPE, true>& GetDataList() const { return values; } /**< See above. */
+	inline fm::vector<TYPE>& GetDataList() { return values; }
+	inline const fm::vector<TYPE>& GetDataList() const { return values; } /**< See above. */
 
 	/** Retrieves the number of pre-allocated values reserved by this value list.
 		@return The number of pre-allocated values reserved. */

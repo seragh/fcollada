@@ -45,13 +45,13 @@ bool IsEquivalent(const T& v1, const T& v2) { return v1 == v2; }
 #endif // _FM_TREE_H_
 
 /** A dynamically-sized array of double-sized floating-point values. */
-typedef fm::vector<double, true> DoubleList;
+typedef fm::vector<double> DoubleList;
 
 /** A dynamically-sized array of floating-point values. */
-typedef fm::vector<float, true> FloatList;
+typedef fm::vector<float> FloatList;
 
 /** A dynamically-sized array of integer values. */
-typedef fm::vector<int, true> IntList;
+typedef fm::vector<int> IntList;
 
 
 #ifndef _FM_INTEGER_H_
