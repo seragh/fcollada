@@ -38,6 +38,10 @@ public:
 	/** Copy constructor. Creates an identical clone of the given date-time structure.
 		@param time The date-time structure to copy. */
 	FUDateTime(const FUDateTime& time);
+	/** Copy assingment operator.
+		@param time The FUDateTime to copy elements from.
+		@return This FUDateTime. */
+	FUDateTime& operator=(const FUDateTime& time);
 	/** Destructor. */
 	~FUDateTime();
 

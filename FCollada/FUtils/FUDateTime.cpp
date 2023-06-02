@@ -21,6 +21,17 @@ FUDateTime::FUDateTime(const FUDateTime& time)
 	year = time.year;
 }
 
+FUDateTime& FUDateTime::operator=(const FUDateTime& time)
+{
+	seconds = time.seconds;
+	minutes = time.minutes;
+	hour = time.hour;
+	day = time.day;
+	month = time.month;
+	year = time.year;
+	return *this;
+}
+
 FUDateTime::FUDateTime()
 {
 	seconds = minutes = hour = 0;
