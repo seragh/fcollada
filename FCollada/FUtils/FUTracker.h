@@ -182,6 +182,8 @@ public:
 	typedef item* iterator;
 	typedef const_item* const_iterator;
 
+	FUTrackedList() = default;
+
 	/** Destructor. */
 	virtual ~FUTrackedList() { clear(); }
 
@@ -331,12 +333,15 @@ public:
 		@param object An object. */
 	virtual bool TracksObject(const FUTrackable* object) const { return Parent::contains((ObjectClass*) object); }
 
+	/** Copy constructor. @param other The FUTrackedList to clone. */
+	FUTrackedList<ObjectClass>(const FUTrackedList<ObjectClass>& other) = default;
+
 	/** Clones a list of tracked objects.
 		This list will stop tracking all its current tracked objects
 		and will start tracking the objects within the other list.
 		@param other A second list of tracked objects.
 		@return This list. */
-	FUTrackedList<ObjectClass>& operator= (const FUTrackedList<ObjectClass>& other) { clear(); insert(end(), other.begin(), other.end()); return *this; }
+	FUTrackedList<ObjectClass>& operator=(const FUTrackedList<ObjectClass>& other) = default;
 
 	inline bool empty() const { return Parent::empty(); } /**< Inherited from pvector. */
 	inline size_t size() const { return Parent::size(); } /**< Inherited from pvector. */
