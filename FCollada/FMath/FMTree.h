@@ -482,7 +482,17 @@ namespace fm
 			@return The data element for this key. In the non-constant
 				version of this function, a new element is created for
 				the key if it does not already belong to the tree. */
-		inline DATA& operator[](const KEY& k) { iterator it = find(k); if (it != end()) return it->second; else { DATA d; return insert(k, d)->second; } }
+		inline DATA& operator[](const KEY& k)
+		{
+			iterator it = find(k);
+			if (it != end())
+				return it->second;
+			else
+			{
+				DATA d = DATA();
+				return insert(k, d)->second;
+			}
+		}
 		inline const DATA& operator[](const KEY& k) const { return find(k)->second; } /**< See above. */
 
 		/** Removes a data element from the tree.
