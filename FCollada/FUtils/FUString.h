@@ -51,6 +51,9 @@ namespace fm
 			@param c The string to clone. */
 		stringT(const stringT& c) : Parent(c) {}
 
+		/** Copy assinment. @param c The stringT to copy. */
+		stringT& operator=(const stringT& c) { Parent::operator=(c); return *this; }
+
 		/** Copy constructor.
 			@param c A NULL-terminated character buffer to clone. */
 		stringT(const CH* c) : Parent()
