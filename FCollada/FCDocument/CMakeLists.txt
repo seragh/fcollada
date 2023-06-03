@@ -1,6 +1,7 @@
 target_sources(FCollada
     PRIVATE
         FCDAnimated.cpp
+        FCDSceneNodeIterator.cpp
         FCDAnimation.cpp
         FCDAnimationChannel.cpp
         FCDAnimationClip.cpp
