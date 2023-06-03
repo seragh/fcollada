@@ -55,8 +55,9 @@ jobs:
         if: matrix.os == 'windows-latest'
         uses: lukka/run-vcpkg@v11
         with:
-          # hash for tag 2023.04.15
-          vcpkgGitCommitId: "501db0f17ef6df184fcdbfbe0f87cde2313b6ab1"
+          # hash for tag 2023.04.15 - bugged so use more recent
+          # https://github.com/microsoft/vcpkg/pull/29067
+          vcpkgGitCommitId: "1c5a340f6e10985e2d92af174a68dbd15c1fa4e1"
 
       # run cmake
       - name: configure
