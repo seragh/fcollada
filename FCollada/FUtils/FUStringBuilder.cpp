@@ -77,3 +77,8 @@ template<> void FUSStringBuilder::append(int32 i)
 	append(sz);
 }
 #endif // UNICODE
+
+template class FUStringBuilderT<char>;
+#ifdef UNICODE
+template class FUStringBuilderT<fchar>;
+#endif // UNICODE
