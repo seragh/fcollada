@@ -18,6 +18,7 @@ target_sources(FCollada
         FUObjectType.cpp
         FUParameterizable.cpp
         FUPluginManager.cpp
+        FUString.cpp
         FUStringBuilder.cpp
         FUStringConversion.cpp
         FUSynchronizableObject.cpp
