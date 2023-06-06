@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "FUTestBed.h"
 
-FCOLLADA_EXPORT bool FUTestBed_skipAsserts = false;
+bool FUTestBed_skipAsserts = false;
 
 //
 // FUTestbed

@@ -25,7 +25,7 @@ class FUTestSuite;
 	This class is used to run test suites and compile the results.
 	@ingroup FUtils
 */
-class FCOLLADA_EXPORT FUTestBed
+class FUTestBed
 {
 private:
 	size_t testPassed, testFailed;
@@ -61,7 +61,7 @@ public:
 	void RunTestSuite(FUTestSuite* testSuite);
 };
 
-extern FCOLLADA_EXPORT bool FUTestBed_skipAsserts;
+extern bool FUTestBed_skipAsserts;
 
 /**
 	A test suite.
