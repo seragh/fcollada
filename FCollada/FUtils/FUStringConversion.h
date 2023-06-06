@@ -387,6 +387,4 @@ public:
 	static FCOLLADA_EXPORT size_t CountValues(const CH* sz);
 };
 
-#include "FUtils/FUStringConversion.hpp"
-
 #endif // _FCU_STRING_CONVERSION_

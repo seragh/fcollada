@@ -7,13 +7,16 @@
 */
 
 #include "StdAfx.h"
-#include "FCDocument.h"
+
+#include "FCDEffectParameter.h"
+#include "FCDEffectParameter.hpp"
+
+#include "FCDEffectParameterFactory.h"
 #include "FCDEffectPass.h"
 #include "FCDEffectProfile.h"
 #include "FCDEffectTechnique.h"
-#include "FCDEffectParameter.h"
-#include "FCDEffectParameterFactory.h"
 #include "FCDImage.h"
+#include "FCDocument.h"
 
 //
 // FCDEffectParameter

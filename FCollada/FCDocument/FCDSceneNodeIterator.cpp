@@ -7,8 +7,11 @@
 */
 
 #include "StdAfx.h"
-#include "FCDocument/FCDSceneNode.h"
-#include "FCDocument/FCDSceneNodeIterator.h"
+
+#include "FCDSceneNodeIterator.h"
+#include "FCDSceneNodeIterator.hpp"
+
+//#include "FCDSceneNode.h"
 
 template class FCDSceneNodeIteratorT<FCDSceneNode>;
 template class FCDSceneNodeIteratorT<const FCDSceneNode>;

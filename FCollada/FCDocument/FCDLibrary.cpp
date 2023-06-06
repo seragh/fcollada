@@ -7,6 +7,10 @@
 */
 
 #include "StdAfx.h"
+
+#include "FCDLibrary.h"
+#include "FCDLibrary.hpp"
+
 #include "FCDocument/FCDAnimation.h"
 #include "FCDocument/FCDAnimationClip.h"
 #include "FCDocument/FCDAsset.h"
@@ -19,12 +23,13 @@
 #include "FCDocument/FCDGeometry.h"
 #include "FCDocument/FCDImage.h"
 #include "FCDocument/FCDLight.h"
-#include "FCDocument/FCDLibrary.h"
 #include "FCDocument/FCDMaterial.h"
 #include "FCDocument/FCDPhysicsMaterial.h"
 #include "FCDocument/FCDPhysicsModel.h"
 #include "FCDocument/FCDPhysicsScene.h"
 #include "FCDocument/FCDSceneNode.h"
+
+
 
 //
 // FCDLibrary

@@ -369,7 +369,5 @@ public:
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Value")); /**< The annotation value. */
 };
 
-#include <FCDocument/FCDEffectParameter.hpp>
-
 #endif // _FCD_EFFECT_PARAMETER_H_
 

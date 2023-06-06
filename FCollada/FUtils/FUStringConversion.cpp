@@ -13,7 +13,9 @@
 */
 
 #include "StdAfx.h"
+
 #include "FUStringConversion.h"
+#include "FUStringConversion.hpp"
 
 //
 // FUStringConversion

@@ -228,7 +228,4 @@ private:
 typedef FUStringBuilderT<fchar> FUStringBuilder; /**< A Unicode string builder. */
 typedef FUStringBuilderT<char> FUSStringBuilder;  /**< A 8-bit string builder. */
 
-#include "FUtils/FUStringBuilder.hpp"
-
 #endif // _FCU_STRING_BUILDER_
-

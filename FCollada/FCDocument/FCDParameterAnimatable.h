@@ -396,7 +396,5 @@ typedef FCDParameterListAnimatableT<FMVector4, 1> FCDParameterListAnimatableColo
 /** See above. */
 #define InitializeParameterAnimatable(parameterName, ...) parameterName(this, __VA_ARGS__)
 
-#include <FCDocument/FCDParameterAnimatable.hpp>
-
 #endif // _FCD_PARAMETER_ANIMATABLE_H
 

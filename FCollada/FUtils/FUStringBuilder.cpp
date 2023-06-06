@@ -7,7 +7,9 @@
 */
 
 #include "StdAfx.h"
-#include "FUString.h"
+
+#include "FUStringBuilder.h"
+#include "FUStringBuilder.hpp"
 
 #include <limits>
 
