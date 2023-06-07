@@ -558,21 +558,25 @@ FCOLLADA_EXPORT void FUStringConversion::ToVector4List(const CH* value, FMVector
 template <class CH>
 FCOLLADA_EXPORT void FUStringConversion::ToString(FUStringBuilderT<CH>& builder, const FloatList& values)
 {
-	if (values.empty()) return;
-	if (!builder.empty()) SPACE;
-	FloatList::const_iterator itV = values.begin();
-	builder.append(*itV);
-	for (++itV; itV != values.end(); ++itV) { SPACE; VAL(*itV); }
+	if (!values.empty())
+	{
+		if (!builder.empty()) SPACE;
+		FloatList::const_iterator itV = values.begin();
+		builder.append(*itV);
+		for (++itV; itV != values.end(); ++itV) { SPACE; VAL(*itV); }
+	}
 }
 
 template <class CH>
 FCOLLADA_EXPORT void FUStringConversion::ToString(FUStringBuilderT<CH>& builder, const Int32List& values)
 {
-	if (values.empty()) return;
-	if (!builder.empty()) SPACE;
-	Int32List::const_iterator itV = values.begin();
-	builder.append(*itV);
-	for (++itV; itV != values.end(); ++itV) { SPACE; VAL(*itV); }
+	if (!values.empty())
+	{
+		if (!builder.empty()) SPACE;
+		Int32List::const_iterator itV = values.begin();
+		builder.append(*itV);
+		for (++itV; itV != values.end(); ++itV) { SPACE; VAL(*itV); }
+	}
 }
 
 template <class CH>
