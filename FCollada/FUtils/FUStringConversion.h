@@ -431,6 +431,10 @@ public:
 		@return The expected number of values. */
 	template <class CH>
 	static FCOLLADA_EXPORT size_t CountValues(const CH* sz);
+	inline static size_t CountValues(const fm::stringT<char>& sz) { return CountValues(sz.c_str()); }
+#ifdef UNICODE
+	inline static size_t CountValues(const fm::stringT<fchar>& sz) { return CountValues(sz.c_str()); }
+#endif
 };
 
 #endif // _FCU_STRING_CONVERSION_
