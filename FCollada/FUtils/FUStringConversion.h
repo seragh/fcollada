@@ -64,8 +64,10 @@ public:
 		@return The parsed boolean value. */
 	template <class CH>
 	static FCOLLADA_EXPORT bool ToBoolean(const CH* value);
-	template <class CH>
-	inline static bool ToBoolean(const fm::stringT<CH>& value) { return ToBoolean(value.c_str()); } /**< See above. */
+	inline static bool ToBoolean(const fm::stringT<char>& value) { return ToBoolean(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static bool ToBoolean(const fm::stringT<fchar>& value) { return ToBoolean(value.c_str()); } /**< See above. */
+#endif
 
 	/** Parses a string into a floating-point value.
 		@param value The string. For the string pointer versions of this function,
@@ -73,10 +75,12 @@ public:
 		@return The parsed floating-point value. */
 	template <class CH>
 	static FCOLLADA_EXPORT float ToFloat(const CH** value);
-	template <class CH>
-	inline static float ToFloat(const CH* value) { return ToFloat(&value); } /**< See above. */
-	template <class CH>
-	inline static float ToFloat(const fm::stringT<CH>& value) { return ToFloat(value.c_str()); } /**< See above. */
+	inline static float ToFloat(const char* value) { return ToFloat(&value); } /**< See above. */
+	inline static float ToFloat(const fm::stringT<char>& value) { return ToFloat(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static float ToFloat(const fchar* value) { return ToFloat(&value); } /**< See above. */
+	inline static float ToFloat(const fm::stringT<fchar>& value) { return ToFloat(value.c_str()); } /**< See above. */
+#endif
 
 	/** Parses a string into a signed integer.
 		@param value The string. For the string pointer versions of this function,
@@ -84,10 +88,12 @@ public:
 		@return The parsed signed integer. */
 	template <class CH>
 	static FCOLLADA_EXPORT int32 ToInt32(const CH** value);
-	template <class CH>
-	inline static int32 ToInt32(const CH* value) { return ToInt32(&value); } /**< See above. */
-	template <class CH>
-	inline static int32 ToInt32(const fm::stringT<CH>& value) { return ToInt32(value.c_str()); } /**< See above. */
+	inline static int32 ToInt32(const char* value) { return ToInt32(&value); } /**< See above. */
+	inline static int32 ToInt32(const fm::stringT<char>& value) { return ToInt32(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static int32 ToInt32(const fchar* value) { return ToInt32(&value); } /**< See above. */
+	inline static int32 ToInt32(const fm::stringT<fchar>& value) { return ToInt32(value.c_str()); } /**< See above. */
+#endif
 
 	/** Parses a string into an unsigned integer.
 		@param value The string. For the string pointer versions of this function,
@@ -95,10 +101,12 @@ public:
 		@return The parsed unsigned integer. */
 	template <class CH>
 	static FCOLLADA_EXPORT uint32 ToUInt32(const CH** value);
-	template <class CH>
-	inline static uint32 ToUInt32(const CH* value) { return ToUInt32(&value); } /**< See above. */
-	template <class CH>
-	inline static uint32 ToUInt32(const fm::stringT<CH>& value) { return ToUInt32(value.c_str()); } /**< See above. */
+	inline static uint32 ToUInt32(const char* value) { return ToUInt32(&value); } /**< See above. */
+	inline static uint32 ToUInt32(const fm::stringT<char>& value) { return ToUInt32(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static uint32 ToUInt32(const fchar* value) { return ToUInt32(&value); } /**< See above. */
+	inline static uint32 ToUInt32(const fm::stringT<fchar>& value) { return ToUInt32(value.c_str()); } /**< See above. */
+#endif
 
 	/** Parses a string into an unsigned integer. The string is assumed to have
 		an unsigned integer in hexadecimal format.
@@ -109,10 +117,12 @@ public:
 		@return The parsed unsigned integer. */
 	template <class CH>
 	static FCOLLADA_EXPORT uint32 HexToUInt32(const CH** value, uint32 count=UINT_MAX);
-	template <class CH>
-	inline static uint32 HexToUInt32(const CH* value, uint32 count=UINT_MAX) { return HexToUInt32(&value, count); } /**< See above. */
-	template <class CH>
-	inline static uint32 HexToUInt32(const fm::stringT<CH>& value, uint32 count=UINT_MAX) { return HexToUInt32(value.c_str(), count); } /**< See above. */
+	inline static uint32 HexToUInt32(const char* value, uint32 count=UINT_MAX) { return HexToUInt32(&value, count); } /**< See above. */
+	inline static uint32 HexToUInt32(const fm::stringT<char>& value, uint32 count=UINT_MAX) { return HexToUInt32(value.c_str(), count); } /**< See above. */
+#ifdef UNICODE
+	inline static uint32 HexToUInt32(const fchar* value, uint32 count=UINT_MAX) { return HexToUInt32(&value, count); } /**< See above. */
+	inline static uint32 HexToUInt32(const fm::stringT<fchar>& value, uint32 count=UINT_MAX) { return HexToUInt32(value.c_str(), count); } /**< See above. */
+#endif
 
 	/** Parses a string into a vector.
 		@param value The string. For the string pointer versions of this function,
@@ -120,22 +130,30 @@ public:
 		@return The parsed vector. */
 	template <class CH>
 	static FCOLLADA_EXPORT FMVector2 ToVector2(const CH** value);
-	template <class CH>
-	inline static FMVector2 ToVector2(const CH* value) { return ToVector2(&value); } /**< See above. */
-	template <class CH>
-	inline static FMVector2 ToVector2(const fm::stringT<CH>& value) { return ToVector2(value.c_str()); } /**< See above. */
+	inline static FMVector2 ToVector2(const char* value) { return ToVector2(&value); } /**< See above. */
+	inline static FMVector2 ToVector2(const fm::stringT<char>& value) { return ToVector2(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static FMVector2 ToVector2(const fchar* value) { return ToVector2(&value); } /**< See above. */
+	inline static FMVector2 ToVector2(const fm::stringT<fchar>& value) { return ToVector2(value.c_str()); } /**< See above. */
+#endif
+
 	template <class CH>
 	static FCOLLADA_EXPORT FMVector3 ToVector3(const CH** value); /**< See above. */
-	template <class CH>
-	inline static FMVector3 ToVector3(const CH* value) { return ToVector3(&value); } /**< See above. */
-	template <class CH>
-	inline static FMVector3 ToVector3(const fm::stringT<CH>& value) { return ToVector3(value.c_str()); } /**< See above. */
+	inline static FMVector3 ToVector3(const char* value) { return ToVector3(&value); } /**< See above. */
+	inline static FMVector3 ToVector3(const fm::stringT<char>& value) { return ToVector3(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static FMVector3 ToVector3(const fchar* value) { return ToVector3(&value); } /**< See above. */
+	inline static FMVector3 ToVector3(const fm::stringT<fchar>& value) { return ToVector3(value.c_str()); } /**< See above. */
+#endif
+
 	template <class CH>
 	static FCOLLADA_EXPORT FMVector4 ToVector4(const CH** value); /**< See above. */
-	template <class CH>
-	inline static FMVector4 ToVector4(const CH* value) { return ToVector4(&value); } /**< See above. */
-	template <class CH>
-	inline static FMVector4 ToVector4(const fm::stringT<CH>& value) { return ToVector4(value.c_str()); } /**< See above. */
+	inline static FMVector4 ToVector4(const char* value) { return ToVector4(&value); } /**< See above. */
+	inline static FMVector4 ToVector4(const fm::stringT<char>& value) { return ToVector4(value.c_str()); } /**< See above. */
+#ifdef UNICODE
+	inline static FMVector4 ToVector4(const fchar* value) { return ToVector4(&value); } /**< See above. */
+	inline static FMVector4 ToVector4(const fm::stringT<fchar>& value) { return ToVector4(value.c_str()); } /**< See above. */
+#endif
 
 	/** Parses a string into a 4x4 matrix.
 		@param value The string. For the string pointer versions of this function,
@@ -143,22 +161,26 @@ public:
 		@param mx The matrix to be filled in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToMatrix(const CH** value, FMMatrix44& mx);
-	template <class CH>
-	inline static void ToMatrix(const CH* value, FMMatrix44& mx) { ToMatrix(&value, mx); } /**< See above. */
-	template <class CH>
-	inline static void ToMatrix(const fm::stringT<CH>& value, FMMatrix44& mx) { ToMatrix(value.c_str(), mx); } /**< See above. */
-	template <class CH>
-	inline static FMMatrix44 ToMatrix(const CH* value) { FMMatrix44 mx; ToMatrix(&value, mx); return mx; } /**< See above. */
-	template <class CH>
-	inline static FMMatrix44 ToMatrix(const fm::stringT<CH>& value) { FMMatrix44 mx; ToMatrix(value.c_str(), mx); return mx; } /**< See above. */
+	inline static void ToMatrix(const char* value, FMMatrix44& mx) { ToMatrix(&value, mx); } /**< See above. */
+	inline static void ToMatrix(const fm::stringT<char>& value, FMMatrix44& mx) { ToMatrix(value.c_str(), mx); } /**< See above. */
+	inline static FMMatrix44 ToMatrix(const char* value) { FMMatrix44 mx; ToMatrix(&value, mx); return mx; } /**< See above. */
+	inline static FMMatrix44 ToMatrix(const fm::stringT<char>& value) { FMMatrix44 mx; ToMatrix(value.c_str(), mx); return mx; } /**< See above. */
+#ifdef UNICODE
+	inline static void ToMatrix(const fchar* value, FMMatrix44& mx) { ToMatrix(&value, mx); } /**< See above. */
+	inline static void ToMatrix(const fm::stringT<fchar>& value, FMMatrix44& mx) { ToMatrix(value.c_str(), mx); } /**< See above. */
+	inline static FMMatrix44 ToMatrix(const fchar* value) { FMMatrix44 mx; ToMatrix(&value, mx); return mx; } /**< See above. */
+	inline static FMMatrix44 ToMatrix(const fm::stringT<fchar>& value) { FMMatrix44 mx; ToMatrix(value.c_str(), mx); return mx; } /**< See above. */
+#endif
 
 	/** Parses a string into a datetime structure.
 		@param value The string.
 		@param dateTime The datetime structure to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToDateTime(const CH* value, FUDateTime& dateTime);
-	template <class CH>
-	inline static void ToDateTime(const fm::stringT<CH>& value, FUDateTime& dateTime) { return ToDateTime(value.c_str(), dateTime); } /**< See above. */
+	inline static void ToDateTime(const fm::stringT<char>& value, FUDateTime& dateTime) { return ToDateTime(value.c_str(), dateTime); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToDateTime(const fm::stringT<fchar>& value, FUDateTime& dateTime) { return ToDateTime(value.c_str(), dateTime); } /**< See above. */
+#endif
 
 #ifdef HAS_VECTORTYPES
 
@@ -171,40 +193,50 @@ public:
 #ifdef UNICODE
 	static void ToStringList(const fchar* value, StringList& array); /**< See above. */
 #endif // UNICODE
-	template <class CH>
-	inline static void ToStringList(const fm::stringT<CH>& value, StringList& array) { return ToStringList(value.c_str(), array); } /**< See above. */
+	inline static void ToStringList(const fm::stringT<char>& value, StringList& array) { return ToStringList(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToStringList(const fm::stringT<fchar>& value, StringList& array) { return ToStringList(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of boolean values.
 		@param value The string.
 		@param array The list of boolean values to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToBooleanList(const CH* value, BooleanList& array);
-	template <class CH>
-	inline static void ToBooleanList(const fm::stringT<CH>& value, BooleanList& array) { return ToBooleanList(value.c_str(), array); } /**< See above. */
+	inline static void ToBooleanList(const fm::stringT<char>& value, BooleanList& array) { return ToBooleanList(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToBooleanList(const fm::stringT<fchar>& value, BooleanList& array) { return ToBooleanList(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of floating point values.
 		@param value The string.
 		@param array The list of floating point values to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToFloatList(const CH* value, FloatList& array);
-	template <class CH>
-	inline static void ToFloatList(const fm::stringT<CH>& value, FloatList& array) { return ToFloatList(value.c_str(), array); } /**< See above. */
+	inline static void ToFloatList(const fm::stringT<char>& value, FloatList& array) { return ToFloatList(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToFloatList(const fm::stringT<fchar>& value, FloatList& array) { return ToFloatList(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of signed integers.
 		@param value The string.
 		@param array The list of signed integers to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToInt32List(const CH* value, Int32List& array);
-	template <class CH>
-	inline static void ToInt32List(const fm::stringT<CH>& value, Int32List& array) { return ToInt32List(value.c_str(), array); } /**< See above. */
+	inline static void ToInt32List(const fm::stringT<char>& value, Int32List& array) { return ToInt32List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToInt32List(const fm::stringT<fchar>& value, Int32List& array) { return ToInt32List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of unsigned integers.
 		@param value The string.
 		@param array The list of unsigned integers to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToUInt32List(const CH* value, UInt32List& array);
-	template <class CH>
-	inline static void ToUInt32List(const fm::stringT<CH>& value, UInt32List& array) { return ToUInt32List(value.c_str(), array); } /**< See above. */
+	inline static void ToUInt32List(const fm::stringT<char>& value, UInt32List& array) { return ToUInt32List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToUInt32List(const fm::stringT<fchar>& value, UInt32List& array) { return ToUInt32List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string containing interleaved floating-point values.
 		The values will be stored in multiple, independent lists.
@@ -212,8 +244,10 @@ public:
 		@param arrays The lists of floating-point values to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToInterleavedFloatList(const CH* value, fm::pvector<FloatList>& arrays);
-	template <class CH>
-	inline static void ToInterleavedFloatList(const fm::stringT<CH>& value, fm::pvector<FloatList>& arrays) { return ToInterleavedFloatList(value.c_str(), arrays); } /**< See above. */
+	inline static void ToInterleavedFloatList(const fm::stringT<char>& value, fm::pvector<FloatList>& arrays) { return ToInterleavedFloatList(value.c_str(), arrays); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToInterleavedFloatList(const fm::stringT<fchar>& value, fm::pvector<FloatList>& arrays) { return ToInterleavedFloatList(value.c_str(), arrays); } /**< See above. */
+#endif
 
 	/** Parses a string containing interleaved unsigned integers.
 		The values will be stored in multiple, independent lists.
@@ -221,48 +255,60 @@ public:
 		@param arrays The lists of unsigned integers to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToInterleavedUInt32List(const CH* value, fm::pvector<UInt32List>& arrays);
-	template <class CH>
-	inline static void ToInterleavedUInt32List(const fm::stringT<CH>& value, fm::pvector<UInt32List>& arrays) { return ToInterleavedUInt32List(value.c_str(), arrays); } /**< See above. */
+	inline static void ToInterleavedUInt32List(const fm::stringT<char>& value, fm::pvector<UInt32List>& arrays) { return ToInterleavedUInt32List(value.c_str(), arrays); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToInterleavedUInt32List(const fm::stringT<fchar>& value, fm::pvector<UInt32List>& arrays) { return ToInterleavedUInt32List(value.c_str(), arrays); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of matrices.
 		@param value The string.
 		@param array The list of matrices to fill in. */
 	template <class CH>
 	static FCOLLADA_EXPORT void ToMatrixList(const CH* value, FMMatrix44List& array);
-	template <class CH>
-	inline static void ToMatrixList(const fm::stringT<CH>& value, FMMatrix44List& array) { return ToMatrixList(value.c_str(), array); } /**< See above. */
+	inline static void ToMatrixList(const fm::stringT<char>& value, FMMatrix44List& array) { return ToMatrixList(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToMatrixList(const fm::stringT<fchar>& value, FMMatrix44List& array) { return ToMatrixList(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of 2D vectors.
 		@param value The string.
 		@param array The list of 2D vectors to fill in.*/
 	template <class CH>
 	static FCOLLADA_EXPORT void ToVector2List(const CH* value, FMVector2List& array);
-	template <class CH>
-	inline static void ToVector2List(const fm::stringT<CH>& value, FMVector2List& array) { return ToVector2List(value.c_str(), array); } /**< See above. */
+	inline static void ToVector2List(const fm::stringT<char>& value, FMVector2List& array) { return ToVector2List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToVector2List(const fm::stringT<fchar>& value, FMVector2List& array) { return ToVector2List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of 3D vectors.
 		@param value The string.
 		@param array The list of 3D vectors to fill in.*/
 	template <class CH>
 	static FCOLLADA_EXPORT void ToVector3List(const CH* value, FMVector3List& array);
-	template <class CH>
-	inline static void ToVector3List(const fm::stringT<CH>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+	inline static void ToVector3List(const fm::stringT<char>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToVector3List(const fm::stringT<fchar>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** @deprecated Parses a string into a list of 3D points. Now replaced by ToVector3List.
 		@param value The string.
 		@param array The list of 3D points to fill in.*/
-	template <class CH>
-	inline static void ToPointList(const CH* value, FMVector3List& array) { return ToVector3List(value, array); }
-	template <class CH>
-	inline static void ToPointList(const fm::stringT<CH>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+	inline static void ToPointList(const char* value, FMVector3List& array) { return ToVector3List(value, array); }
+	inline static void ToPointList(const fm::stringT<char>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToPointList(const fchar* value, FMVector3List& array) { return ToVector3List(value, array); }
+	inline static void ToPointList(const fm::stringT<fchar>& value, FMVector3List& array) { return ToVector3List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Parses a string into a list of 4D vectors.
 		@param value The string.
 		@param array The list of 4D vectors to fill in.*/
 	template <class CH>
 	static FCOLLADA_EXPORT void ToVector4List(const CH* value, FMVector4List& array);
-	template <class CH>
-	inline static void ToVector4List(const fm::stringT<CH>& value, FMVector4List& array) { return ToVector4List(value.c_str(), array); } /**< See above. */
+	inline static void ToVector4List(const fm::stringT<char>& value, FMVector4List& array) { return ToVector4List(value.c_str(), array); } /**< See above. */
+#ifdef UNICODE
+	inline static void ToVector4List(const fm::stringT<fchar>& value, FMVector4List& array) { return ToVector4List(value.c_str(), array); } /**< See above. */
+#endif
 
 	/** Converts a list of floating-point values into a string.
 		@param builder The string builder that will contain the list of values.
