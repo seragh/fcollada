@@ -8,6 +8,9 @@
 
 #include "StdAfx.h"
 
+static float __identity[] = { 1, 0, 0, 0, 1, 0 ,0, 0, 1 };
+FMMatrix33 FMMatrix33::identity(__identity);
+
 FMMatrix33::FMMatrix33(float* _m)
 {
 	m[0][0] = _m[0]; m[1][0] = _m[1]; m[2][0] = _m[2];

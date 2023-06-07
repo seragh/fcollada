@@ -165,7 +165,4 @@ public:
  */
 FMMatrix33 FCOLLADA_EXPORT operator*(const FMMatrix33& m1, const FMMatrix33& m2);
 
-inline static float __identity33[] = { 1, 0, 0, 0, 1, 0 ,0, 0, 1 };
-inline FMMatrix33 FMMatrix33::identity(__identity33);
-
 #endif // _FM_MATRIX33_H_

@@ -237,7 +237,4 @@ inline FMMatrix44& operator*=(FMMatrix44& m1, const FMMatrix44& m2) { return m1 
 /** A dynamically-sized array of 4x4 matrices. */
 typedef fm::vector<FMMatrix44> FMMatrix44List;
 
-inline static float __identity44[] = { 1, 0, 0, 0, 0, 1, 0 ,0 ,0, 0, 1, 0, 0, 0, 0, 1 };
-inline FMMatrix44 FMMatrix44::Identity(__identity44);
-
 #endif // _FM_MATRIX44_H_

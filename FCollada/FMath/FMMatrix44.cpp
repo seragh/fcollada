@@ -10,6 +10,9 @@
 #include "FMMatrix44.h"
 #include <limits>
 
+static float __identity[] = { 1, 0, 0, 0, 0, 1, 0 ,0 ,0, 0, 1, 0, 0, 0, 0, 1 };
+FMMatrix44 FMMatrix44::Identity(__identity);
+
 FMMatrix44::FMMatrix44(const float* _m)
 {
 	Set(_m);
