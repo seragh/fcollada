@@ -32,7 +32,14 @@ public:
 	float y;	/**< The second coordinate. */
 	float z;	/**< The third coordinate. */
 private:
+#if defined(__GNUC__) && __GNUC__ < 12
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wattributes"
+#endif
 	[[maybe_unused]] float w;	// For alignment purposes.
+#if defined(__GNUC__) && __GNUC__ < 12
+#pragma GCC diagnostic pop
+#endif
 
 public:
 	/**
