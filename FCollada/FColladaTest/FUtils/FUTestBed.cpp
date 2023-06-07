@@ -29,30 +29,13 @@ bool FUTestBed::RunTestbed(FUTestSuite* headTestSuite)
 
 	RunTestSuite(headTestSuite);
 
-	if (isVerbose)
-	{
-		fileOut.WriteLine("---------------------------------");
-		fileOut.WriteLine("Tests passed: %u.", (uint32) testPassed);
-		fileOut.WriteLine("Tests failed: %u.", (uint32) testFailed);
-		fileOut.WriteLine("");
-		fileOut.Flush();
+	fileOut.WriteLine("---------------------------------");
+	fileOut.WriteLine("Tests passed: %zu.", testPassed);
+	fileOut.WriteLine("Tests failed: %zu.", testFailed);
+	fileOut.WriteLine("");
+	fileOut.WriteLine("Testbed score: [%zu/%zu]", testPassed, testFailed + testPassed);
+	fileOut.WriteLine("---------------------------------");
 
-#ifdef _WIN32
-		char sz[1024];
-		snprintf(sz, 1024, "Testbed score: [%zu/%zu]", testPassed, testFailed + testPassed);
-		sz[1023] = 0;
-
-		size_t returnCode = IDOK;
-		returnCode = MessageBox(NULL, TO_FSTRING(sz).c_str(), FC("Testbed"), MB_OKCANCEL);
-		if (returnCode == IDCANCEL)
-		{
-			snprintf(sz, 1024, "write %s ", filename.c_str());
-			sz[1023] = 0;
-			system(sz);
-			return false;
-		}
-#endif
-	}
 	return true;
 }
 
