@@ -42,7 +42,7 @@ class FCDEffectPassState;
 class FCOLLADA_EXPORT FCDEffectPass : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectPass)
 
 	FCDEffectTechnique* parent;
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));

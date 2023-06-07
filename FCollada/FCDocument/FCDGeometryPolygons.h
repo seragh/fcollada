@@ -81,7 +81,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDGeometryPolygons)
 
 	FCDGeometryMesh* parent;
 	DeclareParameterContainer(FCDGeometryPolygonsInput, inputs, FC("Data Inputs"));

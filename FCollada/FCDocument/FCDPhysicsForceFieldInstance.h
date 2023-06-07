@@ -31,7 +31,7 @@ class FCDocument;
 class FCOLLADA_EXPORT FCDPhysicsForceFieldInstance : public FCDEntityInstance
 {
 private:
-	DeclareObjectType(FCDEntityInstance);
+	DeclareObjectType(FCDEntityInstance, FCDPhysicsForceFieldInstance)
 
 	friend class FCDEntityInstanceFactory;
 

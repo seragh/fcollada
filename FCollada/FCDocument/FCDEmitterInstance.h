@@ -34,7 +34,7 @@ class FCDForceField;
 class FCOLLADA_EXPORT FCDEmitterInstance : public FCDEntityInstance
 {
 private:
-    DeclareObjectType(FCDEntityInstance);
+    DeclareObjectType(FCDEntityInstance, FCDEmitterInstance)
 	friend class FCDEntityInstanceFactory;
 
 protected:

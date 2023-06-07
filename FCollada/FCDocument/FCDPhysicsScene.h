@@ -45,7 +45,7 @@ typedef FUObjectContainer<FCDPhysicsForceFieldInstance> FCDForceFieldInstanceCon
 class FCOLLADA_EXPORT FCDPhysicsScene : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDPhysicsScene)
 	FMVector3 gravity;
 	float timestep;
 	FCDPhysicsModelInstanceContainer physicsModelInstances;

@@ -43,7 +43,7 @@ class FCDExtra;
 class FCOLLADA_EXPORT FCDGeometrySource : public FCDObjectWithId
 {
 private:
-	DeclareObjectType(FCDObjectWithId);
+	DeclareObjectType(FCDObjectWithId, FCDGeometrySource)
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
 	DeclareParameterListAnimatable(float, FUParameterQualifiers::SIMPLE, sourceData, FC("Data"))
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, stride, FC("Stride"));

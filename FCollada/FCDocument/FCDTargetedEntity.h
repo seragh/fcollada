@@ -41,7 +41,7 @@ class FCDSceneNode;
 class FCOLLADA_EXPORT FCDTargetedEntity : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDTargetedEntity)
 
 	// Target
 	DeclareParameterPtr(FCDSceneNode, targetNode, FC("Target Node"));

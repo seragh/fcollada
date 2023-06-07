@@ -42,7 +42,7 @@ typedef fm::pvector<FCDENode> FCDENodeList; /**< A dynamically-sized list of ext
 class FCOLLADA_EXPORT FCDExtra : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDExtra)
 
 	FUObject* parent;
 	DeclareParameterContainer(FCDEType, types, FC("Extra Types"));
@@ -126,7 +126,7 @@ public:
 class FCOLLADA_EXPORT FCDEType : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEType)
 
 	FCDExtra* parent;
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Type name"));
@@ -221,7 +221,7 @@ public:
 class FCOLLADA_EXPORT FCDENode : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDENode)
 
 	FCDENode* parent;
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Node name"));
@@ -439,7 +439,7 @@ public:
 class FCOLLADA_EXPORT FCDETechnique : public FCDENode
 {
 private:
-	DeclareObjectType(FCDENode);
+	DeclareObjectType(FCDENode, FCDETechnique)
 
 	FCDEType* parent;
 	DeclareParameterPtr(FUTrackable, pluginOverride, FC("Plug-in Override Object"));

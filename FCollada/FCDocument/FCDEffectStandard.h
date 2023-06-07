@@ -103,7 +103,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDEffectProfile);
+	DeclareObjectType(FCDEffectProfile, FCDEffectStandard)
 
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Lighting Type")); // LightingType;
 

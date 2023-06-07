@@ -13,7 +13,7 @@
 // Declare a few object and containers to be used by the tests belows
 class FUTObject1 : public FUTrackable
 {
-	DeclareObjectType(FUTrackable);
+	DeclareObjectType(FUTrackable, FUTObject1)
 public:
 	FUTObject1(FUObjectContainer<FUTrackable>* container) { container->push_back(this); }
 };
@@ -21,7 +21,7 @@ ImplementObjectType(FUTObject1);
 
 class FUTObject2 : public FUTrackable
 {
-	DeclareObjectType(FUTrackable);
+	DeclareObjectType(FUTrackable, FUTObject2)
 public:
 	FUTObject2(FUObjectContainer<FUTrackable>* container) { container->push_back(this); }
 };
@@ -29,7 +29,7 @@ ImplementObjectType(FUTObject2);
 
 class FUTObject1Up : public FUTObject1
 {
-	DeclareObjectType(FUTObject1);
+	DeclareObjectType(FUTObject1, FUTObject1Up)
 public:
 	FUTObject1Up(FUObjectContainer<FUTrackable>* container) : FUTObject1(container) {}
 };
@@ -38,19 +38,19 @@ ImplementObjectType(FUTObject1Up);
 ///////////////////////////////////////////////////////////////////////////////
 class FUTSimple1 : public FUTrackable
 {
-	DeclareObjectType(FUTrackable);
+	DeclareObjectType(FUTrackable, FUTSimple1)
 };
 class FUTSimple2 : public FUTSimple1
 {
-	DeclareObjectType(FUTSimple1);
+	DeclareObjectType(FUTSimple1, FUTSimple2)
 };
 class FUTSimple3 : public FUTSimple2
 {
-	DeclareObjectType(FUTSimple2);
+	DeclareObjectType(FUTSimple2, FUTSimple3)
 };
 class FUTSimple4 : public FUTSimple2
 {
-	DeclareObjectType(FUTSimple2);
+	DeclareObjectType(FUTSimple2, FUTSimple4)
 };
 ImplementObjectType(FUTSimple1);
 ImplementObjectType(FUTSimple2);

@@ -46,7 +46,7 @@ typedef fm::pvector<FCDAnimationKey> FCDAnimationKeyList; /**< A dynamically-siz
 class FCOLLADA_EXPORT FCDAnimationCurve : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAnimationCurve)
 
 	// The channel owning this curve.
 	FCDAnimationChannel* parent;

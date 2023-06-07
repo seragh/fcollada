@@ -53,7 +53,7 @@ class FCDEffectProfile;
 class FCOLLADA_EXPORT FCDEffect : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDEffect)
 	DeclareParameterContainer(FCDEffectProfile, profiles, FC("Profiles"));
 	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Parameters"));
 

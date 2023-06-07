@@ -43,7 +43,7 @@ class FCDocument;
 class FCOLLADA_EXPORT FCDObject : public FUParameterizable
 {
 private:
-	DeclareObjectType(FUParameterizable);
+	DeclareObjectType(FUParameterizable, FCDObject)
 
 	// The COLLADA document that owns this object
 	FCDocument* document;

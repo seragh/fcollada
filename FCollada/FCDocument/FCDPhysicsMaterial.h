@@ -32,7 +32,7 @@ class FCDocument;
 class FCOLLADA_EXPORT FCDPhysicsMaterial : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDPhysicsMaterial)
 	float staticFriction;
 	float dynamicFriction;
 	float restitution;

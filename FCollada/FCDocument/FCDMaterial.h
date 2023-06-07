@@ -57,7 +57,7 @@ typedef fm::vector<FCDMaterialTechniqueHint> FCDMaterialTechniqueHintList;
 class FCOLLADA_EXPORT FCDMaterial : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDMaterial)
 	bool ownsEffect;
 	DeclareParameterPtr(FCDEntityReference, effect, FC("Effect"));
 	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"))

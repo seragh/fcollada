@@ -42,7 +42,7 @@ typedef FUTrackedList<FCDAnimationCurve> FCDAnimationCurveTrackList; /**< A dyna
 class FCOLLADA_EXPORT FCDAnimationClip : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDAnimationClip)
 	FCDAnimationCurveTrackList curves;
 
 	DeclareParameter(float, FUParameterQualifiers::SIMPLE, start, FC("Start Time"));

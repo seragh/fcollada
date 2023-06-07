@@ -55,7 +55,7 @@ class FCDEffectTechnique;
 class FCOLLADA_EXPORT FCDEffectProfileFX : public FCDEffectProfile
 {
 private:
-	DeclareObjectType(FCDEffectProfile);
+	DeclareObjectType(FCDEffectProfile, FCDEffectProfileFX)
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Profile Language")); // FUDaeProfileType::Type
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, platform, FC("Platform"));
 

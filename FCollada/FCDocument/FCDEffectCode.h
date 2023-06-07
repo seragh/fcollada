@@ -44,7 +44,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectCode)
 
 	Type type;
 	fm::string sid;

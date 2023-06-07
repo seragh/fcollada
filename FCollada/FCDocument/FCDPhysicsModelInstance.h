@@ -34,7 +34,7 @@ class FCDPhysicsRigidConstraintInstance;
 class FCOLLADA_EXPORT FCDPhysicsModelInstance : public FCDEntityInstance
 {
 private:
-	DeclareObjectType(FCDEntityInstance);
+	DeclareObjectType(FCDEntityInstance, FCDPhysicsModelInstance)
 
 	DeclareParameterContainer(FCDEntityInstance, instances, FC("Inner Instances"));
 

@@ -21,7 +21,7 @@
 class FCOLLADA_EXPORT FUPlugin : public FUTrackable
 {
 private:
-	DeclareObjectType(FUTrackable);
+	DeclareObjectType(FUTrackable, FUPlugin)
 
 protected:
 	/** Destructor.

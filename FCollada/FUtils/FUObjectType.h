@@ -83,9 +83,9 @@ public:
 	to easily implement RTTI.
 	@param _ParentClass The class name for the parent class.
 */
-#define DeclareObjectType(_ParentClass) \
+#define DeclareObjectType(_ParentClass, ClassName) \
 private: \
-	static class FUObjectType __classType; \
+	inline static const FUObjectType __classType = FUObjectType(_ParentClass::GetClassType(), #ClassName); \
 	typedef _ParentClass Parent; \
 public: \
 	static const FUObjectType& GetClassType() { return __classType; } \
@@ -100,13 +100,10 @@ private:
 	@param ClassName The name of the class.
 */
 #define ImplementObjectType(ClassName) \
-	FUObjectType ClassName::__classType(Parent::GetClassType(), #ClassName); \
 	void ClassName::Release() { Detach(); delete this; }
 
 /** See above. */
 #define ImplementObjectTypeT(ClassName) \
-	template <> \
-	FUObjectType ClassName::__classType(Parent::GetClassType(), #ClassName); \
 	template <> \
 	void ClassName::Release() { Detach(); delete this; }
 
@@ -119,7 +116,6 @@ private:
 	Release() { delete this; }.
 	@param ClassName The name of the class.
 */
-#define ImplementObjectType_NoDefaultRelease(ClassName) \
-	FUObjectType ClassName::__classType(Parent::GetClassType(), #ClassName);
+#define ImplementObjectType_NoDefaultRelease(ClassName)
 
 #endif // _FU_OBJECT_TYPE_H_

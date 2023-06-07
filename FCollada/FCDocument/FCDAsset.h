@@ -48,7 +48,7 @@ class FCDAssetContributor;
 class FCOLLADA_EXPORT FCDAsset : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAsset)
 
 	DeclareParameterContainer(FCDAssetContributor, contributors, FC("Contributors"));
 	FUDateTime creationDateTime;
@@ -245,7 +245,7 @@ public:
 class FCOLLADA_EXPORT FCDAssetContributor : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAssetContributor)
 
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, author, FC("Author"));
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, authoringTool, FC("Authoring Tool"));

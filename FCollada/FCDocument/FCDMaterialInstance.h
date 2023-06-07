@@ -41,7 +41,7 @@ class FCDGeometryPolygons;
 class FCDMaterialInstanceBind : public FUParameterizable
 {
 private:
-	DeclareObjectType(FUParameterizable);
+	DeclareObjectType(FUParameterizable, FCDMaterialInstanceBind)
 
 public:
 	/** The token used to identify the effect parameter to modify. */
@@ -69,7 +69,7 @@ public:
 class FCDMaterialInstanceBindVertexInput : public FUParameterizable
 {
 private:
-	DeclareObjectType(FUParameterizable);
+	DeclareObjectType(FUParameterizable, FCDMaterialInstanceBindVertexInput)
 
 public:
 	/** The token used to identify the effect parameter or varying shader input. */
@@ -104,7 +104,7 @@ public:
 class FCOLLADA_EXPORT FCDMaterialInstance : public FCDEntityInstance
 {
 private:
-	DeclareObjectType(FCDEntityInstance);
+	DeclareObjectType(FCDEntityInstance, FCDMaterialInstance)
 	FCDEntityInstance* parent;
 
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, semantic, FC("Material Token"));

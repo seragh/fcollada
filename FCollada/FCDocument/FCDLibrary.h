@@ -50,7 +50,7 @@ template <class T>
 class FCOLLADA_EXPORT FCDLibrary : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDLibrary)
 
 	/** Entities list. This list should contain all the root entities of the correct type.
 		Note that the following entity types are tree-based, rather than list-based: FCDAnimation,

@@ -53,7 +53,7 @@ class FCDGeometrySpline;
 class FCOLLADA_EXPORT FCDGeometry : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDGeometry)
 
 	// Contains only one of the following, in order of importance.
 	DeclareParameterRef(FCDGeometryMesh, mesh, FC("Mesh"));

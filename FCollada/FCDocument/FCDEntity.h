@@ -81,7 +81,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObjectWithId);
+	DeclareObjectType(FCDObjectWithId, FCDEntity)
 
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
 	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));

@@ -74,7 +74,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectParameter)
 
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, paramType, FC("Parameter Type")); // ParamType
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, reference, FC("Identifier"));
@@ -223,7 +223,7 @@ template <class PrimitiveType>
 class FCOLLADA_EXPORT FCDEffectParameterT : public FCDEffectParameter
 {
 private:
-	DeclareObjectType(FCDEffectParameter);
+	DeclareObjectType(FCDEffectParameter, FCDEffectParameterT)
 	DeclareParameter(PrimitiveType, FUParameterQualifiers::SIMPLE, value, FC("Value"));
 
 public:
@@ -285,7 +285,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDEffectParameter);
+	DeclareObjectType(FCDEffectParameter, FCDEffectParameterAnimatableT)
 	FloatType floatType;
 	DeclareParameterAnimatable(PrimitiveType, Qualifiers, value, FC("Value"));
 
@@ -355,7 +355,7 @@ typedef FCDEffectParameterAnimatableT<FMMatrix44, FUParameterQualifiers::SIMPLE>
 class FCOLLADA_EXPORT FCDEffectParameterAnnotation : public FUParameterizable
 {
 private:
-	DeclareObjectType(FUParameterizable);
+	DeclareObjectType(FUParameterizable, FCDEffectParameterAnnotation)
 
 public:
     /** Constructor. Do not use directly.

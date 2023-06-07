@@ -48,7 +48,7 @@ typedef fm::pvector<FCDAnimationCurve> FCDAnimationCurveList; /**< A dynamically
 class FCOLLADA_EXPORT FCDAnimation : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDAnimation)
 
 	// Animation hierarchy
 	FCDAnimation* parent;

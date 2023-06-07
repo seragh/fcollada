@@ -57,7 +57,7 @@ typedef FCDEffectParameterT<int32> FCDEffectParameterInt; /**< An integer effect
 class FCOLLADA_EXPORT FCDTexture : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDTexture)
 
 	FCDEffectStandard* parent;
 	DeclareParameterPtr(FCDEffectParameterSampler, sampler, FC("Sampler")); // Points to the surface, which points to the image.

@@ -40,7 +40,7 @@ template <class Arg1, class Arg2> class FUEvent2;
 class FCOLLADA_EXPORT FCDPhysicsRigidBodyInstance : public FCDEntityInstance
 {
 private:
-	DeclareObjectType(FCDEntityInstance);
+	DeclareObjectType(FCDEntityInstance, FCDPhysicsRigidBodyInstance)
 
 	FCDPhysicsModelInstance* parent;
 	typedef FUEvent2<FCDPhysicsRigidBodyInstance*, const FMVector3&> CollisionEvent;

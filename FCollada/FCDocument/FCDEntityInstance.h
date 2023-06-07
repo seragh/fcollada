@@ -66,7 +66,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEntityInstance)
 	friend class FCDEntityInstanceFactory;
 
 	FCDSceneNode* parent; // May be NULL for non-scene graph instances.

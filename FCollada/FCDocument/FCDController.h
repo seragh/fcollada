@@ -40,7 +40,7 @@ class FCDMorphController;
 class FCOLLADA_EXPORT FCDController : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDController)
 
 	DeclareParameterRef(FCDSkinController, skinController, FC("Skin"));
 	DeclareParameterRef(FCDMorphController, morphController, FC("Morpher"));

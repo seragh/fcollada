@@ -39,7 +39,7 @@ class FCDEmitterParticle;
 class FCOLLADA_EXPORT FCDEmitter : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDEmitter)
 
 public:
 	/** Constructor.  Do not use directly, emitters should be created using

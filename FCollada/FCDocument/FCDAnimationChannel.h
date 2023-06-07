@@ -44,7 +44,7 @@ typedef fm::pvector<FCDAnimationCurve> FCDAnimationCurveList; /**< A dynamically
 class FCOLLADA_EXPORT FCDAnimationChannel : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAnimationChannel)
 	FCDAnimation* parent;
 
 	DeclareParameterContainer(FCDAnimationCurve, curves, FC("Animation Curves"));

@@ -31,7 +31,7 @@ class FCDEffectCode;
 class FCOLLADA_EXPORT FCDEffectPassBind : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectPassBind)
 
 public:
 	/** Constructor.
@@ -56,7 +56,7 @@ public:
 class FCOLLADA_EXPORT FCDEffectPassShader : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectPassShader)
 
 	FCDEffectPass* parent;
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Name"));

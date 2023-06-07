@@ -32,7 +32,7 @@ class FUTracker;
 class FCOLLADA_EXPORT FUTrackable : public FUObject
 {
 private:
-	DeclareObjectType(FUObject);
+	DeclareObjectType(FUObject, FUTrackable)
 
 	// The objects tracking this one.
 	typedef fm::pvector<FUTracker> FUTrackerList;

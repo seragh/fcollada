@@ -41,7 +41,7 @@ class FCDocument;
 class FCOLLADA_EXPORT FCDImage : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDImage)
 
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, filename, FC("Filename"));
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, width, FC("Width"));

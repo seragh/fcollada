@@ -61,7 +61,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDTransform)
 	FCDSceneNode* parent;
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, sid, FC("Sub-id"));
 
@@ -146,7 +146,7 @@ public:
 class FCOLLADA_EXPORT FCDTTranslation : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTTranslation)
 	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, translation, FC("Translation"));
 
 public:
@@ -217,7 +217,7 @@ public:
 class FCOLLADA_EXPORT FCDTScale : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTScale)
 	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, scale, FC("Scale"));
 
 public:
@@ -283,7 +283,7 @@ public:
 class FCOLLADA_EXPORT FCDTRotation : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTRotation)
 	DeclareParameterAnimatable(FMAngleAxis, FUParameterQualifiers::SIMPLE, angleAxis, FC("Angle-axis"));
 
 public:
@@ -388,7 +388,7 @@ public:
 class FCOLLADA_EXPORT FCDTMatrix : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTMatrix)
 	DeclareParameterAnimatable(FMMatrix44, FUParameterQualifiers::SIMPLE, transform, FC("Transform"));
 
 public:
@@ -448,7 +448,7 @@ public:
 class FCOLLADA_EXPORT FCDTLookAt : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTLookAt)
 	DeclareParameterAnimatable(FMLookAt, FUParameterQualifiers::SIMPLE, lookAt, FC("LookAt"));
 
 public:
@@ -552,7 +552,7 @@ public:
 class FCOLLADA_EXPORT FCDTSkew : public FCDTransform
 {
 private:
-	DeclareObjectType(FCDTransform);
+	DeclareObjectType(FCDTransform, FCDTSkew)
 	DeclareParameterAnimatable(FMSkew, FUParameterQualifiers::SIMPLE, skew, FC("Skew"));
 
 public:

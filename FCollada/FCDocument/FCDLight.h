@@ -71,7 +71,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDTargetedEntity);
+	DeclareObjectType(FCDTargetedEntity, FCDLight)
 
 	// Common Light parameters
 	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::COLOR, color, FC("Color"));

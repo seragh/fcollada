@@ -33,7 +33,7 @@ class FCDForce;
 class FCOLLADA_EXPORT FCDForceField : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDForceField)
 	DeclareParameterRef(FCDExtra, information, FC("Information"));
 
 public:

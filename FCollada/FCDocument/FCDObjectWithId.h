@@ -37,7 +37,7 @@
 class FCOLLADA_EXPORT FCDObjectWithId : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDObjectWithId)
 
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, daeId, FC("Unique Id"));
 

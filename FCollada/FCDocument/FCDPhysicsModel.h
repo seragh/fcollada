@@ -47,7 +47,7 @@ class FCOLLADA_EXPORT FCDPhysicsModel : public FCDEntity
 private:
 	typedef fm::map<xmlNode*, FUUri> ModelInstanceNameNodeMap;
 
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDPhysicsModel)
 	FCDPhysicsModelInstanceContainer instances;
 	FCDPhysicsRigidBodyContainer rigidBodies;
 	FCDPhysicsRigidConstraintContainer rigidConstraints;

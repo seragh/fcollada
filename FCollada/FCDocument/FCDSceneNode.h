@@ -54,7 +54,7 @@ class FCDTransform;
 class FCOLLADA_EXPORT FCDSceneNode : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDSceneNode)
 
 	// Hierarchy and instances
 	DeclareParameterTrackList(FCDSceneNode, parents, FC("Parents"));

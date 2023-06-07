@@ -47,7 +47,7 @@ typedef FUObjectContainer<FCDTransform> FCDTransformContainer; /**< A dynamicall
 class FCOLLADA_EXPORT FCDPhysicsShape : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDPhysicsShape)
 
 	bool hollow;
 	FUTrackedPtr<FCDPhysicsMaterial> physicsMaterial;

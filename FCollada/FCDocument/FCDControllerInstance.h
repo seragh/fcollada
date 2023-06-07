@@ -47,7 +47,7 @@ typedef FUTrackedList<FCDSceneNode> FCDSceneNodeTrackList; /**< A dynamically-si
 class FCOLLADA_EXPORT FCDControllerInstance : public FCDGeometryInstance
 {
 private:
-    DeclareObjectType(FCDGeometryInstance);
+    DeclareObjectType(FCDGeometryInstance, FCDControllerInstance)
 
 	friend class FCDEntityInstanceFactory;
 

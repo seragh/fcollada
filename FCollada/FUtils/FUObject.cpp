@@ -40,7 +40,3 @@ void FUObject::Detach()
 		objectOwner = NULL;
 	}
 }
-
-FUObjectType __baseObjectType("FUObject");
-FUObjectType* FUObject::baseObjectType = &__baseObjectType;
-

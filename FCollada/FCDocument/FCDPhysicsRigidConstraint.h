@@ -43,7 +43,7 @@ typedef FUObjectContainer<FCDTransform> FCDTransformContainer; /**< A dynamicall
 class FCOLLADA_EXPORT FCDPhysicsRigidConstraint : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDPhysicsRigidConstraint)
 	FCDPhysicsModel* parent;
 
 	fm::string sid;

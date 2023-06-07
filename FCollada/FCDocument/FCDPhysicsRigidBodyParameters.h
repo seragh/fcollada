@@ -40,7 +40,7 @@ class FCDEntityInstance;
 class FCOLLADA_EXPORT FCDPhysicsRigidBodyParameters : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDPhysicsRigidBodyParameters)
 
 	bool ownsPhysicsMaterial; /**< This thing is stopping me from parameterizing the physics material. */
 	FUTrackedPtr<FCDPhysicsMaterial> physicsMaterial;

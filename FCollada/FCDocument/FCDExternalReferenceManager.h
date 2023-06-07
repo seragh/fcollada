@@ -38,7 +38,7 @@ class FCDPlaceHolder;
 class FCOLLADA_EXPORT FCDExternalReferenceManager : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDExternalReferenceManager)
 
 	FUObjectContainer<FCDPlaceHolder> placeHolders;
 

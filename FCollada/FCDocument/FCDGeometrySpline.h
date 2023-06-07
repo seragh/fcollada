@@ -33,7 +33,7 @@ class FCDNURBSSpline;
 class FCOLLADA_EXPORT FCDSpline : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDSpline)
 
 	FUDaeSplineForm::Form form;
 	fm::string name;
@@ -110,7 +110,7 @@ typedef fm::pvector<FCDNURBSSpline> FCDNURBSSplineList; /**< A dynamically-sized
 class FCOLLADA_EXPORT FCDLinearSpline : public FCDSpline
 {
 private:
-	DeclareObjectType(FCDSpline);
+	DeclareObjectType(FCDSpline, FCDLinearSpline)
 
 public:
 	/** Constructor.
@@ -147,7 +147,7 @@ public:
 class FCOLLADA_EXPORT FCDBezierSpline : public FCDSpline
 {
 private:
-	DeclareObjectType(FCDSpline);
+	DeclareObjectType(FCDSpline, FCDBezierSpline)
 
 public:
 	/** Constructor.
@@ -184,7 +184,7 @@ public:
 class FCOLLADA_EXPORT FCDNURBSSpline : public FCDSpline
 {
 private:
-	DeclareObjectType(FCDSpline);
+	DeclareObjectType(FCDSpline, FCDNURBSSpline)
 
 	FloatList weights;
 	FloatList knots;
@@ -268,7 +268,7 @@ public:
 class FCOLLADA_EXPORT FCDGeometrySpline : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDGeometrySpline)
 	FCDGeometry* parent;
 
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Spline Type")); // FUDaeSplineType::Type;

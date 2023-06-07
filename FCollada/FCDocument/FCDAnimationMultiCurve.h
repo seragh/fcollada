@@ -47,7 +47,7 @@ typedef fm::pvector<FCDAnimationMKey> FCDAnimationMKeyList; /**< A dynamically-s
 class FCOLLADA_EXPORT FCDAnimationMultiCurve : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAnimationMultiCurve)
 
 	// The number of merged curves
 	uint32 dimension;

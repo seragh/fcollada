@@ -51,7 +51,7 @@ protected: \
 class FCOLLADA_EXPORT FUParameterizable : public FUTrackable
 {
 private:
-	DeclareObjectType(FUTrackable);
+	DeclareObjectType(FUTrackable, FUParameterizable)
 
 protected:
 	/** A generic flag container. Contains notifications of object state. */

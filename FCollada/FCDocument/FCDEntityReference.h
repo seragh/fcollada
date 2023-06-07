@@ -53,7 +53,7 @@ class FCDObjectWithId;
 class FCOLLADA_EXPORT FCDEntityReference : public FCDObject, FUTracker
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEntityReference)
 
 	FCDEntity* entity;
 	FCDPlaceHolder* placeHolder;

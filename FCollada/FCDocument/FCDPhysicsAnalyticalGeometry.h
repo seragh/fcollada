@@ -30,7 +30,7 @@ class FCDPhysicsShape;
 class FCOLLADA_EXPORT FCDPhysicsAnalyticalGeometry : public FCDEntity
 {
 private:
-	DeclareObjectType(FCDEntity);
+	DeclareObjectType(FCDEntity, FCDPhysicsAnalyticalGeometry)
 
 public:
 	/** The geometry type of the analytical geometry class.
@@ -85,7 +85,7 @@ public:
 class FCOLLADA_EXPORT FCDPASBox : public FCDPhysicsAnalyticalGeometry
 {
 private:
-	DeclareObjectType(FCDPhysicsAnalyticalGeometry);
+	DeclareObjectType(FCDPhysicsAnalyticalGeometry, FCDPASBox)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -125,7 +125,7 @@ public:
 class FCOLLADA_EXPORT FCDPASPlane : public FCDPhysicsAnalyticalGeometry
 {
 private:
-	DeclareObjectType(FCDPhysicsAnalyticalGeometry);
+	DeclareObjectType(FCDPhysicsAnalyticalGeometry, FCDPASPlane)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -167,7 +167,7 @@ public:
 class FCOLLADA_EXPORT FCDPASSphere : public FCDPhysicsAnalyticalGeometry
 {
 private:
-	DeclareObjectType(FCDPhysicsAnalyticalGeometry);
+	DeclareObjectType(FCDPhysicsAnalyticalGeometry, FCDPASSphere)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -208,7 +208,7 @@ public:
 class FCOLLADA_EXPORT FCDPASCylinder : public FCDPhysicsAnalyticalGeometry
 {
 private:
-	DeclareObjectType(FCDPhysicsAnalyticalGeometry);
+	DeclareObjectType(FCDPhysicsAnalyticalGeometry, FCDPASCylinder)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -250,7 +250,7 @@ public:
 class FCOLLADA_EXPORT FCDPASCapsule : public FCDPhysicsAnalyticalGeometry
 {
 private:
-	DeclareObjectType(FCDPhysicsAnalyticalGeometry);
+	DeclareObjectType(FCDPhysicsAnalyticalGeometry, FCDPASCapsule)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -292,7 +292,7 @@ public:
 class FCOLLADA_EXPORT FCDPASTaperedCapsule : public FCDPASCapsule
 {
 private:
-	DeclareObjectType(FCDPASCapsule);
+	DeclareObjectType(FCDPASCapsule, FCDPASTaperedCapsule)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by
@@ -334,7 +334,7 @@ public:
 class FCOLLADA_EXPORT FCDPASTaperedCylinder : public FCDPASCylinder
 {
 private:
-	DeclareObjectType(FCDPASCylinder);
+	DeclareObjectType(FCDPASCylinder, FCDPASTaperedCylinder)
 
 public:
 	/** Constructor: do not use directly. Create new analytical geometries by

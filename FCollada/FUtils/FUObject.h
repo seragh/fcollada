@@ -30,7 +30,7 @@ class FUObjectOwner;
 class FCOLLADA_EXPORT FUObject
 {
 private:
-	static class FUObjectType* baseObjectType;
+	inline static const FUObjectType baseObjectType = FUObjectType("FUObject");
 
 	FUObjectOwner* objectOwner;
 
@@ -56,11 +56,11 @@ public:
 
 	/** Retrieves the type of the base object class.
 		@return The type of the base object class. */
-	static const FUObjectType& GetClassType() { return *baseObjectType; }
+	static const FUObjectType& GetClassType() { return baseObjectType; }
 
 	/** Retrieves the type of the object class.
 		@return The type of the base object class. */
-	virtual const FUObjectType& GetObjectType() const { return *baseObjectType; }
+	virtual const FUObjectType& GetObjectType() const { return baseObjectType; }
 
 	/** Retrieves whether this object has exactly the given type.
 		@param _type A given class type.

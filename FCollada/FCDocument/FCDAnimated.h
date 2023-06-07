@@ -57,7 +57,7 @@ typedef fm::pvector<FCDAnimated> FCDAnimatedList; /**< A dynamically-sized array
 class FCOLLADA_EXPORT FCDAnimated : public FCDObject, FUTracker
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDAnimated)
 
 protected:
 	/** The list of value pointers. */
@@ -276,7 +276,7 @@ public:
 class FCOLLADA_EXPORT FCDAnimatedCustom : public FCDAnimated
 {
 private:
-	DeclareObjectType(FCDAnimated);
+	DeclareObjectType(FCDAnimated, FCDAnimatedCustom)
 	float dummy;
 
 	bool Link(xmlNode* node);

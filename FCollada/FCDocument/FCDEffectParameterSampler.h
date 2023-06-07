@@ -47,7 +47,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDEffectParameter);
+	DeclareObjectType(FCDEffectParameter, FCDEffectParameterSampler)
 
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, samplerType, FC("Sampler Type")); // SamplerType
 	DeclareParameterPtr(FCDEffectParameterSurface, surface, FC("Surface"));

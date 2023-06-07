@@ -47,7 +47,7 @@ class FCDGeometryPolygons;
 class FCOLLADA_EXPORT FCDGeometryPolygonsInput : public FCDObject, FUTracker
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDGeometryPolygonsInput)
 
 	FCDGeometryPolygons* parent;
 	DeclareParameterPtr(FCDGeometrySource, source, FC("Data Source"));

@@ -44,7 +44,7 @@ class FCDMorphController;
 class FCOLLADA_EXPORT FCDMorphTarget : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDMorphTarget)
 	FCDMorphController* parent;
 	DeclareParameterPtr(FCDGeometry, geometry, FC("Mesh"))
 	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, weight, FC("Weight"));
@@ -119,7 +119,7 @@ public:
 class FCOLLADA_EXPORT FCDMorphController : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDMorphController)
 	FCDController* parent;
 
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, method, FC("Method")); // FUDaeMorphMethod::Method

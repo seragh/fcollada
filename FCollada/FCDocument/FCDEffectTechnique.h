@@ -46,7 +46,7 @@ typedef fm::pvector<FCDEffectCode> FCDEffectCodeList; /**< A dynamically-sized a
 class FCOLLADA_EXPORT FCDEffectTechnique : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDEffectTechnique)
 	FCDEffectProfileFX* parent;
 
 	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));

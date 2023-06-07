@@ -36,7 +36,7 @@ typedef fm::pvector<FCDEffectParameter> FCDEffectParameterList;
 class FArchiveXML : public FCPArchive
 {
 private:
-	DeclareObjectType(FCPArchive);
+	DeclareObjectType(FCPArchive, FArchiveXML)
 
 	//
 	// Importer variables

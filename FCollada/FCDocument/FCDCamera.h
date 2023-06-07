@@ -60,7 +60,7 @@ public:
 	};
 
 private:
-	DeclareObjectType(FCDTargetedEntity);
+	DeclareObjectType(FCDTargetedEntity, FCDCamera)
 
 	// Camera flags
 	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, projection, FC("Projection Type")); // ProjectionType enumerated-type.

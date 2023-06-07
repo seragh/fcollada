@@ -109,7 +109,7 @@ typedef fm::map<FCDExtra*, FCDExtra*> FCDExtraSet; /**< A set of extra trees. */
 class FCOLLADA_EXPORT FCDocument : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDocument)
 
 	FUFileManager* fileManager;
 	FUObjectRef<FCDExternalReferenceManager> externalReferenceManager;

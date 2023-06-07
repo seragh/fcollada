@@ -56,7 +56,7 @@ typedef fm::pvector<FCDGeometryPolygons> FCDGeometryPolygonsList; /**< A dynamic
 class FCOLLADA_EXPORT FCDGeometryMesh : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDGeometryMesh)
 
 	FCDGeometry* parent;
 	DeclareParameterContainer(FCDGeometrySource, sources, FC("Data Sources"));

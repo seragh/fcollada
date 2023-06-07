@@ -36,7 +36,7 @@ class FCDETechnique;
 class FCOLLADA_EXPORT FCPExtraTechnique : public FUPlugin
 {
 private:
-	DeclareObjectType(FUPlugin);
+	DeclareObjectType(FUPlugin, FCPExtraTechnique)
 
 public:
 	/** Retrieves the name of the technique profile that this plug-in handles.
@@ -80,7 +80,7 @@ protected:
 class FCOLLADA_EXPORT FCPArchive: public FUPlugin
 {
 private:
-	DeclareObjectType(FUPlugin);
+	DeclareObjectType(FUPlugin, FCPArchive)
 
 public:
 	/**	Determine if this plug-in supports import into FCollada.
@@ -192,7 +192,7 @@ protected:
 class FCOLLADA_EXPORT FColladaPluginManager : public FUObject
 {
 private:
-	DeclareObjectType(FColladaPluginManager);
+	DeclareObjectType(FColladaPluginManager, FColladaPluginManager)
 
 	typedef FUObjectContainer<FCPExtraTechnique> FCPExtraList;
 	typedef FUObjectContainer<FCPArchive> FCPArchiveList;

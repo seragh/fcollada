@@ -57,7 +57,7 @@ struct FCDFormatHint
 class FCOLLADA_EXPORT FCDEffectParameterSurface : public FCDEffectParameter
 {
 private:
-	DeclareObjectType(FCDEffectParameter);
+	DeclareObjectType(FCDEffectParameter, FCDEffectParameterSurface)
 	StringList names; /**< The list of image names contained in the surface */
 	DeclareParameterTrackList(FCDImage, images, FC("Images")); /**< The list of images contained in the surface */
 	FCDEffectParameterSurfaceInit* initMethod; /**< The initialization method of the surface */

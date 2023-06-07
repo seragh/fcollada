@@ -138,7 +138,7 @@ public:
 class FCOLLADA_EXPORT FCDSkinController : public FCDObject
 {
 private:
-	DeclareObjectType(FCDObject);
+	DeclareObjectType(FCDObject, FCDSkinController)
 	FCDController* parent;
 
 	FUObjectRef<FCDEntityReference> target;
