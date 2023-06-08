@@ -370,8 +370,8 @@ FCDENode* FCDENode::AddChildNode(const char* name)
 ImplementObjectType(FCDETechnique);
 ImplementParameterObjectNoCtr(FCDETechnique, FUObject, pluginOverride);
 
-FCDETechnique::FCDETechnique(FCDocument* document, FCDEType* _parent, const char* _profile)
-:	FCDENode(document, NULL), parent(_parent)
+FCDETechnique::FCDETechnique(FCDocument* document, FCDEType* /*parent*/, const char* _profile)
+:	FCDENode(document, NULL)
 ,	InitializeParameterNoArg(pluginOverride)
 ,	InitializeParameter(profile, _profile)
 {

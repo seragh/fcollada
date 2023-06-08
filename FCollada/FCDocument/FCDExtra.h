@@ -441,7 +441,6 @@ class FCOLLADA_EXPORT FCDETechnique : public FCDENode
 private:
 	DeclareObjectType(FCDENode, FCDETechnique)
 
-	FCDEType* parent;
 	DeclareParameterPtr(FUTrackable, pluginOverride, FC("Plug-in Override Object"));
 	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, profile, FC("Profile Name"));
 
@@ -451,7 +450,7 @@ public:
 		@param document The COLLADA document that owns the technique.
 		@param parent The extra type that contains this technique.
 		@param profile The application-specific profile name. */
-	FCDETechnique(FCDocument* document, FCDEType* parent, const char* profile);
+	FCDETechnique(FCDocument* document, FCDEType* /*parent*/, const char* profile);
 
 	/** Destructor. */
 	virtual ~FCDETechnique();
