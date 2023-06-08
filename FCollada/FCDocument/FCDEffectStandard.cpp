@@ -30,31 +30,31 @@
 // FCDEffectStandard
 //
 
-ImplementObjectType(FCDEffectStandard);
-ImplementParameterObject(FCDEffectStandard, FCDTexture, emissionTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, emissionColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, emissionFactor, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, reflectivityTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, reflectivityColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, reflectivityFactor, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, refractionTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, indexOfRefraction, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, translucencyTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, translucencyColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, translucencyFactor, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, diffuseTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, diffuseColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, ambientTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, ambientColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, specularTextures, new FCDTexture(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, specularColor, new FCDEffectParameterColor4(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, specularFactorTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, specularFactor, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, shininessTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, shininess, new FCDEffectParameterFloat(parent->GetDocument()));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, bumpTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, displacementTextures, new FCDTexture(parent->GetDocument(), parent));
-ImplementParameterObject(FCDEffectStandard, FCDTexture, filterTextures, new FCDTexture(parent->GetDocument()));
+ImplementObjectType(FCDEffectStandard)
+ImplementParameterObject(FCDEffectStandard, FCDTexture, emissionTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, emissionColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, emissionFactor, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, reflectivityTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, reflectivityColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, reflectivityFactor, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, refractionTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, indexOfRefraction, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, translucencyTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, translucencyColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, translucencyFactor, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, diffuseTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, diffuseColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, ambientTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, ambientColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, specularTextures, new FCDTexture(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterColor4, specularColor, new FCDEffectParameterColor4(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, specularFactorTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, specularFactor, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, shininessTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDEffectParameterFloat, shininess, new FCDEffectParameterFloat(parent->GetDocument()))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, bumpTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, displacementTextures, new FCDTexture(parent->GetDocument(), parent))
+ImplementParameterObject(FCDEffectStandard, FCDTexture, filterTextures, new FCDTexture(parent->GetDocument()))
 
 const fm::string FCDEffectStandard::EmissionColorSemantic("EMISSION");
 const fm::string FCDEffectStandard::EmissionFactorSemantic("EMISSIONFACTOR");

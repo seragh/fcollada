@@ -63,19 +63,19 @@ private:
 	DeclareObjectType(FCDTargetedEntity, FCDCamera)
 
 	// Camera flags
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, projection, FC("Projection Type")); // ProjectionType enumerated-type.
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, projection, FC("Projection Type")) // ProjectionType enumerated-type.
 
 	// Camera parameters
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, viewY, FC("Vertical View"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, viewX, FC("Horizontal View"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, aspectRatio, FC("Aspect Ratio"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, nearZ, FC("Near-Z Plane Distance"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, farZ, FC("Far-Z Plane Distance"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, viewY, FC("Vertical View"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, viewX, FC("Horizontal View"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, aspectRatio, FC("Aspect Ratio"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, nearZ, FC("Near-Z Plane Distance"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, farZ, FC("Far-Z Plane Distance"))
 
 public:
-	DeclareFlag(HasHorizontalView, 0);
-	DeclareFlag(HasVerticalView, 1);
-	DeclareFlagCount(2);
+	DeclareFlag(HasHorizontalView, 0)
+	DeclareFlag(HasVerticalView, 1)
+	DeclareFlagCount(2)
 
 public:
 	/** Constructor: do not use directly. Create new cameras using the FCDLibrary::AddEntity function.

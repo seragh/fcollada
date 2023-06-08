@@ -38,7 +38,7 @@ namespace FUCrc32
 #ifdef UNICODE
 	FCOLLADA_EXPORT crc32 CRC32(const fchar* text); /**< See above. */
 #endif // UNICODE
-};
+}
 
 #endif // _FU_CRC32_H_
 

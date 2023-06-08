@@ -26,9 +26,9 @@
 // FCDMorphController
 //
 
-ImplementObjectType(FCDMorphController);
-ImplementParameterObjectNoCtr(FCDMorphController, FCDEntity, baseTarget);
-ImplementParameterObject(FCDMorphController, FCDMorphTarget, morphTargets, new FCDMorphTarget(parent->GetDocument(), parent));
+ImplementObjectType(FCDMorphController)
+ImplementParameterObjectNoCtr(FCDMorphController, FCDEntity, baseTarget)
+ImplementParameterObject(FCDMorphController, FCDMorphTarget, morphTargets, new FCDMorphTarget(parent->GetDocument(), parent))
 
 FCDMorphController::FCDMorphController(FCDocument* document, FCDController* _parent)
 :	FCDObject(document), parent(_parent)
@@ -169,8 +169,8 @@ bool FCDMorphController::IsSimilar(FCDEntity* entity)
 // FCDMorphTarget
 //
 
-ImplementObjectType(FCDMorphTarget);
-ImplementParameterObjectNoCtr(FCDMorphTarget, FCDGeometry, geometry);
+ImplementObjectType(FCDMorphTarget)
+ImplementParameterObjectNoCtr(FCDMorphTarget, FCDGeometry, geometry)
 
 FCDMorphTarget::FCDMorphTarget(FCDocument* document, FCDMorphController* _parent)
 :	FCDObject(document), parent(_parent)

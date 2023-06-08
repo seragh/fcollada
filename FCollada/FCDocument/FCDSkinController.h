@@ -142,7 +142,7 @@ private:
 	FCDController* parent;
 
 	FUObjectRef<FCDEntityReference> target;
-	DeclareParameter(FMMatrix44, FUParameterQualifiers::SIMPLE, bindShapeTransform, FC("Base Mesh Bind-pose Transform"));
+	DeclareParameter(FMMatrix44, FUParameterQualifiers::SIMPLE, bindShapeTransform, FC("Base Mesh Bind-pose Transform"))
 
 	fm::vector<FCDSkinControllerJoint> joints;
 	fm::vector<FCDSkinControllerVertex> influences;

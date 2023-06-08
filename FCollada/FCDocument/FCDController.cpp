@@ -22,9 +22,9 @@
 // FCDController
 //
 
-ImplementObjectType(FCDController);
-ImplementParameterObject(FCDController, FCDMorphController, morphController, new FCDMorphController(parent->GetDocument(), parent));
-ImplementParameterObject(FCDController, FCDSkinController, skinController, new FCDSkinController(parent->GetDocument(), parent));
+ImplementObjectType(FCDController)
+ImplementParameterObject(FCDController, FCDMorphController, morphController, new FCDMorphController(parent->GetDocument(), parent))
+ImplementParameterObject(FCDController, FCDSkinController, skinController, new FCDSkinController(parent->GetDocument(), parent))
 
 FCDController::FCDController(FCDocument* document)
 :	FCDEntity(document, "Controller")

@@ -28,7 +28,7 @@ bool FCDAnimationMultiCurve::is2DEvaluation = true;
 // FCDAnimationMultiCurve
 //
 
-ImplementObjectType(FCDAnimationMultiCurve);
+ImplementObjectType(FCDAnimationMultiCurve)
 
 FCDAnimationMultiCurve::FCDAnimationMultiCurve(FCDocument* document, uint32 _dimension)
 :	FCDObject(document), dimension(_dimension)

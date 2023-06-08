@@ -258,4 +258,4 @@ namespace FCDAnimationCurveTools
 		v /= float(count);
 		return v;
 	}
-};
+}

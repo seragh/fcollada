@@ -43,14 +43,14 @@ class FCOLLADA_EXPORT FCDImage : public FCDEntity
 private:
 	DeclareObjectType(FCDEntity, FCDImage)
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, filename, FC("Filename"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, width, FC("Width"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, height, FC("Height"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, depth, FC("Depth"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, filename, FC("Filename"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, width, FC("Width"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, height, FC("Height"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, depth, FC("Depth"))
 
 public:
-	DeclareFlag(Video, 0); /**< Flags this image as a video stream.*/
-	DeclareFlagCount(1);
+	DeclareFlag(Video, 0) /**< Flags this image as a video stream.*/
+	DeclareFlagCount(1)
 
 public:
 	/** Constructor: do not use directly.

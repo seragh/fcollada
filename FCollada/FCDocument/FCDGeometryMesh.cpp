@@ -26,10 +26,10 @@
 // FCDGeometryMesh
 //
 
-ImplementObjectType(FCDGeometryMesh);
-ImplementParameterObject(FCDGeometryMesh, FCDGeometrySource, sources, new FCDGeometrySource(parent->GetDocument()));
-ImplementParameterObject(FCDGeometryMesh, FCDGeometryPolygons, polygons, new FCDGeometryPolygons(parent->GetDocument(), parent));
-ImplementParameterObjectNoCtr(FCDGeometryMesh, FCDGeometrySource, vertexSources);
+ImplementObjectType(FCDGeometryMesh)
+ImplementParameterObject(FCDGeometryMesh, FCDGeometrySource, sources, new FCDGeometrySource(parent->GetDocument()))
+ImplementParameterObject(FCDGeometryMesh, FCDGeometryPolygons, polygons, new FCDGeometryPolygons(parent->GetDocument(), parent))
+ImplementParameterObjectNoCtr(FCDGeometryMesh, FCDGeometrySource, vertexSources)
 
 FCDGeometryMesh::FCDGeometryMesh(FCDocument* document, FCDGeometry* _parent)
 :	FCDObject(document), parent(_parent)

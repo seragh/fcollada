@@ -56,8 +56,8 @@ private:
 	DeclareObjectType(FCDEntity, FCDGeometry)
 
 	// Contains only one of the following, in order of importance.
-	DeclareParameterRef(FCDGeometryMesh, mesh, FC("Mesh"));
-	DeclareParameterRef(FCDGeometrySpline, spline, FC("Spline"));
+	DeclareParameterRef(FCDGeometryMesh, mesh, FC("Mesh"))
+	DeclareParameterRef(FCDGeometrySpline, spline, FC("Spline"))
 
 public:
 	/** Contructor: do not use directly.

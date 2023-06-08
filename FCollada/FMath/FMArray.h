@@ -618,7 +618,7 @@ namespace fm
 			return *this;
 		}
 	};
-};
+}
 
 /** Returns whether a dynamically-sized array is equivalent to a constant-sized array.
 	@param dl A dynamically-sized array.

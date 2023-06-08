@@ -46,10 +46,10 @@ private:
 	typedef FUEvent2<FCDPhysicsRigidBodyInstance*, const FMVector3&> CollisionEvent;
 	CollisionEvent* onCollisionEvent;
 
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, velocity, FC("Initial Linear Velocity"));
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, angularVelocity, FC("Initial Angular Velocity"));
-	DeclareParameterRef(FCDPhysicsRigidBodyParameters, parameters, FC("Parameters"));
-	DeclareParameterPtr(FCDSceneNode, targetNode, FC("Target Node"));
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, velocity, FC("Initial Linear Velocity"))
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, angularVelocity, FC("Initial Angular Velocity"))
+	DeclareParameterRef(FCDPhysicsRigidBodyParameters, parameters, FC("Parameters"))
+	DeclareParameterPtr(FCDSceneNode, targetNode, FC("Target Node"))
 
 
 public:

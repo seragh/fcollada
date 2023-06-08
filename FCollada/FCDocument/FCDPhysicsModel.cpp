@@ -16,7 +16,7 @@
 #include "FUtils/FUUniqueStringMap.h"
 #include "FUtils/FUUri.h"
 
-ImplementObjectType(FCDPhysicsModel);
+ImplementObjectType(FCDPhysicsModel)
 
 FCDPhysicsModel::FCDPhysicsModel(FCDocument* document)
 :	FCDEntity(document, "PhysicsModel")

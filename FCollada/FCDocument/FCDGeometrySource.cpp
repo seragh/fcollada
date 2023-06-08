@@ -16,8 +16,8 @@
 // FCDGeometrySource
 //
 
-ImplementObjectType(FCDGeometrySource);
-ImplementParameterObject(FCDGeometrySource, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
+ImplementObjectType(FCDGeometrySource)
+ImplementParameterObject(FCDGeometrySource, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
 
 FCDGeometrySource::FCDGeometrySource(FCDocument* document)
 :	FCDObjectWithId(document, "GeometrySource")

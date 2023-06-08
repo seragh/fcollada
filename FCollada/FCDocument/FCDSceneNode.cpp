@@ -36,11 +36,11 @@
 // FCDSceneNode
 //
 
-ImplementObjectType(FCDSceneNode);
-ImplementParameterObjectNoCtr(FCDSceneNode, FCDSceneNode, parents);
-ImplementParameterObject(FCDSceneNode, FCDSceneNode, children, new FCDSceneNode(parent->GetDocument()));
-ImplementParameterObjectNoCtr(FCDSceneNode, FCDTransform, transforms); /** Needs custom construction in the UI */
-ImplementParameterObjectNoCtr(FCDSceneNode, FCDEntityInstance, instances); /** Needs custom construction in the UI */
+ImplementObjectType(FCDSceneNode)
+ImplementParameterObjectNoCtr(FCDSceneNode, FCDSceneNode, parents)
+ImplementParameterObject(FCDSceneNode, FCDSceneNode, children, new FCDSceneNode(parent->GetDocument()))
+ImplementParameterObjectNoCtr(FCDSceneNode, FCDTransform, transforms) /** Needs custom construction in the UI */
+ImplementParameterObjectNoCtr(FCDSceneNode, FCDEntityInstance, instances) /** Needs custom construction in the UI */
 
 FCDSceneNode::FCDSceneNode(FCDocument* document)
 :	FCDEntity(document, "VisualSceneNode")

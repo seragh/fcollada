@@ -109,7 +109,6 @@ namespace FCTestExportImport
 	bool CheckEmitterLibrary(FULogFile& fileOut, FCDEmitterLibrary* library);
 	bool CheckEmitterInstance(FULogFile& fileOut, FCDEmitterInstance* instance);
 	bool CheckForceFieldLibrary(FULogFile& fileOut, FCDForceFieldLibrary* library);
-};
+}
 
 #endif // _FC_TEST_SCENE_
-

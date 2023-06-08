@@ -20,7 +20,7 @@
 // FCDLight
 //
 
-ImplementObjectType(FCDLight);
+ImplementObjectType(FCDLight)
 
 FCDLight::FCDLight(FCDocument* document)
 :	FCDTargetedEntity(document, "Light")

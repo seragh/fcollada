@@ -271,8 +271,8 @@ private:
 	DeclareObjectType(FCDObject, FCDGeometrySpline)
 	FCDGeometry* parent;
 
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Spline Type")); // FUDaeSplineType::Type;
-	DeclareParameterContainer(FCDSpline, splines, FC("Splines"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Spline Type")) // FUDaeSplineType::Type;
+	DeclareParameterContainer(FCDSpline, splines, FC("Splines"))
 
 public:
 	/** Constructor: do not use directly. Use the FCDGeometry::CreateMesh function instead.

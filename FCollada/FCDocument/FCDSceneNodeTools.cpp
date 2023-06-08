@@ -154,5 +154,4 @@ namespace FCDSceneNodeTools
 		sampleKeys.clear();
 		sampleValues.clear();
 	}
-};
-
+}

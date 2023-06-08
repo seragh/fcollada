@@ -76,10 +76,10 @@ public:
 private:
 	DeclareObjectType(FCDObject, FCDEffectParameter)
 
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, paramType, FC("Parameter Type")); // ParamType
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, reference, FC("Identifier"));
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Semantic")); // this is a COLLADA Semantic, not a Cg semantic
-	DeclareParameterContainer(FCDEffectParameterAnnotation, annotations, FC("Annotations"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, paramType, FC("Parameter Type")) // ParamType
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, reference, FC("Identifier"))
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Semantic")) // this is a COLLADA Semantic, not a Cg semantic
+	DeclareParameterContainer(FCDEffectParameterAnnotation, annotations, FC("Annotations"))
 
 public:
 	/** Constructor: do not use directly.
@@ -224,7 +224,7 @@ class FCOLLADA_EXPORT FCDEffectParameterT : public FCDEffectParameter
 {
 private:
 	DeclareObjectType(FCDEffectParameter, FCDEffectParameterT)
-	DeclareParameter(PrimitiveType, FUParameterQualifiers::SIMPLE, value, FC("Value"));
+	DeclareParameter(PrimitiveType, FUParameterQualifiers::SIMPLE, value, FC("Value"))
 
 public:
 	/** Constructor: do not use directly.
@@ -287,7 +287,7 @@ public:
 private:
 	DeclareObjectType(FCDEffectParameter, FCDEffectParameterAnimatableT)
 	FloatType floatType;
-	DeclareParameterAnimatable(PrimitiveType, Qualifiers, value, FC("Value"));
+	DeclareParameterAnimatable(PrimitiveType, Qualifiers, value, FC("Value"))
 
 public:
 	/** Constructor: do not use directly.
@@ -364,10 +364,9 @@ public:
     /** Destructor. */
 	virtual ~FCDEffectParameterAnnotation();
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name")); /**< The annotation name. */
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Value Type")); /**< The annotation value type (FCDEffectParameter::Type). */
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Value")); /**< The annotation value. */
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name")) /**< The annotation name. */
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Value Type")) /**< The annotation value type (FCDEffectParameter::Type). */
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Value")) /**< The annotation value. */
 };
 
 #endif // _FCD_EFFECT_PARAMETER_H_
-

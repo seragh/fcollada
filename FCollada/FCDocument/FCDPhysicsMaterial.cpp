@@ -11,7 +11,7 @@
 #include "FCDocument/FCDPhysicsMaterial.h"
 #include "FUtils/FUStringConversion.h"
 
-ImplementObjectType(FCDPhysicsMaterial);
+ImplementObjectType(FCDPhysicsMaterial)
 
 FCDPhysicsMaterial::FCDPhysicsMaterial(FCDocument* document) : FCDEntity(document, "PhysicsMaterial")
 {

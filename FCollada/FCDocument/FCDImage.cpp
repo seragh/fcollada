@@ -22,7 +22,7 @@
 // FCDImage
 //
 
-ImplementObjectType(FCDImage);
+ImplementObjectType(FCDImage)
 
 FCDImage::FCDImage(FCDocument* document)
 :	FCDEntity(document, "Image")

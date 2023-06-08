@@ -33,7 +33,7 @@
 // FUPlugin
 //
 
-ImplementObjectType(FUPlugin);
+ImplementObjectType(FUPlugin)
 
 //
 // FUPluginManager

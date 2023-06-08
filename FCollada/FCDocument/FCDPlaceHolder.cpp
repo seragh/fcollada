@@ -18,7 +18,7 @@
 // FCDPlaceHolder
 //
 
-ImplementObjectType(FCDPlaceHolder);
+ImplementObjectType(FCDPlaceHolder)
 
 FCDPlaceHolder::FCDPlaceHolder(FCDocument* document, FCDocument* _target)
 :	FCDObject(document)

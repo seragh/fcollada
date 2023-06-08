@@ -12,7 +12,7 @@
 #include "FCDocument/FCDEffectCode.h"
 #include "FUtils/FUFileManager.h"
 
-ImplementObjectType(FCDEffectCode);
+ImplementObjectType(FCDEffectCode)
 
 FCDEffectCode::FCDEffectCode(FCDocument* document) : FCDObject(document)
 {

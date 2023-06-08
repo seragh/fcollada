@@ -54,8 +54,8 @@ class FCOLLADA_EXPORT FCDEffect : public FCDEntity
 {
 private:
 	DeclareObjectType(FCDEntity, FCDEffect)
-	DeclareParameterContainer(FCDEffectProfile, profiles, FC("Profiles"));
-	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Parameters"));
+	DeclareParameterContainer(FCDEffectProfile, profiles, FC("Profiles"))
+	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Parameters"))
 
 public:
 	/** Constructor: do not use directly.

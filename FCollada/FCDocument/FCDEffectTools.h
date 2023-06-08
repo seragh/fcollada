@@ -157,6 +157,6 @@ namespace FCDEffectTools
 	FCOLLADA_EXPORT inline void FindEffectParametersByReference(FCDEffectProfile* profile, const char* reference, FCDEffectParameterList& parameters, bool localOnly = false) { FindEffectParametersByReference(const_cast<const FCDEffectProfile*>(profile), reference, parameters, localOnly); } /**< See above. */
 	FCOLLADA_EXPORT void FindEffectParametersByReference(const FCDEffectTechnique* technique, const char* reference, FCDEffectParameterList& parameters, bool localOnly = false); /**< See above. */
 	FCOLLADA_EXPORT inline void FindEffectParametersByReference(FCDEffectTechnique* technique, const char* reference, FCDEffectParameterList& parameters, bool localOnly = false) { FindEffectParametersByReference(const_cast<const FCDEffectTechnique*>(technique), reference, parameters, localOnly); } /**< See above. */
-};
+}
 
 #endif //_FCD_EFFECT_TOOLS_H_

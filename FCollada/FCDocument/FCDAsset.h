@@ -50,13 +50,13 @@ class FCOLLADA_EXPORT FCDAsset : public FCDObject
 private:
 	DeclareObjectType(FCDObject, FCDAsset)
 
-	DeclareParameterContainer(FCDAssetContributor, contributors, FC("Contributors"));
+	DeclareParameterContainer(FCDAssetContributor, contributors, FC("Contributors"))
 	FUDateTime creationDateTime;
 	FUDateTime modifiedDateTime;
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, keywords, FC("Keywords"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, revision, FC("Revision"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, subject, FC("Subject"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, title, FC("Title"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, keywords, FC("Keywords"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, revision, FC("Revision"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, subject, FC("Subject"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, title, FC("Title"))
 	FMVector3 upAxis;
 
 	// <unit> information
@@ -67,15 +67,15 @@ public:
 	/** Whether an up-axis is set for this asset.
 		If no up-axis is set for this asset, you should
 		use the up-axis of the parent's asset. */
-	DeclareFlag(HasUpAxis, 0);
+	DeclareFlag(HasUpAxis, 0)
 
 	/** Whether a length unit is set for this asset.
 		If no length unit is set for this asset, you should
 		use the length unit of the parent's asset. */
-	DeclareFlag(HasUnits, 1);
+	DeclareFlag(HasUnits, 1)
 
 	/** FCDAsset declares two flags. */
-	DeclareFlagCount(2);
+	DeclareFlagCount(2)
 
 public:
 	/**	Constructor.
@@ -247,11 +247,11 @@ class FCOLLADA_EXPORT FCDAssetContributor : public FCDObject
 private:
 	DeclareObjectType(FCDObject, FCDAssetContributor)
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, author, FC("Author"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, authoringTool, FC("Authoring Tool"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, comments, FC("Comments"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, copyright, FC("Copyright"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, sourceData, FC("Source Data"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, author, FC("Author"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, authoringTool, FC("Authoring Tool"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, comments, FC("Comments"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, copyright, FC("Copyright"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, sourceData, FC("Source Data"))
 
 public:
 	/** Constructor.

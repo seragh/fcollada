@@ -39,13 +39,13 @@ class FCOLLADA_EXPORT FCDObjectWithId : public FCDObject
 private:
 	DeclareObjectType(FCDObject, FCDObjectWithId)
 
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, daeId, FC("Unique Id"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, daeId, FC("Unique Id"))
 
 private:
-	DeclareFlag(UniqueId, 0); /**< Whether the object's current id is considered unique. */
+	DeclareFlag(UniqueId, 0) /**< Whether the object's current id is considered unique. */
 public:
-	DeclareFlag(DaeIdChanged, 1);
-	DeclareFlagCount(2);
+	DeclareFlag(DaeIdChanged, 1)
+	DeclareFlagCount(2)
 
 public:
 	/** Constructor: sets the prefix COLLADA id to be used if no COLLADA id is provided.

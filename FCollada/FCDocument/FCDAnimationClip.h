@@ -45,9 +45,9 @@ private:
 	DeclareObjectType(FCDEntity, FCDAnimationClip)
 	FCDAnimationCurveTrackList curves;
 
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, start, FC("Start Time"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, end, FC("End Time"));
-	DeclareParameterContainer(FCDEntityInstance, animations, FC("Animation Instances"));
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, start, FC("Start Time"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, end, FC("End Time"))
+	DeclareParameterContainer(FCDEntityInstance, animations, FC("Animation Instances"))
 	StringList names; // names are supported on animation_instances
 
 public:
@@ -107,7 +107,7 @@ public:
     /** Retrieves a given animation instanced by this clip.
         @param index The index of the animation to retrieve.
         @return The animation object at the given index. */
-	inline FCDAnimation* GetAnimation(size_t index) const { FUAssert(GetAnimationCount() > index, return NULL); return (FCDAnimation*) animations[index]->GetEntity(); };
+	inline FCDAnimation* GetAnimation(size_t index) const { FUAssert(GetAnimationCount() > index, return NULL); return (FCDAnimation*) animations[index]->GetEntity(); }
 
     /** Sets the name of the animation at a given index.
         @param name The name to give the animation at the given index.

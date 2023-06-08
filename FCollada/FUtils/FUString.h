@@ -519,7 +519,7 @@ namespace fm
 		while ((*a) != 0 && (*a) == (*b)) { ++a; ++b; }
 		return (*a) != (*b);
 	}
-};
+}
 
 /** A string of UNICODE characters. */
 typedef fm::stringT<fchar> fstring;

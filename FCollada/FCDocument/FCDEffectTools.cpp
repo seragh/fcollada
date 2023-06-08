@@ -893,4 +893,4 @@ namespace FCDEffectTools
 			if (IsEquivalent(effectParameter->GetReference(), reference)) parameters.push_back(effectParameter);
 		}
 	}
-};
+}

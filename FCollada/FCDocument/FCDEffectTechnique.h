@@ -49,10 +49,10 @@ private:
 	DeclareObjectType(FCDObject, FCDEffectTechnique)
 	FCDEffectProfileFX* parent;
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
-	DeclareParameterContainer(FCDEffectCode, codes, FC("Code Inclusions"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"))
+	DeclareParameterContainer(FCDEffectCode, codes, FC("Code Inclusions"))
 	DeclareParameterContainer(FCDEffectPass, passes, FC("Passes"))
-	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"));
+	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"))
 
 public:
 	/** Constructor: do not use directly.

@@ -48,26 +48,26 @@ private:
 
 	fm::string sid;
 
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, enabled, FC("Enabled"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, interpenetrate, FC("Inter-penetrate"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, enabled, FC("Enabled"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, interpenetrate, FC("Inter-penetrate"))
 
 	FUTrackedPtr<FCDPhysicsRigidBody> referenceRigidBody;
 	FUTrackedPtr<FCDSceneNode> referenceNode;
 	FUTrackedPtr<FCDPhysicsRigidBody> targetRigidBody;
 	FUTrackedPtr<FCDSceneNode> targetNode;
 
-	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsLinearMin, FC("Minimum Linear Limit"));
-	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsLinearMax, FC("Maximum Linear Limit"));
-	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsSCTMin, FC("Minimum SCT? Limit"));
-	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsSCTMax, FC("Maximum SCT? Limit"));
+	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsLinearMin, FC("Minimum Linear Limit"))
+	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsLinearMax, FC("Maximum Linear Limit"))
+	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsSCTMin, FC("Minimum SCT? Limit"))
+	DeclareParameter(FMVector3, FUParameterQualifiers::VECTOR, limitsSCTMax, FC("Maximum SCT? Limit"))
 
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearStiffness, FC("Spring Linear Stiffness"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearDamping, FC("Spring Linear Damping"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearTargetValue, FC("Spring Linear Target"));
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearStiffness, FC("Spring Linear Stiffness"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearDamping, FC("Spring Linear Damping"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springLinearTargetValue, FC("Spring Linear Target"))
 
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularStiffness, FC("Spring Angular Stiffness"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularDamping, FC("Spring Angular Damping"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularTargetValue, FC("Spring Angular Target"));
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularStiffness, FC("Spring Angular Stiffness"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularDamping, FC("Spring Angular Damping"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, springAngularTargetValue, FC("Spring Angular Target"))
 
 	FCDTransformContainer transformsRef;
 	FCDTransformContainer transformsTar;

@@ -47,7 +47,7 @@ private:
 	DeclareObjectType(FCDObject, FCDMorphTarget)
 	FCDMorphController* parent;
 	DeclareParameterPtr(FCDGeometry, geometry, FC("Mesh"))
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, weight, FC("Weight"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, weight, FC("Weight"))
 
 public:
 	/** Constructor: do not use directly.
@@ -122,9 +122,9 @@ private:
 	DeclareObjectType(FCDObject, FCDMorphController)
 	FCDController* parent;
 
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, method, FC("Method")); // FUDaeMorphMethod::Method
-	DeclareParameterPtr(FCDEntity, baseTarget, FC("Base Mesh"));
-	DeclareParameterContainer(FCDMorphTarget, morphTargets, FC("Morph Targets"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, method, FC("Method")) // FUDaeMorphMethod::Method
+	DeclareParameterPtr(FCDEntity, baseTarget, FC("Base Mesh"))
+	DeclareParameterContainer(FCDMorphTarget, morphTargets, FC("Morph Targets"))
 
 public:
 	/** Constructor: do not use directly.

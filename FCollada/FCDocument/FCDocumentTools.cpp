@@ -62,7 +62,7 @@ namespace FCDocumentTools
 			:	current(UNKNOWN), target(UNKNOWN)
 		{
 			target = ConvertVector(targetAxis);
-		};
+		}
 
 		inline void SetCurrent(const FMVector3& axis)
 		{
@@ -707,4 +707,4 @@ namespace FCDocumentTools
 #undef CONVERT_VECT3L
 #undef CONVERT_MAT44
 
-};
+}

@@ -45,10 +45,10 @@ private:
 
 public:
 	/** The token used to identify the effect parameter to modify. */
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Semantic"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Semantic"))
 
 	/** The fully-qualified target of the COLLADA element whose value should be bound to the effect parameter. */
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, target, FC("Target"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, target, FC("Target"))
 
 	/** Constructor. */
 	FCDMaterialInstanceBind();
@@ -73,15 +73,15 @@ private:
 
 public:
 	/** The token used to identify the effect parameter or varying shader input. */
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Bind Semantic"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, semantic, FC("Bind Semantic"))
 
 	/** The geometry source type of the data source to bind to the effect parameter.
 		@see FUDaeGeometryInput::Semantic. */
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, inputSemantic, FC("Input Semantic"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, inputSemantic, FC("Input Semantic"))
 
 	/** The set value of the data source to bind to the effect parameter.
 		A semantic/set pair should always be unique within a polygons set. */
-	DeclareParameter(int32, FUParameterQualifiers::SIMPLE, inputSet, FC("Input Set"));
+	DeclareParameter(int32, FUParameterQualifiers::SIMPLE, inputSet, FC("Input Set"))
 
 	/** Constructor. */
 	FCDMaterialInstanceBindVertexInput();
@@ -107,9 +107,9 @@ private:
 	DeclareObjectType(FCDEntityInstance, FCDMaterialInstance)
 	FCDEntityInstance* parent;
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, semantic, FC("Material Token"));
-	DeclareParameterContainer(FCDMaterialInstanceBind, bindings, FC("Effect Bindings"));
-	DeclareParameterContainer(FCDMaterialInstanceBindVertexInput, vertexBindings, FC("Vertex Input Bindings"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, semantic, FC("Material Token"))
+	DeclareParameterContainer(FCDMaterialInstanceBind, bindings, FC("Effect Bindings"))
+	DeclareParameterContainer(FCDMaterialInstanceBindVertexInput, vertexBindings, FC("Vertex Input Bindings"))
 
 public:
 	/** Constructor.

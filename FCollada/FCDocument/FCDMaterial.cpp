@@ -26,9 +26,9 @@
 // FCDMaterial
 //
 
-ImplementObjectType(FCDMaterial);
-ImplementParameterObjectNoCtr(FCDMaterial, FCDEntityReference, effect);
-ImplementParameterObjectNoCtr(FCDMaterial, FCDEffectParameter, parameters);
+ImplementObjectType(FCDMaterial)
+ImplementParameterObjectNoCtr(FCDMaterial, FCDEntityReference, effect)
+ImplementParameterObjectNoCtr(FCDMaterial, FCDEffectParameter, parameters)
 
 FCDMaterial::FCDMaterial(FCDocument* document)
 :	FCDEntity(document, "VisualMaterial")

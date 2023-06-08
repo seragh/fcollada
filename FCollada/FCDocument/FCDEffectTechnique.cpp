@@ -22,10 +22,10 @@
 // FCDEffectTechnique
 //
 
-ImplementObjectType(FCDEffectTechnique);
-ImplementParameterObject(FCDEffectTechnique, FCDEffectCode, codes, new FCDEffectCode(parent->GetDocument()));
-ImplementParameterObject(FCDEffectTechnique, FCDEffectPass, passes, new FCDEffectPass(parent->GetDocument(), parent));
-ImplementParameterObjectNoCtr(FCDEffectTechnique, FCDEffectParameter, parameters);
+ImplementObjectType(FCDEffectTechnique)
+ImplementParameterObject(FCDEffectTechnique, FCDEffectCode, codes, new FCDEffectCode(parent->GetDocument()))
+ImplementParameterObject(FCDEffectTechnique, FCDEffectPass, passes, new FCDEffectPass(parent->GetDocument(), parent))
+ImplementParameterObjectNoCtr(FCDEffectTechnique, FCDEffectParameter, parameters)
 
 FCDEffectTechnique::FCDEffectTechnique(FCDocument* document, FCDEffectProfileFX *_parent)
 :	FCDObject(document), parent(_parent)

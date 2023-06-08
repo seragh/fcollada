@@ -22,7 +22,7 @@
 #include "FCDocument/FCDTransform.h"
 #include "FUtils/FUBoundingBox.h"
 
-ImplementObjectType(FCDPhysicsShape);
+ImplementObjectType(FCDPhysicsShape)
 
 FCDPhysicsShape::FCDPhysicsShape(FCDocument* document) : FCDObject(document)
 {

@@ -28,9 +28,9 @@ static const size_t MAX_NAME_LENGTH = 512;
 // FCDEntity
 //
 
-ImplementObjectType(FCDEntity);
-ImplementParameterObject(FCDEntity, FCDAsset, asset, new FCDAsset(parent->GetDocument()));
-ImplementParameterObject(FCDEntity, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
+ImplementObjectType(FCDEntity)
+ImplementParameterObject(FCDEntity, FCDAsset, asset, new FCDAsset(parent->GetDocument()))
+ImplementParameterObject(FCDEntity, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
 
 FCDEntity::FCDEntity(FCDocument* document, const char* baseId)
 :	FCDObjectWithId(document, baseId)

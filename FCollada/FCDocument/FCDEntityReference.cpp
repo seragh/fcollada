@@ -18,7 +18,7 @@
 // FCDEntityReference
 //
 
-ImplementObjectType(FCDEntityReference);
+ImplementObjectType(FCDEntityReference)
 
 FCDEntityReference::FCDEntityReference(FCDocument* document, FCDObjectWithId* _parent)
 :	FCDObject(document)

@@ -48,19 +48,19 @@ private:
 
 	FCDObject* parent;
 
-	DeclareParameterContainer(FCDPhysicsShape, physicsShape, FC("Shapes"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, dynamic, FC("IsDynamic"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, mass, FC("Mass"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, density, FC("Density"));
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, inertia, FC("Inertia"));
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, massFrameTranslate, FC("Center of Mass Position"));
-	DeclareParameterAnimatable(FMAngleAxis, FUParameterQualifiers::SIMPLE, massFrameOrientation, FC("Center of Mass Orientation"));
+	DeclareParameterContainer(FCDPhysicsShape, physicsShape, FC("Shapes"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, dynamic, FC("IsDynamic"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, mass, FC("Mass"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, density, FC("Density"))
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, inertia, FC("Inertia"))
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, massFrameTranslate, FC("Center of Mass Position"))
+	DeclareParameterAnimatable(FMAngleAxis, FUParameterQualifiers::SIMPLE, massFrameOrientation, FC("Center of Mass Orientation"))
 
 	FUTrackedPtr<FCDPhysicsRigidBody> entityOwner;
 	FUTrackedPtr<FCDPhysicsRigidBodyInstance> instanceOwner;
 
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isDensityMoreAccurate, FC("Use Density"));
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isInertiaAccurate, FC("Use Inertia"));
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isDensityMoreAccurate, FC("Use Density"))
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isInertiaAccurate, FC("Use Inertia"))
 
 public:
 	/** Constructor.

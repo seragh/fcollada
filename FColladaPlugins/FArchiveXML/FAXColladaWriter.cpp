@@ -416,4 +416,4 @@ namespace FUDaeWriter
 		subId = TO_FSTRING(_subId);
 	}
 #endif
-};
+}

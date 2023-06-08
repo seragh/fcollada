@@ -19,8 +19,8 @@ namespace FCollada { extern FColladaPluginManager* pluginManager; }
 // FCDExtra
 //
 
-ImplementObjectType(FCDExtra);
-ImplementParameterObject(FCDExtra, FCDEType, types, new FCDEType(parent->GetDocument(), parent, emptyCharString));
+ImplementObjectType(FCDExtra)
+ImplementParameterObject(FCDExtra, FCDEType, types, new FCDEType(parent->GetDocument(), parent, emptyCharString))
 
 FCDExtra::FCDExtra(FCDocument* document, FUObject* _parent)
 :	FCDObject(document)
@@ -94,8 +94,8 @@ FCDExtra* FCDExtra::Clone(FCDExtra* clone) const
 // FCDEType
 //
 
-ImplementObjectType(FCDEType);
-ImplementParameterObject(FCDEType, FCDETechnique, techniques, new FCDETechnique(parent->GetDocument(), parent, emptyCharString));
+ImplementObjectType(FCDEType)
+ImplementParameterObject(FCDEType, FCDETechnique, techniques, new FCDETechnique(parent->GetDocument(), parent, emptyCharString))
 
 FCDEType::FCDEType(FCDocument* document, FCDExtra* _parent, const char* _name)
 :	FCDObject(document)
@@ -165,10 +165,10 @@ FCDEType* FCDEType::Clone(FCDEType* clone) const
 // FCDENode
 //
 
-ImplementObjectType(FCDENode);
-ImplementParameterObject(FCDENode, FCDENode, children, new FCDENode(parent->GetDocument(), parent));
-ImplementParameterObjectNoArg(FCDENode, FCDEAttribute, attributes);
-ImplementParameterObject(FCDENode, FCDAnimatedCustom, animated, new FCDAnimatedCustom(parent->GetDocument()));
+ImplementObjectType(FCDENode)
+ImplementParameterObject(FCDENode, FCDENode, children, new FCDENode(parent->GetDocument(), parent))
+ImplementParameterObjectNoArg(FCDENode, FCDEAttribute, attributes)
+ImplementParameterObject(FCDENode, FCDAnimatedCustom, animated, new FCDAnimatedCustom(parent->GetDocument()))
 
 FCDENode::FCDENode(FCDocument* document, FCDENode* _parent)
 :	FCDObject(document), parent(_parent)
@@ -367,8 +367,8 @@ FCDENode* FCDENode::AddChildNode(const char* name)
 // FCDETechnique
 //
 
-ImplementObjectType(FCDETechnique);
-ImplementParameterObjectNoCtr(FCDETechnique, FUObject, pluginOverride);
+ImplementObjectType(FCDETechnique)
+ImplementParameterObjectNoCtr(FCDETechnique, FUObject, pluginOverride)
 
 FCDETechnique::FCDETechnique(FCDocument* document, FCDEType* /*parent*/, const char* _profile)
 :	FCDENode(document, NULL)

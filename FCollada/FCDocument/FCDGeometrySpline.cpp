@@ -18,7 +18,7 @@
 // FCDSpline
 //
 
-ImplementObjectType(FCDSpline);
+ImplementObjectType(FCDSpline)
 
 FCDSpline::FCDSpline(FCDocument* document)
 :	FCDObject(document)
@@ -46,7 +46,7 @@ FCDSpline* FCDSpline::Clone(FCDSpline* clone) const
 // FCDLinearSpline
 //
 
-ImplementObjectType(FCDLinearSpline);
+ImplementObjectType(FCDLinearSpline)
 
 FCDLinearSpline::FCDLinearSpline(FCDocument* document)
 :	FCDSpline(document)
@@ -100,7 +100,7 @@ bool FCDLinearSpline::IsValid() const
 // FCDBezierSpline
 //
 
-ImplementObjectType(FCDBezierSpline);
+ImplementObjectType(FCDBezierSpline)
 
 FCDBezierSpline::FCDBezierSpline(FCDocument* document)
 :	FCDSpline(document)
@@ -184,7 +184,7 @@ bool FCDBezierSpline::IsValid() const
 // FCDNURBSSpline
 //
 
-ImplementObjectType(FCDNURBSSpline);
+ImplementObjectType(FCDNURBSSpline)
 
 FCDNURBSSpline::FCDNURBSSpline(FCDocument* document)
 :	FCDSpline(document)
@@ -253,8 +253,8 @@ bool FCDNURBSSpline::IsValid() const
 // FCDGeometrySpline
 //
 
-ImplementObjectType(FCDGeometrySpline);
-ImplementParameterObjectNoCtr(FCDGeometrySpline, FCDSpline, splines);
+ImplementObjectType(FCDGeometrySpline)
+ImplementParameterObjectNoCtr(FCDGeometrySpline, FCDSpline, splines)
 
 FCDGeometrySpline::FCDGeometrySpline(FCDocument* document, FCDGeometry* _parent)
 :	FCDObject(document), parent(_parent)

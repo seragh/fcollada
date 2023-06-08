@@ -19,8 +19,8 @@
 // FCDEffectParameterSurface
 //
 
-ImplementObjectType(FCDEffectParameterSurface);
-ImplementParameterObjectNoCtr(FCDEffectParameterSurface, FCDImage, images);
+ImplementObjectType(FCDEffectParameterSurface)
+ImplementParameterObjectNoCtr(FCDEffectParameterSurface, FCDImage, images)
 
 // surface type parameter
 FCDEffectParameterSurface::FCDEffectParameterSurface(FCDocument* document)

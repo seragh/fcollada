@@ -55,7 +55,6 @@ namespace FCDAnimationCurveTools
 		@param values The list of floating-point values.
 		@param count The number of values within the given list. */
 	float Average(float* values, uint32 count);
-};
+}
 
 #endif // _FCD_ANIMATION_CURVE_TOOLS_H_
-

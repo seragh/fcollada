@@ -20,15 +20,15 @@
 class FCTestOutsideParameter : public FCDObject
 {
 public:
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, test1, FC("A large parameter name!"));
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, test2, FC("An animatable parameter"));
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::COLOR, test3, FC("A complex animatable parameter"));
-	DeclareParameterPtr(FCDObject, test4, FC("A simple object pointer"));
-	DeclareParameterRef(FCDObject, test5, FC("An object reference!"));
-	DeclareParameterList(Float, test6, FC("A float list parameter."));
-	DeclareParameterTrackList(FCDObject, test7, FC("An object tracker list."));
-	DeclareParameterContainer(FCDObject, test8, FC("An object container."));
-	DeclareParameterListAnimatable(FMVector3, FUParameterQualifiers::COLOR, test9, FC("An animatable color list."));
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, test1, FC("A large parameter name!"))
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, test2, FC("An animatable parameter"))
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::COLOR, test3, FC("A complex animatable parameter"))
+	DeclareParameterPtr(FCDObject, test4, FC("A simple object pointer"))
+	DeclareParameterRef(FCDObject, test5, FC("An object reference!"))
+	DeclareParameterList(Float, test6, FC("A float list parameter."))
+	DeclareParameterTrackList(FCDObject, test7, FC("An object tracker list."))
+	DeclareParameterContainer(FCDObject, test8, FC("An object container."))
+	DeclareParameterListAnimatable(FMVector3, FUParameterQualifiers::COLOR, test9, FC("An animatable color list."))
 
 	FCTestOutsideParameter(FCDocument* document)
 	:	FCDObject(document)
@@ -46,10 +46,10 @@ public:
 	virtual ~FCTestOutsideParameter() {}
 };
 
-ImplementParameterObject(FCTestOutsideParameter, FCDObject, test4, new FCDObject(parent->GetDocument()));
-ImplementParameterObject(FCTestOutsideParameter, FCDObject, test5, new FCDObject(parent->GetDocument()));
-ImplementParameterObject(FCTestOutsideParameter, FCDObject, test7, new FCDObject(parent->GetDocument()));
-ImplementParameterObject(FCTestOutsideParameter, FCDObject, test8, new FCDObject(parent->GetDocument()));
+ImplementParameterObject(FCTestOutsideParameter, FCDObject, test4, new FCDObject(parent->GetDocument()))
+ImplementParameterObject(FCTestOutsideParameter, FCDObject, test5, new FCDObject(parent->GetDocument()))
+ImplementParameterObject(FCTestOutsideParameter, FCDObject, test7, new FCDObject(parent->GetDocument()))
+ImplementParameterObject(FCTestOutsideParameter, FCDObject, test8, new FCDObject(parent->GetDocument()))
 
 TESTSUITE_START(FCDParameter)
 

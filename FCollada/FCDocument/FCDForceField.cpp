@@ -20,7 +20,7 @@
 // FCDForceField
 //
 
-ImplementObjectType(FCDForceField);
+ImplementObjectType(FCDForceField)
 ImplementParameterObject(FCDForceField, FCDExtra, information, new FCDExtra(parent->GetDocument(), parent))
 
 FCDForceField::FCDForceField(FCDocument* document)

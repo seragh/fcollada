@@ -59,7 +59,7 @@ class FCOLLADA_EXPORT FCDMaterial : public FCDEntity
 private:
 	DeclareObjectType(FCDEntity, FCDMaterial)
 	bool ownsEffect;
-	DeclareParameterPtr(FCDEntityReference, effect, FC("Effect"));
+	DeclareParameterPtr(FCDEntityReference, effect, FC("Effect"))
 	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"))
 	FCDMaterialTechniqueHintList techniqueHints;
 

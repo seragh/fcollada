@@ -55,13 +55,13 @@ private:
 	/** Entities list. This list should contain all the root entities of the correct type.
 		Note that the following entity types are tree-based, rather than list-based: FCDAnimation,
 		FCDSceneNode and FCDPhysicsScene. */
-	DeclareParameterContainer(T, entities, FC("Entities"));
+	DeclareParameterContainer(T, entities, FC("Entities"))
 
 	// Extra information for the entity.
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 	// Asset information for the entity.
-	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"));
+	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"))
 
 public:
 	/** Constructor: do not use directly.

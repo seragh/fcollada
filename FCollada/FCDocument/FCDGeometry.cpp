@@ -19,9 +19,9 @@
 // FCDGeometry
 //
 
-ImplementObjectType(FCDGeometry);
-ImplementParameterObject(FCDGeometry, FCDGeometryMesh, mesh, new FCDGeometryMesh(parent->GetDocument(), parent));
-ImplementParameterObject(FCDGeometry, FCDGeometrySpline, spline, new FCDGeometrySpline(parent->GetDocument(), parent));
+ImplementObjectType(FCDGeometry)
+ImplementParameterObject(FCDGeometry, FCDGeometryMesh, mesh, new FCDGeometryMesh(parent->GetDocument(), parent))
+ImplementParameterObject(FCDGeometry, FCDGeometrySpline, spline, new FCDGeometrySpline(parent->GetDocument(), parent))
 
 FCDGeometry::FCDGeometry(FCDocument* document)
 :	FCDEntity(document, "Geometry")

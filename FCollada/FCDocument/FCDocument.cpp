@@ -48,27 +48,27 @@
 // FCDocument
 //
 
-ImplementObjectType(FCDocument);
+ImplementObjectType(FCDocument)
 
-ImplementParameterObject(FCDocument, FCDEntityReference, visualSceneRoot, new FCDEntityReference(parent->GetDocument(), NULL));
-ImplementParameterObject(FCDocument, FCDEntityReference, physicsSceneRoots, new FCDEntityReference(parent->GetDocument(), NULL));
-ImplementParameterObject(FCDocument, FCDAsset, asset, new FCDAsset(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
-ImplementParameterObject(FCDocument, FCDAnimationLibrary, animationLibrary, new FCDAnimationLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDAnimationClipLibrary, animationClipLibrary, new FCDAnimationClipLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDCameraLibrary, cameraLibrary, new FCDCameraLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDControllerLibrary, controllerLibrary, new FCDControllerLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDEffectLibrary, effectLibrary, new FCDEffectLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDForceFieldLibrary, forceFieldLibrary, new FCDForceFieldLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDGeometryLibrary, geometryLibrary, new FCDGeometryLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDImageLibrary, imageLibrary, new FCDImageLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDLightLibrary, lightLibrary, new FCDLightLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDMaterialLibrary, materialLibrary, new FCDMaterialLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDPhysicsModelLibrary, physicsModelLibrary, new FCDPhysicsModelLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDPhysicsMaterialLibrary, physicsMaterialLibrary, new FCDPhysicsMaterialLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDPhysicsSceneLibrary, physicsSceneLibrary, new FCDPhysicsSceneLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDVisualSceneNodeLibrary, visualSceneLibrary, new FCDVisualSceneNodeLibrary(parent->GetDocument()));
-ImplementParameterObject(FCDocument, FCDEmitterLibrary, emitterLibrary, new FCDEmitterLibrary(parent->GetDocument()));
+ImplementParameterObject(FCDocument, FCDEntityReference, visualSceneRoot, new FCDEntityReference(parent->GetDocument(), NULL))
+ImplementParameterObject(FCDocument, FCDEntityReference, physicsSceneRoots, new FCDEntityReference(parent->GetDocument(), NULL))
+ImplementParameterObject(FCDocument, FCDAsset, asset, new FCDAsset(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
+ImplementParameterObject(FCDocument, FCDAnimationLibrary, animationLibrary, new FCDAnimationLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDAnimationClipLibrary, animationClipLibrary, new FCDAnimationClipLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDCameraLibrary, cameraLibrary, new FCDCameraLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDControllerLibrary, controllerLibrary, new FCDControllerLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDEffectLibrary, effectLibrary, new FCDEffectLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDForceFieldLibrary, forceFieldLibrary, new FCDForceFieldLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDGeometryLibrary, geometryLibrary, new FCDGeometryLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDImageLibrary, imageLibrary, new FCDImageLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDLightLibrary, lightLibrary, new FCDLightLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDMaterialLibrary, materialLibrary, new FCDMaterialLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDPhysicsModelLibrary, physicsModelLibrary, new FCDPhysicsModelLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDPhysicsMaterialLibrary, physicsMaterialLibrary, new FCDPhysicsMaterialLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDPhysicsSceneLibrary, physicsSceneLibrary, new FCDPhysicsSceneLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDVisualSceneNodeLibrary, visualSceneLibrary, new FCDVisualSceneNodeLibrary(parent->GetDocument()))
+ImplementParameterObject(FCDocument, FCDEmitterLibrary, emitterLibrary, new FCDEmitterLibrary(parent->GetDocument()))
 
 FCDocument::FCDocument()
 :	FCDObject(this)

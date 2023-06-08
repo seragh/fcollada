@@ -63,7 +63,7 @@ namespace fm
 	{
 		::new (o) Type1(value);
 	}
-};
+}
 
 #ifdef _OLD_NEW
 #define new _OLD_NEW

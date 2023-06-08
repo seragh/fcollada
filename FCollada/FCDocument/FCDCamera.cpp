@@ -19,7 +19,7 @@
 // FCDCamera
 //
 
-ImplementObjectType(FCDCamera);
+ImplementObjectType(FCDCamera)
 
 FCDCamera::FCDCamera(FCDocument* document)
 :	FCDTargetedEntity(document, "Camera")

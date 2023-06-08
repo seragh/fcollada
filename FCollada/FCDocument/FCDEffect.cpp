@@ -26,9 +26,9 @@
 // FCDEffect
 //
 
-ImplementObjectType(FCDEffect);
-ImplementParameterObjectNoCtr(FCDEffect, FCDEffectProfile, profiles);
-ImplementParameterObjectNoCtr(FCDEffect, FCDEffectParameter, parameters);
+ImplementObjectType(FCDEffect)
+ImplementParameterObjectNoCtr(FCDEffect, FCDEffectProfile, profiles)
+ImplementParameterObjectNoCtr(FCDEffect, FCDEffectParameter, parameters)
 
 FCDEffect::FCDEffect(FCDocument* document)
 :	FCDEntity(document, "Effect")

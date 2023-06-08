@@ -74,21 +74,21 @@ private:
 	DeclareObjectType(FCDTargetedEntity, FCDLight)
 
 	// Common Light parameters
-	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::COLOR, color, FC("Color"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, intensity, FC("Intensity")); // Non-standard COLLADA
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, lightType, FC("Light Type")); // LightType
+	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::COLOR, color, FC("Color"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, intensity, FC("Intensity")) // Non-standard COLLADA
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, lightType, FC("Light Type")) // LightType
 
 	// Point and spot light parameters
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, constantAttenuationFactor, FC("Constant Attenuation Factor"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, linearAttenuationFactor, FC("Linear Attenuation Factor"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, quadracticAttenuationFactor, FC("Quadratic Attenuation Factor"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, constantAttenuationFactor, FC("Constant Attenuation Factor"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, linearAttenuationFactor, FC("Linear Attenuation Factor"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, quadracticAttenuationFactor, FC("Quadratic Attenuation Factor"))
 
 	// Spot-specific light parameters
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, fallOffExponent, FC("Fall-off Exponent")); // Likely to be deprecated in future versions.
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, fallOffAngle, FC("Inner Cone Angle"));
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, outerAngle, FC("Outer Cone Angle")); // Non-standard COLLADA
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, penumbraAngle, FC("Penumbra Angle")); // *** DEPRECATED *** Replaced with the inner/outer angle.
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, dropoff, FC("Drop-off"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, fallOffExponent, FC("Fall-off Exponent")) // Likely to be deprecated in future versions.
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, fallOffAngle, FC("Inner Cone Angle"))
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, outerAngle, FC("Outer Cone Angle")) // Non-standard COLLADA
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, penumbraAngle, FC("Penumbra Angle")) // *** DEPRECATED *** Replaced with the inner/outer angle.
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, dropoff, FC("Drop-off"))
 
 public:
 	/** Constructor: do not use directly. Create new lights using the FCDLibrary::AddEntity function.

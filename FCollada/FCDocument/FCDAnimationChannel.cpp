@@ -20,8 +20,8 @@
 // FCDAnimationChannel
 //
 
-ImplementObjectType(FCDAnimationChannel);
-ImplementParameterObject(FCDAnimationChannel, FCDAnimationCurve, curves, new FCDAnimationCurve(parent->GetDocument(), parent));
+ImplementObjectType(FCDAnimationChannel)
+ImplementParameterObject(FCDAnimationChannel, FCDAnimationCurve, curves, new FCDAnimationCurve(parent->GetDocument(), parent))
 
 FCDAnimationChannel::FCDAnimationChannel(FCDocument* document, FCDAnimation* _parent)
 :	FCDObject(document), parent(_parent)

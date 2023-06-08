@@ -404,7 +404,7 @@ public:
 
 	/** Returns a copy of this functor */
 	virtual IFunctor3<Arg1, Arg2, Arg3, ReturnType>* Copy() const
-	{ return new FUFunctor3<Class, Arg1, Arg2, Arg3, ReturnType>(m_pObject, m_pFunction); };
+	{ return new FUFunctor3<Class, Arg1, Arg2, Arg3, ReturnType>(m_pObject, m_pFunction); }
 };
 
 /** Shortcut for new FUFunctor2<>.
@@ -451,7 +451,7 @@ public:
 
 	/** Returns a copy of this functor */
 	virtual IFunctor3<Arg1, Arg2, Arg3, ReturnType>* Copy() const
-	{ return new FUStaticFunctor3<Arg1, Arg2, Arg3, ReturnType>(m_pFunction); };
+	{ return new FUStaticFunctor3<Arg1, Arg2, Arg3, ReturnType>(m_pFunction); }
 };
 
 #endif //_FU_FUNCTOR_H_

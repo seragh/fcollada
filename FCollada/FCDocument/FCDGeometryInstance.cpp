@@ -32,7 +32,7 @@
 // FCDGeometryInstance
 //
 
-ImplementObjectType(FCDGeometryInstance);
+ImplementObjectType(FCDGeometryInstance)
 ImplementParameterObject(FCDGeometryInstance, FCDMaterialInstance, materials, new FCDMaterialInstance(parent->GetDocument(), parent))
 ImplementParameterObjectNoCtr(FCDGeometryInstance, FCDEffectParameter, parameters)
 

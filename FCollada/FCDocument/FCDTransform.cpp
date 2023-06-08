@@ -24,7 +24,7 @@
 // FCDTransform
 //
 
-ImplementObjectType(FCDTransform);
+ImplementObjectType(FCDTransform)
 
 FCDTransform::FCDTransform(FCDocument* document, FCDSceneNode* _parent)
 :	FCDObject(document), parent(_parent)
@@ -58,7 +58,7 @@ void FCDTransform::SetValueChange()
 // FCDTTranslation
 //
 
-ImplementObjectType(FCDTTranslation);
+ImplementObjectType(FCDTTranslation)
 
 FCDTTranslation::FCDTTranslation(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)
@@ -104,7 +104,7 @@ bool FCDTTranslation::IsInverse(const FCDTransform* transform) const
 // FCDTRotation
 //
 
-ImplementObjectType(FCDTRotation);
+ImplementObjectType(FCDTRotation)
 
 FCDTRotation::FCDTRotation(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)
@@ -153,7 +153,7 @@ bool FCDTRotation::IsInverse(const FCDTransform* transform) const
 // FCDTScale
 //
 
-ImplementObjectType(FCDTScale);
+ImplementObjectType(FCDTScale)
 
 FCDTScale::FCDTScale(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)
@@ -193,7 +193,7 @@ bool FCDTScale::IsAnimated() const
 // FCDTMatrix
 //
 
-ImplementObjectType(FCDTMatrix);
+ImplementObjectType(FCDTMatrix)
 
 FCDTMatrix::FCDTMatrix(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)
@@ -228,7 +228,7 @@ bool FCDTMatrix::IsAnimated() const
 // FCDTLookAt
 //
 
-ImplementObjectType(FCDTLookAt);
+ImplementObjectType(FCDTLookAt)
 
 FCDTLookAt::FCDTLookAt(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)
@@ -268,7 +268,7 @@ bool FCDTLookAt::IsAnimated() const
 // FCDTSkew
 //
 
-ImplementObjectType(FCDTSkew);
+ImplementObjectType(FCDTSkew)
 
 FCDTSkew::FCDTSkew(FCDocument* document, FCDSceneNode* parent)
 :	FCDTransform(document, parent)

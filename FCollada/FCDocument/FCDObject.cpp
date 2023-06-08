@@ -13,7 +13,7 @@
 // FCDObject
 //
 
-ImplementObjectType(FCDObject);
+ImplementObjectType(FCDObject)
 
 FCDObject::FCDObject(FCDocument* _document)
 :	FUParameterizable(), document(_document)

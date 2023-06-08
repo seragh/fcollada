@@ -92,7 +92,7 @@ public:
 
 	/** Retrieves the number of dimensions for this key.
 		@return The number of dimensions. */
-	uint32 GetDimension() const { return dimension; };
+	uint32 GetDimension() const { return dimension; }
 
 	/** The key input. Typically, this will be a time value, in seconds.
 		For driven curves, the dimension of this value will depend on the driver. */

@@ -83,10 +83,10 @@ public:
 private:
 	DeclareObjectType(FCDObjectWithId, FCDEntity)
 
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
-	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, note, FC("Note")); // Maya and Max both support custom strings for objects.
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"))
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
+	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, note, FC("Note")) // Maya and Max both support custom strings for objects.
 
 public:
 	/** Constructor: do not use directly.

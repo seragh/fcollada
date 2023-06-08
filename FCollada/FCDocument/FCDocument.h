@@ -118,33 +118,33 @@ private:
 	FCDExtraSet extraTrees;
 
 	FUSUniqueStringMap* uniqueNameMap;
-	DeclareParameterRef(FCDEntityReference, visualSceneRoot, FC("Root Visual Scene"));
-	DeclareParameterContainer(FCDEntityReference, physicsSceneRoots, FC("Root Physics Scenes"));
+	DeclareParameterRef(FCDEntityReference, visualSceneRoot, FC("Root Visual Scene"))
+	DeclareParameterContainer(FCDEntityReference, physicsSceneRoots, FC("Root Physics Scenes"))
 
 	// Document parameters
-	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"));
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterRef(FCDAsset, asset, FC("Asset Tag"))
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 	bool hasStartTime, hasEndTime;
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, startTime, FC("Start Time"));
-	DeclareParameter(float, FUParameterQualifiers::SIMPLE, endTime, FC("End Time"));
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, startTime, FC("Start Time"))
+	DeclareParameter(float, FUParameterQualifiers::SIMPLE, endTime, FC("End Time"))
 	FCDLayerList layers; // Maya-only
 
 	// Parsed and merged libraries
-	DeclareParameterRef(FCDAnimationLibrary, animationLibrary, FC("Animation Library"));
-	DeclareParameterRef(FCDAnimationClipLibrary, animationClipLibrary, FC("Animation Clip Library"));
-	DeclareParameterRef(FCDCameraLibrary, cameraLibrary, FC("Camera Library"));
-	DeclareParameterRef(FCDControllerLibrary, controllerLibrary, FC("Controller Library"));
-	DeclareParameterRef(FCDEffectLibrary, effectLibrary, FC("Effect Library"));
-	DeclareParameterRef(FCDForceFieldLibrary, forceFieldLibrary, FC("Force-field Library"));
-	DeclareParameterRef(FCDGeometryLibrary, geometryLibrary, FC("Geometry Library"));
-	DeclareParameterRef(FCDImageLibrary, imageLibrary, FC("Image Library"));
-	DeclareParameterRef(FCDLightLibrary, lightLibrary, FC("Light Library"));
-	DeclareParameterRef(FCDMaterialLibrary, materialLibrary, FC("Material Library"));
-	DeclareParameterRef(FCDPhysicsModelLibrary, physicsModelLibrary, FC("Physics Model Library"));
-	DeclareParameterRef(FCDPhysicsMaterialLibrary, physicsMaterialLibrary, FC("Physics Material Library"));
-	DeclareParameterRef(FCDPhysicsSceneLibrary, physicsSceneLibrary, FC("Physics Scene Library"));
-	DeclareParameterRef(FCDVisualSceneNodeLibrary, visualSceneLibrary, FC("Visual Scene Library"));
-	DeclareParameterRef(FCDEmitterLibrary, emitterLibrary, FC("Emitter Library"));
+	DeclareParameterRef(FCDAnimationLibrary, animationLibrary, FC("Animation Library"))
+	DeclareParameterRef(FCDAnimationClipLibrary, animationClipLibrary, FC("Animation Clip Library"))
+	DeclareParameterRef(FCDCameraLibrary, cameraLibrary, FC("Camera Library"))
+	DeclareParameterRef(FCDControllerLibrary, controllerLibrary, FC("Controller Library"))
+	DeclareParameterRef(FCDEffectLibrary, effectLibrary, FC("Effect Library"))
+	DeclareParameterRef(FCDForceFieldLibrary, forceFieldLibrary, FC("Force-field Library"))
+	DeclareParameterRef(FCDGeometryLibrary, geometryLibrary, FC("Geometry Library"))
+	DeclareParameterRef(FCDImageLibrary, imageLibrary, FC("Image Library"))
+	DeclareParameterRef(FCDLightLibrary, lightLibrary, FC("Light Library"))
+	DeclareParameterRef(FCDMaterialLibrary, materialLibrary, FC("Material Library"))
+	DeclareParameterRef(FCDPhysicsModelLibrary, physicsModelLibrary, FC("Physics Model Library"))
+	DeclareParameterRef(FCDPhysicsMaterialLibrary, physicsMaterialLibrary, FC("Physics Material Library"))
+	DeclareParameterRef(FCDPhysicsSceneLibrary, physicsSceneLibrary, FC("Physics Scene Library"))
+	DeclareParameterRef(FCDVisualSceneNodeLibrary, visualSceneLibrary, FC("Visual Scene Library"))
+	DeclareParameterRef(FCDEmitterLibrary, emitterLibrary, FC("Emitter Library"))
 
 	// Animated values
 	typedef fm::map<FCDAnimated*, FCDAnimated*> FCDAnimatedSet;

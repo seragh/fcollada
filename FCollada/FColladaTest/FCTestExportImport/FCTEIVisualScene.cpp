@@ -382,5 +382,4 @@ namespace FCTestExportImport
 		PassIf(fullLayer->objects[1] == "Obj2");
 		return true;
 	}
-};
-
+}

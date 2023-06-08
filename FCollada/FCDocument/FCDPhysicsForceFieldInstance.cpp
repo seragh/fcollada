@@ -15,7 +15,7 @@
 #include "StdAfx.h"
 #include "FCDocument/FCDPhysicsForceFieldInstance.h"
 
-ImplementObjectType(FCDPhysicsForceFieldInstance);
+ImplementObjectType(FCDPhysicsForceFieldInstance)
 
 FCDPhysicsForceFieldInstance::FCDPhysicsForceFieldInstance(
 		FCDocument* document, FCDSceneNode* parent, FCDEntity::Type entityType)

@@ -17,7 +17,7 @@
 // FCDEmitter
 //
 
-ImplementObjectType(FCDEmitter);
+ImplementObjectType(FCDEmitter)
 
 FCDEmitter::FCDEmitter(FCDocument* document)
 :	FCDEntity(document, "Emitter")

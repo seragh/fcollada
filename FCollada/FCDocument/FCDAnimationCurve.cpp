@@ -97,7 +97,7 @@ static void ComputeTCBTangent(const FCDAnimationKey* previousKey, const FCDAnima
 // FCDAnimationCurve
 //
 
-ImplementObjectType(FCDAnimationCurve);
+ImplementObjectType(FCDAnimationCurve)
 
 FCDAnimationCurve::FCDAnimationCurve(FCDocument* document, FCDAnimationChannel* _parent)
  :	FCDObject(document), parent(_parent),

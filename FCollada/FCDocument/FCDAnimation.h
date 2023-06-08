@@ -52,10 +52,10 @@ private:
 
 	// Animation hierarchy
 	FCDAnimation* parent;
-	DeclareParameterContainer(FCDAnimation, children, FC("Children"));
+	DeclareParameterContainer(FCDAnimation, children, FC("Children"))
 
 	// Animation sources and channels
-	DeclareParameterContainer(FCDAnimationChannel, channels, FC("Channels"));
+	DeclareParameterContainer(FCDAnimationChannel, channels, FC("Channels"))
 
 public:
 	/** Constructor. Do not use directly.

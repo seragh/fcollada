@@ -59,7 +59,7 @@ class FCOLLADA_EXPORT FCDEffectParameterSurface : public FCDEffectParameter
 private:
 	DeclareObjectType(FCDEffectParameter, FCDEffectParameterSurface)
 	StringList names; /**< The list of image names contained in the surface */
-	DeclareParameterTrackList(FCDImage, images, FC("Images")); /**< The list of images contained in the surface */
+	DeclareParameterTrackList(FCDImage, images, FC("Images")) /**< The list of images contained in the surface */
 	FCDEffectParameterSurfaceInit* initMethod; /**< The initialization method of the surface */
 	fm::string format; /**< Description of the surface format */
 	FCDFormatHint* formatHint; /**< Hints describing the format of the surface if format is not recognized */
@@ -438,7 +438,7 @@ class FCOLLADA_EXPORT FCDEffectParameterSurfaceInitAsTarget : public FCDEffectPa
 {
 public:
 	/** Constructor: builds a new file surface initialization method. */
-	FCDEffectParameterSurfaceInitAsTarget() {};
+	FCDEffectParameterSurfaceInitAsTarget() {}
 
 	/** Destructor. */
 	virtual ~FCDEffectParameterSurfaceInitAsTarget() {}
@@ -464,7 +464,7 @@ class FCOLLADA_EXPORT FCDEffectParameterSurfaceInitPlanar : public FCDEffectPara
 {
 public:
 	/** Constructor: builds a new file surface initialization method. */
-	FCDEffectParameterSurfaceInitPlanar() {};
+	FCDEffectParameterSurfaceInitPlanar() {}
 
 	/** Destructor. */
 	virtual ~FCDEffectParameterSurfaceInitPlanar() {}

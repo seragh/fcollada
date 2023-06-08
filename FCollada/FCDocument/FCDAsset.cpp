@@ -16,8 +16,8 @@
 // FCDAsset
 //
 
-ImplementObjectType(FCDAsset);
-ImplementParameterObject(FCDAsset, FCDAssetContributor, contributors, new FCDAssetContributor(parent->GetDocument()));
+ImplementObjectType(FCDAsset)
+ImplementParameterObject(FCDAsset, FCDAssetContributor, contributors, new FCDAssetContributor(parent->GetDocument()))
 
 FCDAsset::FCDAsset(FCDocument* document)
 :	FCDObject(document)
@@ -79,7 +79,7 @@ FCDAsset* FCDAsset::Clone(FCDAsset* clone, bool cloneAllContributors) const
 // FCDAssetContributor
 //
 
-ImplementObjectType(FCDAssetContributor);
+ImplementObjectType(FCDAssetContributor)
 
 FCDAssetContributor::FCDAssetContributor(FCDocument* document)
 :	FCDObject(document)

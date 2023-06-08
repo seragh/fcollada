@@ -30,10 +30,10 @@
 // FCDTexture
 //
 
-ImplementObjectType(FCDTexture);
-ImplementParameterObjectNoCtr(FCDTexture, FCDEffectParameterSampler, sampler);
-ImplementParameterObject(FCDTexture, FCDEffectParameterInt, set, new FCDEffectParameterInt(parent->GetDocument()));
-ImplementParameterObject(FCDTexture, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
+ImplementObjectType(FCDTexture)
+ImplementParameterObjectNoCtr(FCDTexture, FCDEffectParameterSampler, sampler)
+ImplementParameterObject(FCDTexture, FCDEffectParameterInt, set, new FCDEffectParameterInt(parent->GetDocument()))
+ImplementParameterObject(FCDTexture, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
 
 FCDTexture::FCDTexture(FCDocument* document, FCDEffectStandard* _parent)
 :	FCDObject(document), parent(_parent)

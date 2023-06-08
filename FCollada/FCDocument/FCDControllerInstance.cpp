@@ -17,8 +17,8 @@
 // FCDControllerInstance
 //
 
-ImplementObjectType(FCDControllerInstance);
-ImplementParameterObjectNoCtr(FCDControllerInstance, FCDSceneNode, joints);
+ImplementObjectType(FCDControllerInstance)
+ImplementParameterObjectNoCtr(FCDControllerInstance, FCDSceneNode, joints)
 
 FCDControllerInstance::FCDControllerInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity::Type entityType)
 :	FCDGeometryInstance(document, parent, entityType)

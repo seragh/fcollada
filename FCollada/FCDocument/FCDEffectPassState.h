@@ -37,7 +37,7 @@ class FCOLLADA_EXPORT FCDEffectPassState : public FCDObject
 {
 private:
 	DeclareObjectType(FCDObject, FCDEffectPassState)
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Type")); // FUDaePassState::State
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Type")) // FUDaePassState::State
 
 	// Data remains state-specific, un-parameterizable and will
 	// pretty much always require custom UI.

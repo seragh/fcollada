@@ -36,6 +36,6 @@ namespace FCDocumentTools
 			simply, since the re-targeting will happen before the pivot transform is done. */
 	void FCOLLADA_EXPORT StandardizeUpAxisAndLength(FCDocument* document, const FMVector3& upAxis = FMVector3::Origin, float unitInMeters = 0.0f, bool handleTargets=false);
 
-};
+}
 
 #endif // _FC_DOCUMENT_TOOLS_H_

@@ -44,7 +44,7 @@ private:
 	DeclareObjectType(FCDEntity, FCDTargetedEntity)
 
 	// Target
-	DeclareParameterPtr(FCDSceneNode, targetNode, FC("Target Node"));
+	DeclareParameterPtr(FCDSceneNode, targetNode, FC("Target Node"))
 
 public:
 	/** Constructor: do not use directly.

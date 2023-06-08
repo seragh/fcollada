@@ -71,8 +71,8 @@ private:
 	static bool is2DEvaluation;
 
 public:
-	DeclareFlag(AnimChanged, 0);	// On Member Value Changed
-	DeclareFlagCount(1);
+	DeclareFlag(AnimChanged, 0)	// On Member Value Changed
+	DeclareFlagCount(1)
 
 public:
 	/** Constructor: do not use directly.

@@ -35,5 +35,4 @@ namespace FMRandom
 	{
 		return ((float) (rand() & 0x7FFF)) / ((float) 0x7FFF);
 	}
-};
-
+}

@@ -105,53 +105,53 @@ public:
 private:
 	DeclareObjectType(FCDEffectProfile, FCDEffectStandard)
 
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Lighting Type")); // LightingType;
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Lighting Type")) // LightingType;
 
 	// Emission Channel
-	DeclareParameterContainer(FCDTexture, emissionTextures, FC("Emission Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, emissionColor, FC("Emission Color"));
-	DeclareParameterRef(FCDEffectParameterFloat, emissionFactor, FC("Emission Factor"));
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isEmissionFactor, FC("Is Emission Factor"));
+	DeclareParameterContainer(FCDTexture, emissionTextures, FC("Emission Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, emissionColor, FC("Emission Color"))
+	DeclareParameterRef(FCDEffectParameterFloat, emissionFactor, FC("Emission Factor"))
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isEmissionFactor, FC("Is Emission Factor"))
 
 	// Reflectivity Channel
-	DeclareParameterContainer(FCDTexture, reflectivityTextures, FC("Reflectivity Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, reflectivityColor, FC("Reflectivity Color"));
-	DeclareParameterRef(FCDEffectParameterFloat, reflectivityFactor, FC("Reflectivity Factor"));
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isReflective, FC("Is Reflective"));
+	DeclareParameterContainer(FCDTexture, reflectivityTextures, FC("Reflectivity Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, reflectivityColor, FC("Reflectivity Color"))
+	DeclareParameterRef(FCDEffectParameterFloat, reflectivityFactor, FC("Reflectivity Factor"))
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isReflective, FC("Is Reflective"))
 
 	// Refractivity Channel
-	DeclareParameterContainer(FCDTexture, refractionTextures, FC("Refraction Textures"));
-	DeclareParameterRef(FCDEffectParameterFloat, indexOfRefraction, FC("Index of Refraction"));
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isRefractive, FC("Is Refractive"));
+	DeclareParameterContainer(FCDTexture, refractionTextures, FC("Refraction Textures"))
+	DeclareParameterRef(FCDEffectParameterFloat, indexOfRefraction, FC("Index of Refraction"))
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isRefractive, FC("Is Refractive"))
 
 	// Transparency Channel
-	DeclareParameterContainer(FCDTexture, translucencyTextures, FC("Translucency Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, translucencyColor, FC("Translucency Color"));
-	DeclareParameterRef(FCDEffectParameterFloat, translucencyFactor, FC("Translucency Factor"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, transparencyMode, FC("Translucency Mode")); // TransparencyMode
+	DeclareParameterContainer(FCDTexture, translucencyTextures, FC("Translucency Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, translucencyColor, FC("Translucency Color"))
+	DeclareParameterRef(FCDEffectParameterFloat, translucencyFactor, FC("Translucency Factor"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, transparencyMode, FC("Translucency Mode")) // TransparencyMode
 
 	// Diffuse Channel
-	DeclareParameterContainer(FCDTexture, diffuseTextures, FC("Diffuse Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, diffuseColor, FC("Diffuse Color"));
+	DeclareParameterContainer(FCDTexture, diffuseTextures, FC("Diffuse Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, diffuseColor, FC("Diffuse Color"))
 
 	// Ambient Channel
-	DeclareParameterContainer(FCDTexture, ambientTextures, FC("Ambient Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, ambientColor, FC("Ambient Color"));
+	DeclareParameterContainer(FCDTexture, ambientTextures, FC("Ambient Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, ambientColor, FC("Ambient Color"))
 
 	// Specular Channel
-	DeclareParameterContainer(FCDTexture, specularTextures, FC("Specular Color Textures"));
-	DeclareParameterRef(FCDEffectParameterColor4, specularColor, FC("Specular Color"));
-	DeclareParameterContainer(FCDTexture, specularFactorTextures, FC("Specular Factor Textures"));
-	DeclareParameterRef(FCDEffectParameterFloat, specularFactor, FC("Specular Factor"));
+	DeclareParameterContainer(FCDTexture, specularTextures, FC("Specular Color Textures"))
+	DeclareParameterRef(FCDEffectParameterColor4, specularColor, FC("Specular Color"))
+	DeclareParameterContainer(FCDTexture, specularFactorTextures, FC("Specular Factor Textures"))
+	DeclareParameterRef(FCDEffectParameterFloat, specularFactor, FC("Specular Factor"))
 
 	// Specular Exponent Channel
-	DeclareParameterContainer(FCDTexture, shininessTextures, FC("Shininess Textures"));
-	DeclareParameterRef(FCDEffectParameterFloat, shininess, FC("Shininess Factor"));
+	DeclareParameterContainer(FCDTexture, shininessTextures, FC("Shininess Textures"))
+	DeclareParameterRef(FCDEffectParameterFloat, shininess, FC("Shininess Factor"))
 
 	// Extra Channels
-	DeclareParameterContainer(FCDTexture, bumpTextures, FC("Bump Maps"));
-	DeclareParameterContainer(FCDTexture, displacementTextures, FC("Displacement Maps")); // Max-only
-	DeclareParameterContainer(FCDTexture, filterTextures, FC("Filter Maps")); // Max-only
+	DeclareParameterContainer(FCDTexture, bumpTextures, FC("Bump Maps"))
+	DeclareParameterContainer(FCDTexture, displacementTextures, FC("Displacement Maps")) // Max-only
+	DeclareParameterContainer(FCDTexture, filterTextures, FC("Filter Maps")) // Max-only
 
 public:
 	/** Constructor: do not use directly.

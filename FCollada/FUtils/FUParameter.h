@@ -30,7 +30,7 @@ namespace FUParameterQualifiers
 		VECTOR = 0, /**< Qualifies a vector parameter (X, Y, Z, W). */
 		COLOR = 1 /**< Qualifies a color parameter (R, G, B, A). */
 	};
-};
+}
 
 
 /**

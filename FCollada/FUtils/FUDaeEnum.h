@@ -48,7 +48,7 @@ namespace FUDaeInterpolation
 		@param value The interpolation type.
 		@return The COLLADA interpolation type string. */
 	FCOLLADA_EXPORT const char* ToString(const Interpolation& value);
-};
+}
 
 /** A dynamically-sized array of animation curve interpolation types. */
 typedef fm::vector<FUDaeInterpolation::Interpolation> FUDaeInterpolationList;
@@ -76,7 +76,7 @@ namespace FUDaeSplineType
 		@param value The spline interpolation type.
 		@return The COLLADA spline interpolation type string. */
 	FCOLLADA_EXPORT const char* ToString(const Type& value);
-};
+}
 
 /** Contains the spline form types and their conversion functions. */
 namespace FUDaeSplineForm
@@ -101,7 +101,7 @@ namespace FUDaeSplineForm
 		@param value The spline form.
 		@return The COLLADA spline form string. */
 	FCOLLADA_EXPORT const char* ToString(const Form& value);
-};
+}
 
 
 /** Contains the texture channels and their conversion functions. */
@@ -135,7 +135,7 @@ namespace FUDaeTextureChannel
 		@param value The FCollada texture channel string.
 		@return The texture channel. */
 	FCOLLADA_EXPORT Channel FromString(const fm::string& value);
-};
+}
 
 /** Contains the texture wrap modes.*/
 namespace FUDaeTextureWrapMode
@@ -162,7 +162,7 @@ namespace FUDaeTextureWrapMode
 		@param wrap The wrap mode.
 		@return The COLLADA wrap mode string. */
 	FCOLLADA_EXPORT const char* ToString(WrapMode wrap);
-};
+}
 
 /** Contains the texture filter functions.*/
 namespace FUDaeTextureFilterFunction
@@ -191,7 +191,7 @@ namespace FUDaeTextureFilterFunction
 		@param function The filter function.
 		@return The COLLADA filter function string. */
 	FCOLLADA_EXPORT const char* ToString(FilterFunction function);
-};
+}
 
 /** Contains the morphing method for morph controllers and their conversion functions. */
 namespace FUDaeMorphMethod
@@ -221,7 +221,7 @@ namespace FUDaeMorphMethod
 		@return The COLLADA morph method string. */
 	FCOLLADA_EXPORT const char* ToString(Method method);
 	inline Method FromString(const fm::string& value) { return FromString(value.c_str()); } /**< See above. */
-};
+}
 
 /** Contains the infinity types and their conversion functions. */
 namespace FUDaeInfinity
@@ -258,7 +258,7 @@ namespace FUDaeInfinity
 		@return The infinity type string. */
 	FCOLLADA_EXPORT const char* ToString(Infinity infinity);
 	inline Infinity FromString(const fm::string& value) { return FromString(value.c_str()); } /**< See above. */
-};
+}
 
 /** Contains the multi-texture blend modes and their conversion functions. */
 namespace FUDaeBlendMode
@@ -395,7 +395,7 @@ namespace FUDaePassStateFunction
 		@param fn The render state function type.
 		@return The render state function string. */
 	FCOLLADA_EXPORT const char* ToString(Function fn);
-};
+}
 
 /** The stencil operation types for the effect pass render states. */
 namespace FUDaePassStateStencilOperation
@@ -426,7 +426,7 @@ namespace FUDaePassStateStencilOperation
 		@param op The stencil operation type.
 		@return The render state stencil operation string. */
 	FCOLLADA_EXPORT const char* ToString(Operation op);
-};
+}
 
 /** The render state blend types for effect passes. */
 namespace FUDaePassStateBlendType
@@ -469,7 +469,7 @@ namespace FUDaePassStateBlendType
 		@param type The blend type.
 		@return The render state blend type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render state face types. */
 namespace FUDaePassStateFaceType
@@ -496,7 +496,7 @@ namespace FUDaePassStateFaceType
 		@param type The face type.
 		@return The render state face type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render state blend equation types. */
 namespace FUDaePassStateBlendEquation
@@ -523,7 +523,7 @@ namespace FUDaePassStateBlendEquation
 		@param equation The blend equation type.
 		@return The render state blend equation type string. */
 	FCOLLADA_EXPORT const char* ToString(Equation equation);
-};
+}
 
 /** The render state material types. */
 namespace FUDaePassStateMaterialType
@@ -550,7 +550,7 @@ namespace FUDaePassStateMaterialType
 		@param type The material type.
 		@return The render state material type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render state fog types. */
 namespace FUDaePassStateFogType
@@ -599,7 +599,7 @@ namespace FUDaePassStateFogCoordinateType
 		@param type The fog coordinate source type.
 		@return The render state fog coordinate source type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render state front face types. */
 namespace FUDaePassStateFrontFaceType
@@ -623,7 +623,7 @@ namespace FUDaePassStateFrontFaceType
 		@param type The front-face type.
 		@return The render state front-face type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render state logic operations. */
 namespace FUDaePassStateLogicOperation
@@ -661,7 +661,7 @@ namespace FUDaePassStateLogicOperation
 		@param op The logic operation.
 		@return The render state logic operation type string. */
 	FCOLLADA_EXPORT const char* ToString(Operation op);
-};
+}
 
 /** The render state polygon modes. */
 namespace FUDaePassStatePolygonMode
@@ -686,7 +686,7 @@ namespace FUDaePassStatePolygonMode
 		@param mode The polygon mode.
 		@return The render state polygon mode type string. */
 	FCOLLADA_EXPORT const char* ToString(Mode mode);
-};
+}
 
 /** The render state shading model. */
 namespace FUDaePassStateShadeModel
@@ -710,7 +710,7 @@ namespace FUDaePassStateShadeModel
 		@param model The shading model.
 		@return The render state shading model type string. */
 	FCOLLADA_EXPORT const char* ToString(Model model);
-};
+}
 
 /** The render state light model color control types. */
 namespace FUDaePassStateLightModelColorControlType
@@ -734,7 +734,7 @@ namespace FUDaePassStateLightModelColorControlType
 		@param type The light model color control type.
 		@return The render state light model color control type string. */
 	FCOLLADA_EXPORT const char* ToString(Type type);
-};
+}
 
 /** The render states for effect passes. */
 namespace FUDaePassState
@@ -881,7 +881,7 @@ namespace FUDaePassState
 		@param state The render state enumeration type.
 		@return The render state name string. */
 	FCOLLADA_EXPORT const char* ToString(State state);
-};
+}
 
 /** Character-based definition of the various accessors TODO */
 namespace FUDaeAccessor
@@ -895,4 +895,3 @@ namespace FUDaeAccessor
 }
 
 #endif // _FU_DAE_ENUM_H_
-

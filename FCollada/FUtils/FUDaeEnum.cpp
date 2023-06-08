@@ -23,7 +23,7 @@ namespace FUDaeAccessor
 	const char* XYZW[5] = { "X", "Y", "Z", "W", 0 };
 	const char* RGBA[5] = { "R", "G", "B", "A", 0 };
 	const char* STPQ[5] = { "S", "T", "P", "Q", 0 };
-};
+}
 
 namespace FUDaeInterpolation
 {
@@ -50,7 +50,7 @@ namespace FUDaeInterpolation
 		default: return DAEERR_UNKNOWN_ELEMENT;
 		}
 	}
-};
+}
 
 namespace FUDaeSplineType
 {
@@ -72,7 +72,7 @@ namespace FUDaeSplineType
 		default: return DAE_UNKNOWN_SPLINE_TYPE;
 		}
 	}
-};
+}
 
 namespace FUDaeSplineForm
 {
@@ -92,7 +92,7 @@ namespace FUDaeSplineForm
 		default: return DAE_UNKNOWN_SPLINE_FORM;
 		}
 	}
-};
+}
 
 
 namespace FUDaeTextureChannel
@@ -114,7 +114,7 @@ namespace FUDaeTextureChannel
 		else if (value == DAE_TRANSPARENT_TEXTURE_CHANNEL) return TRANSPARENT;
 		else return UNKNOWN;
 	}
-};
+}
 
 namespace FUDaeTextureWrapMode
 {
@@ -140,7 +140,7 @@ namespace FUDaeTextureWrapMode
 		default: return DAE_TEXTURE_WRAP_UNKNOWN;
 		}
 	}
-};
+}
 
 /** Contains the texture filter functions.*/
 namespace FUDaeTextureFilterFunction
@@ -170,7 +170,7 @@ namespace FUDaeTextureFilterFunction
 		default: return DAE_TEXTURE_FILTER_UNKNOWN;
 		}
 	}
-};
+}
 
 namespace FUDaeMorphMethod
 {
@@ -191,7 +191,7 @@ namespace FUDaeMorphMethod
 		default: return DAEERR_UNKNOWN_MORPH_METHOD;
 		}
 	}
-};
+}
 
 namespace FUDaeInfinity
 {
@@ -217,7 +217,7 @@ namespace FUDaeInfinity
 		default: return DAEMAYA_CONSTANT_INFINITY;
 		}
 	}
-};
+}
 
 namespace FUDaeBlendMode
 {
@@ -364,7 +364,7 @@ namespace FUDaePassStateFunction
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateStencilOperation
 {
@@ -397,7 +397,7 @@ namespace FUDaePassStateStencilOperation
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateBlendType
 {
@@ -444,7 +444,7 @@ namespace FUDaePassStateBlendType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 /** The render state face types. */
 namespace FUDaePassStateFaceType
@@ -468,7 +468,7 @@ namespace FUDaePassStateFaceType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateBlendEquation
 {
@@ -495,7 +495,7 @@ namespace FUDaePassStateBlendEquation
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateMaterialType
 {
@@ -522,7 +522,7 @@ namespace FUDaePassStateMaterialType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateFogType
 {
@@ -566,7 +566,7 @@ namespace FUDaePassStateFogCoordinateType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateFrontFaceType
 {
@@ -587,7 +587,7 @@ namespace FUDaePassStateFrontFaceType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 
 /** The render state logic operations. */
@@ -636,7 +636,7 @@ namespace FUDaePassStateLogicOperation
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 /** The render state polygon modes. */
 namespace FUDaePassStatePolygonMode
@@ -660,7 +660,7 @@ namespace FUDaePassStatePolygonMode
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 /** The render state shading model. */
 namespace FUDaePassStateShadeModel
@@ -682,7 +682,7 @@ namespace FUDaePassStateShadeModel
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassStateLightModelColorControlType
 {
@@ -703,7 +703,7 @@ namespace FUDaePassStateLightModelColorControlType
 		default: return DAEERR_UNKNOWN_INPUT;
 		}
 	}
-};
+}
 
 namespace FUDaePassState
 {
@@ -936,4 +936,4 @@ namespace FUDaePassState
 		default: return DAEERR_UNKNOWN_ELEMENT;
 		}
 	}
-};
+}

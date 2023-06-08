@@ -38,8 +38,8 @@ public:
 		@param document The document that owns this binding. */
 	FCDEffectPassBind(FCDocument* document);
 
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, reference, FC("Parameter Reference")); /**< A COLLADA effect parameter reference. */
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, symbol, FC("Shader Symbol")); /**< An external symbol, used within the shader code. */
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, reference, FC("Parameter Reference")) /**< A COLLADA effect parameter reference. */
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, symbol, FC("Shader Symbol")) /**< An external symbol, used within the shader code. */
 };
 
 /**
@@ -59,12 +59,12 @@ private:
 	DeclareObjectType(FCDObject, FCDEffectPassShader)
 
 	FCDEffectPass* parent;
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Name"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, compilerTarget, FC("Compiler Target"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, compilerOptions, FC("Compiler Options"));
-	DeclareParameterContainer(FCDEffectPassBind, bindings, FC("Shader Bindings"));
-	DeclareParameterPtr(FCDEffectCode, code, FC("Shader Code"));
-	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isFragment, FC("Is Fragment Shader"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Name"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, compilerTarget, FC("Compiler Target"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, compilerOptions, FC("Compiler Options"))
+	DeclareParameterContainer(FCDEffectPassBind, bindings, FC("Shader Bindings"))
+	DeclareParameterPtr(FCDEffectCode, code, FC("Shader Code"))
+	DeclareParameter(bool, FUParameterQualifiers::SIMPLE, isFragment, FC("Is Fragment Shader"))
 
 public:
 	/** Constructor: do not use directly. Instead, use the FCDEffectPass::AddShader,

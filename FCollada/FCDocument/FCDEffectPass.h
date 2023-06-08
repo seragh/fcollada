@@ -45,9 +45,9 @@ private:
 	DeclareObjectType(FCDObject, FCDEffectPass)
 
 	FCDEffectTechnique* parent;
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
-	DeclareParameterContainer(FCDEffectPassShader, shaders, FC("Shaders"));
-	DeclareParameterContainer(FCDEffectPassState, states, FC("Render States"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"))
+	DeclareParameterContainer(FCDEffectPassShader, shaders, FC("Shaders"))
+	DeclareParameterContainer(FCDEffectPassState, states, FC("Render States"))
 
 public:
 	/** Constructor: do not use directly.

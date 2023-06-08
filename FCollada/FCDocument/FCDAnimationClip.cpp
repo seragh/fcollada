@@ -18,8 +18,8 @@
 // FCDAnimationClip
 //
 
-ImplementObjectType(FCDAnimationClip);
-ImplementParameterObjectNoCtr(FCDAnimationClip, FCDEntityInstance, animations);
+ImplementObjectType(FCDAnimationClip)
+ImplementParameterObjectNoCtr(FCDAnimationClip, FCDEntityInstance, animations)
 
 FCDAnimationClip::FCDAnimationClip(FCDocument* document)
 :	FCDEntity(document, "AnimationClip")

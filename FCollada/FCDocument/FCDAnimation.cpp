@@ -22,9 +22,9 @@
 // FCDAnimation
 //
 
-ImplementObjectType(FCDAnimation);
-ImplementParameterObject(FCDAnimation, FCDAnimation, children, new FCDAnimation(parent->GetDocument(), parent));
-ImplementParameterObject(FCDAnimation, FCDAnimationChannel, channels, new FCDAnimationChannel(parent->GetDocument(), parent));
+ImplementObjectType(FCDAnimation)
+ImplementParameterObject(FCDAnimation, FCDAnimation, children, new FCDAnimation(parent->GetDocument(), parent))
+ImplementParameterObject(FCDAnimation, FCDAnimationChannel, channels, new FCDAnimationChannel(parent->GetDocument(), parent))
 
 FCDAnimation::FCDAnimation(FCDocument* document, FCDAnimation* _parent)
 :	FCDEntity(document, "Animation")

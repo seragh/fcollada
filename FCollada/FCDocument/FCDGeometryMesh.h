@@ -59,16 +59,16 @@ private:
 	DeclareObjectType(FCDObject, FCDGeometryMesh)
 
 	FCDGeometry* parent;
-	DeclareParameterContainer(FCDGeometrySource, sources, FC("Data Sources"));
-	DeclareParameterContainer(FCDGeometryPolygons, polygons, FC("Polygons Sets"));
+	DeclareParameterContainer(FCDGeometrySource, sources, FC("Data Sources"))
+	DeclareParameterContainer(FCDGeometryPolygons, polygons, FC("Polygons Sets"))
 
-	DeclareParameterTrackList(FCDGeometrySource, vertexSources, FC("Vertex Sources"));
+	DeclareParameterTrackList(FCDGeometrySource, vertexSources, FC("Vertex Sources"))
 	size_t faceCount, holeCount;
 	size_t faceVertexCount;
 
 	bool isConvex; //determines if the mesh is defined as a <convex_mesh>
 	bool convexify; //determines if the mesh needs to be turned into a convex mesh
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, convexHullOf, FC("Convex Hull of"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, convexHullOf, FC("Convex Hull of"))
 
 public:
 	/** Contructor: do not use directly. Use FCDGeometry::AddMesh instead.

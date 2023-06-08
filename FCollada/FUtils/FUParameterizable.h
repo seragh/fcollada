@@ -58,15 +58,15 @@ protected:
 	uint32 flags;
 
 public:
-	DeclareFlag(Dirty, 0); /**< [EXPERIMENTAL] Generic Dirty Flag. Should be removed in future versions. */
-	DeclareFlag(ValueChanged, 1); /**< [EXPERIMENTAL] The value of a member has been changed.
+	DeclareFlag(Dirty, 0) /**< [EXPERIMENTAL] Generic Dirty Flag. Should be removed in future versions. */
+	DeclareFlag(ValueChanged, 1) /**< [EXPERIMENTAL] The value of a member has been changed.
 								        Examples: 1. the diffuse color changes from black to red.
 										2. The translation vector changes from {0,3,2} to {5,2,1}. */
-	DeclareFlag(StructureChanged, 2); /**< [EXPERIMENTAL] The structure of this object has changed.
+	DeclareFlag(StructureChanged, 2) /**< [EXPERIMENTAL] The structure of this object has changed.
 										Examples: 1. The effect of a material is changed.
 										2. A new transform is added to the scene node.
 										3. An effect parameter is removed from the effect's technique. */
-	DeclareFlagCount(3); /**< This class declares three flags. */
+	DeclareFlagCount(3) /**< This class declares three flags. */
 
 public:
 	/** Constructor. */

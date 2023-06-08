@@ -75,7 +75,7 @@ public:
 	/** Retrieves the number of physics model instances that are a part of this
 		physics scene.
 		@return The number of physics model instances. */
-	size_t GetPhysicsModelInstancesCount() const { return physicsModelInstances.size(); };
+	size_t GetPhysicsModelInstancesCount() const { return physicsModelInstances.size(); }
 
 	/** Retrieves a specific physics model instance that is a part of tihs
 		physics scene by index.
@@ -93,7 +93,7 @@ public:
 	/** Retrieves the number of physics force field instances that are a part
 		of this physics scene.
 		@return The number of physics force field instances. */
-	size_t GetForceFieldInstancesCount() const { return forceFieldInstances.size(); };
+	size_t GetForceFieldInstancesCount() const { return forceFieldInstances.size(); }
 
 	/** Retrieves a specific physics force field instance that is a part of
 		tihs physics scene by index.

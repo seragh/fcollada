@@ -120,4 +120,4 @@ namespace FUCrc32
 		fileOut.close();
 	}
 #endif // 0
-};
+}

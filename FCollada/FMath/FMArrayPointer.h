@@ -219,6 +219,6 @@ namespace fm
 			@param count The desired size for the pointer array. */
 		inline void resize(size_t count) { Parent::resize(count, NULL); }
 	};
-};
+}
 
 #endif // _FM_ARRAY_POINTER_H_

@@ -28,9 +28,9 @@
 // FCDEffectProfileFX
 //
 
-ImplementObjectType(FCDEffectProfileFX);
-ImplementParameterObject(FCDEffectProfileFX, FCDEffectCode, codes, new FCDEffectCode(parent->GetDocument()));
-ImplementParameterObject(FCDEffectProfileFX, FCDEffectTechnique, techniques, new FCDEffectTechnique(parent->GetDocument(), parent));
+ImplementObjectType(FCDEffectProfileFX)
+ImplementParameterObject(FCDEffectProfileFX, FCDEffectCode, codes, new FCDEffectCode(parent->GetDocument()))
+ImplementParameterObject(FCDEffectProfileFX, FCDEffectTechnique, techniques, new FCDEffectTechnique(parent->GetDocument(), parent))
 
 FCDEffectProfileFX::FCDEffectProfileFX(FCDocument* document, FCDEffect* _parent)
 :	FCDEffectProfile(document, _parent)

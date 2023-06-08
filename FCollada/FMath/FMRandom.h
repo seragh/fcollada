@@ -73,7 +73,6 @@ namespace FMRandom
 		@param rangeEnd The end of the wanted range.
 		@return A random floating-point value. */
 	inline float GetFloat(float rangeStart, float rangeEnd) { return GetFloat() * (rangeEnd - rangeStart) + rangeStart; }
-};
+}
 
 #endif // _FM_RANDOM_H_
-

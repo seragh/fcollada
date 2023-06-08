@@ -18,7 +18,7 @@
 // FCDEffectPassBind
 //
 
-ImplementObjectType(FCDEffectPassBind);
+ImplementObjectType(FCDEffectPassBind)
 
 FCDEffectPassBind::FCDEffectPassBind(FCDocument* document)
 :	FCDObject(document)
@@ -31,9 +31,9 @@ FCDEffectPassBind::FCDEffectPassBind(FCDocument* document)
 // FCDEffectPassShader
 //
 
-ImplementObjectType(FCDEffectPassShader);
-ImplementParameterObject(FCDEffectPassShader, FCDEffectPassBind, bindings, new FCDEffectPassBind(parent->GetDocument()));
-ImplementParameterObjectNoCtr(FCDEffectPassShader, FCDEffectCode, code);
+ImplementObjectType(FCDEffectPassShader)
+ImplementParameterObject(FCDEffectPassShader, FCDEffectPassBind, bindings, new FCDEffectPassBind(parent->GetDocument()))
+ImplementParameterObjectNoCtr(FCDEffectPassShader, FCDEffectCode, code)
 
 FCDEffectPassShader::FCDEffectPassShader(FCDocument* document, FCDEffectPass* _parent)
 :	FCDObject(document), parent(_parent)

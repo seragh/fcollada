@@ -13,7 +13,7 @@
 // FUTrackable
 //
 
-ImplementObjectType(FUTrackable);
+ImplementObjectType(FUTrackable)
 
 FUTrackable::FUTrackable()
 {

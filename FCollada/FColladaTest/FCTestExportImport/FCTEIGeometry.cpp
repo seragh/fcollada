@@ -401,5 +401,4 @@ namespace FCTestExportImport
 		PassIf(IsEquivalent(influence->GetPair(0)->weight, 1.0f));
 		return true;
 	}
-};
-
+}

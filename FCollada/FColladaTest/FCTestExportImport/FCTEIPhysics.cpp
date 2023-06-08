@@ -246,4 +246,4 @@ namespace FCTestExportImport
 		PassIf(!rigidConstraint->IsInterpenetrate());
 		return true;
 	}
-};
+}

@@ -18,17 +18,17 @@
 //
 // FColladaPlugin
 //
-ImplementObjectType(FCPExtraTechnique);
+ImplementObjectType(FCPExtraTechnique)
 
 //
 // FArchivingPlugin
 //
-ImplementObjectType(FCPArchive);
+ImplementObjectType(FCPArchive)
 
 //
 // FColladaPluginManager
 //
-ImplementObjectType(FColladaPluginManager);
+ImplementObjectType(FColladaPluginManager)
 
 FColladaPluginManager::FColladaPluginManager()
 :	loader(NULL)

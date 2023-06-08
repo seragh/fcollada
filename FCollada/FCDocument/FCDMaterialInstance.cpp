@@ -30,7 +30,7 @@
 // FCDMaterialInstanceBind
 //
 
-ImplementObjectType(FCDMaterialInstanceBind);
+ImplementObjectType(FCDMaterialInstanceBind)
 
 FCDMaterialInstanceBind::FCDMaterialInstanceBind()
 :	FUParameterizable()
@@ -47,7 +47,7 @@ FCDMaterialInstanceBind::~FCDMaterialInstanceBind()
 // FCDMaterialInstanceBindVertexInput
 //
 
-ImplementObjectType(FCDMaterialInstanceBindVertexInput);
+ImplementObjectType(FCDMaterialInstanceBindVertexInput)
 
 FCDMaterialInstanceBindVertexInput::FCDMaterialInstanceBindVertexInput()
 :	FUParameterizable()
@@ -65,7 +65,7 @@ FCDMaterialInstanceBindVertexInput::~FCDMaterialInstanceBindVertexInput()
 // FCDMaterialInstance
 //
 
-ImplementObjectType(FCDMaterialInstance);
+ImplementObjectType(FCDMaterialInstance)
 ImplementParameterObjectNoArg(FCDMaterialInstance, FCDMaterialInstanceBind, bindings)
 ImplementParameterObjectNoArg(FCDMaterialInstance, FCDMaterialInstanceBindVertexInput, vertexBindings)
 ImplementParameterObjectNoArg(FCDMaterialInstance, FCDMaterialInstanceBindTextureSurface, texSurfBindings)

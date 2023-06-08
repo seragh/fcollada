@@ -20,9 +20,9 @@
 // FCDEffectProfile
 //
 
-ImplementObjectType(FCDEffectProfile);
-ImplementParameterObjectNoCtr(FCDEffectProfile, FCDEffectParameter, parameters);
-ImplementParameterObject(FCDEffectProfile, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
+ImplementObjectType(FCDEffectProfile)
+ImplementParameterObjectNoCtr(FCDEffectProfile, FCDEffectParameter, parameters)
+ImplementParameterObject(FCDEffectProfile, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
 
 FCDEffectProfile::FCDEffectProfile(FCDocument* document, FCDEffect* _parent)
 :	FCDObject(document), parent(_parent)

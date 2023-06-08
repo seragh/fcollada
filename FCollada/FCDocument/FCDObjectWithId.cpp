@@ -17,7 +17,7 @@ static const size_t MAX_ID_LENGTH = 512;
 // FCDObjectWithId
 //
 
-ImplementObjectType(FCDObjectWithId);
+ImplementObjectType(FCDObjectWithId)
 
 FCDObjectWithId::FCDObjectWithId(FCDocument* document, const char* baseId)
 :	FCDObject(document)

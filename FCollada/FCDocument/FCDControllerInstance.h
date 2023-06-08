@@ -52,7 +52,7 @@ private:
 	friend class FCDEntityInstanceFactory;
 
 	FUUriList skeletonRoots;
-	DeclareParameterTrackList(FCDSceneNode, joints, FC("Skeleton Joints"));
+	DeclareParameterTrackList(FCDSceneNode, joints, FC("Skeleton Joints"))
 
 protected:
 	/** Constructor: do not use directly.

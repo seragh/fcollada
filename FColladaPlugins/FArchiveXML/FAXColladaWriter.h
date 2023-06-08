@@ -308,6 +308,6 @@ namespace FUDaeWriter
 #ifdef UNICODE
 	 void AddNodeSid(xmlNode* node, fstring& subId); /**< See above. */
 #endif
-};
+}
 
 #endif // _FU_DAE_WRITER_H_

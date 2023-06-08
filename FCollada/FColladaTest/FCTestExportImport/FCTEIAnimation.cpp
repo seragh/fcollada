@@ -116,5 +116,4 @@ namespace FCTestExportImport
 		PassIf(light1 != NULL);
 		return true;
 	}
-};
-
+}

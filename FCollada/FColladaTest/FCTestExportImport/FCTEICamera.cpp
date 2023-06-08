@@ -79,5 +79,4 @@ namespace FCTestExportImport
 		FailIf(ortho->HasHorizontalMag());
 		return true;
 	}
-};
-
+}

@@ -56,11 +56,11 @@ public:
 	/** Declare the flags to set various states available on an FCDObject
 		Each Declare flag requires its local index.  It is required to
 		DeclareFlagCount, declaring the amount of flags specified locally */
-	DeclareFlag(Transient, 0); /**< [EXPERIMENTAL] This object exists for the application to use.
+	DeclareFlag(Transient, 0) /**< [EXPERIMENTAL] This object exists for the application to use.
 							        This object should be not archived/saved. */
-	DeclareFlag(NewChild, 1); /**< [EXPERIMENTAL] A new child has been assigned to this object.
+	DeclareFlag(NewChild, 1) /**< [EXPERIMENTAL] A new child has been assigned to this object.
 							       Should be replaced by the StructureChanged flag in future versions. */
-	DeclareFlagCount(2); /**< 5 flags are locally declared. */
+	DeclareFlagCount(2) /**< 5 flags are locally declared. */
 
 public:
 	/** Constructor: sets the COLLADA document object.

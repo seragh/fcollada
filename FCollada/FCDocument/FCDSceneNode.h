@@ -57,25 +57,25 @@ private:
 	DeclareObjectType(FCDEntity, FCDSceneNode)
 
 	// Hierarchy and instances
-	DeclareParameterTrackList(FCDSceneNode, parents, FC("Parents"));
-	DeclareParameterTrackList(FCDSceneNode, children, FC("Child Nodes"));
-	DeclareParameterContainer(FCDTransform, transforms, FC("Transforms"));
-	DeclareParameterContainer(FCDEntityInstance, instances, FC("Instances"));
+	DeclareParameterTrackList(FCDSceneNode, parents, FC("Parents"))
+	DeclareParameterTrackList(FCDSceneNode, children, FC("Child Nodes"))
+	DeclareParameterContainer(FCDTransform, transforms, FC("Transforms"))
+	DeclareParameterContainer(FCDEntityInstance, instances, FC("Instances"))
 
 	// Visibility parameter.
 	// Should be a boolean, but is animated as float.
-	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, visibility, FC("Visibility"));
+	DeclareParameterAnimatable(float, FUParameterQualifiers::SIMPLE, visibility, FC("Visibility"))
 
 	// The number of entities that target this node
 	uint32 targetCount;
 
 	// Mainly for joints.
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, daeSubId, FC("Sub-id"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, daeSubId, FC("Sub-id"))
 
 public:
-	DeclareFlag(TransformsDirty, 0); /**< Whether the transforms have been dirtied. */
-	DeclareFlag(Joint, 1); /**< Whether the scene node is a joint. */
-	DeclareFlagCount(2); /**< . */
+	DeclareFlag(TransformsDirty, 0) /**< Whether the transforms have been dirtied. */
+	DeclareFlag(Joint, 1) /**< Whether the scene node is a joint. */
+	DeclareFlagCount(2) /**< . */
 
 public:
 	/** Constructor: do not use directly.
@@ -94,7 +94,7 @@ public:
 
 	/** Retrieves the number of parent nodes for this visual scene node.
 		@return The number of parents. */
-	inline size_t GetParentCount() const { return parents.size(); };
+	inline size_t GetParentCount() const { return parents.size(); }
 
 	/** Retrieves a specific parent of the visual scene node.
 		@param index The index of the parent.
@@ -109,7 +109,7 @@ public:
 
 	/** Retrieves the number of child nodes for this visual scene node.
 		@return The number of children. */
-	inline size_t GetChildrenCount() const { return children.size(); };
+	inline size_t GetChildrenCount() const { return children.size(); }
 
 	/** Retrieves a specific child of the visual scene node.
 		@param index The index of the child.
@@ -144,7 +144,7 @@ public:
 
 	/** Retrieves the number of entity instances at this node of the scene graph.
 		@return The number of entity instances. */
-	inline size_t GetInstanceCount() const { return instances.size(); };
+	inline size_t GetInstanceCount() const { return instances.size(); }
 
 	/** Retrieves a specific entity instance.
 		@param index The index of the instance.
@@ -177,7 +177,7 @@ public:
 
 	/** Retrieves the number of transforms for this node of the scene graph.
 		@return The number of transforms. */
-	inline size_t GetTransformCount() const { return transforms.size(); };
+	inline size_t GetTransformCount() const { return transforms.size(); }
 
 	/** Retrieves a specific transform.
 		@param index The index of the transform.

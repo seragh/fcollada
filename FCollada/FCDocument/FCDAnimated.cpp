@@ -24,7 +24,7 @@
 // FCDAnimated
 //
 
-ImplementObjectType(FCDAnimated);
+ImplementObjectType(FCDAnimated)
 
 FCDAnimated::FCDAnimated(FCDocument* document, size_t valueCount, const char** _qualifiers, float** _values)
 :	FCDObject(document)
@@ -300,7 +300,7 @@ void FCDAnimated::OnObjectReleased(FUTrackable* object)
 // FCDAnimatedCustom
 //
 
-ImplementObjectType(FCDAnimatedCustom);
+ImplementObjectType(FCDAnimatedCustom)
 
 static const char* customAnimatedTemporaryQualifier = "";
 static float* customAnimatedTemporaryValue = NULL;
@@ -361,4 +361,4 @@ namespace FCDAnimatedStandardQualifiers
 	FCOLLADA_EXPORT const char* SKEW[7] = { ".ROTATEX", ".ROTATEY", ".ROTATEZ", ".AROUNDX", ".AROUNDY", ".AROUNDZ", ".ANGLE" };
 	FCOLLADA_EXPORT const char* MATRIX[16] = { "(0)(0)", "(1)(0)", "(2)(0)", "(3)(0)", "(0)(1)", "(1)(1)", "(2)(1)", "(3)(1)", "(0)(2)", "(1)(2)", "(2)(2)", "(3)(2)", "(0)(3)", "(1)(3)", "(2)(3)", "(3)(3)" };
 	FCOLLADA_EXPORT const char* LOOKAT[9] = { ".POSITIONX", ".POSITIONY", ".POSITIONZ", ".TARGETX", ".TARGETY", ".TARGETZ", ".UPX", ".UPY", ".UPZ" };
-};
+}

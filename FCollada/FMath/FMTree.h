@@ -174,7 +174,7 @@ namespace fm
 			/** Constructor. @param n The tree node at which to start the iteration. */
 			iterator(node* n) : currentNode(n) {}
 			/** Copy constuctor. @param copy The tree iterator to copy. */
-			iterator(const iterator& copy) : currentNode(copy.currentNode) {};
+			iterator(const iterator& copy) : currentNode(copy.currentNode) {}
 			/** Copy operator. @param copy The tree iterator to copy. */
 			iterator& operator=(const iterator& copy) { currentNode = copy.currentNode; return *this; }
 			/** Retrieves whether this iterator points to the same node as the given iterator.
@@ -697,7 +697,7 @@ namespace fm
 	/** A STL map. */
 	template <class _Kty, class _Ty>
 	class map : public fm::tree<_Kty, _Ty> {};
-};
+}
 
 #endif // _FM_TREE_H_
 

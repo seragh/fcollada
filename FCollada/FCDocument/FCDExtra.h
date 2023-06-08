@@ -45,7 +45,7 @@ private:
 	DeclareObjectType(FCDObject, FCDExtra)
 
 	FUObject* parent;
-	DeclareParameterContainer(FCDEType, types, FC("Extra Types"));
+	DeclareParameterContainer(FCDEType, types, FC("Extra Types"))
 
 public:
 	/** Constructor.
@@ -129,8 +129,8 @@ private:
 	DeclareObjectType(FCDObject, FCDEType)
 
 	FCDExtra* parent;
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Type name"));
-	DeclareParameterContainer(FCDETechnique, techniques, FC("Profile-specific Techniques"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Type name"))
+	DeclareParameterContainer(FCDETechnique, techniques, FC("Profile-specific Techniques"))
 
 public:
 	/** Constructor: do not use directly.
@@ -224,13 +224,13 @@ private:
 	DeclareObjectType(FCDObject, FCDENode)
 
 	FCDENode* parent;
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Node name"));
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, content, FC("Node content"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Node name"))
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, content, FC("Node content"))
 
-	DeclareParameterContainer(FCDENode, children, FC("Children"));
-	DeclareParameterContainer(FCDEAttribute, attributes, FC("Attributes"));
+	DeclareParameterContainer(FCDENode, children, FC("Children"))
+	DeclareParameterContainer(FCDEAttribute, attributes, FC("Attributes"))
 
-	DeclareParameterRef(FCDAnimatedCustom, animated, FC("Custom Animatable"));
+	DeclareParameterRef(FCDAnimatedCustom, animated, FC("Custom Animatable"))
 
 public:
 	/** Constructor: do not use directly.
@@ -441,8 +441,8 @@ class FCOLLADA_EXPORT FCDETechnique : public FCDENode
 private:
 	DeclareObjectType(FCDENode, FCDETechnique)
 
-	DeclareParameterPtr(FUTrackable, pluginOverride, FC("Plug-in Override Object"));
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, profile, FC("Profile Name"));
+	DeclareParameterPtr(FUTrackable, pluginOverride, FC("Plug-in Override Object"))
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, profile, FC("Profile Name"))
 
 public:
 	/** Constructor: do not use directly.
@@ -491,8 +491,8 @@ public:
 class FCDEAttribute : public FUParameterizable
 {
 private:
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Attribute Name")); /**< The attribute name. Must be provided. */
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Attribute Value")); /**< The attribute value. Is optional. */
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, name, FC("Attribute Name")) /**< The attribute name. Must be provided. */
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, value, FC("Attribute Value")) /**< The attribute value. Is optional. */
 
 public:
 	/** Default constructor.

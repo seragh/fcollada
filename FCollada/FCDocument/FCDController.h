@@ -42,8 +42,8 @@ class FCOLLADA_EXPORT FCDController : public FCDEntity
 private:
 	DeclareObjectType(FCDEntity, FCDController)
 
-	DeclareParameterRef(FCDSkinController, skinController, FC("Skin"));
-	DeclareParameterRef(FCDMorphController, morphController, FC("Morpher"));
+	DeclareParameterRef(FCDSkinController, skinController, FC("Skin"))
+	DeclareParameterRef(FCDMorphController, morphController, FC("Morpher"))
 
 public:
 	/** Constructor: do not use directly.
@@ -57,7 +57,7 @@ public:
 	/** Retrieves the entity class type.
 		This function is a part of the FCDEntity interface.
 		@return The entity class type: CONTROLLER. */
-	virtual Type GetType() const { return CONTROLLER; };
+	virtual Type GetType() const { return CONTROLLER; }
 
 	/** Retrieves whether this controller is a skin controller.
 		@return Whether this controller is a skin controller. */

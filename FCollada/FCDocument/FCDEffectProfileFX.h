@@ -56,11 +56,11 @@ class FCOLLADA_EXPORT FCDEffectProfileFX : public FCDEffectProfile
 {
 private:
 	DeclareObjectType(FCDEffectProfile, FCDEffectProfileFX)
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Profile Language")); // FUDaeProfileType::Type
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, platform, FC("Platform"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, type, FC("Profile Language")) // FUDaeProfileType::Type
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, platform, FC("Platform"))
 
-	DeclareParameterContainer(FCDEffectCode, codes, FC("Code Inclusions"));
-	DeclareParameterContainer(FCDEffectTechnique, techniques, FC("Effect Techniques"));
+	DeclareParameterContainer(FCDEffectCode, codes, FC("Code Inclusions"))
+	DeclareParameterContainer(FCDEffectTechnique, techniques, FC("Effect Techniques"))
 
 public:
 	/** Constructor: do not use directly. Instead, use the FCDEffect::AddProfile function.

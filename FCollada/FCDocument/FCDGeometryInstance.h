@@ -38,8 +38,8 @@ class FCOLLADA_EXPORT FCDGeometryInstance : public FCDEntityInstance
 {
 private:
 	DeclareObjectType(FCDEntityInstance, FCDGeometryInstance)
-	DeclareParameterContainer(FCDMaterialInstance, materials, FC("Materials Bound"));
-	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"));
+	DeclareParameterContainer(FCDMaterialInstance, materials, FC("Materials Bound"))
+	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"))
 
 	friend class FCDEntityInstanceFactory;
 

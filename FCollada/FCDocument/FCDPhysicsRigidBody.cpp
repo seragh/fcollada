@@ -15,8 +15,8 @@
 // FCDPhysicsRigidBody
 //
 
-ImplementObjectType(FCDPhysicsRigidBody);
-ImplementParameterObject(FCDPhysicsRigidBody, FCDPhysicsRigidBodyParameters, parameters, new FCDPhysicsRigidBodyParameters(parent->GetDocument(), parent));
+ImplementObjectType(FCDPhysicsRigidBody)
+ImplementParameterObject(FCDPhysicsRigidBody, FCDPhysicsRigidBodyParameters, parameters, new FCDPhysicsRigidBodyParameters(parent->GetDocument(), parent))
 
 FCDPhysicsRigidBody::FCDPhysicsRigidBody(FCDocument* document)
 :	FCDEntity(document, "RigidBody")

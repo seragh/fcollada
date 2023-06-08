@@ -31,6 +31,6 @@ namespace FMInterpolation
 		UNKNOWN,			/**< Unknown interpolation. */
 		DEFAULT = NONE,		/**< Default interpolation (None). */
 	};
-};
+}
 
 #endif // _FM_INTERPOLATION_H_

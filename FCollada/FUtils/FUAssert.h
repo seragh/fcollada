@@ -31,7 +31,7 @@ namespace FUAssertion
 	/** [INTERNAL] Event-handler for failed assertions.
         Do not use directly. We recommend you use FUBreak, FUFail or FUAssert. */
 	FCOLLADA_EXPORT bool OnAssertionFailed(const char* filename, uint32 line);
-};
+}
 
 #ifdef _DEBUG
 

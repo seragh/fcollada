@@ -24,7 +24,7 @@
 #include "FUtils/FUUniqueStringMap.h"
 #include "FCDocument/FCDExtra.h"
 
-ImplementObjectType(FCDPhysicsScene);
+ImplementObjectType(FCDPhysicsScene)
 
 FCDPhysicsScene::FCDPhysicsScene(FCDocument* document)
 :	FCDEntity(document, "PhysicsSceneNode")

@@ -21,9 +21,9 @@
 // FCDEmitterInstance
 //
 
-ImplementObjectType(FCDEmitterInstance);
-ImplementParameterObjectNoCtr(FCDEmitterInstance, FCDEntityInstance, forceInstances);
-ImplementParameterObjectNoCtr(FCDEmitterInstance, FCDEntityInstance, emittedInstances);
+ImplementObjectType(FCDEmitterInstance)
+ImplementParameterObjectNoCtr(FCDEmitterInstance, FCDEntityInstance, forceInstances)
+ImplementParameterObjectNoCtr(FCDEmitterInstance, FCDEntityInstance, emittedInstances)
 
 FCDEmitterInstance::FCDEmitterInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity::Type entityType)
 :	FCDEntityInstance(document, parent, entityType)

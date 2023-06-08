@@ -190,6 +190,6 @@ namespace FUXmlWriter
 		@param node The XML tree node to reparent.
 		@param newParent The new parent XML tree node. */
 	FCOLLADA_EXPORT void ReParentNode(xmlNode* node, xmlNode* newParent);
-};
+}
 
 #endif // _FU_XML_WRITER_H_

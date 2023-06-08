@@ -21,9 +21,9 @@
 // FCDPhysicsRigidBodyInstance
 //
 
-ImplementObjectType(FCDPhysicsRigidBodyInstance);
-ImplementParameterObject(FCDPhysicsRigidBodyInstance, FCDPhysicsRigidBodyParameters, parameters, new FCDPhysicsRigidBodyParameters(parent->GetDocument(), parent));
-ImplementParameterObjectNoCtr(FCDPhysicsRigidBodyInstance, FCDSceneNode, targetNode);
+ImplementObjectType(FCDPhysicsRigidBodyInstance)
+ImplementParameterObject(FCDPhysicsRigidBodyInstance, FCDPhysicsRigidBodyParameters, parameters, new FCDPhysicsRigidBodyParameters(parent->GetDocument(), parent))
+ImplementParameterObjectNoCtr(FCDPhysicsRigidBodyInstance, FCDSceneNode, targetNode)
 
 FCDPhysicsRigidBodyInstance::FCDPhysicsRigidBodyInstance(FCDocument* document, FCDPhysicsModelInstance* _parent, FCDPhysicsRigidBody* body)
 :	FCDEntityInstance(document, NULL, FCDEntity::PHYSICS_RIGID_BODY)

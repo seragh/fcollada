@@ -36,7 +36,7 @@ class FCOLLADA_EXPORT FCDPhysicsModelInstance : public FCDEntityInstance
 private:
 	DeclareObjectType(FCDEntityInstance, FCDPhysicsModelInstance)
 
-	DeclareParameterContainer(FCDEntityInstance, instances, FC("Inner Instances"));
+	DeclareParameterContainer(FCDEntityInstance, instances, FC("Inner Instances"))
 
 public:
 	/** Constructor: do not use directly. Create new physics models using the

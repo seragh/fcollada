@@ -60,9 +60,9 @@ private:
 	DeclareObjectType(FCDObject, FCDTexture)
 
 	FCDEffectStandard* parent;
-	DeclareParameterPtr(FCDEffectParameterSampler, sampler, FC("Sampler")); // Points to the surface, which points to the image.
-	DeclareParameterRef(FCDEffectParameterInt, set, FC("Set")); // Always preset, this parameter hold the map channel/uv set index
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterPtr(FCDEffectParameterSampler, sampler, FC("Sampler")) // Points to the surface, which points to the image.
+	DeclareParameterRef(FCDEffectParameterInt, set, FC("Set")) // Always preset, this parameter hold the map channel/uv set index
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 public:
 	/** Constructor. Do not use directly.

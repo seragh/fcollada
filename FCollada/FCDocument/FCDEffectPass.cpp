@@ -18,9 +18,9 @@
 // FCDEffectPass
 //
 
-ImplementObjectType(FCDEffectPass);
-ImplementParameterObject(FCDEffectPass, FCDEffectPassShader, shaders, new FCDEffectPassShader(parent->GetDocument(), parent));
-ImplementParameterObjectNoCtr(FCDEffectPass, FCDEffectPassState, states);
+ImplementObjectType(FCDEffectPass)
+ImplementParameterObject(FCDEffectPass, FCDEffectPassShader, shaders, new FCDEffectPassShader(parent->GetDocument(), parent))
+ImplementParameterObjectNoCtr(FCDEffectPass, FCDEffectPassState, states)
 
 FCDEffectPass::FCDEffectPass(FCDocument* document, FCDEffectTechnique *_parent)
 :	FCDObject(document), parent(_parent)

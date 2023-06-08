@@ -17,7 +17,7 @@
 // FCDExternalReferenceManager
 //
 
-ImplementObjectType(FCDExternalReferenceManager);
+ImplementObjectType(FCDExternalReferenceManager)
 
 FCDExternalReferenceManager::FCDExternalReferenceManager(FCDocument* document)
 :	FCDObject(document)

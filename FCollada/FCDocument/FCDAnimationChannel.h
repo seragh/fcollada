@@ -47,7 +47,7 @@ private:
 	DeclareObjectType(FCDObject, FCDAnimationChannel)
 	FCDAnimation* parent;
 
-	DeclareParameterContainer(FCDAnimationCurve, curves, FC("Animation Curves"));
+	DeclareParameterContainer(FCDAnimationCurve, curves, FC("Animation Curves"))
 
 public:
 	/** Constructor: do not use directly.

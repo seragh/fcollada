@@ -22,8 +22,8 @@
 // FCDEffectParameter
 //
 
-ImplementObjectType(FCDEffectParameter);
-ImplementParameterObjectNoArg(FCDEffectParameter, FCDEffectParameterAnnotation, annotations);
+ImplementObjectType(FCDEffectParameter)
+ImplementParameterObjectNoArg(FCDEffectParameter, FCDEffectParameterAnnotation, annotations)
 
 FCDEffectParameter::FCDEffectParameter(FCDocument* document)
 :	FCDObject(document)
@@ -99,7 +99,7 @@ void FCDEffectParameter::Overwrite(FCDEffectParameter* UNUSED(target))
 // FCDEffectParameterAnnotation
 //
 
-ImplementObjectType(FCDEffectParameterAnnotation);
+ImplementObjectType(FCDEffectParameterAnnotation)
 
 FCDEffectParameterAnnotation::FCDEffectParameterAnnotation()
 :	FUParameterizable()
@@ -117,9 +117,9 @@ FCDEffectParameterAnnotation::~FCDEffectParameterAnnotation()
 // FCDEffectParameterT
 //
 
-ImplementObjectTypeT(FCDEffectParameterInt);
-ImplementObjectTypeT(FCDEffectParameterString);
-ImplementObjectTypeT(FCDEffectParameterBool);
+ImplementObjectTypeT(FCDEffectParameterInt)
+ImplementObjectTypeT(FCDEffectParameterString)
+ImplementObjectTypeT(FCDEffectParameterBool)
 
 template <> FCDEffectParameter::Type FCDEffectParameterInt::GetType() const { return FCDEffectParameter::INTEGER; }
 template <> FCDEffectParameter::Type FCDEffectParameterString::GetType() const { return FCDEffectParameter::STRING; }
@@ -136,13 +136,13 @@ template <> FCDEffectParameterBool::FCDEffectParameterT(FCDocument* document)
 // FCDEffectParameterAnimatableT
 //
 
-ImplementObjectTypeT(FCDEffectParameterFloat);
-ImplementObjectTypeT(FCDEffectParameterFloat2);
-ImplementObjectTypeT(FCDEffectParameterFloat3);
-ImplementObjectTypeT(FCDEffectParameterColor3);
-ImplementObjectTypeT(FCDEffectParameterVector);
-ImplementObjectTypeT(FCDEffectParameterColor4);
-ImplementObjectTypeT(FCDEffectParameterMatrix);
+ImplementObjectTypeT(FCDEffectParameterFloat)
+ImplementObjectTypeT(FCDEffectParameterFloat2)
+ImplementObjectTypeT(FCDEffectParameterFloat3)
+ImplementObjectTypeT(FCDEffectParameterColor3)
+ImplementObjectTypeT(FCDEffectParameterVector)
+ImplementObjectTypeT(FCDEffectParameterColor4)
+ImplementObjectTypeT(FCDEffectParameterMatrix)
 
 template <> FCDEffectParameter::Type FCDEffectParameterFloat::GetType() const { return FCDEffectParameter::FLOAT; }
 template <> FCDEffectParameter::Type FCDEffectParameterFloat2::GetType() const { return FCDEffectParameter::FLOAT2; }

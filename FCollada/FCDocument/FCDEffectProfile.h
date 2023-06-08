@@ -43,8 +43,8 @@ class FCOLLADA_EXPORT FCDEffectProfile : public FCDObject
 private:
 	DeclareObjectType(FCDObject, FCDEffectProfile)
 	FCDEffect* parent;
-	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"));
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterContainer(FCDEffectParameter, parameters, FC("Effect Parameters"))
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 public:
 	/** Constructor: do not use directly.

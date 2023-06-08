@@ -33,7 +33,7 @@ static const size_t dataSizeTable[FUDaePassState::COUNT] =
 // FCDEffectPassState
 //
 
-ImplementObjectType(FCDEffectPassState);
+ImplementObjectType(FCDEffectPassState)
 
 FCDEffectPassState::FCDEffectPassState(FCDocument* document, FUDaePassState::State renderState)
 :	FCDObject(document)

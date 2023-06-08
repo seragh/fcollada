@@ -84,10 +84,10 @@ private:
 	DeclareObjectType(FCDObject, FCDGeometryPolygons)
 
 	FCDGeometryMesh* parent;
-	DeclareParameterContainer(FCDGeometryPolygonsInput, inputs, FC("Data Inputs"));
-	DeclareParameterList(UInt32, faceVertexCounts, FC("Per-face Vertex counts"));
-	DeclareParameterList(UInt32, holeFaces, FC("Hole face indices"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, primitiveType, FC("Primitive Type")); // PrimitiveType
+	DeclareParameterContainer(FCDGeometryPolygonsInput, inputs, FC("Data Inputs"))
+	DeclareParameterList(UInt32, faceVertexCounts, FC("Per-face Vertex counts"))
+	DeclareParameterList(UInt32, holeFaces, FC("Hole face indices"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, primitiveType, FC("Primitive Type")) // PrimitiveType
 
 	// Buffered statistics
 	size_t faceVertexCount;
@@ -96,10 +96,10 @@ private:
 	size_t holeOffset;
 
 	// Material for this set of polygons
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, materialSemantic, FC("Material Semantic"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, materialSemantic, FC("Material Semantic"))
 
 	// Extra information tree
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 public:
 	/** Constructor: do not use directly. Instead, use the FCDGeometryMesh::AddPolygons function

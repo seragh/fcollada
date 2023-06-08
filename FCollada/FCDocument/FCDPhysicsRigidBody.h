@@ -33,7 +33,7 @@ class FCOLLADA_EXPORT FCDPhysicsRigidBody : public FCDEntity
 private:
 	DeclareObjectType(FCDEntity, FCDPhysicsRigidBody)
 
-	DeclareParameterRef(FCDPhysicsRigidBodyParameters, parameters, FC("Parameters"));
+	DeclareParameterRef(FCDPhysicsRigidBodyParameters, parameters, FC("Parameters"))
 
 public:
 	/** Constructor: do not use directly. Create new rigid bodies using the

@@ -20,8 +20,8 @@
 // FCDEffectParameterSampler
 //
 
-ImplementObjectType(FCDEffectParameterSampler);
-ImplementParameterObjectNoCtr(FCDEffectParameterSampler, FCDEffectParameterSurface, surface);
+ImplementObjectType(FCDEffectParameterSampler)
+ImplementParameterObjectNoCtr(FCDEffectParameterSampler, FCDEffectParameterSurface, surface)
 
 FCDEffectParameterSampler::FCDEffectParameterSampler(FCDocument* document)
 :	FCDEffectParameter(document)

@@ -71,14 +71,14 @@ private:
 
 	FCDSceneNode* parent; // May be NULL for non-scene graph instances.
 	FCDEntity::Type entityType;
-	DeclareParameterPtr(FCDEntityReference, entityReference, FC("Entity Reference"));
+	DeclareParameterPtr(FCDEntityReference, entityReference, FC("Entity Reference"))
 
 	// common attributes for instances
 	fstring name;
-	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, wantedSubId, FC("Instance Sub-id"));
+	DeclareParameter(fm::string, FUParameterQualifiers::SIMPLE, wantedSubId, FC("Instance Sub-id"))
 
 	// Extra information for the entity instance.
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 protected:
 	/** Constructor: do not use directly.

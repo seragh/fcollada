@@ -50,10 +50,10 @@ private:
 	DeclareObjectType(FCDObject, FCDGeometryPolygonsInput)
 
 	FCDGeometryPolygons* parent;
-	DeclareParameterPtr(FCDGeometrySource, source, FC("Data Source"));
-	DeclareParameter(int32, FUParameterQualifiers::SIMPLE, set, FC("Input Set"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, offset, FC("Stream Offset"));
-	DeclareParameterList(UInt32, indices, FC("Data Indices"));
+	DeclareParameterPtr(FCDGeometrySource, source, FC("Data Source"))
+	DeclareParameter(int32, FUParameterQualifiers::SIMPLE, set, FC("Input Set"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, offset, FC("Stream Offset"))
+	DeclareParameterList(UInt32, indices, FC("Data Indices"))
 
 public:
 	/** Constructor.

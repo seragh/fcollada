@@ -17,7 +17,7 @@ class FUTObject1 : public FUTrackable
 public:
 	FUTObject1(FUObjectContainer<FUTrackable>* container) { container->push_back(this); }
 };
-ImplementObjectType(FUTObject1);
+ImplementObjectType(FUTObject1)
 
 class FUTObject2 : public FUTrackable
 {
@@ -25,7 +25,7 @@ class FUTObject2 : public FUTrackable
 public:
 	FUTObject2(FUObjectContainer<FUTrackable>* container) { container->push_back(this); }
 };
-ImplementObjectType(FUTObject2);
+ImplementObjectType(FUTObject2)
 
 class FUTObject1Up : public FUTObject1
 {
@@ -33,7 +33,7 @@ class FUTObject1Up : public FUTObject1
 public:
 	FUTObject1Up(FUObjectContainer<FUTrackable>* container) : FUTObject1(container) {}
 };
-ImplementObjectType(FUTObject1Up);
+ImplementObjectType(FUTObject1Up)
 
 ///////////////////////////////////////////////////////////////////////////////
 class FUTSimple1 : public FUTrackable
@@ -52,10 +52,10 @@ class FUTSimple4 : public FUTSimple2
 {
 	DeclareObjectType(FUTSimple2, FUTSimple4)
 };
-ImplementObjectType(FUTSimple1);
-ImplementObjectType(FUTSimple2);
-ImplementObjectType(FUTSimple3);
-ImplementObjectType(FUTSimple4);
+ImplementObjectType(FUTSimple1)
+ImplementObjectType(FUTSimple2)
+ImplementObjectType(FUTSimple3)
+ImplementObjectType(FUTSimple4)
 
 ///////////////////////////////////////////////////////////////////////////////
 TESTSUITE_START(FUObject)

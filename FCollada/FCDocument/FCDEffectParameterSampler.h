@@ -49,14 +49,14 @@ public:
 private:
 	DeclareObjectType(FCDEffectParameter, FCDEffectParameterSampler)
 
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, samplerType, FC("Sampler Type")); // SamplerType
-	DeclareParameterPtr(FCDEffectParameterSurface, surface, FC("Surface"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_s, FC("Wrap Mode S")); // FUDaeTextureWrapMode::WrapMode
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_t, FC("Wrap Mode T"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_p, FC("Wrap Mode P"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, minFilter, FC("Min Filter")); // FUDaeTextureFilterFunction::FilterFunction
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, magFilter, FC("Mag Filter"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, mipFilter, FC("Mip Filter"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, samplerType, FC("Sampler Type")) // SamplerType
+	DeclareParameterPtr(FCDEffectParameterSurface, surface, FC("Surface"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_s, FC("Wrap Mode S")) // FUDaeTextureWrapMode::WrapMode
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_t, FC("Wrap Mode T"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, wrap_p, FC("Wrap Mode P"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, minFilter, FC("Min Filter")) // FUDaeTextureFilterFunction::FilterFunction
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, magFilter, FC("Mag Filter"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, mipFilter, FC("Mip Filter"))
 
 public:
 	/** Constructor: do not use directly.

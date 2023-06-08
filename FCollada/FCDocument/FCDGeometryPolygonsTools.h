@@ -160,6 +160,6 @@ namespace FCDGeometryPolygonsTools
 		tangents and binormals as well as texture tangents and binormals.
 		@param mesh The mesh to process. */
 	FCOLLADA_EXPORT void ReverseNormals(FCDGeometryMesh* mesh);
-};
+}
 
 #endif // _FCD_GEOMETRY_POLYGONS_TOOLS_H_

@@ -16,7 +16,7 @@
 #include "FCDocument/FCDPhysicsRigidConstraintInstance.h"
 #include "FUtils/FUUri.h"
 
-ImplementObjectType(FCDPhysicsRigidConstraintInstance);
+ImplementObjectType(FCDPhysicsRigidConstraintInstance)
 
 FCDPhysicsRigidConstraintInstance::FCDPhysicsRigidConstraintInstance(FCDocument* document, FCDPhysicsModelInstance* _parent, FCDPhysicsRigidConstraint* constraint)
 :	FCDEntityInstance(document, NULL, FCDEntity::PHYSICS_RIGID_CONSTRAINT), parent(_parent)

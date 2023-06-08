@@ -77,5 +77,4 @@ namespace FCTestExportImport
 		CheckExtraTree(fileOut, ambientLight->GetExtra(), true);
 		return true;
 	}
-};
-
+}

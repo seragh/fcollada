@@ -73,6 +73,6 @@ namespace FUDaeParser
 
 	// Skip the pound(#) character from a COLLADA id string
 	const char* SkipPound(const fm::string& id);
-};
+}
 
 #endif // _FU_DAE_PARSER_

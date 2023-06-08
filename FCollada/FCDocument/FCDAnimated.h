@@ -82,8 +82,8 @@ protected:
 	int32 arrayElement;
 
 public:
-	DeclareFlag(RelativeAnimation, 0); /**< Flag to indicate that the animation should be applied relative to the default value. */
-	DeclareFlagCount(1); /**< The FCDAnimated class declares one flag. */
+	DeclareFlag(RelativeAnimation, 0) /**< Flag to indicate that the animation should be applied relative to the default value. */
+	DeclareFlagCount(1) /**< The FCDAnimated class declares one flag. */
 
 public:
 	/** Constructor.
@@ -324,7 +324,7 @@ namespace FCDAnimatedStandardQualifiers
 	FCOLLADA_EXPORT extern const char* SKEW[7]; /**< Used for the skew transforms. */
 	FCOLLADA_EXPORT extern const char* MATRIX[16]; /**< Used for animating matrix values. */
 	FCOLLADA_EXPORT extern const char* LOOKAT[9]; /**< Used for the look-at transforms. */
-};
+}
 
 #endif // _FCD_ANIMATED_H_
 

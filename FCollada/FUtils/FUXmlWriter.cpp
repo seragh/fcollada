@@ -256,4 +256,4 @@ namespace FUXmlWriter
 		xmlUnlinkNode(node);
 		AddChild(newParent, node);
 	}
-};
+}

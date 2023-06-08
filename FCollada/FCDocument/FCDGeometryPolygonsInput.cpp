@@ -16,8 +16,8 @@
 // FCDGeometryPolygonsInput
 //
 
-ImplementObjectType(FCDGeometryPolygonsInput);
-ImplementParameterObject(FCDGeometryPolygonsInput, FCDGeometrySource, source, new FCDGeometrySource(parent->GetDocument()));
+ImplementObjectType(FCDGeometryPolygonsInput)
+ImplementParameterObject(FCDGeometryPolygonsInput, FCDGeometrySource, source, new FCDGeometrySource(parent->GetDocument()))
 
 FCDGeometryPolygonsInput::FCDGeometryPolygonsInput(FCDocument* document, FCDGeometryPolygons* _parent)
 :	FCDObject(document), parent(_parent)

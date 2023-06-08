@@ -20,7 +20,7 @@
 // FCDPhysicsRigidConstraint
 //
 
-ImplementObjectType(FCDPhysicsRigidConstraint);
+ImplementObjectType(FCDPhysicsRigidConstraint)
 
 FCDPhysicsRigidConstraint::FCDPhysicsRigidConstraint(FCDocument* document, FCDPhysicsModel* _parent)
 :	FCDEntity(document, "PhysicsRigidConstraint")

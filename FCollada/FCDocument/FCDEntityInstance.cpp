@@ -24,9 +24,9 @@
 // FCDEntityInstance
 //
 
-ImplementObjectType(FCDEntityInstance);
-ImplementParameterObject(FCDEntityInstance, FCDEntityReference, entityReference, new FCDEntityReference(parent->GetDocument(), parent->GetParent()));
-ImplementParameterObject(FCDEntityInstance, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent));
+ImplementObjectType(FCDEntityInstance)
+ImplementParameterObject(FCDEntityInstance, FCDEntityReference, entityReference, new FCDEntityReference(parent->GetDocument(), parent->GetParent()))
+ImplementParameterObject(FCDEntityInstance, FCDExtra, extra, new FCDExtra(parent->GetDocument(), parent))
 
 FCDEntityInstance::FCDEntityInstance(FCDocument* document, FCDSceneNode* _parent, FCDEntity::Type type)
 :	FCDObject(document), parent(_parent)

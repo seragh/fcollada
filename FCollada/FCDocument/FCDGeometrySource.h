@@ -44,11 +44,11 @@ class FCOLLADA_EXPORT FCDGeometrySource : public FCDObjectWithId
 {
 private:
 	DeclareObjectType(FCDObjectWithId, FCDGeometrySource)
-	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"));
+	DeclareParameter(fstring, FUParameterQualifiers::SIMPLE, name, FC("Name"))
 	DeclareParameterListAnimatable(float, FUParameterQualifiers::SIMPLE, sourceData, FC("Data"))
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, stride, FC("Stride"));
-	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, sourceType, FC("Value Type")); // FUDaeGeometryInput::Semantic sourceType;
-	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"));
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, stride, FC("Stride"))
+	DeclareParameter(uint32, FUParameterQualifiers::SIMPLE, sourceType, FC("Value Type")) // FUDaeGeometryInput::Semantic sourceType;
+	DeclareParameterRef(FCDExtra, extra, FC("Extra Tree"))
 
 public:
 	/** Constructor: do not use directly.

@@ -20,8 +20,8 @@
 // FCDPhysicsRigidBodyParameters
 //
 
-ImplementObjectType(FCDPhysicsRigidBodyParameters);
-ImplementParameterObject(FCDPhysicsRigidBodyParameters, FCDPhysicsShape, physicsShape, new FCDPhysicsShape(parent->GetDocument()));
+ImplementObjectType(FCDPhysicsRigidBodyParameters)
+ImplementParameterObject(FCDPhysicsRigidBodyParameters, FCDPhysicsShape, physicsShape, new FCDPhysicsShape(parent->GetDocument()))
 
 FCDPhysicsRigidBodyParameters::FCDPhysicsRigidBodyParameters(FCDocument* document, FCDPhysicsRigidBody* _owner)
 :	FCDObject(document)

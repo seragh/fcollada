@@ -369,5 +369,4 @@ namespace FCTestExportImport
 		PassIf(strstr(TO_STRING(image2->GetFilename()).c_str(), "Texture3D.jpg") != NULL);
 		return true;
 	}
-};
-
+}

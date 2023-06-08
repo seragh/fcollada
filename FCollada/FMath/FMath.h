@@ -166,7 +166,7 @@ namespace FMath
 		if (val > mx) return mn + ((val - mx) % (mx - mn));
 		else if (val < mn) return mx - ((mn - val) % (mx - mn));
 		return val; }
-};
+}
 
 // Include commonly used mathematical classes
 #include "FMath/FMVector2.h"

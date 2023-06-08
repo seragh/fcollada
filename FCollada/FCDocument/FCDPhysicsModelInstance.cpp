@@ -24,8 +24,8 @@
 // FCDPhysicsModelInstance
 //
 
-ImplementObjectType(FCDPhysicsModelInstance);
-ImplementParameterObjectNoCtr(FCDPhysicsModelInstance, FCDEntityInstance, instances);
+ImplementObjectType(FCDPhysicsModelInstance)
+ImplementParameterObjectNoCtr(FCDPhysicsModelInstance, FCDEntityInstance, instances)
 
 FCDPhysicsModelInstance::FCDPhysicsModelInstance(FCDocument* document)
 :	FCDEntityInstance(document, NULL, FCDEntity::PHYSICS_MODEL)

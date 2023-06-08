@@ -47,6 +47,6 @@ namespace FCDSceneNodeTools
 		and copying locally the keys and values for the generated sampled
 		animation curve. */
 	FCOLLADA_EXPORT void ClearSampledAnimation();
-};
+}
 
 #endif // _FCD_SCENE_NODE_TOOLS_H_

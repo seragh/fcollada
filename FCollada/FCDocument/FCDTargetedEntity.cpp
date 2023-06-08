@@ -22,7 +22,7 @@
 // FCDTargetedEntity
 //
 
-ImplementObjectType(FCDTargetedEntity);
+ImplementObjectType(FCDTargetedEntity)
 ImplementParameterObjectNoCtr(FCDTargetedEntity, FCDSceneNode, targetNode)
 
 FCDTargetedEntity::FCDTargetedEntity(FCDocument* document, const char* className)

@@ -27,7 +27,7 @@
 // FCDSkinController
 //
 
-ImplementObjectType(FCDSkinController);
+ImplementObjectType(FCDSkinController)
 
 FCDSkinController::FCDSkinController(FCDocument* document, FCDController* _parent)
 :	FCDObject(document)

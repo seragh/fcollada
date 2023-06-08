@@ -15,7 +15,7 @@
 // FCDPhysicsAnalyticalGeometry
 //
 
-ImplementObjectType(FCDPhysicsAnalyticalGeometry);
+ImplementObjectType(FCDPhysicsAnalyticalGeometry)
 
 FCDPhysicsAnalyticalGeometry::FCDPhysicsAnalyticalGeometry(FCDocument* document)
 :	FCDEntity(document, "AnalyticalGeometry")
@@ -37,7 +37,7 @@ FCDEntity* FCDPhysicsAnalyticalGeometry::Clone(FCDEntity* _clone, bool cloneChil
 // FCDPASBox
 //
 
-ImplementObjectType(FCDPASBox);
+ImplementObjectType(FCDPASBox)
 
 FCDPASBox::FCDPASBox(FCDocument* document)
 :	FCDPhysicsAnalyticalGeometry(document)
@@ -69,7 +69,7 @@ float FCDPASBox::CalculateVolume() const
 // FCDPASPlane
 //
 
-ImplementObjectType(FCDPASPlane);
+ImplementObjectType(FCDPASPlane)
 
 FCDPASPlane::FCDPASPlane(FCDocument* document) : FCDPhysicsAnalyticalGeometry(document)
 {
@@ -100,7 +100,7 @@ float FCDPASPlane::CalculateVolume() const
 // FCDPASSphere
 //
 
-ImplementObjectType(FCDPASSphere);
+ImplementObjectType(FCDPASSphere)
 
 FCDPASSphere::FCDPASSphere(FCDocument* document) : FCDPhysicsAnalyticalGeometry(document)
 {
@@ -131,7 +131,7 @@ float FCDPASSphere::CalculateVolume() const
 // FCDPASCylinder
 //
 
-ImplementObjectType(FCDPASCylinder);
+ImplementObjectType(FCDPASCylinder)
 
 FCDPASCylinder::FCDPASCylinder(FCDocument* document) : FCDPhysicsAnalyticalGeometry(document)
 {
@@ -165,7 +165,7 @@ float FCDPASCylinder::CalculateVolume() const
 // FCDPASCapsule
 //
 
-ImplementObjectType(FCDPASCapsule);
+ImplementObjectType(FCDPASCapsule)
 
 FCDPASCapsule::FCDPASCapsule(FCDocument* document) : FCDPhysicsAnalyticalGeometry(document)
 {
@@ -199,7 +199,7 @@ float FCDPASCapsule::CalculateVolume() const
 // FCDPASTaperedCapsule
 //
 
-ImplementObjectType(FCDPASTaperedCapsule);
+ImplementObjectType(FCDPASTaperedCapsule)
 
 FCDPASTaperedCapsule::FCDPASTaperedCapsule(FCDocument* document) : FCDPASCapsule(document)
 {
@@ -239,7 +239,7 @@ float FCDPASTaperedCapsule::CalculateVolume() const
 // FCDPASTaperedCylinder
 //
 
-ImplementObjectType(FCDPASTaperedCylinder);
+ImplementObjectType(FCDPASTaperedCylinder)
 
 FCDPASTaperedCylinder::FCDPASTaperedCylinder(FCDocument* document) : FCDPASCylinder(document)
 {

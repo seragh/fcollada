@@ -166,4 +166,4 @@ namespace FCollada
 		if (cancelLoadingCallback) return (*cancelLoadingCallback)();
 		return false;
 	}
-};
+}

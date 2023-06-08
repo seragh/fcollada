@@ -40,7 +40,7 @@ namespace FUXmlParser
 	FCOLLADA_EXPORT FUCrc32::crc32 ReadNodePropertyCRC(xmlNode* node, const char* property);
 	FCOLLADA_EXPORT const char* ReadNodeContentDirect(xmlNode* node);
 	FCOLLADA_EXPORT fm::string ReadNodeContentFull(xmlNode* node);
-};
+}
 
 inline bool IsEquivalent(const xmlChar* sz1, const char* sz2) { return IsEquivalent((const char*) sz1, sz2); }
 
