@@ -36,7 +36,7 @@
 #ifdef _DEBUG
 #define	FCOLLADA_EXCEPTION 0
 #define _FTRY
-#define _FCATCH_ALL for (int x = 0; x != 0;)
+#define _FCATCH_ALL while(false)
 #else
 #define FCOLLADA_EXCEPTION 1
 #define _FTRY try
