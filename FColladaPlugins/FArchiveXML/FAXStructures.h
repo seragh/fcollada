@@ -137,7 +137,7 @@ struct FCDAnimationChannelData
 
 	// Export parameters
 	FAXAnimationChannelDefaultValueList defaultValues;
-	FCDAnimated* animatedValue;
+	FCDAnimated* animatedValue = nullptr;
 
 	FCDAnimationChannelData()
 	{
