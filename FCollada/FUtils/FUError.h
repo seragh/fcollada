@@ -14,12 +14,9 @@
 #ifndef _FU_ERROR_H_
 #define _FU_ERROR_H_
 
-#ifndef _FU_EVENT_H_
 #include "FUtils/FUEvent.h"
-#endif // _FU_EVENT_H_
-#ifndef _FU_CRITICAL_SECTION_H_
-#include "FUtils/FUCriticalSection.h"
-#endif // _FU_CRITICAL_SECTION_H_
+
+#include <mutex>
 
 /** Windows API defines this. */
 #undef ERROR
@@ -243,7 +240,7 @@ public:
 	typedef IFunctor3<FUError::Level, uint32, uint32, void> FUErrorFunctor;
 
 private:
-	static FUCriticalSection criticalSection;
+	static std::mutex errorMutex;
 	static FUEvent3<FUError::Level, uint32, uint32> onErrorEvent;
 	static FUEvent3<FUError::Level, uint32, uint32> onWarningEvent;
 	static FUEvent3<FUError::Level, uint32, uint32> onDebugEvent;
