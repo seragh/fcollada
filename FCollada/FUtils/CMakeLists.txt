@@ -21,8 +21,6 @@ target_sources(FCollada
         FUString.cpp
         FUStringBuilder.cpp
         FUStringConversion.cpp
-        FUSynchronizableObject.cpp
-        FUSynchronizableObject.h
         FUTracker.cpp
         FUUniqueStringMap.cpp
         FUUri.cpp
