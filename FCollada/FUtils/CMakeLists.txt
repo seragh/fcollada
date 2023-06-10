@@ -5,7 +5,6 @@ target_sources(FCollada
         FUBoundingBox.cpp
         FUBoundingSphere.cpp
         FUCrc32.cpp
-        FUCriticalSection.cpp
         FUDaeEnum.cpp
         FUDateTime.cpp
         FUDebug.cpp
@@ -36,7 +35,6 @@ target_sources(FCollada
         FUBoundingBox.h
         FUBoundingSphere.h
         FUCrc32.h
-        FUCriticalSection.h
         FUDaeEnum.h
         FUDaeEnumSyntax.h
         FUDaeSyntax.h
