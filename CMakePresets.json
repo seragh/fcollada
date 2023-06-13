@@ -25,7 +25,10 @@
             "description": "Build on Linux (Ubuntu)",
             "inherits": [
                 "defaults"
-            ]
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS_INIT": "-Wall -Wextra -Wpedantic"
+            }
         },
         {
             "name": "ci-macos",
@@ -33,7 +36,10 @@
             "description": "Build on MacOS",
             "inherits": [
                 "defaults"
-            ]
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS_INIT": "-Wall -Wextra -Wpedantic"
+            }
         },
         {
             "name": "ci-windows",
@@ -46,7 +52,8 @@
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
                     "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-                }
+                },
+                "CMAKE_CXX_FLAGS_INIT": "/W3"
             },
             "environment": {
                 "VCPKG_ROOT": "./vcpkg",
