@@ -25,6 +25,8 @@ option(BUILD_TESTING "Build the test suite." OFF)
 option(BUILD_DOCS "Build html docs using doxygen" OFF)
 option(USE_FMT_HEADER_ONLY "Use header only fmt library" OFF)
 
+option(FCOLLADA_ENABLE_COVERAGE "Build with coverage support." OFF)
+mark_as_advanced(FCOLLADA_ENABLE_COVERAGE)
 
 find_package(LibXml2 REQUIRED)
 find_package(fmt REQUIRED)
@@ -121,6 +123,11 @@ endif()
 set_tests_properties(checkTestLog PROPERTIES
   FAIL_REGULAR_EXPRESSION "failed"
 )
+
+
+if(FCOLLADA_ENABLE_COVERAGE)
+    include(cmake/coverage.cmake)
+endif()
 
 
 if(BUILD_DOCS)
