@@ -38,9 +38,7 @@
 #endif
 #endif
 
-#ifndef _INC_MATH
-#include <math.h>
-#endif // _INC_MATH
+#include <cmath>
 
 #ifdef WIN32
 

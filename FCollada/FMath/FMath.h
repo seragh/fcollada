@@ -16,9 +16,7 @@
 #ifndef _F_MATH_H_
 #define _F_MATH_H_
 
-#ifndef _INC_MATH
-#include <math.h>
-#endif // _INC_MATH
+#include <cmath>
 
 #ifndef _FM_FLOAT_H_
 #include "FMath/FMFloat.h"
