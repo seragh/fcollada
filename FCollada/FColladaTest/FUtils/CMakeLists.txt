@@ -4,7 +4,6 @@ target_sources(FColladaTest
         FUCrc32Test.cpp
         FUEventTest.cpp
         FUFileManagerTest.cpp
-        FUFunctorTest.cpp
         FUObjectTest.cpp
         FUStringBuilderTest.cpp
         FUStringConversionTest.cpp

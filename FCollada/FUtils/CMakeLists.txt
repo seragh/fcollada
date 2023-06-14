@@ -45,7 +45,6 @@ target_sources(FCollada
         FUEvent.h
         FUFile.h
         FUFileManager.h
-        FUFunctor.h
         FULogFile.h
         FUObject.h
         FUObjectType.h

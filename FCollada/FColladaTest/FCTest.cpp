@@ -82,7 +82,6 @@ int main(int argc, char* argv[])
 	RUN_TESTSUITE(FUCrc32);
 	RUN_TESTSUITE(FUEvent);
 	RUN_TESTSUITE(FUFileManager);
-	RUN_TESTSUITE(FUFunctor);
 	RUN_TESTSUITE(FUObject);
 	RUN_TESTSUITE(FUStringBuilder); // was disabled
 	RUN_TESTSUITE(FUStringConversion); // was disabled
