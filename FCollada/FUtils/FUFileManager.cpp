@@ -59,14 +59,17 @@ SchemeCallbacks::SchemeCallbacks(const SchemeCallbacks& copy)
 ,	exists(NULL)
 ,	request(NULL)
 {
-	// Do a deep copy here, not just copy pointers.  We own these FUFuctors!
-	if (copy.load) load = copy.load->Copy();
-	if (copy.exists) exists = copy.exists->Copy();
-	if (copy.request) request = copy.request->Copy();
+	// Do a deep copy here, not just copy pointers.
+	if (copy.load)
+		load = new SchemeLoadCallback(*copy.load);
+	if (copy.exists)
+		exists = new SchemeExistsCallback(*copy.exists);
+	if (copy.request)
+		request = new SchemeRequestFileCallback(*copy.request);
 
 	for (size_t i = 0; i < copy.openers.size(); i++)
 	{
-		openers.push_back(copy.openers[i]->Copy());
+		openers.push_back(new SchemePreProcessCallback(*copy.openers[i]));
 	}
 }
 

@@ -15,46 +15,43 @@
 #ifndef _FU_FILE_MANAGER_H_
 #define _FU_FILE_MANAGER_H_
 
-#ifndef _FU_URI_H_
 #include "FUtils/FUUri.h"
-#endif //_FU_URI_H_
-
-#ifndef _FM_ARRAY_H_
 #include "FMath/FMArray.h"
-#endif //_FM_ARRAY_H_
+
+#include <functional>
 
 class FUFile;
 
 /** A scheme callback to load remote files.
 	Takes the remote file FUUri as parameter, and returns the absolute file
 	path of a local, possibly cached file.*/
-typedef IFunctor1<const FUUri&, fstring> SchemeLoadCallback;
+using SchemeLoadCallback = std::function<fstring(const FUUri&)>;
 
 /** A scheme callback to test the existence of remote files.
 	Takes the remote file FUUri as parameter, and returns True if the remote
 	file exists, and False otherwise.*/
-typedef IFunctor1<const FUUri&, bool> SchemeExistsCallback;
+using SchemeExistsCallback = std::function<bool(const FUUri&)>;
 
 /** Provides pre-processing of files before opening.
 	Takes inFilename as an argument.  If the file is processed,
 	then outFilename should be set to the filename of the new file,
 	and the funtion returns true. The current document URI is then
 	overriden by the new filename. */
-typedef IFunctor2<const fstring&, fstring&, bool>	SchemePreProcessCallback;
+using SchemePreProcessCallback = std::function<bool(const fstring&, fstring&)>;
 
 /** A scheme callback that will be called when the file is complete.
 	Sends the absolute path of a local, possibly cached file and the id. */
-typedef IFunctor2<const fstring&, size_t, void> SchemeOnCompleteCallback;
+using SchemeOnCompleteCallback = std::function<void(const fstring&, size_t)>;
 
 /** A scheme callback that will request the file to be fetched
 	Sends the absolute path of a remote file, a callback to call on completion
 	and a user data field which can be used to identify the request. */
-typedef IFunctor3<const FUUri&, SchemeOnCompleteCallback*, size_t, void> SchemeRequestFileCallback;
+using SchemeRequestFileCallback = std::function<void(const FUUri&, SchemeOnCompleteCallback*, size_t)>;
 
 /** An helper structure to organize file scheme callbacks within the
 	FUFileManager class.
 	Use the NewSchemeCallbacks method to get a new SchemeCallbacks object.
-	Use the NewFUFunctor* methods to assign callbacks.*/
+	*/
 struct FCOLLADA_EXPORT SchemeCallbacks
 {
 	SchemeLoadCallback* load;		/**< The file open callback.*/
