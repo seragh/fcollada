@@ -404,7 +404,10 @@ void FArchiveXML::WriteSourceFCDAnimationCurve(FCDAnimationCurve* animationCurve
 	// Export the data arrays.
 	xmlNode* sourceNode = AddSourceFloat(parentNode, baseId + "-input", inputs, "TIME");
 	AddSourceFloat(parentNode, baseId + "-output", outputs, parameter);
-	AddSourceInterpolation(parentNode, baseId + "-interpolations", *(FUDaeInterpolationList*)(size_t)&interpolations);
+	fm::vector<FUDaeInterpolation::Interpolation> interpolations_(interpolations.size());
+	for (auto it = interpolations.begin(); it < interpolations.end(); ++it)
+		interpolations_.push_back(static_cast<FUDaeInterpolation::Interpolation>(*it));
+	AddSourceInterpolation(parentNode, baseId + "-interpolations", interpolations_);
 	if (!inTangents.empty() && !outTangents.empty())
 	{
 		AddSourceTangent(parentNode, baseId + "-intangents", inTangents);
@@ -603,7 +606,10 @@ void FArchiveXML::WriteSourceFCDAnimationMultiCurve(FCDAnimationMultiCurve* anim
 	// Export the data arrays
 	xmlNode* inputSourceNode = AddSourceFloat(parentNode, baseId + "-input", inputs, "TIME");
 	AddSourceFloat(parentNode, baseId + "-output", outputs, animationMultiCurve->GetDimension(), parameters);
-	AddSourceInterpolation(parentNode, baseId + "-interpolations", *(FUDaeInterpolationList*) (size_t) &interpolations);
+	fm::vector<FUDaeInterpolation::Interpolation> interpolations_(interpolations.size());
+	for (auto it = interpolations.begin(); it < interpolations.end(); ++it)
+		interpolations_.push_back(static_cast<FUDaeInterpolation::Interpolation>(*it));
+	AddSourceInterpolation(parentNode, baseId + "-interpolations", interpolations_);
 	if (!inTangents.empty())
 	{
 		AddSourceFloat(parentNode, baseId + "-intangents", inTangents, animationMultiCurve->GetDimension() * 2, FUDaeAccessor::XY);
