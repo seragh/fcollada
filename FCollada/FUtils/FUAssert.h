@@ -14,14 +14,12 @@
 #ifndef _FU_ASSERT_H_
 #define _FU_ASSERT_H_
 
-#ifndef _FU_FUNCTOR_H_
-#include "FUtils/FUFunctor.h"
-#endif // _FU_FUNCTOR_H_
+#include <functional>
 
 namespace FUAssertion
 {
     /** A functor that deals with assertions that fail. */
-	typedef FUStaticFunctor1<const char*, bool> FUAssertCallback;
+	using FUAssertCallback = std::function<const char*(bool)>;
 
 	/** Set a functor to be called back on assertion fail.  If no callback
 		is set, the default value is to break with a message box
