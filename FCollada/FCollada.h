@@ -45,9 +45,9 @@
 
 #define PREMIUM
 
-#ifndef _F_UTILS_H_
 #include "FUtils/FUtils.h"
-#endif // _F_UTILS_H_
+
+#include <functional>
 
 /**
 	FCollada version number.
@@ -71,9 +71,9 @@
 class FCDocument;
 class FUTestBed;
 class FColladaPluginManager;
-typedef fm::pvector<FCDocument> FCDocumentList;
 class FUPlugin;
-typedef IFunctor0<bool>* CancelLoadingCallback;
+using FCDocumentList = fm::pvector<FCDocument>;
+using CancelLoadingCallback = std::function<bool()>*;
 
 /**
 	This namespace contains FCollada global functions and member variables
