@@ -25,7 +25,9 @@ FUErrorLog::FUErrorLog(const fchar* logFilename, FUError::Level errorLevel)
 	// Add our callback to the error sinks.
 	for (int32 i = FUError::LEVEL_COUNT - 1; i >= minimumLevel; --i)
 	{
-		FUError::AddErrorCallback((FUError::Level) i, this, &FUErrorLog::OnErrorCallback);
+		FUError::AddErrorCallback((FUError::Level) i, this,
+				std::bind(&FUErrorLog::OnErrorCallback, this,
+					std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 	}
 }
 
@@ -34,7 +36,7 @@ FUErrorLog::~FUErrorLog()
 	// Remove our callback from the error sinks.
 	for (int32 i = FUError::LEVEL_COUNT - 1; i >= minimumLevel; --i)
 	{
-		FUError::RemoveErrorCallback((FUError::Level) i, this, &FUErrorLog::OnErrorCallback);
+		FUError::RemoveErrorCallback((FUError::Level) i, this);
 	}
 
 	SAFE_DELETE(logFile);

@@ -14,13 +14,13 @@
 class FUTCaller
 {
 public:
-	FUEvent0* event0;
-	FUEvent2<long, long>* event2;
+	FUEvent<>* event0;
+	FUEvent<long, long>* event2;
 
 	FUTCaller()
 	{
-		event0 = new FUEvent0();
-		event2 = new FUEvent2<long, long>();
+		event0 = new FUEvent<>();
+		event2 = new FUEvent<long, long>();
 	}
 
 	~FUTCaller()
@@ -71,9 +71,9 @@ public:
 class FUTDumbCaller
 {
 public:
-	FUEvent0 event0;
-	FUEvent1<FUTDumbCaller*> event1;
-	FUEvent2<FUTDumbCaller*, long> event2;
+	FUEvent<> event0;
+	FUEvent<FUTDumbCaller*> event1;
+	FUEvent<FUTDumbCaller*, long> event2;
 };
 
 // Test release of event handlers while an event is happening.
@@ -91,19 +91,19 @@ public:
 
 	void Callback0()
 	{
-		caller->event0.ReleaseHandler(this, &FUTAntisocialCallee::Callback0);
+		caller->event0.ReleaseHandler(this);
 		c0 = true;
 	}
 
 	void Callback1(FUTDumbCaller* caller2)
 	{
-		caller2->event1.ReleaseHandler(this, &FUTAntisocialCallee::Callback1);
+		caller2->event1.ReleaseHandler(this);
 		c1 = true;
 	}
 
 	void Callback2(FUTDumbCaller* caller2, long /* data2 */)
 	{
-		caller2->event2.ReleaseHandler(this, &FUTAntisocialCallee::Callback2);
+		caller2->event2.ReleaseHandler(this);
 		c2 = true;
 	}
 
@@ -121,18 +121,18 @@ TESTSUITE_TEST(0, Callback0)
 	FUTCaller caller;
 	FUTCallee callee;
 	FailIf(caller.event0->GetHandlerCount() != 0);
-	caller.event0->InsertHandler(&callee, &FUTCallee::Callback0_1);
+	caller.event0->InsertHandler(&callee, std::bind(&FUTCallee::Callback0_1, &callee));
 	FailIf(caller.event0->GetHandlerCount() != 1);
 
 	(*(caller.event0))();
 
 	FailIf(!callee.isCallback0_1Called);
-	caller.event0->ReleaseHandler(&callee, &FUTCallee::Callback0_1);
+	caller.event0->ReleaseHandler(&callee);
 
 TESTSUITE_TEST(1, Callback2)
 	FUTCaller caller;
 	FUTCallee callee;
-	caller.event2->InsertHandler(&callee, &FUTCallee::Callback2);
+	caller.event2->InsertHandler(&callee, std::bind(&FUTCallee::Callback2, &callee, std::placeholders::_1, std::placeholders::_2));
 
 	(*(caller.event2))(72, 55);
 	FailIf(!callee.isCallback2Called);
@@ -144,13 +144,13 @@ TESTSUITE_TEST(1, Callback2)
 	FailIf(!callee.isCallback2Called);
 	FailIf(callee.callback2Data1 != 44);
 	FailIf(callee.callback2Data2 != 79);
-	caller.event2->ReleaseHandler(&callee, &FUTCallee::Callback2);
+	caller.event2->ReleaseHandler(&callee);
 
 TESTSUITE_TEST(2, MultipleCallback0)
 	FUTCaller caller;
 	FUTCallee callee;
-	caller.event0->InsertHandler(&callee, &FUTCallee::Callback0_1);
-	caller.event0->InsertHandler(&callee, &FUTCallee::Callback0_2);
+	caller.event0->InsertHandler(&callee, std::bind(&FUTCallee::Callback0_1, &callee));
+	caller.event0->InsertHandler(&callee, std::bind(&FUTCallee::Callback0_2, &callee));
 	FailIf(caller.event0->GetHandlerCount() != 2);
 
 	callee.isCallback0_1Called = false;
@@ -160,9 +160,9 @@ TESTSUITE_TEST(2, MultipleCallback0)
 	FailIf(!callee.isCallback0_2Called);
 
 	FailIf(caller.event0->GetHandlerCount() != 2);
-	caller.event0->ReleaseHandler(&callee, &FUTCallee::Callback0_1);
+	caller.event0->ReleaseHandler(&callee);
 	FailIf(caller.event0->GetHandlerCount() != 1);
-	caller.event0->ReleaseHandler(&callee, &FUTCallee::Callback0_2);
+	caller.event0->ReleaseHandler(&callee);
 	FailIf(caller.event0->GetHandlerCount() != 0);
 
 TESTSUITE_TEST(3, CallbacksThatReleaseImmediately)
@@ -170,9 +170,9 @@ TESTSUITE_TEST(3, CallbacksThatReleaseImmediately)
 	FUTAntisocialCallee callee;
 	callee.caller = &caller;
 
-	caller.event0.InsertHandler(&callee, &FUTAntisocialCallee::Callback0);
-	caller.event1.InsertHandler(&callee, &FUTAntisocialCallee::Callback1);
-	caller.event2.InsertHandler(&callee, &FUTAntisocialCallee::Callback2);
+	caller.event0.InsertHandler(&callee, std::bind(&FUTAntisocialCallee::Callback0, &callee));
+	caller.event1.InsertHandler(&callee, std::bind(&FUTAntisocialCallee::Callback1, &callee, std::placeholders::_1));
+	caller.event2.InsertHandler(&callee, std::bind(&FUTAntisocialCallee::Callback2, &callee, std::placeholders::_1, std::placeholders::_2));
 
 	FailIf(caller.event0.GetHandlerCount() != 1);
 	FailIf(caller.event1.GetHandlerCount() != 1);

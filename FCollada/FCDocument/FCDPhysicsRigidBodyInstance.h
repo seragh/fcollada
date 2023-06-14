@@ -14,12 +14,8 @@
 #ifndef _FCD_PHYSICS_RIGID_BODY_ENTITY_H_
 #define _FCD_PHYSICS_RIGID_BODY_ENTITY_H_
 
-#ifndef _FCD_ENTITY_INSTANCE_H_
 #include "FCDocument/FCDEntityInstance.h"
-#endif // _FCD_ENTITY_INSTANCE_H_
-#ifndef _FCD_PARAMETER_ANIMATABLE_H_
 #include "FCDocument/FCDParameterAnimatable.h"
-#endif // _FCD_PARAMETER_ANIMATABLE_H_
 
 class FCDocument;
 class FCDSceneNode;
@@ -27,7 +23,7 @@ class FCDPhysicsRigidBody;
 class FCDPhysicsRigidBodyParameters;
 class FCDPhysicsMaterial;
 class FCDPhysicsModelInstance;
-template <class Arg1, class Arg2> class FUEvent2;
+template <typename... Args> class FUEvent;
 
 
 /**
@@ -43,7 +39,7 @@ private:
 	DeclareObjectType(FCDEntityInstance, FCDPhysicsRigidBodyInstance)
 
 	FCDPhysicsModelInstance* parent;
-	typedef FUEvent2<FCDPhysicsRigidBodyInstance*, const FMVector3&> CollisionEvent;
+	using CollisionEvent = FUEvent<FCDPhysicsRigidBodyInstance*, const FMVector3&>;
 	CollisionEvent* onCollisionEvent;
 
 	DeclareParameterAnimatable(FMVector3, FUParameterQualifiers::VECTOR, velocity, FC("Initial Linear Velocity"))

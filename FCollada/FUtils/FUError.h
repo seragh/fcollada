@@ -16,6 +16,7 @@
 
 #include "FUtils/FUEvent.h"
 
+#include <functional>
 #include <mutex>
 
 /** Windows API defines this. */
@@ -236,14 +237,13 @@ public:
 		LEVEL_COUNT
 	};
 
-	/** Callback functor definition. */
-	typedef IFunctor3<FUError::Level, uint32, uint32, void> FUErrorFunctor;
-
 private:
 	static std::mutex errorMutex;
-	static FUEvent3<FUError::Level, uint32, uint32> onErrorEvent;
-	static FUEvent3<FUError::Level, uint32, uint32> onWarningEvent;
-	static FUEvent3<FUError::Level, uint32, uint32> onDebugEvent;
+
+	static FUEvent<FUError::Level, uint32, uint32> onErrorEvent;
+	static FUEvent<FUError::Level, uint32, uint32> onWarningEvent;
+	static FUEvent<FUError::Level, uint32, uint32> onDebugEvent;
+
 	static fm::string customErrorString;
 	static FUError::Level fatalLevel;
 
@@ -262,52 +262,15 @@ public:
 
 	/** Add callback for error messages.
 		@param errorLevel The error level whose callback is to be set.
+		@param object The object used as key
 		@param callback Callback to be called when FCollada generates error message. */
-	static void AddErrorCallback(FUError::Level errorLevel, FUErrorFunctor* callback);
-
-	/** Adds a new callback that handles the event.
-		@param errorLevel The error level whose callback is to be set.
-		@param handle The object that contains the member function.
-		@param _function The member function to callback. */
-	template <class Class>
-	static void AddErrorCallback(FUError::Level errorLevel, Class* handle, void (Class::*_function)(FUError::Level, uint32, uint32))
-	{
-		AddErrorCallback(errorLevel, new FUFunctor3<Class, FUError::Level, uint32, uint32, void>(handle, _function));
-	}
-
-	/** Adds a new callback that handles the event.
-		@param errorLevel The error level whose callback is to be set.
-		@param _function The static function to callback. */
-	static void AddErrorCallback(FUError::Level errorLevel, void (*_function)(FUError::Level, uint32, uint32))
-	{
-		AddErrorCallback(errorLevel, new FUStaticFunctor3<FUError::Level, uint32, uint32, void>(_function));
-	}
+	static void AddErrorCallback(FUError::Level errorLevel, void* object,
+			std::function<void(FUError::Level, uint32, uint32)> callback);
 
 	/** Removes and releases a callback for error messages.
 		@param errorLevel The error level whose callback is to be removed.
-		@param object The object that contains the callback.
-		@param function Callback that was registered to be called when FCollada generates error message. */
-	static void RemoveErrorCallback(FUError::Level errorLevel, void* object, void* function);
-
-	/** Removes and releases a callback for error messages.
-		@param errorLevel The error level whose callback is to be removed.
-		@@param handle The object that contains the member function.
-		@param _function The member function callback to unregister. */
-	template <class Class>
-	static void RemoveErrorCallback(FUError::Level errorLevel, Class* handle, void (Class::*_function)(FUError::Level, uint32, uint32))
-	{
-		void* function = *(void**)(size_t)&_function;
-		RemoveErrorCallback(errorLevel, (void*) handle, function);
-	}
-
-	/** Removes and releases a static callback for error messages.
-		@param errorLevel The error level whose callback is to be removed.
-		@@param _function The static function callback to unregister. */
-	static void RemoveErrorCallback(FUError::Level errorLevel, void (*_function)(FUError::Level, uint32, uint32))
-	{
-		void* function = *(void**)(size_t)&_function;
-		RemoveErrorCallback(errorLevel, NULL, function);
-	}
+		@param object The object that serves as key */
+	static void RemoveErrorCallback(FUError::Level errorLevel, void* object);
 
 	/** Retrieves the string description of the error code
 		@param errorCode The error code whose string description is to be obtained.

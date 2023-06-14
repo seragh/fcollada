@@ -13,9 +13,11 @@
 // FUError
 //
 std::mutex FUError::errorMutex;
-FUEvent3<FUError::Level, uint32, uint32> FUError::onErrorEvent;
-FUEvent3<FUError::Level, uint32, uint32> FUError::onWarningEvent;
-FUEvent3<FUError::Level, uint32, uint32> FUError::onDebugEvent;
+
+FUEvent<FUError::Level, uint32, uint32> FUError::onErrorEvent;
+FUEvent<FUError::Level, uint32, uint32> FUError::onWarningEvent;
+FUEvent<FUError::Level, uint32, uint32> FUError::onDebugEvent;
+
 fm::string FUError::customErrorString;
 FUError::Level FUError::fatalLevel = FUError::ERROR_LEVEL;
 
@@ -42,28 +44,29 @@ bool FUError::Error(FUError::Level errorLevel, uint32 errorCode, uint32 errorArg
 	return errorLevel >= fatalLevel;
 }
 
-void FUError::AddErrorCallback(FUError::Level errorLevel, FUError::FUErrorFunctor* callback)
+void FUError::AddErrorCallback(FUError::Level errorLevel, void* object,
+		std::function<void(FUError::Level, uint32, uint32)> callback)
 {
 	const std::lock_guard<std::mutex> lock(errorMutex);
 
 	switch (errorLevel)
 	{
-		case FUError::WARNING_LEVEL: onWarningEvent.InsertHandler(callback); break;
-		case FUError::ERROR_LEVEL: onErrorEvent.InsertHandler(callback); break;
-		case FUError::DEBUG_LEVEL: onDebugEvent.InsertHandler(callback); break;
+		case FUError::WARNING_LEVEL: onWarningEvent.InsertHandler(object, callback); break;
+		case FUError::ERROR_LEVEL: onErrorEvent.InsertHandler(object, callback); break;
+		case FUError::DEBUG_LEVEL: onDebugEvent.InsertHandler(object, callback); break;
 		case FUError::LEVEL_COUNT: default: FUBreak;
 	}
 }
 
-void FUError::RemoveErrorCallback(FUError::Level errorLevel, void* object, void* function)
+void FUError::RemoveErrorCallback(FUError::Level errorLevel, void* object)
 {
 	const std::lock_guard<std::mutex> lock(errorMutex);
 
 	switch (errorLevel)
 	{
-		case FUError::WARNING_LEVEL: onWarningEvent.ReleaseHandler(object, function); break;
-		case FUError::ERROR_LEVEL: onErrorEvent.ReleaseHandler(object, function); break;
-		case FUError::DEBUG_LEVEL: onDebugEvent.ReleaseHandler(object, function); break;
+		case FUError::WARNING_LEVEL: onWarningEvent.ReleaseHandler(object); break;
+		case FUError::ERROR_LEVEL: onErrorEvent.ReleaseHandler(object); break;
+		case FUError::DEBUG_LEVEL: onDebugEvent.ReleaseHandler(object); break;
 		case FUError::LEVEL_COUNT: default: FUBreak;
 	}
 }
@@ -274,16 +277,22 @@ void FUError::SetCustomErrorString(const char* _customErrorString)
 FUErrorSimpleHandler::FUErrorSimpleHandler(FUError::Level fatalLevel)
 :	localFatalityLevel(fatalLevel), fails(false)
 {
-	FUError::AddErrorCallback(FUError::DEBUG_LEVEL, this, &FUErrorSimpleHandler::OnError);
-	FUError::AddErrorCallback(FUError::WARNING_LEVEL, this, &FUErrorSimpleHandler::OnError);
-	FUError::AddErrorCallback(FUError::ERROR_LEVEL, this, &FUErrorSimpleHandler::OnError);
+	FUError::AddErrorCallback(FUError::DEBUG_LEVEL, this,
+				std::bind(&FUErrorSimpleHandler::OnError, this,
+					std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+	FUError::AddErrorCallback(FUError::WARNING_LEVEL, this,
+				std::bind(&FUErrorSimpleHandler::OnError, this,
+					std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+	FUError::AddErrorCallback(FUError::ERROR_LEVEL, this,
+				std::bind(&FUErrorSimpleHandler::OnError, this,
+					std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 }
 
 FUErrorSimpleHandler::~FUErrorSimpleHandler()
 {
-	FUError::RemoveErrorCallback(FUError::DEBUG_LEVEL, this, &FUErrorSimpleHandler::OnError);
-	FUError::RemoveErrorCallback(FUError::WARNING_LEVEL, this, &FUErrorSimpleHandler::OnError);
-	FUError::RemoveErrorCallback(FUError::ERROR_LEVEL, this, &FUErrorSimpleHandler::OnError);
+	FUError::RemoveErrorCallback(FUError::DEBUG_LEVEL, this);
+	FUError::RemoveErrorCallback(FUError::WARNING_LEVEL, this);
+	FUError::RemoveErrorCallback(FUError::ERROR_LEVEL, this);
 }
 
 void FUErrorSimpleHandler::OnError(FUError::Level errorLevel, uint32 errorCode, uint32 lineNumber)
