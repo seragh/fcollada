@@ -268,6 +268,7 @@ TESTSUITE_TEST(5, BackwardCompatibility)
 	PassIf(true);
 #endif // WIN32
 
+#if !defined(__FreeBSD__) && !defined(__OpenBSD__)
 TESTSUITE_TEST(6, ApplicationFolderName)
 	fstring applicationFolderName = FUFileManager::GetApplicationFolderName();
 	FailIf(applicationFolderName.empty()); // really not much else I can test for..
@@ -275,6 +276,7 @@ TESTSUITE_TEST(6, ApplicationFolderName)
 #ifdef WIN32 // at the time of writing, only implemented for WIN32, else returns empty string
 	fstring moduleFolderName = FUFileManager::GetModuleFolderName();
 	FailIf(moduleFolderName.empty()); // really not much else I can test for..
+#endif
 #endif
 
 TESTSUITE_END
