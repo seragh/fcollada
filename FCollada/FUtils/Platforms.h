@@ -66,7 +66,6 @@
 #include <string.h>
 #include <wchar.h>
 #include <stdarg.h>
-#include <malloc.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
