@@ -35,7 +35,7 @@ TESTSUITE_TEST(1, StringTemplate)
 	fm::string a("TEST1"), b(a), c("TEST2"), d("VIRUSES", 5), e(3, 'C'), f("abc", 10);
 
 	PassIf(d.length() == 5);
-	PassIf(f.length() == 10);
+	PassIf(f.length() == 3);
 	PassIf(IsEquivalent(a, "TEST1"));
 	PassIf(a == b);
 	PassIf(IsEquivalent(a, b));

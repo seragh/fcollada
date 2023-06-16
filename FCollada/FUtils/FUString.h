@@ -72,6 +72,8 @@ namespace fm
 
 			if (length != npos)
 			{
+				size_t str_length = std::char_traits<CH>::length(c);
+				if (length > str_length) length = str_length;
 				Parent::resize(length + 1);
 				memcpy(Parent::begin(), c, sizeof(CH) * length);
 				Parent::back() = 0; // NULL-terminate.
