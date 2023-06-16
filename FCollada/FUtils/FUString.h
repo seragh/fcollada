@@ -15,9 +15,9 @@
 #ifndef _FU_STRING_H_
 #define _FU_STRING_H_
 
-#ifndef _FM_ARRAY_H_
 #include "FMath/FMArray.h"
-#endif // _FM_ARRAY_H_
+
+#include <string>
 
 /** An empty UTF-8 string. This string is returned in many functions when there is an error. */
 extern FCOLLADA_EXPORT const char* emptyCharString;
@@ -167,9 +167,8 @@ namespace fm
 				size_t originalSize = length();
 				offset = min(offset, originalSize);
 
-				size_t str_length = 0;
-				const CH* s = str;
-				while(*s != 0 && str_length < count) { ++s; ++str_length; }
+				size_t str_length = std::char_traits<CH>::length(str);
+				if (count < str_length) str_length = count;
 				resize(originalSize + str_length);
 				if (offset < originalSize)
 				{
