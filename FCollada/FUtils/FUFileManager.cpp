@@ -397,7 +397,7 @@ fstring FUFileManager::GetApplicationFolderName()
 			int i = stat (path, &stat_buf);
 			if (i == -1) break;
 			else if (!S_ISLNK(stat_buf.st_mode)) break;
-			strncpy(path, path2, 1023);
+			strncpy(path, path2, 1024);
 		}
 	}
 	//"path" should have the application folder path in it.
