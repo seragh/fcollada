@@ -67,6 +67,20 @@ inline const T& min(const T& x,const T& y) { return (x < y) ? x : y; } /**< See 
 #define UNUSED_NDEBUG(a) /**< Removes a piece of debug code during the pre-process. This macro is useful for these pesky unused variable warnings. */
 #endif // _DEBUG
 
+namespace FUtils {
+[[noreturn]] inline void unreachable() \
+{
+	// Uses compiler specific extensions if possible.
+	// Even if no extension is used, undefined behavior is still raised by
+	// an empty function body and the noreturn attribute.
+#ifdef __GNUC__ // GCC, Clang, ICC
+	__builtin_unreachable();
+#elif defined(_MSC_VER) // MSVC
+	__assume(false);
+#endif
+}
+} // namespace FUtils
+
 // Pre-include the platform-specific macros and definitions
 #ifndef _FU_PLATFORMS_H_
 #include "FUtils/Platforms.h"
