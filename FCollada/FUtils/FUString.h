@@ -45,7 +45,7 @@ namespace fm
 		static const size_t npos = ~(size_t)0;
 
 		/** Default constructor. Defaults to an empty string. */
-		stringT() : Parent() {}
+		stringT() : Parent() { Parent::push_back((CH) 0); }
 
 		/** Copy constructor.
 			@param c The string to clone. */
