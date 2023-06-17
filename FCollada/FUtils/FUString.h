@@ -150,10 +150,8 @@ namespace fm
 		{
 			if (c != 0)
 			{
-				size_t originalSize = length();
-				Parent::resize(originalSize + 2);
-				*(Parent::end() - 2) = c;
-				Parent::back() = 0; // NULL-terminate
+				Parent::back() = c;
+				Parent::push_back(static_cast<CH>(0));
 			}
 		}
 
