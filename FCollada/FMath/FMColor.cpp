@@ -91,3 +91,15 @@ void FMColor::ToFloats(float* components, uint32 componentCount)
 		break;
 	}
 }
+
+uint8& FMColor::operator[](size_t index)
+{
+	switch (index)
+	{
+		case 0: return r;
+		case 1: return g;
+		case 2: return b;
+		case 3: return a;
+		default: FUtils::unreachable();
+	}
+}

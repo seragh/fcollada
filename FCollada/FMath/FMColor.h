@@ -81,9 +81,11 @@ public:
 		@return The averages of the three colors values of this FMColor. */
 	inline uint8 ComponentAverage() { return uint8((uint32(r) + uint32(g) + uint32(b)) / 3); }
 
-	/** Get this FMColor as an array of uint8s.
-		@return The \c uint8 array. */
-	operator uint8*() { return &r; }
+	/** Subscript operator
+		@param index Index of color component [r,g,b,a]
+		@return reference to color at indexThe \c uint8 array.
+		@note index outside of [0,3] are UB */
+	uint8& operator[](size_t index);
 };
 
 /** Multiplication of a scalar with the FMColor.
