@@ -13,11 +13,14 @@
 */
 
 #include "StdAfx.h"
-#include "FCDocument/FCDAnimated.h"
 #include "FCDocument/FCDAnimationCurve.h"
+
+#include "FCDocument/FCDAnimated.h"
 #include "FCDocument/FCDAnimationClip.h"
 #include "FCDocument/FCDAnimationKey.h"
 #include "FUtils/FUDaeEnum.h"
+
+#include <cassert>
 
 //
 // Local Definitions
@@ -406,6 +409,9 @@ float FCDAnimationCurve::Evaluate(float input) const
 			//Change this when we've figured out the values of the vectors from TCB...
 			inTangent.x = endKey->input + inTangent.x;
 			inTangent.y = endKey->output + inTangent.y;
+		} else {
+			assert(false);
+			FUtils::unreachable();
 		}
 		float t = (input - startKey->input) / inputInterval;
 		if (is2DEvaluation) t = FindT(bkey1->input, bkey1->outTangent.x, inTangent.x, endKey->input, input, t);
