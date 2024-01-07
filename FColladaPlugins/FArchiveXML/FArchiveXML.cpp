@@ -77,6 +77,8 @@
 #include "FCDocument/FCDVersion.h"
 #include "FUtils/FUXmlDocument.h"
 
+#include <libxml/xmlIO.h>
+
 
 //
 // Constants

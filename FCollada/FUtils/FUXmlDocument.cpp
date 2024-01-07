@@ -13,6 +13,8 @@
 #include "FUFile.h"
 #include "FCDocument/FCDocument.h"
 
+#include <libxml/parser.h>
+
 #define MAX_FILE_SIZE 10240000
 //
 // FUXmlDocument
