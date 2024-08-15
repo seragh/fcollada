@@ -51,6 +51,13 @@ if(USE_FMT_HEADER_ONLY)
 endif()
 
 
+if(NOT MSVC)
+    # clang-14 enabled it by default and on aarch64 this results
+    # in a loss of precision enough to fail the tests.
+    add_compile_options(-ffp-contract=off)
+endif()
+
+
 set(LIBRARY_NAME FCollada)
 if(NOT BUILD_SHARED_LIBS AND NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}S")
