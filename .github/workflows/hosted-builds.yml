@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: setup cmake
         uses: lukka/get-cmake@latest
@@ -55,8 +55,8 @@ jobs:
         if: matrix.os == 'windows-latest'
         uses: lukka/run-vcpkg@v11
         with:
-          # hash for tag 2023.12.12
-          vcpkgGitCommitId: "c8696863d371ab7f46e213d8f5ca923c4aef2a00"
+          # hash for tag 2024-07-10
+          vcpkgGitCommitId: "1de2026f28ead93ff1773e6e680387643e914ea1"
 
       # run cmake
       - name: configure
