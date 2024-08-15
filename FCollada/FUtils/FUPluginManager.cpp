@@ -41,7 +41,7 @@ ImplementObjectType(FUPlugin)
 
 FUPluginManager::FUPluginManager(const fchar* _filter)
 {
-#if !defined(__FreeBSD) && !defined(__OpenBSD__)
+#if !defined(__FreeBSD__) && !defined(__OpenBSD__)
 	fstring applicationFolderName = FUFileManager::GetApplicationFolderName();
 	LoadPluginsInFolderName(applicationFolderName, _filter);
 
