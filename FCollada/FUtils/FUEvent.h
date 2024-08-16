@@ -18,6 +18,7 @@
 #ifndef _FU_EVENT_H_
 #define _FU_EVENT_H_
 
+#include <algorithm>
 #include <functional>
 #include <vector>
 
