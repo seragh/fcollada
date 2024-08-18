@@ -26,7 +26,7 @@
 #elif defined(__APPLE__)
 	#include <mach-o/dyld.h>
 	#include <sys/stat.h>
-#elif defined(LINUX)
+#else
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -216,7 +216,7 @@ bool FUFileManager::MakeDirectory(const fstring& directory)
 	if (_mkdir(TO_STRING(absoluteDirectory).c_str()) == 0) return true;
 	errno_t err; _get_errno(&err);
 	if (err == EEXIST) return true;
-#elif defined(LINUX) || defined(__APPLE__)
+#else
 	if (mkdir(TO_STRING(absoluteDirectory).c_str(), std::numeric_limits<mode_t>::max()) == 0)
 		return true; // I think this means all permissions..
 #endif // WIN32
@@ -378,7 +378,16 @@ fstring FUFileManager::GetApplicationFolderName()
 	GetModuleFileName(NULL, buffer, 1024);
 	buffer[1023] = 0;
 	_uri = buffer;
-#elif defined(LINUX)
+#elif defined(__APPLE__)
+	char path[1024];
+	uint32_t pathLength = 1023;
+	if(_NSGetExecutablePath(path, &pathLength))
+	{
+		// doesn't fit
+		path[0] = '\0';
+	}
+	_uri = TO_FSTRING((const char*) path);
+#else
 	char path[1024];
 	char path2[1024];
 	struct stat stat_buf;
@@ -403,15 +412,6 @@ fstring FUFileManager::GetApplicationFolderName()
 	//"path" should have the application folder path in it.
 	const char * exeName = &path[0];
 	_uri = TO_FSTRING(exeName);
-#elif defined(__APPLE__)
-	char path[1024];
-	uint32_t pathLength = 1023;
-	if(_NSGetExecutablePath(path, &pathLength))
-	{
-		// doesn't fit
-		path[0] = '\0';
-	}
-	_uri = TO_FSTRING((const char*) path);
 #endif // WIN32
 
 	fstring out;

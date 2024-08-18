@@ -33,11 +33,7 @@ class FCDEffectParameterSampler;
 class FCDEffectStandard;
 class FCDImage;
 
-#if defined(WIN32)
-template <class T> class FCOLLADA_EXPORT FCDEffectParameterT; /**< Trick Doxygen. */
-#elif defined(LINUX) || defined(__APPLE__)
-template <class T> class FCDEffectParameterT; /**< Trick Doxygen. */
-#endif // LINUX
+template <class T> class FCOLLADA_EXPORT FCDEffectParameterT;
 typedef FCDEffectParameterT<int32> FCDEffectParameterInt; /**< An integer effect parameter. */
 
 /**

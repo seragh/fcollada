@@ -14,9 +14,7 @@
 #ifndef _FM_FLOAT_H_
 #define _FM_FLOAT_H_
 
-#if !defined(_INC_FLOAT) && (defined (WIN32) || defined (LINUX) || defined(__APPLE__))
 #include <float.h>
-#endif // _INC_FLOAT, WIN32 and LINUX
 
 /** The default tolerance for double-sized floating-point comparison functions. */
 #define DBL_TOLERANCE 0.0001

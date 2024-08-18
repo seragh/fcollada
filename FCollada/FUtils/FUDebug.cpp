@@ -22,16 +22,16 @@
 FUDebug::FUDebug() {}
 FUDebug::~FUDebug() {}
 
-#if defined(LINUX) || defined(__APPLE__)
+#if defined(WIN32)
+#define STRING_OUT(sz) OutputDebugString(sz); OutputDebugString(FC("\n"))
+#elif defined(__PPU__)
+#define STRING_OUT(sz) { fm::string szz = FUStringConversion::ToString(sz); printf(szz.c_str()); printf("\n"); }
+#else
 #if defined(UNICODE)
 #define STRING_OUT(sz) fmt::print(stderr, "{}", TO_STRING(sz).c_str()); std::fflush(stderr);
 #else
 #define STRING_OUT(sz) fmt::print(stderr, "{}", sz); std::fflush(stderr);
 #endif // UNICODE
-#elif defined(WIN32)
-#define STRING_OUT(sz) OutputDebugString(sz); OutputDebugString(FC("\n"))
-#elif defined(__PPU__)
-#define STRING_OUT(sz) { fm::string szz = FUStringConversion::ToString(sz); printf(szz.c_str()); printf("\n"); }
 #endif
 
 #ifdef _DEBUG

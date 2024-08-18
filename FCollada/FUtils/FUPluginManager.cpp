@@ -24,7 +24,7 @@
 		#define ffindclose _findclose
 		#define ffindnext _findnext
 	#endif
-#elif defined(__APPLE__) || defined(LINUX)
+#else
 	#include <dlfcn.h>
 	#include <dirent.h>
 #endif //WIN32
@@ -125,7 +125,7 @@ void FUPluginManager::LoadPluginsInFolderName(const fstring& folderName, const f
 			ffindclose(folderHandle);
 		}
 
-#elif defined(__APPLE__) || defined(LINUX)
+#else
 		fm::string s_filter = TO_STRING(filter);
 		if (s_filter.length() > 0 && s_filter.front() == '*') s_filter.erase(0, 1);
 		if (s_filter.length() > 0 && s_filter.back() == '*') s_filter.pop_back();
@@ -176,7 +176,7 @@ FUPluginManager::~FUPluginManager()
 	{
 #if defined(WIN32)
 		if ((*it)->module != NULL) FreeLibrary((*it)->module);
-#elif defined(LINUX) || defined(__APPLE__)
+#else
 		if ((*it)->module != NULL) dlclose((*it)->module);
 #endif // WIN32
 	}

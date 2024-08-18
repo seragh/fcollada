@@ -27,13 +27,8 @@
 #include "FUtils/FUParameter.h"
 #endif // _FU_PARAMETER_H_
 
-#if defined(WIN32)
-template <class T> class FCOLLADA_EXPORT FCDLibrary; /**< Trick Doxygen. */
-template <class T> class FCOLLADA_EXPORT FUUniqueStringMapT; /**< Trick Doxygen. */
-#elif defined(LINUX) || defined(__APPLE__)
-template <class T> class FCDLibrary; /**< Trick Doxygen. */
-template <class T> class FUUniqueStringMapT; /**< Trick Doxygen. */
-#endif // LINUX
+template <class T> class FCOLLADA_EXPORT FCDLibrary;
+template <class T> class FCOLLADA_EXPORT FUUniqueStringMapT;
 
 class FCDAnimated;
 class FCDAnimation;

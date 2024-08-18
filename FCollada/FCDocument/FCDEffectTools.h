@@ -31,11 +31,7 @@ class FCDEffectStandard;
 class FCDEffectTechnique;
 class FCDGeometryInstance;
 
-#if defined(WIN32)
-template <class T, int Q> class FCOLLADA_EXPORT FCDEffectParameterAnimatableT; /**< Trick Doxygen. */
-#elif defined(LINUX) || defined(__APPLE__)
-template <class T, int Q> class FCDEffectParameterAnimatableT; /**< Trick Doxygen. */
-#endif // LINUX
+template <class T, int Q> class FCOLLADA_EXPORT FCDEffectParameterAnimatableT;
 typedef FCDEffectParameterAnimatableT<FMVector4, 1> FCDEffectParameterColor4; /**< A RGBA color effect parameter. */
 typedef FCDEffectParameterAnimatableT<float, 0> FCDEffectParameterFloat; /**< A floating-point value effect parameter. */
 

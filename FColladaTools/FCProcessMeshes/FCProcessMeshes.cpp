@@ -49,9 +49,9 @@ int main(int argc, const char* argv[], char* envp[])
 {
 #ifdef WIN32
 	_environ = envp;
-#else //LINUX
+#else
 	environ = envp;
-#endif //WIN32 and LINUX
+#endif // WIN32
 
 	// variables for processing
 	ProcessMeshesOptions options;
