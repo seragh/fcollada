@@ -139,10 +139,11 @@ endif()
 
 if(BUILD_DOCS)
     find_package(Doxygen REQUIRED)
-    doxygen_add_docs(
-        doxygen
+    doxygen_add_docs(doxygen
+        "${CMAKE_SOURCE_DIR}/FCollada"
+        "${CMAKE_SOURCE_DIR}/FColladaPlugins"
+        "${CMAKE_SOURCE_DIR}/FColladaTools"
         ALL
-        ${PROJECT_SOURCE_DIR}
         COMMENT "Generate html pages")
 endif()
 
