@@ -11,7 +11,7 @@
 #include "FUPluginManager.h"
 #include "FUFileManager.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 	#include <io.h>
 	#if defined(UNICODE)
 		#define ffinddata _wfinddata_t
@@ -27,7 +27,7 @@
 #else
 	#include <dlfcn.h>
 	#include <dirent.h>
-#endif //WIN32
+#endif //_WIN32
 
 //
 // FUPlugin
@@ -75,7 +75,7 @@ void FUPluginManager::LoadPluginsInFolderName(const fstring& folderName, const f
 		_filter = nextFilter;
 
 		// Windows-only for now.
-#if defined(WIN32)
+#if defined(_WIN32)
 		size_t filterLength = filter.length();
 		// Iterate over all the filtered files within the given folder.
 		ffinddata folderIterator;
@@ -162,7 +162,7 @@ void FUPluginManager::LoadPluginsInFolderName(const fstring& folderName, const f
 		}
 		closedir(directory);
 
-#endif // WIN32
+#endif // _WIN32
 	} while (_filter != nullptr);
 }
 
@@ -174,11 +174,11 @@ FUPluginManager::~FUPluginManager()
 	// Detach all the plugin libraries.
 	for (PluginLibraryList::iterator it = loadedLibraries.begin(); it != loadedLibraries.end(); ++it)
 	{
-#if defined(WIN32)
+#if defined(_WIN32)
 		if ((*it)->module != nullptr) FreeLibrary((*it)->module);
 #else
 		if ((*it)->module != nullptr) dlclose((*it)->module);
-#endif // WIN32
+#endif // _WIN32
 	}
 	CLEAR_POINTER_VECTOR(loadedLibraries);
 }

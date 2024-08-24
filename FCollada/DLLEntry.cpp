@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 
 #ifdef FCOLLADA_DLL
-#ifdef WIN32
+#ifdef _WIN32
 HINSTANCE hInstance = nullptr;
 
 BOOL WINAPI DllMain(HINSTANCE _hInstance, ULONG fdwReason, LPVOID UNUSED(lpvReserved))
@@ -51,6 +51,6 @@ void __attribute((constructor)) DllEntry(void)
 void __attribute((destructor)) DllTerminate(void)
 {
 }
-#endif // WIN32
+#endif // _WIN32
 
 #endif // FCOLLADA_DLL

@@ -10,19 +10,19 @@
 #include "FUTestBed.h"
 #include "FUtils/FUFileManager.h"
 #include "FUtils/FUUri.h"
-#if defined(WIN32)
+#if defined(_WIN32)
 	#include <direct.h>
-#endif // WIN32
+#endif // _WIN32
 
 inline bool PlatformEquivalent(fstring& f, const fchar* check)
 {
-#ifdef WIN32
+#ifdef _WIN32
 	return IsEquivalent(f, check);
 #else
 	fstring p = check;
 	p.replace('\\', '/');
 	return IsEquivalent(f, p);
-#endif // WIN32
+#endif // _WIN32
 }
 
 TESTSUITE_START(FUFileManager)
@@ -47,23 +47,23 @@ TESTSUITE_TEST(0, Substrings)
 		static const fchar* checkFilenameReferences[testFilenameCount] = {
 			FC("C:\\TestFolder\\TestFile.dae"),
 			FC("/UnixFolder/AbsoluteFile.dae"),
-#ifdef WIN32
+#ifdef _WIN32
 			FC("/NetworkFolder/SomeFile.dae"),
-#else // WIN32
+#else // _WIN32
 			FC("\\\\WindowsUNCPath/NetworkFolder/SomeFile.dae"),
-#endif // WIN32
+#endif // _WIN32
 			FC("file:///strangeURI"),
 			FC("/UnixFolder/UnixFolder.AnnoyingExtension/SomeFileWithoutExtension"),
 			FC("file://www.someweb.com/index")
 		};
 
-#ifdef WIN32
+#ifdef _WIN32
 		static const fchar* checkHostnames[testFilenameCount] =
 			{ FC(""), FC(""), FC("WindowsUNCPath"), FC(""), FC(""), FC("") };
-#else // WIN32
+#else // _WIN32
 		static const fchar* checkHostnames[testFilenameCount] =
 			{ FC(""), FC(""), FC(""), FC(""), FC(""), FC("") };
-#endif // WIN32
+#endif // _WIN32
 
 		PassIf(IsEquivalent(filename, checkFilenameReferences[i]));
 		PassIf(IsEquivalent(hostname, checkHostnames[i]));
@@ -103,7 +103,7 @@ TESTSUITE_TEST(2, RelativePaths)
 	f = manager.GetCurrentUri().MakeRelative(FC("\\BPath\\BFile"));
 	PassIf(PlatformEquivalent(f, FC("\\BPath\\BFile")));
 
-#ifdef WIN32
+#ifdef _WIN32
 	// Verify drive-aware relative path generation.
 	f = manager.GetCurrentUri().MakeRelative(FC("\\AFolder\\AFolder.D\\BFile"));
 	PassIf(PlatformEquivalent(f, FC(".\\BFile")));
@@ -119,7 +119,7 @@ TESTSUITE_TEST(2, RelativePaths)
 	f = manager.GetCurrentUri().MakeRelative(FC("\\\\AFolder\\AFile"));
 	PassIf(PlatformEquivalent(f, FC("\\\\AFolder\\AFile")));
 
-#ifndef WIN32
+#ifndef _WIN32
 	// Verify the relative file path generation with a Unix file as the root
 	manager.PopRootFile();
 	manager.PushRootFile(FC("/ARoot/AFolder/AFolder.D/AFile"));
@@ -128,7 +128,7 @@ TESTSUITE_TEST(2, RelativePaths)
 
 	f = manager.GetCurrentUri().MakeRelative(FC("/ARoot/AFolder/TestOut.pdg"));
 	PassIf(PlatformEquivalent(f, FC("../TestOut.pdg")));
-#endif // WIN32
+#endif // _WIN32
 
 	// Verify the relative file path generation with a network file as the root
 	manager.PopRootFile();
@@ -150,39 +150,39 @@ TESTSUITE_TEST(2, RelativePaths)
 	PassIf(PlatformEquivalent(f, FC(".\\BPureRelative\\CFile")));
 
 TESTSUITE_TEST(3, AbsolutePaths)
-#ifdef WIN32
+#ifdef _WIN32
 	char currentPath[1024];
 	_getcwd(currentPath, 1023);
 	currentPath[1023] = 0;
 	fchar driveLetter = (fchar) toupper(currentPath[0]);
-#endif // WIN32
+#endif // _WIN32
 
 	// Verify the relative file path generation for local files
 	FUFileManager manager;
 	manager.PushRootFile(FC("C:\\AFolder\\AFolder.D\\AFile"));
 	fstring f = manager.GetCurrentUri().MakeAbsolute(FC(".\\BFile"));
-#ifdef WIN32
+#ifdef _WIN32
 	PassIf(PlatformEquivalent(f, FC("C:\\AFolder\\AFolder.D\\BFile")));
 #else
 	PassIf(PlatformEquivalent(f, FC("\\C:\\AFolder\\AFolder.D\\BFile")));
-#endif // WIN32
+#endif // _WIN32
 
 	manager.PopRootFile();
 	manager.PushRootFile(FC("\\AFolder\\AFolder.D\\AFile"));
 	f = manager.GetCurrentUri().MakeAbsolute(FC("..\\BFile.S"));
-#ifdef WIN32
+#ifdef _WIN32
 	fstring check = FC("C:\\AFolder\\BFile.S");
 	check[0] = driveLetter;
 	PassIf(PlatformEquivalent(f, check.c_str()));
 #else
 	PassIf(PlatformEquivalent(f, FC("\\AFolder\\BFile.S")));
-#endif // WIN32
+#endif // _WIN32
 
 TESTSUITE_TEST(4, URI_Generation)
 	// Verify the URI generation with respect to a local file
 	FUFileManager manager;
 
-#ifdef WIN32
+#ifdef _WIN32
 	manager.PushRootFile(FC("C:\\AFolder\\AFolder.D\\AFile"));
 	FUUri uri(FC("C:\\AFolder\\AFolder.D\\BFile"));
 	fstring f = uri.GetRelativeUri(manager.GetCurrentUri());
@@ -202,16 +202,16 @@ TESTSUITE_TEST(4, URI_Generation)
 	PassIf(f == FC("file:///AFolder/AFolder.D/BFile"));
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
 	uri = FUUri(FC("\\\\BNetwork\\BFolder\\BFile"));
 	f = uri.GetRelativeUri(manager.GetCurrentUri());
 	PassIf(f == FC("file://BNetwork/BFolder/BFile"));
 	uri = FUUri(FC("\\\\BNetwork\\BFolder\\BFile"));
 	f = uri.GetAbsoluteUri();
 	PassIf(f == FC("file://BNetwork/BFolder/BFile"));
-#endif // WIN32
+#endif // _WIN32
 
-#ifdef WIN32
+#ifdef _WIN32
 	uri = FUUri(FC("file:///C:/AFolder/BFolder/BFile"));
 	f = uri.GetRelativeUri(manager.GetCurrentUri());
 	PassIf(f == FC("../BFolder/BFile"));
@@ -225,9 +225,9 @@ TESTSUITE_TEST(4, URI_Generation)
 	uri = FUUri(FC("file:///AFolder/BFolder/BFile"));
 	f = uri.GetAbsoluteUri();
 	PassIf(f == FC("file:///AFolder/BFolder/BFile"));
-#endif // WIN32
+#endif // _WIN32
 
-#ifdef WIN32
+#ifdef _WIN32
 	// Verify the URI generation with respect to a networked file
 	manager.PushRootFile(FC("\\\\BNetwork\\BFolder\\BSubfolder\\BFile"));
 	uri = FUUri(FC("C:\\BFolder\\BSubfolder\\CFile"));
@@ -250,12 +250,12 @@ TESTSUITE_TEST(4, URI_Generation)
 	uri = FUUri(FC("file://BNetwork/BFolder/BSubfolder/CFile"));
 	f = uri.GetAbsoluteUri();
 	PassIf(f == FC("file://BNetwork/BFolder/BSubfolder/CFile"));
-#endif // WIN32
+#endif // _WIN32
 
 TESTSUITE_TEST(5, BackwardCompatibility)
 
 	// Verify the handling of the file paths that we used to export.
-#ifdef WIN32
+#ifdef _WIN32
 	FUFileManager manager;
 	manager.PushRootFile(FC("C:\\AFolder\\AFolder.D\\AFile"));
 	FUUri uri(FC("file://C|/AFolder/BFolder/BFile"));
@@ -266,14 +266,14 @@ TESTSUITE_TEST(5, BackwardCompatibility)
 	PassIf(PlatformEquivalent(f, FC("..\\BFolder\\BFile")));
 #else
 	PassIf(true);
-#endif // WIN32
+#endif // _WIN32
 
 #if !defined(__FreeBSD__) && !defined(__OpenBSD__)
 TESTSUITE_TEST(6, ApplicationFolderName)
 	fstring applicationFolderName = FUFileManager::GetApplicationFolderName();
 	FailIf(applicationFolderName.empty()); // really not much else I can test for..
 
-#ifdef WIN32 // at the time of writing, only implemented for WIN32, else returns empty string
+#ifdef _WIN32 // at the time of writing, only implemented for WIN32, else returns empty string
 	fstring moduleFolderName = FUFileManager::GetModuleFolderName();
 	FailIf(moduleFolderName.empty()); // really not much else I can test for..
 #endif

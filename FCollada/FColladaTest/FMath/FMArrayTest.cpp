@@ -47,7 +47,7 @@ TESTSUITE_TEST(1, Contains)
 	FailIf(testV.contains(4));
 
 TESTSUITE_TEST(2, Erase)
-#ifdef WIN32
+#ifdef _WIN32
 	// GCC reacts badly to compiling this test.
 	fm::vector<uint32> testV(testValues, testValueCount);
 	FailIf(!testV.erase((uint32) 3));
@@ -62,7 +62,7 @@ TESTSUITE_TEST(2, Erase)
 	EXPS {7} EXPE;
 #else
 	PassIf(true);
-#endif // WIN32
+#endif // _WIN32
 
 TESTSUITE_TEST(3, Find)
 	fm::vector<uint32> testV(testValues, testValueCount);

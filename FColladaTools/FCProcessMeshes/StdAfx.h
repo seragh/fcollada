@@ -16,12 +16,12 @@
 
 //See StdAfx.h in the FCProcessImages folder for explanation.
 
-#ifndef WIN32
+#ifndef _WIN32
 #include <iostream>
 #endif
 
 #include "FCollada.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <iostream>
 #endif

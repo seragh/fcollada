@@ -10,7 +10,7 @@
 #include "FUStringConversion.h"
 #include "FUUri.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #define FOLDER_CHAR '\\'
 #define UNWANTED_FOLDER_CHAR '/'
 #define FOLDER_STR FC("\\")
@@ -74,10 +74,10 @@ FUUri::FUUri(const fstring& uri, bool escape)
 		}
 		else
 		{
-#ifdef WIN32
+#ifdef _WIN32
 			// Scheme not supported (could be a NFS path)
 			FUFail(return);
-#endif // WIN32
+#endif // _WIN32
 		}
 
 		schemeDelimiter = _uri.substr(schemeDelimiterIndex, 3);
@@ -85,7 +85,7 @@ FUUri::FUUri(const fstring& uri, bool escape)
 	}
 	else
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		// Check for windows file path
 		if (schemeDelimiterIndex == 1)
 		{
@@ -113,7 +113,7 @@ FUUri::FUUri(const fstring& uri, bool escape)
 			// Our URI is parsed
 			return;
 		}
-#ifdef WIN32
+#ifdef _WIN32
 		// Check for windows UNC path
 		else if (schemeDelimiterIndex == fstring::npos && _uri[0] == '/' && _uri[1] == '/')
 		{
@@ -284,7 +284,7 @@ fstring FUUri::GetAbsolutePath() const
 	{
 		if (GetHostname().empty())
 		{
-#ifdef WIN32
+#ifdef _WIN32
 			// Check if we have a drive letter
 			if (path[0] == '/' && path[3] == '/')
 			{
@@ -430,9 +430,9 @@ fstring FUUri::GetRelativeUri(const FUUri& uri) const
 		relativePath.append(fragment);
 	}
 
-#ifdef WIN32
+#ifdef _WIN32
 	relativePath.replace(FC('\\'), FC('/'));
-#endif // WIN32
+#endif // _WIN32
 	return relativePath;
 }
 
@@ -468,11 +468,11 @@ fstring FUUri::MakeRelative(const fstring& _path) const
 				return _path;
 			}
 
-#ifdef WIN32
+#ifdef _WIN32
 			// Pop drive from the path stacks
 			documentPaths.pop_front();
 			localPaths.pop_front();
-#endif // WIN32
+#endif // _WIN32
 
 			// If the next folder is different return absolute path
 			if (documentPaths.empty() || localPaths.empty() || !IsEquivalent(documentPaths.front(), localPaths.front()))
@@ -554,16 +554,16 @@ void FUUri::MakeAbsolute(FUUri& uri) const
 		uri.port = this->port;
 	}
 
-#ifdef WIN32
+#ifdef _WIN32
 	if (filePath.size() > 1 && filePath[1] == '|') filePath[1] = ':';
-#endif // WIN32
+#endif // _WIN32
 
 
 	if (uri.scheme == FILE || uri.scheme == NONE)
 	{
 		if ((!filePath.empty() && (filePath[0] == '\\' || filePath[0] == '/')) || (filePath.size() > 1 && filePath[1] == ':'))
 		{
-#ifdef WIN32
+#ifdef _WIN32
 			// In win32 we need to add the drive to the path
 			if (path.size() > 1)
 			{

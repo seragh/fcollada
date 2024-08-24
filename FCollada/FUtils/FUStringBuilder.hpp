@@ -15,7 +15,7 @@
 #include <limits>
 #include <fmt/format.h>
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <float.h>
 #endif
 
@@ -207,7 +207,7 @@ void FUStringBuilderT<Char>::append(const FUStringBuilderT& b)
 template <class Char>
 void FUStringBuilderT<Char>::append(float f)
 {
-#ifdef WIN32
+#ifdef _WIN32
 	// use <float.h> _isnan method to detect the 1.#IND00 NaN.
 	if (f != std::numeric_limits<float>::infinity() && f != -std::numeric_limits<float>::infinity() && f != std::numeric_limits<float>::quiet_NaN() && f != std::numeric_limits<float>::signaling_NaN() && !_isnan((double)f))
 #else
@@ -233,7 +233,7 @@ void FUStringBuilderT<Char>::append(float f)
 template <class Char>
 void FUStringBuilderT<Char>::append(double f)
 {
-#ifdef WIN32
+#ifdef _WIN32
 	// use <float.h> _isnan method to detect the .#IND00 NaN.
 	if (f != std::numeric_limits<float>::infinity() && f != -std::numeric_limits<float>::infinity() && f != std::numeric_limits<float>::quiet_NaN() && f != std::numeric_limits<float>::signaling_NaN() && !_isnan(f))
 #else

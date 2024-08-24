@@ -19,11 +19,11 @@
 extern "C"
 {
 	extern
-#ifdef WIN32
+#ifdef _WIN32
 	__declspec(dllexport)
 //#else
 //	FCOLLADA_EXPORT
-#endif // WIN32
+#endif // _WIN32
 	FUPlugin* CreatePlugin(uint32);
 }
 

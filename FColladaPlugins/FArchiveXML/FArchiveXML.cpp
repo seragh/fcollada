@@ -1081,7 +1081,7 @@ xmlNode* FArchiveXML::WriteLibrary(FCDLibrary<T>* library, xmlNode* node)
 	return node;
 }
 
-#ifdef WIN32
+#ifdef _WIN32
 #define PLUGIN_EXPORT __declspec(dllexport)
 #else
 #define PLUGIN_EXPORT

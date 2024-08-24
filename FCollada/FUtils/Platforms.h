@@ -17,11 +17,11 @@
 
 #include "fcollada_export.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 // Disable the "private member not available for export" warning,
 // because I don't feel like writing interfaces
 #pragma warning(disable:4251)
-#endif // WIN32
+#endif // _WIN32
 
 #ifdef __PPU__
 #define UNICODE
@@ -40,7 +40,7 @@
 
 #include <cmath>
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #pragma warning(disable:4702)
 #ifndef _WIN32_WINNT		// Allow use of features specific to Windows XP or later.
@@ -72,10 +72,10 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#endif // WIN32 __APPLE__
+#endif // _WIN32 __APPLE__
 
 // Cross-platform type definitions
-#ifdef WIN32
+#ifdef _WIN32
 
 typedef signed char int8;
 typedef short int16;
@@ -107,7 +107,7 @@ typedef uint8_t byte;
 // Important functions that some OSes have missing!
 #if defined(__PPU__)
 #define glClearDepth glClearDepthf
-#elif !defined(WIN32)
+#elif !defined(_WIN32)
 inline char* strlower(char* str) { char* it = str; while (*it != 0) { *it = tolower(*it); ++it; } return str; }
 inline wchar_t* wcslwr(wchar_t* str) { wchar_t* it = str; while (*it != 0) { *it = towlower(*it); ++it; } return str; }
 inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 = *s2; while (c1 != 0 && c2 != 0) { if (c1 >= 'a' && c1 <= 'z') c1 -= 'a' + 'A'; if (c2 >= 'a' && c2 <= 'z') c2 -= 'a' + 'A'; if (c2 < c1) return -1; else if (c2 > c1) return 1; c1 = *(++s1); c2 = *(++s2); } return 0; }
@@ -116,7 +116,7 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 #endif
 
 // Cross-platform needed functions
-#ifdef WIN32
+#ifdef _WIN32
 
 #if _MSC_VER < 1900
 	#define vsnprintf _vsnprintf
@@ -133,12 +133,12 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 
 #define strlower _strlwr
 
-#else // WIN32
+#else // _WIN32
 
 #define vsnwprintf vswprintf
 #define snwprintf swprintf
 
-#endif // WIN32
+#endif // _WIN32
 
 // For Doxygen purposes, we stopped using the "using namespace std;" statement and use shortcuts instead.
 
@@ -159,23 +159,23 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 
 	#ifdef __PPU__
 		#define fstricmp wcscmp		// [claforte] TODO: Implement __PPU__ version of wcsicmp
-	#elif defined(WIN32)
+	#elif defined(_WIN32)
 		#define fstricmp _wcsicmp
 	#else
 		#define fstricmp wcsicmp
 	#endif // !__PPU__
 
-	#ifdef WIN32
+	#ifdef _WIN32
 		#define fstrlower _wcslwr
 	#else
 		#define fstrlower wcslwr
-	#endif // WIN32
+	#endif // _WIN32
 
-	#ifdef WIN32
+	#ifdef _WIN32
 		#define fchdir _tchdir
-	#else // WIN32
+	#else // _WIN32
 		#define fchdir(a) chdir(FUStringConversion::ToString(a).c_str())
-	#endif // !WIN32
+	#endif // !_WIN32
 
 #else // UNICODE
 
@@ -197,22 +197,22 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 
 #endif // UNICODE
 
-#ifndef WIN32
+#ifndef _WIN32
 #define MAX_PATH 1024
-#endif // !WIN32
+#endif // !_WIN32
 
-#ifdef WIN32
+#ifdef _WIN32
 //#pragma warning(disable:4324) // Don't bother me about forcing the padding of aligned structure.
 /** Alignment macro for classes and structures.
 	Only supported in MSVS 2005 for now.
 	@param byteCount The number of bytes to align to.*/
 //#define ALIGN_STRUCT(byteCount) __declspec(align(byteCount))
 #define ALIGN_STRUCT(byteCount)
-#else // !WIN32
+#else // !_WIN32
 #define ALIGN_STRUCT(byteCount)
-#endif // WIN32
+#endif // _WIN32
 
-#if defined(WIN32) && _MSC_VER >= 1400
+#if defined(_WIN32) && _MSC_VER >= 1400
 #define DEPRECATED(versionNumber, alternative) __declspec(deprecated("[" #versionNumber "] This function is now deprecated. Please use '" #alternative "' instead."))
 #else
 /** Deprecated macro for functions.
@@ -220,6 +220,6 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 	@param versionNumber The version of FCollada that officially deprecated this function.
 	@param alternative The function or class to use instead. */
 #define DEPRECATED(versionNumber, alternative)
-#endif // WIN32 && MSVS2005
+#endif // _WIN32 && MSVS2005
 
 #endif // _FU_PLATFORMS_H_

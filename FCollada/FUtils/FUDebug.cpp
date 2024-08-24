@@ -22,7 +22,7 @@
 FUDebug::FUDebug() {}
 FUDebug::~FUDebug() {}
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define STRING_OUT(sz) OutputDebugString(sz); OutputDebugString(FC("\n"))
 #elif defined(__PPU__)
 #define STRING_OUT(sz) { fm::string szz = FUStringConversion::ToString(sz); printf(szz.c_str()); printf("\n"); }

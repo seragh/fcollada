@@ -11,7 +11,7 @@
 
 #include <fmt/format.h>
 
-#ifndef WIN32
+#ifndef _WIN32
 #  include <signal.h>
 #endif
 #include <string>
@@ -38,7 +38,7 @@ bool FUAssertion::OnAssertionFailed(const char* file, uint32 line)
 #ifdef _DEBUG
 	else
 	{
-#  ifdef WIN32
+#  ifdef _WIN32
 		int32 buttonPressed = MessageBoxA(nullptr,
 				message.c_str(),
 				"Assertion failed.",
@@ -54,9 +54,9 @@ bool FUAssertion::OnAssertionFailed(const char* file, uint32 line)
 		{
 			return true;
 		}
-#  else  // WIN32
+#  else  // _WIN32
 		raise(SIGTRAP);
-#  endif // WIN32
+#  endif // _WIN32
 		return false;
 	}
 #else  // _DEBUG

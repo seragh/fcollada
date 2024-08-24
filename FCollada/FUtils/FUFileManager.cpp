@@ -21,7 +21,7 @@
 #include <errno.h>
 #include <limits>
 
-#if defined(WIN32)
+#if defined(_WIN32)
 	#include <direct.h>
 #elif defined(__APPLE__)
 	#include <mach-o/dyld.h>
@@ -36,7 +36,7 @@
 // Macros and extra definitions
 //
 
-#ifdef WIN32
+#ifdef _WIN32
 #define FOLDER_CHAR '\\'
 #define UNWANTED_FOLDER_CHAR '/'
 #define FOLDER_STR FC("\\")
@@ -212,14 +212,14 @@ bool FUFileManager::MakeDirectory(const fstring& directory)
 	FUUri uri(directory);
 	fstring absoluteDirectory = uri.GetAbsolutePath();
 
-#ifdef WIN32
+#ifdef _WIN32
 	if (_mkdir(TO_STRING(absoluteDirectory).c_str()) == 0) return true;
 	errno_t err; _get_errno(&err);
 	if (err == EEXIST) return true;
 #else
 	if (mkdir(TO_STRING(absoluteDirectory).c_str(), std::numeric_limits<mode_t>::max()) == 0)
 		return true; // I think this means all permissions..
-#endif // WIN32
+#endif // _WIN32
 
 	return false;
 }
@@ -296,8 +296,8 @@ fstring FUFileManager::CleanUri(const FUUri& uri)
 fstring FUFileManager::ExtractNetworkHostname([[maybe_unused]] fstring& filename)
 {
 	fstring hostname;
-#ifdef WIN32
-	// UNC network paths are only supported on WIN32, right now.
+#ifdef _WIN32
+	// UNC network paths are only supported on _WIN32, right now.
 	if (filename.size() > 2 && (filename[0] == '/' || filename[0] == '\\') && filename[1] == filename[0])
 	{
 		size_t nextSlash = min(filename.find('/', 2), filename.find('\\', 2));
@@ -310,7 +310,7 @@ fstring FUFileManager::ExtractNetworkHostname([[maybe_unused]] fstring& filename
 }
 
 
-#ifdef WIN32
+#ifdef _WIN32
 // --------------------------------------------------------------------------------------------------------------------
 // ------------------   start of from http://www.codeguru.com/Cpp/W-P/dll/tips/article.php/c3635/    ------------------
 
@@ -345,13 +345,13 @@ HMODULE GetCurrentModule()
 
 // -------------------   end of from http://www.codeguru.com/Cpp/W-P/dll/tips/article.php/c3635/    -------------------
 // --------------------------------------------------------------------------------------------------------------------
-#endif // WIN32
+#endif // _WIN32
 
 fstring FUFileManager::GetModuleFolderName()
 {
 	fstring _moduleUri;
 
-#ifdef WIN32
+#ifdef _WIN32
 	HMODULE currentModule = GetCurrentModule();
 
 	fchar buffer[1024];
@@ -362,7 +362,7 @@ fstring FUFileManager::GetModuleFolderName()
 	longPath[1023] = 0;
 
 	_moduleUri = longPath;
-#endif // WIN32
+#endif // _WIN32
 
 	fstring out;
 	GetFolderFromPath(_moduleUri, out);
@@ -373,7 +373,7 @@ fstring FUFileManager::GetApplicationFolderName()
 {
 	fstring _uri;
 
-#ifdef WIN32
+#ifdef _WIN32
 	fchar buffer[1024];
 	GetModuleFileName(nullptr, buffer, 1024);
 	buffer[1023] = 0;
@@ -412,7 +412,7 @@ fstring FUFileManager::GetApplicationFolderName()
 	//"path" should have the application folder path in it.
 	const char * exeName = &path[0];
 	_uri = TO_FSTRING(exeName);
-#endif // WIN32
+#endif // _WIN32
 
 	fstring out;
 	GetFolderFromPath(_uri, out);

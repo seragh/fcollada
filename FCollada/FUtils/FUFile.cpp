@@ -54,7 +54,7 @@ bool FUFile::Open(const fchar* filename, Mode mode)
 	}
 
 #ifdef UNICODE
-#ifdef WIN32
+#ifdef _WIN32
 	filePtr = _wfopen(filename, openMode);
 #else
 	// No support for Unicode filenames on MacOSX?
@@ -62,13 +62,13 @@ bool FUFile::Open(const fchar* filename, Mode mode)
 	fm::string string1 = TO_STRING(filename);
 	fm::string string2 = TO_STRING(openMode);
 	filePtr = fopen(string1.c_str(), string2.c_str());
-#endif // WIN32
+#endif // _WIN32
 #else
 	filePtr = fopen(filename, openMode);
 #endif // UNICODE
 	if (filePtr == nullptr)
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		int err;
 		if (_get_errno(&err) == 0)
 		{

@@ -18,13 +18,13 @@
 //On Linux, include it first. Otherwise doesn't compile because of
 //INT_MAX contingeancy.
 
-#ifndef WIN32
+#ifndef _WIN32
 #include <iostream>
 #endif
 
 #include "FCollada.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <iostream>
 #endif
 

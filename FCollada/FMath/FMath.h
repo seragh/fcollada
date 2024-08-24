@@ -101,7 +101,7 @@ namespace FMath
 	/** Determines if given float is encoding for not a number (NAN).
 		@param f The float to check.
 		@return 0 if it is a number, something else if is NAN. */
-#ifdef WIN32
+#ifdef _WIN32
 	inline int IsNotANumber(float f) { return _isnan(f); }
 #elif __PPU__ || (defined(__APPLE__) && !defined(__GLIBCXX__))
 	inline int IsNotANumber(float f) { return !isfinite(f); }

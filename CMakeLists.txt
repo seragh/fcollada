@@ -36,10 +36,6 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     add_definitions(-D_DEBUG)
 endif()
 
-if(WIN32)
-    add_definitions(-DWIN32)
-endif()
-
 if(BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
 endif()

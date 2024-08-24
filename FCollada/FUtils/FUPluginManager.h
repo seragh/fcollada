@@ -46,11 +46,11 @@ private:
 	struct PluginLibrary
 	{
 		fstring filename;
-#if defined(WIN32)
+#if defined(_WIN32)
 		HMODULE module;
 #else
 		void* module;
-#endif // WIN32
+#endif // _WIN32
 
 		GetPluginCount getPluginCount;
 		GetPluginType getPluginType;

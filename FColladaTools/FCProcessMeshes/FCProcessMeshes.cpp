@@ -47,11 +47,11 @@ void PrintUsage()
 
 int main(int argc, const char* argv[], char* envp[])
 {
-#ifdef WIN32
+#ifdef _WIN32
 	_environ = envp;
 #else
 	environ = envp;
-#endif // WIN32
+#endif // _WIN32
 
 	// variables for processing
 	ProcessMeshesOptions options;

@@ -85,8 +85,8 @@ TESTSUITE_TEST(2, SubTestSuites)
 	RUN_TESTSUITE(FUStringBuilder);
 	RUN_TESTSUITE(FUStringConversion);
 	RUN_TESTSUITE(FUUniqueStringMap);
-#ifndef WIN32
+#ifndef _WIN32
 	PassIf(true);
-#endif // WIN32
+#endif // _WIN32
 
 TESTSUITE_END

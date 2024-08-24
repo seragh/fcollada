@@ -68,9 +68,9 @@ void FUErrorLog::OnErrorCallback(FUError::Level level, uint32 errorCode, uint32 
 
 	if (newLine.length() > 0)
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		newLine.append('\r');
-#endif // WIN32
+#endif // _WIN32
 		newLine.append('\n');
 	}
 	logFile->WriteLine(newLine.ToCharPtr());
