@@ -162,7 +162,7 @@ public:
 		This function is only useful for entities that are hierarchical:
 		visual/physics scene nodes and animations.
 		@param daeId A COLLADA id.
-		@return The child entity with the given id. This pointer will be NULL
+		@return The child entity with the given id. This pointer will be nullptr
 			if no child entity matches the given id. */
 	virtual FCDEntity* FindDaeId(const fm::string& daeId) { return const_cast<FCDEntity*>(const_cast<const FCDEntity*>(this)->FindDaeId(daeId)); }
 	virtual const FCDEntity* FindDaeId(const fm::string& daeId) const; /**< See above. */
@@ -172,11 +172,11 @@ public:
 		to copy the COLLADA id and the other entity-level information.
 		All the up-classes of this class should implement this function.
 		The cloned entity may reside in another document.
-		@param clone The empty clone. If this pointer is NULL, a new entity
+		@param clone The empty clone. If this pointer is nullptr, a new entity
 			will be created and you will need to release the returned pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 	/** Cleans illegal characters in from the input char string
 		@param c The string to clean

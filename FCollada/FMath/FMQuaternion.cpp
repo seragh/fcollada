@@ -48,7 +48,7 @@ const FMQuaternion FMQuaternion::Identity = FMQuaternion(0.0f, 0.0f, 0.0f, 1.0f)
 
 FMQuaternion::FMQuaternion(const float* values)
 {
-	if (values != NULL)
+	if (values != nullptr)
 	{
 		x = (*values++);
 		y = (*values++);
@@ -59,7 +59,7 @@ FMQuaternion::FMQuaternion(const float* values)
 
 FMQuaternion::FMQuaternion(const double* values)
 {
-	if (values != NULL)
+	if (values != nullptr)
 	{
 		x = (float) (*values++);
 		y = (float) (*values++);
@@ -168,7 +168,7 @@ FMVector3 FMQuaternion::ToEuler(FMVector3* previousAngles) const
 	}
 
 	// Patch to the closest Euler angles.
-	if (previousAngles != NULL)
+	if (previousAngles != nullptr)
 	{
 		PatchEuler((float*) previousAngles, (float*) angles);
 	}

@@ -48,7 +48,7 @@ public:
 		@param parent The physics model instance that contains this rigid
 			constraint instance.
 		@param constraint The rigid constraint to instance. This should not be
-			NULL unless it is expected to be filled in by LoadFromXML. */
+			nullptr unless it is expected to be filled in by LoadFromXML. */
 	FCDPhysicsRigidConstraintInstance(FCDocument* document, FCDPhysicsModelInstance* parent, FCDPhysicsRigidConstraint* constraint);
 
 	/** Destructor. */
@@ -71,10 +71,10 @@ public:
 
 	/** Clones the rigid constraint instance.
 		@param clone The rigid constraint instance to become the clone.
-			If this pointer is NULL, a new rigid constraint instance will be
+			If this pointer is nullptr, a new rigid constraint instance will be
 			created and you will need to release it.
 		@return The clone. */
-	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = NULL) const;
+	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = nullptr) const;
 
 	/** [INTERNAL] Retrieve it's parent model instance.
 		@return The parent of the intance.

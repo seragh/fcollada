@@ -290,7 +290,7 @@ public:
 	//
 	// Physics related functions
 	//
-	static bool LoadPhysicsRigidBodyParameters(FCDPhysicsRigidBodyParameters* parameters, xmlNode* techniqueNode, FCDPhysicsRigidBodyParameters* defaultParameters = NULL);
+	static bool LoadPhysicsRigidBodyParameters(FCDPhysicsRigidBodyParameters* parameters, xmlNode* techniqueNode, FCDPhysicsRigidBodyParameters* defaultParameters = nullptr);
 	static bool AttachModelInstancesFCDPhysicsModel(FCDPhysicsModel* physicsModel);
 
 	static bool LoadPhysicsShape(FCDObject* object, xmlNode* node);
@@ -414,7 +414,7 @@ public:
 	{
 		if (!object->GetTransientFlag())
 			return FArchiveXML::WriteSwitch(object, &object->GetObjectType(), (xmlNode*) entityNode);
-		return NULL;
+		return nullptr;
 	}
 
 	//

@@ -80,7 +80,7 @@ TESTSUITE_TEST(1, Reimport)
 	FUErrorSimpleHandler errorHandler;
 	FCDocument* idoc = FCollada::NewTopDocument();
 	PassIf(FCollada::LoadDocumentFromFile(idoc, FC("TestOut.dae")));
-	PassIf(idoc != NULL);
+	PassIf(idoc != nullptr);
 
 #ifdef _WIN32
 	OutputDebugStringA(errorHandler.GetErrorString());
@@ -105,7 +105,7 @@ TESTSUITE_TEST(1, Reimport)
 
 	// Verify that the three wanted visual scene ids exist and find the one we fill in.
 	bool found1 = false, found3 = false;
-	FCDSceneNode* found2 = NULL;
+	FCDSceneNode* found2 = nullptr;
 	for (size_t i = 0; i < vsl->GetEntityCount(); ++i)
 	{
 		FCDSceneNode* inode = vsl->GetEntity(i);
@@ -117,7 +117,7 @@ TESTSUITE_TEST(1, Reimport)
 		}
 		else if (inode->GetDaeId() == sceneNode2Id)
 		{
-			FailIf(found2 != NULL);
+			FailIf(found2 != nullptr);
 			PassIf(inode->GetName() == FC("Scene2"));
 			found2 = inode;
 		}
@@ -128,7 +128,7 @@ TESTSUITE_TEST(1, Reimport)
 			found3 = true;
 		}
 	}
-	PassIf(found2 != NULL);
+	PassIf(found2 != nullptr);
 
 	// Compare all these re-imported library contents
 	PassIf(CheckLayers(fileOut, idoc));
@@ -146,11 +146,11 @@ TESTSUITE_TEST(1, Reimport)
 
 	// Check that the document extra data is available and intact.
 	FCDEType* type = idoc->GetExtra()->FindType("TOTO");
-	FailIf(type == NULL);
+	FailIf(type == nullptr);
 	FCDETechnique* technique = type->FindTechnique("TOTO_TECHNIQUE");
-	FailIf(technique == NULL);
+	FailIf(technique == nullptr);
 	FCDENode* extraNode = technique->FindParameter("AParameter");
-	PassIf(extraNode != NULL);
+	PassIf(extraNode != nullptr);
 	PassIf(IsEquivalent(extraNode->GetContent(), FC("AValue")));
 
 	SAFE_RELEASE(idoc);
@@ -226,7 +226,7 @@ TESTSUITE_TEST(2, paramImport)
 	FCDGeometryInstance* geometryInstance = (FCDGeometryInstance*) instance;
 
 	FCDEffectParameterFloat* instanceShininess = (FCDEffectParameterFloat*) FCDEffectTools::FindEffectParameterBySemantic(geometryInstance, "SHININESS");
-	PassIf(instanceShininess != NULL);
+	PassIf(instanceShininess != nullptr);
 	PassIf(IsEquivalent(instanceShininess->GetType(), FCDEffectParameter::FLOAT));
 	PassIf(instanceShininess == FCDEffectTools::FindEffectParameterByReference(geometryInstance, "myShininessAnimated"));
 	PassIf(instanceShininess->IsAnimator());

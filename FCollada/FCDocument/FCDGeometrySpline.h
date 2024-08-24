@@ -77,8 +77,8 @@ public:
 	/** Retrieves a pointer to the control vertex specified by the given index.
 		@param index The index, must be higher or equal to 0 and lower than GetCVCount().
 		@return The control vertex.*/
-	inline FMVector3* GetCV(size_t index) { FUAssert(index < GetCVCount(), return NULL); return &(cvs.at(index)); }
-	inline const FMVector3* GetCV(size_t index) const { FUAssert(index < GetCVCount(), return NULL); return &(cvs.at(index)); } /**< See above. */
+	inline FMVector3* GetCV(size_t index) { FUAssert(index < GetCVCount(), return nullptr); return &(cvs.at(index)); }
+	inline const FMVector3* GetCV(size_t index) const { FUAssert(index < GetCVCount(), return nullptr); return &(cvs.at(index)); } /**< See above. */
 
 	/** Retrieves a reference to the CVs list.
 		@return The reference to the control vertices. */
@@ -90,7 +90,7 @@ public:
 
 	/** [INTERNAL] Copies the spline into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. This pointer cannot be NULL.
+		@param clone The empty clone. This pointer cannot be nullptr.
 		@return The clone. */
 	virtual FCDSpline* Clone(FCDSpline* clone) const;
 };
@@ -217,9 +217,9 @@ public:
 
 	/** Retrieves a reference to the weight specified by the index.
 		@param index The index.
-		@return The address of the weight value, NULL if index is invalid.*/
-	inline float* GetWeight(size_t index) { FUAssert(index < GetCVCount(), return NULL); return &(weights.at(index)); }
-	inline const float* GetWeight(size_t index) const { FUAssert(index < GetCVCount(), return NULL); return &(weights.at(index)); } /**< See above. */
+		@return The address of the weight value, nullptr if index is invalid.*/
+	inline float* GetWeight(size_t index) { FUAssert(index < GetCVCount(), return nullptr); return &(weights.at(index)); }
+	inline const float* GetWeight(size_t index) const { FUAssert(index < GetCVCount(), return nullptr); return &(weights.at(index)); } /**< See above. */
 
 	/** Retrieves the knot count in this NURB.
 		@return The knot count.*/
@@ -231,9 +231,9 @@ public:
 
 	/** Retrieves a reference to the knot specified by the index.
 		@param index The index.
-		@return The address of the knot value, NULL if index is invalid.*/
-	inline float* GetKnot(size_t index) { FUAssert(index < GetKnotCount(), return NULL); return &(knots.at(index));}
-	inline const float* GetKnot(size_t index) const { FUAssert(index < GetKnotCount(), return NULL); return &(knots.at(index));} /**< See above. */
+		@return The address of the knot value, nullptr if index is invalid.*/
+	inline float* GetKnot(size_t index) { FUAssert(index < GetKnotCount(), return nullptr); return &(knots.at(index));}
+	inline const float* GetKnot(size_t index) const { FUAssert(index < GetKnotCount(), return nullptr); return &(knots.at(index));} /**< See above. */
 
 	/** Retrieves a const reference to the weight list.
 		@return The weights' const reference.*/
@@ -251,7 +251,7 @@ public:
 
 	/** [INTERNAL] Copies the spline into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. This pointer cannot be NULL.
+		@param clone The empty clone. This pointer cannot be nullptr.
 		@return The clone. */
 	virtual FCDSpline* Clone(FCDSpline* clone) const;
 };
@@ -307,16 +307,16 @@ public:
 
 	/** Retrieves a pointer to the spline specified by the given index.
 		@param index The index, higher or equal to 0 and lower than GetSplineCount().
-		@return The FCDSpline pointer, or NULL if index is invalid.*/
-	FCDSpline* GetSpline(size_t index){ FUAssert(index < GetSplineCount(), return NULL); return splines[index]; }
-	const FCDSpline* GetSpline(size_t index) const { FUAssert(index < GetSplineCount(), return NULL); return splines[index]; }/**< see above */
+		@return The FCDSpline pointer, or nullptr if index is invalid.*/
+	FCDSpline* GetSpline(size_t index){ FUAssert(index < GetSplineCount(), return nullptr); return splines[index]; }
+	const FCDSpline* GetSpline(size_t index) const { FUAssert(index < GetSplineCount(), return nullptr); return splines[index]; }/**< see above */
 
 	/** Adds a spline to this geometry spline.
 		@param type The type of spline to create.
 			Set the type to FUDaeSplineType::UNKNOWN to create a spline that has
 			the same type as this geometry spline.
-		@return The new spline. This pointer will be NULL if the requested spline
-			type is different from existing splines. This pointer will be NULL
+		@return The new spline. This pointer will be nullptr if the requested spline
+			type is different from existing splines. This pointer will be nullptr
 			if the requested type is FUDaeSplineType::UNKNOWN and this geometry spline
 			doesn't yet have a type assigned. */
 	FCDSpline* AddSpline(FUDaeSplineType::Type type = FUDaeSplineType::UNKNOWN);
@@ -327,10 +327,10 @@ public:
 
 	/** Copies the spline into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. If this pointer is NULL, a new spline
+		@param clone The empty clone. If this pointer is nullptr, a new spline
 			will be created and you will need to release the returned pointer manually.
 		@return The clone. */
-	FCDGeometrySpline* Clone(FCDGeometrySpline* clone = NULL) const;
+	FCDGeometrySpline* Clone(FCDGeometrySpline* clone = nullptr) const;
 };
 
 #endif // _FCD_GEOMETRY_SPLINE_H_

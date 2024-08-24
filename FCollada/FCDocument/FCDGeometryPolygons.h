@@ -254,9 +254,9 @@ public:
 	/** Retrieves a specific polygon set input.
 		@param index The index of the polygon set input. This index should
 			not be greater than or equal to the number of polygon set inputs.
-		@return The specific polygon set input. This pointer will be NULL if the index is out-of-bounds. */
-	inline FCDGeometryPolygonsInput* GetInput(size_t index) { FUAssert(index < GetInputCount(), return NULL); return inputs.at(index); }
-	inline const FCDGeometryPolygonsInput* GetInput(size_t index) const { FUAssert(index < GetInputCount(), return NULL); return inputs.at(index); } /**< See above. */
+		@return The specific polygon set input. This pointer will be nullptr if the index is out-of-bounds. */
+	inline FCDGeometryPolygonsInput* GetInput(size_t index) { FUAssert(index < GetInputCount(), return nullptr); return inputs.at(index); }
+	inline const FCDGeometryPolygonsInput* GetInput(size_t index) const { FUAssert(index < GetInputCount(), return nullptr); return inputs.at(index); } /**< See above. */
 
 	/** Creates a new polygon set input.
 		@param source The data source for the polygon set input.
@@ -312,21 +312,21 @@ public:
 
 	/** Retrieves the first polygon set input found that has the given data type.
 		@param semantic A type of geometry data.
-		@return The polygon set input. This pointer will be NULL if
+		@return The polygon set input. This pointer will be nullptr if
 			no polygon set input matches the data type. */
 	FCDGeometryPolygonsInput* FindInput(FUDaeGeometryInput::Semantic semantic) { return const_cast<FCDGeometryPolygonsInput*>(const_cast<const FCDGeometryPolygons*>(this)->FindInput(semantic)); }
 	const FCDGeometryPolygonsInput* FindInput(FUDaeGeometryInput::Semantic semantic) const; /**< See above. */
 
 	/** Retrieves the polygon set input that points towards a given data source.
 		@param source A geometry data source.
-		@return The polygon set input. This pointer will be NULL if
+		@return The polygon set input. This pointer will be nullptr if
 			no polygon set input matches the data source. */
 	FCDGeometryPolygonsInput* FindInput(const FCDGeometrySource* source) { return const_cast<FCDGeometryPolygonsInput*>(const_cast<const FCDGeometryPolygons*>(this)->FindInput(source)); }
 	const FCDGeometryPolygonsInput* FindInput(const FCDGeometrySource* source) const; /**< See above. */
 
 	/** [INTERNAL] Retrieves the polygon set input that points towards a given data source.
 		@param sourceId The COLLADA id of a geometry data source.
-		@return The polygon set input. This pointer will be NULL if
+		@return The polygon set input. This pointer will be nullptr if
 			no polygon set input matches the COLLADA id. */
 	FCDGeometryPolygonsInput* FindInput(const fm::string& sourceId);
 

@@ -30,16 +30,16 @@ FCDGeometryPolygonsInput::FCDGeometryPolygonsInput(FCDocument* document, FCDGeom
 
 FCDGeometryPolygonsInput::~FCDGeometryPolygonsInput()
 {
-	if (source != NULL)
+	if (source != nullptr)
 	{
 		UntrackObject(source);
-		source = NULL;
+		source = nullptr;
 	}
 }
 
 FUDaeGeometryInput::Semantic FCDGeometryPolygonsInput::GetSemantic() const
 {
-	FUAssert(source != NULL, return FUDaeGeometryInput::UNKNOWN);
+	FUAssert(source != nullptr, return FUDaeGeometryInput::UNKNOWN);
 	return source->GetType();
 }
 
@@ -47,9 +47,9 @@ FUDaeGeometryInput::Semantic FCDGeometryPolygonsInput::GetSemantic() const
 void FCDGeometryPolygonsInput::SetSource(FCDGeometrySource* _source)
 {
 	// Untrack the old source and track the new source
-	if (source != NULL) UntrackObject(source);
+	if (source != nullptr) UntrackObject(source);
 	source = _source;
-	if (source != NULL) TrackObject(source);
+	if (source != nullptr) TrackObject(source);
 }
 
 // Callback when the tracked source is released.
@@ -57,7 +57,7 @@ void FCDGeometryPolygonsInput::OnObjectReleased(FUTrackable* object)
 {
 	if (source == object)
 	{
-		source = NULL;
+		source = nullptr;
 
 		// Verify whether we own/share the index list.
 		if (!indices.empty())

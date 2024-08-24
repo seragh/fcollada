@@ -38,7 +38,7 @@ FCDEffectTechnique::FCDEffectTechnique(FCDocument* document, FCDEffectProfileFX 
 
 FCDEffectTechnique::~FCDEffectTechnique()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
 // Adds a new pass to this effect technique.
@@ -61,7 +61,7 @@ FCDEffectCode* FCDEffectTechnique::AddCode()
 
 FCDEffectTechnique* FCDEffectTechnique::Clone(FCDEffectTechnique* clone) const
 {
-	if (clone == NULL) clone = new FCDEffectTechnique(const_cast<FCDocument*>(GetDocument()), NULL);
+	if (clone == nullptr) clone = new FCDEffectTechnique(const_cast<FCDocument*>(GetDocument()), nullptr);
 
 	clone->name = name;
 	size_t parameterCount = parameters.size();
@@ -102,5 +102,5 @@ const FCDEffectCode* FCDEffectTechnique::FindCode(const char* sid) const
 	{
 		if ((*itC)->GetSubId() == sid) return (*itC);
 	}
-	return NULL;
+	return nullptr;
 }

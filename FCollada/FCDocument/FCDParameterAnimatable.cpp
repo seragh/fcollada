@@ -28,13 +28,13 @@ FCDParameterAnimatable::FCDParameterAnimatable(FUParameterizable* _parent)
 
 FCDParameterAnimatable::~FCDParameterAnimatable()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
-FCDAnimated* FCDParameterAnimatable::GetAnimated() { if (animated == NULL) animated = CreateAnimated(); return animated; }
+FCDAnimated* FCDParameterAnimatable::GetAnimated() { if (animated == nullptr) animated = CreateAnimated(); return animated; }
 const FCDAnimated* FCDParameterAnimatable::GetAnimated() const
 {
-	if (animated == NULL)
+	if (animated == nullptr)
 	{
 		FCDParameterAnimatable* _this = const_cast<FCDParameterAnimatable*>(this);
 		_this->animated = _this->CreateAnimated();
@@ -44,13 +44,13 @@ const FCDAnimated* FCDParameterAnimatable::GetAnimated() const
 
 bool FCDParameterAnimatable::IsAnimated() const
 {
-	return animated != NULL && animated->HasCurve();
+	return animated != nullptr && animated->HasCurve();
 }
 
 FCDAnimated* FCDParameterAnimatable::CreateAnimated()
 {
 	// Implemented below in template specializations of FCDParameterAnimatableT.
-	return NULL;
+	return nullptr;
 }
 
 FCDParameterAnimatable& FCDParameterAnimatable::operator= (FCDParameterAnimatable& UNUSED(parameter))
@@ -150,7 +150,7 @@ FCDParameterListAnimatable::FCDParameterListAnimatable(FUParameterizable* _paren
 
 FCDParameterListAnimatable::~FCDParameterListAnimatable()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
 const FCDAnimated* FCDParameterListAnimatable::GetAnimated(size_t index) const { return const_cast<const FCDAnimated*>(const_cast<FCDParameterListAnimatable*>(this)->GetAnimated(index)); }
@@ -237,7 +237,7 @@ size_t FCDParameterListAnimatable::BinarySearch(size_t arrayElementIndex) const
 FCDAnimated* FCDParameterListAnimatable::CreateAnimated(size_t UNUSED(index))
 {
 	// Implemented by the specialized template functions below.
-	return NULL;
+	return nullptr;
 }
 
 //

@@ -44,7 +44,7 @@ const FCDPlaceHolder* FCDExternalReferenceManager::FindPlaceHolder(const fstring
 	{
 		if ((*it)->GetFileUrl() == fileUrl) return *it;
 	}
-	return NULL;
+	return nullptr;
 }
 
 FCDPlaceHolder* FCDExternalReferenceManager::AddPlaceHolder(FCDocument* document)
@@ -60,7 +60,7 @@ const FCDPlaceHolder* FCDExternalReferenceManager::FindPlaceHolder(const FCDocum
 	{
 		if ((*it)->GetTarget() == document) return *it;
 	}
-	return NULL;
+	return nullptr;
 }
 
 void FCDExternalReferenceManager::RegisterLoadedDocument(FCDocument* document)

@@ -55,18 +55,18 @@ namespace FCDGeometryPolygonsTools
 		This is useful for older engines and the applications that only support one index
 		per face-vertex pair.
 		@param mesh The mesh to process.
-		@param polygons The polygons set to isolate and process. If this pointer is NULL, the whole mesh is processed
+		@param polygons The polygons set to isolate and process. If this pointer is nullptr, the whole mesh is processed
 			for one index buffer.
 		@param translationMap Optional map that returns how to translate old vertex position indices into new indices.
 			This map is necessary to support skins and morphers. */
-	FCOLLADA_EXPORT void GenerateUniqueIndices(FCDGeometryMesh* mesh, FCDGeometryPolygons* polygons = NULL, FCDGeometryIndexTranslationMap* translationMap = NULL);
+	FCOLLADA_EXPORT void GenerateUniqueIndices(FCDGeometryMesh* mesh, FCDGeometryPolygons* polygons = nullptr, FCDGeometryIndexTranslationMap* translationMap = nullptr);
 
     /** Prepares the mesh for using its geometry sources in vertex buffers with a unique index buffer.
 		This is useful for older engines and the applications that only support one index
 		per face-vertex pair. This version of the GenerateUniqueIndices function fills in the outTranslationMaps,
         but does not modify the data in the FCDGeometryPolygon objects.
         @param mesh The mesh to process.
-        @param polygons The polygons set to isolate and process. If this pointer is NULL, the whole mesh is processed
+        @param polygons The polygons set to isolate and process. If this pointer is nullptr, the whole mesh is processed
 			for one index buffer.
         @param outIndices The unique index buffer data.
         @param outTranslationMaps How the vertex data needs to be relocated in order to use the unique index buffer data. */
@@ -139,7 +139,7 @@ namespace FCDGeometryPolygonsTools
         @param outNVertices The number of vertices for each split packing map.
         @return The number of indices packed away. */
 	FCOLLADA_EXPORT uint16 GenerateVertexPackingMap(size_t maxIndex, size_t maxIndices, size_t maxVertices, const uint32* inIndices,
-        uint16* outIndices, UInt16List* outPackingMap, uint16* outNVertices=NULL);
+        uint16* outIndices, UInt16List* outPackingMap, uint16* outNVertices=nullptr);
 
     /** Retrieves the largest unique index within a given translation map.
         This function is unnecessary expensive and we suggest that you cache its results.

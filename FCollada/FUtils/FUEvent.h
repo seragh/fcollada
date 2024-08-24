@@ -52,7 +52,7 @@ public:
 
 	/** Releases and unregisters a callback that handles the event.
 		@param handle The handle of the function container.
-			This pointer will be NULL for static functions.
+			This pointer will be nullptr for static functions.
 		@param function The address of the function callback to unregister. */
 	void ReleaseHandler(void* object)
 	{

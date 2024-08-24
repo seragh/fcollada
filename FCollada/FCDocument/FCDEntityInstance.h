@@ -69,7 +69,7 @@ private:
 	DeclareObjectType(FCDObject, FCDEntityInstance)
 	friend class FCDEntityInstanceFactory;
 
-	FCDSceneNode* parent; // May be NULL for non-scene graph instances.
+	FCDSceneNode* parent; // May be nullptr for non-scene graph instances.
 	FCDEntity::Type entityType;
 	DeclareParameterPtr(FCDEntityReference, entityReference, FC("Entity Reference"))
 
@@ -85,7 +85,7 @@ protected:
 		Instead, use the appropriate allocation function.
 		For scene node instance: FCDSceneNode::AddInstance.
 		@param document The COLLADA document that owns the entity instance.
-		@param parent The visual scene node that contains the entity instance. This pointer will be NULL for
+		@param parent The visual scene node that contains the entity instance. This pointer will be nullptr for
 			instances that are not directly under a visual scene node.
 		@param type The type of entity to instantiate. */
 	FCDEntityInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity::Type type);
@@ -170,7 +170,7 @@ public:
 	bool IsExternalReference() const;
 
 	/** Retrieves the parent of the entity instance.
-		@return the parent visual scene node. This pointer will be NULL
+		@return the parent visual scene node. This pointer will be nullptr
 			when the instance is not created in the visual scene graph. */
 	inline FCDSceneNode* GetParent() { return parent; }
 	inline const FCDSceneNode* GetParent() const { return parent; } /**< See above. */
@@ -184,12 +184,12 @@ public:
 	/** [INTERNAL] Cleans up the sub identifiers.
 		The sub identifiers must be unique with respect to its parent. This method corrects the sub ids if there are conflicts.
 		@param parentStringMap The string map from the parent of this instance in which the sub ids must be unique. */
-	virtual void CleanSubId(FUSUniqueStringMap* parentStringMap = NULL);
+	virtual void CleanSubId(FUSUniqueStringMap* parentStringMap = nullptr);
 
 	/** Clones the entity instance.
 		@param clone The entity instance to become the clone.
 		@return The cloned entity instance. */
-	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = NULL) const;
+	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = nullptr) const;
 
 protected:
 	/** [INTERNAL] Retrieves the COLLADA name for the instantiation of a given entity type.
@@ -218,7 +218,7 @@ public:
 		@param document The COLLADA document that will own the new instance.
 		@param parent The visual scene node that will contain the instance.
 		@param type The type of instance object to create.
-		@return The new COLLADA instance. This pointer will be NULL
+		@return The new COLLADA instance. This pointer will be nullptr
 			if the given type is invalid. */
 	static FCDEntityInstance* CreateInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity::Type type);
 
@@ -226,7 +226,7 @@ public:
 		@param document The COLLADA document that will own the new instance.
 		@param parent The visual scene node that will contain the instance.
 		@param entity The entity to create an instance of.
-		@return The new COLLADA instance. This pointer will be NULL
+		@return The new COLLADA instance. This pointer will be nullptr
 			if the given type is invalid. */
 	static FCDEntityInstance* CreateInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity *entity);
 };

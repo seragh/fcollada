@@ -33,7 +33,7 @@ FCDSpline::~FCDSpline()
 
 FCDSpline* FCDSpline::Clone(FCDSpline* clone) const
 {
-	if (clone == NULL) return NULL;
+	if (clone == nullptr) return nullptr;
 
 	clone->cvs = cvs;
 	clone->name = name;
@@ -199,13 +199,13 @@ FCDNURBSSpline::~FCDNURBSSpline()
 
 FCDSpline* FCDNURBSSpline::Clone(FCDSpline* _clone) const
 {
-	FCDNURBSSpline* clone = NULL;
-	if (_clone == NULL) return NULL;
+	FCDNURBSSpline* clone = nullptr;
+	if (_clone == nullptr) return nullptr;
 	else if (_clone->HasType(FCDNURBSSpline::GetClassType())) clone = (FCDNURBSSpline*) _clone;
 
 	Parent::Clone(_clone);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 		// Clone the NURBS-specific spline data
 		clone->degree = degree;
@@ -265,12 +265,12 @@ FCDGeometrySpline::FCDGeometrySpline(FCDocument* document, FCDGeometry* _parent)
 
 FCDGeometrySpline::~FCDGeometrySpline()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
 FCDGeometrySpline* FCDGeometrySpline::Clone(FCDGeometrySpline* clone) const
 {
-	if (clone == NULL) clone = new FCDGeometrySpline(const_cast<FCDocument*>(GetDocument()), NULL);
+	if (clone == nullptr) clone = new FCDGeometrySpline(const_cast<FCDocument*>(GetDocument()), nullptr);
 	clone->type = type;
 
 	// Clone the spline set.
@@ -295,10 +295,10 @@ FCDSpline* FCDGeometrySpline::AddSpline(FUDaeSplineType::Type type)
 {
 	// Retrieve the correct spline type to create.
 	if (type == FUDaeSplineType::UNKNOWN) type = GetType();
-	else if (type != GetType()) return NULL;
+	else if (type != GetType()) return nullptr;
 
 	// Create the correctly-type spline
-	FCDSpline* newSpline = NULL;
+	FCDSpline* newSpline = nullptr;
 	switch (type)
 	{
 	case FUDaeSplineType::LINEAR: newSpline = new FCDLinearSpline(GetDocument()); break;
@@ -306,7 +306,7 @@ FCDSpline* FCDGeometrySpline::AddSpline(FUDaeSplineType::Type type)
 	case FUDaeSplineType::NURBS: newSpline = new FCDNURBSSpline(GetDocument()); break;
 
 	case FUDaeSplineType::UNKNOWN:
-	default: return NULL;
+	default: return nullptr;
 	}
 
 	splines.push_back(newSpline);

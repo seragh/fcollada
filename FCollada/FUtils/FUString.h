@@ -55,20 +55,20 @@ namespace fm
 		stringT& operator=(const stringT& c) { Parent::operator=(c); return *this; }
 
 		/** Copy constructor.
-			@param c A NULL-terminated character buffer to clone. */
+			@param c A null-terminated character buffer to clone. */
 		stringT(const CH* c) : Parent()
 		{
 			append(c);
-			if (c == NULL || (*c) == 0) Parent::push_back((CH) 0);
+			if (c == nullptr || (*c) == 0) Parent::push_back((CH) 0);
 		}
 
 		/** Copy constructor.
 			@param c A character buffer to clone.
 			@param length A partial length to copy.
-				Use stringT::npos for copying full NULL-terminated strings. */
+				Use stringT::npos for copying full null-terminated strings. */
 		stringT(const CH* c, size_t length) : Parent()
 		{
-			if (c == NULL || length == 0) return;
+			if (c == nullptr || length == 0) return;
 
 			if (length != npos)
 			{
@@ -76,12 +76,12 @@ namespace fm
 				if (length > str_length) length = str_length;
 				Parent::resize(length + 1);
 				memcpy(Parent::begin(), c, sizeof(CH) * length);
-				Parent::back() = 0; // NULL-terminate.
+				Parent::back() = 0; // null-terminate.
 			}
 			else
 			{
 				append(c);
-				if (c == NULL || (*c) == 0) Parent::push_back((CH) 0);
+				if (c == nullptr || (*c) == 0) Parent::push_back((CH) 0);
 			}
 		}
 
@@ -96,23 +96,23 @@ namespace fm
 		}
 
 		/** Retrieves the length of the string.
-			This function is NULL-termination aware.
+			This function is null-termination aware.
 			@return The length of the string. */
 		inline size_t length() const { return Parent::size() > 1 ? Parent::size() - 1 : 0; }
 		inline size_t size() const { return Parent::size() > 1 ? Parent::size() - 1 : 0; } /**< See above. */
 
 		/** Retrieves the last element of the string.
-			This function is NULL-termination aware.
+			This function is null-termination aware.
 			@return The last element of the string. */
 		inline CH& back() { return *(Parent::end() - 2); }
 		inline const CH& back() const { return *(Parent::end() - 2); } /**< See above. */
 
 		/** Removes the last character from a string.
-			This function is NULL-termination aware. */
+			This function is null-termination aware. */
 		inline void pop_back() { if (Parent::size() > 0) { Parent::pop_back(); Parent::back() = 0; } }
 
 		/** Retrieves whether the string contains useful data.
-			This function differs from the parent because it checks for NULL-termination.
+			This function differs from the parent because it checks for null-termination.
 			@return Whether the string contains useful data. */
 		inline bool empty() const { return Parent::size() <= 1; }
 
@@ -135,8 +135,8 @@ namespace fm
 			insert(npos, str);
 		}
 
-		/** Appends a NULL-terminated character buffer to this string.
-			@param str A NULL-terminated character buffer.
+		/** Appends a null-terminated character buffer to this string.
+			@param str A null-terminated character buffer.
 			@param count The number of characters to append. If the count
 				is 'npos', all available characters are appended. */
 		inline void append(const CH* str, size_t count=npos)
@@ -157,12 +157,12 @@ namespace fm
 
 		/** Inserts a character buffer in this string.
 			@param offset The position at which to insert the character buffer.
-			@param str A NULL-terminated character buffer.
+			@param str A null-terminated character buffer.
 			@param count The number of characters to append. If the count
 				is 'npos', all available characters are appended. */
 		void insert(size_t offset, const CH* str, size_t count=npos)
 		{
-			if (str != NULL && (*str != 0))
+			if (str != nullptr && (*str != 0))
 			{
 				size_t originalSize = length();
 				offset = min(offset, originalSize);
@@ -175,7 +175,7 @@ namespace fm
 					memmove(Parent::begin() + offset + str_length, Parent::begin() + offset, (originalSize - offset) * sizeof(CH));
 				}
 				memcpy(Parent::begin() + offset, str, sizeof(CH) * str_length);
-				Parent::back() = 0; // NULL-terminate
+				Parent::back() = 0; // null-terminate
 			}
 		}
 
@@ -199,7 +199,7 @@ namespace fm
 		}
 
 		/** Retrieves the character buffer attached to this string.
-			@return The NULL-terminated character buffer for this string. */
+			@return The null-terminated character buffer for this string. */
 		const CH* c_str() const
 		{
 			static CH empty = 0;
@@ -433,7 +433,7 @@ namespace fm
 		void resize(size_t size)
 		{
 			Parent::resize(size + 1);
-			Parent::back() = 0; // NULL-terminate
+			Parent::back() = 0; // null-terminate
 		}
 
 		/** Override the fm::vector resize.  That call
@@ -446,7 +446,7 @@ namespace fm
 		void resize(size_t count, const CH& value)
 		{
 			Parent::resize(count + 1, value);
-			Parent::back() = 0; // NULL-terminate
+			Parent::back() = 0; // null-terminate
 		}
 	};
 
@@ -511,7 +511,7 @@ namespace fm
 		@return Whether the first string differs from the second string. */
 	template <class CharT> bool operator!=(const stringT<CharT>& A, const CharT* B)
 	{
-		if (B == NULL) return true;
+		if (B == nullptr) return true;
 		size_t B_length = 0; { const CharT* b = B; while (*b != 0) { ++b; ++B_length; } }
 		if (A.length() != B_length) return true;
 		const CharT* a = A.c_str(); const CharT* b = B;
@@ -567,7 +567,7 @@ inline bool operator==(const fm::string& sz1, const char* sz2) { return strcmp(s
 inline bool IsEquivalent(const fchar* sz1, const fchar* sz2)
 {
 	return (sz1 == sz2) ? true : // ptrs same, are equivalent
-		(sz1 == NULL || sz2 == NULL) ? // either ptr null, not equivalent
+		(sz1 == nullptr || sz2 == nullptr) ? // either ptr null, not equivalent
 			false : fstrcmp(sz1, sz2) == 0; // do actual test
 }
 inline bool IsEquivalent(const fstring& sz1, const fchar* sz2) { return IsEquivalent(sz1.c_str(), sz2); } /**< See above. */

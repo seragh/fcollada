@@ -94,9 +94,9 @@ public:
 
 	/** Retrieves a specific pass contained within this effect technique.
 		@param index The index of the pass.
-		@return The pass. This pointer will be NULL if the index is out-of-bounds. */
-	FCDEffectPass* GetPass(size_t index) { FUAssert(index < GetPassCount(), return NULL); return passes.at(index); }
-	const FCDEffectPass* GetPass(size_t index) const { FUAssert(index < GetPassCount(), return NULL); return passes.at(index); } /**< See above. */
+		@return The pass. This pointer will be nullptr if the index is out-of-bounds. */
+	FCDEffectPass* GetPass(size_t index) { FUAssert(index < GetPassCount(), return nullptr); return passes.at(index); }
+	const FCDEffectPass* GetPass(size_t index) const { FUAssert(index < GetPassCount(), return nullptr); return passes.at(index); } /**< See above. */
 
 	/** Adds a new pass to this effect technique.
 		@return The new pass. */
@@ -112,13 +112,13 @@ public:
 
 	/** Retrieves a code inclusion contained within the effect profile.
 		@param index The index of the code inclusion.
-		@return The code inclusion. This pointer will be NULL if the index is out-of-bounds. */
-	FCDEffectCode* GetCode(size_t index) { FUAssert(index < GetCodeCount(), return NULL); return codes.at(index); }
-	const FCDEffectCode* GetCode(size_t index) const { FUAssert(index < GetCodeCount(), return NULL); return codes.at(index); } /**< See above. */
+		@return The code inclusion. This pointer will be nullptr if the index is out-of-bounds. */
+	FCDEffectCode* GetCode(size_t index) { FUAssert(index < GetCodeCount(), return nullptr); return codes.at(index); }
+	const FCDEffectCode* GetCode(size_t index) const { FUAssert(index < GetCodeCount(), return nullptr); return codes.at(index); } /**< See above. */
 
 	/** Retrieves the code inclusion with the given sub-id.
 		@param sid A COLLADA sub-id.
-		@return The code inclusion with the given sub-id. This pointer will be NULL,
+		@return The code inclusion with the given sub-id. This pointer will be nullptr,
 			if there are no code inclusions that match the given sub-id. */
 	inline FCDEffectCode* FindCode(const char* sid) { return const_cast<FCDEffectCode*>(const_cast<const FCDEffectTechnique*>(this)->FindCode(sid)); }
 	const FCDEffectCode* FindCode(const char* sid) const; /**< See above. */
@@ -134,8 +134,8 @@ public:
 	/** Retrieves a given local effect parameter.
 		@param index An index.
 		@return The local effect parameter at the given index. */
-	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
-	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
+	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
+	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
 
 	/** Adds a local effect parameter to the local list.
 		@see FCDEffectParameter::Type
@@ -145,10 +145,10 @@ public:
 
 	/** [INTERNAL] Clones the full effect technique.
 		@param clone The cloned technique.
-			If this pointer is NULL, a new technique is created and
+			If this pointer is nullptr, a new technique is created and
 			you will need to release this new techniquetechnique.
-		@return The cloned technique. This pointer will never be NULL. */
-	FCDEffectTechnique* Clone(FCDEffectTechnique* clone = NULL) const;
+		@return The cloned technique. This pointer will never be nullptr. */
+	FCDEffectTechnique* Clone(FCDEffectTechnique* clone = nullptr) const;
 
 	/** [INTERNAL] Flattens this effect technique.
 		Merges the parameter overrides into the parameter generators. */

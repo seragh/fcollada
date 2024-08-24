@@ -31,9 +31,9 @@ TESTSUITE_TEST(0, ImageCloning)
 	PassIf(image2->GetFilename().find(FC("TestImageGlou.bmp")) != fstring::npos);
 	PassIf(IsEquivalent(image1->GetDaeId(), image2->GetDaeId()));
 	FCDETechnique* extra2 = image2->GetExtra()->GetDefaultType()->FindTechnique("TEST_PROFILE");
-	FailIf(extra2 == NULL);
+	FailIf(extra2 == nullptr);
 	FCDENode* parameter = extra2->FindParameter("GluedOn");
-	PassIf(parameter != NULL);
+	PassIf(parameter != nullptr);
 	PassIf(IsEquivalent(parameter->GetContent(), FC("12")));
 
 TESTSUITE_END

@@ -17,7 +17,7 @@
 #include <string>
 
 
-static FUAssertion::FUAssertCallback* curAssertCallback = NULL;
+static FUAssertion::FUAssertCallback* curAssertCallback = nullptr;
 
 void FUAssertion::SetAssertionFailedCallback(FUAssertCallback* assertionCallback)
 {
@@ -33,13 +33,13 @@ bool FUAssertion::OnAssertionFailed(const char* file, uint32 line)
 			file,
 			line);
 
-	if (curAssertCallback != NULL)
+	if (curAssertCallback != nullptr)
 		return (*curAssertCallback)(message.c_str());
 #ifdef _DEBUG
 	else
 	{
 #  ifdef WIN32
-		int32 buttonPressed = MessageBoxA(NULL,
+		int32 buttonPressed = MessageBoxA(nullptr,
 				message.c_str(),
 				"Assertion failed.",
 				MB_ABORTRETRYIGNORE | MB_ICONWARNING);

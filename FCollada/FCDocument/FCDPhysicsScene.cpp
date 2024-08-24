@@ -81,7 +81,7 @@ FCDPhysicsForceFieldInstance* FCDPhysicsScene::AddForceFieldInstance(FCDForceFie
 {
 	FCDPhysicsForceFieldInstance* instance = (FCDPhysicsForceFieldInstance*)
 			FCDEntityInstanceFactory::CreateInstance(
-					GetDocument(), (FCDSceneNode*) NULL, forceField);
+					GetDocument(), (FCDSceneNode*) nullptr, forceField);
 	forceFieldInstances.push_back(instance);
 	SetNewChildFlag();
 	return instance;

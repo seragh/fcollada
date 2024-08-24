@@ -88,12 +88,12 @@ public:
 	/** Retrieves whether this entity reference is an external entity reference.
 		This function intentionally hides the FCDObject::IsExternal function.
 		@return Whether the entity reference is an external entity reference. */
-	inline bool IsExternal() const { return placeHolder != NULL; }
+	inline bool IsExternal() const { return placeHolder != nullptr; }
 
 	/** Retrieves whether this entity reference is a local entity reference.
 		This function intentionally hides the FCDObject::IsLocal function.
 		@return Whether the entity reference is a local entity reference. */
-	inline bool IsLocal() const { return placeHolder == NULL; }
+	inline bool IsLocal() const { return placeHolder == nullptr; }
 
 	/** Sets the COLLADA id of the referenced entity.
 		@param id The COLLADA id of the referenced entity. */
@@ -127,7 +127,7 @@ public:
 	/** Set the pointer to the closest entity upstream that contains this reference.
 		@param obj An object with Id that either directly or indirectly exclusively
 				   contains this reference */
-	inline void SetClosestObjectWithId(FCDObjectWithId* obj) { FUAssert(baseObject == NULL,); baseObject = obj; }
+	inline void SetClosestObjectWithId(FCDObjectWithId* obj) { FUAssert(baseObject == nullptr,); baseObject = obj; }
 
 	/** Set the entity we are referencing.  If this is from an external document, it will
 		create the appropriate FCDPlaceholder etc.

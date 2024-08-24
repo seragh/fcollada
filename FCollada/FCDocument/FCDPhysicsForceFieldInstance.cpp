@@ -30,8 +30,8 @@ FCDPhysicsForceFieldInstance::~FCDPhysicsForceFieldInstance()
 FCDEntityInstance* FCDPhysicsForceFieldInstance::Clone(
 		FCDEntityInstance* _clone) const
 {
-	FCDPhysicsForceFieldInstance* clone = NULL;
-	if (_clone == NULL) clone = new FCDPhysicsForceFieldInstance(
+	FCDPhysicsForceFieldInstance* clone = nullptr;
+	if (_clone == nullptr) clone = new FCDPhysicsForceFieldInstance(
 			const_cast<FCDocument*>(GetDocument()),
 			const_cast<FCDSceneNode*>(GetParent()), GetEntityType());
 	else if (!_clone->HasType(FCDPhysicsForceFieldInstance::GetClassType()))

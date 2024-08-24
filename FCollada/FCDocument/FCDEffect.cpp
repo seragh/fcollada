@@ -56,7 +56,7 @@ const FCDEffectProfile* FCDEffect::FindProfile(FUDaeProfileType::Type type) cons
 	{
 		if ((*itR)->GetType() == type) return (*itR);
 	}
-	return NULL;
+	return nullptr;
 }
 
 // Search for a profile of a given type and platform
@@ -69,13 +69,13 @@ const FCDEffectProfile* FCDEffect::FindProfileByTypeAndPlatform(FUDaeProfileType
 			if (((FCDEffectProfileFX*)(*itR))->GetPlatform() == TO_FSTRING(platform)) return (*itR);
 		}
 	}
-	return NULL;
+	return nullptr;
 }
 
 // Create a new effect profile.
 FCDEffectProfile* FCDEffect::AddProfile(FUDaeProfileType::Type type)
 {
-	FCDEffectProfile* profile = NULL;
+	FCDEffectProfile* profile = nullptr;
 
 	// Create the correct profile for this type.
 	if (type == FUDaeProfileType::COMMON) profile = new FCDEffectStandard(GetDocument(), this);
@@ -93,13 +93,13 @@ FCDEffectProfile* FCDEffect::AddProfile(FUDaeProfileType::Type type)
 // Returns a copy of the effect, with all the animations/textures attached
 FCDEntity* FCDEffect::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
-	FCDEffect* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDEffect(const_cast<FCDocument*>(GetDocument()));
+	FCDEffect* clone = nullptr;
+	if (_clone == nullptr) _clone = clone = new FCDEffect(const_cast<FCDocument*>(GetDocument()));
 	else if (_clone->HasType(FCDEffect::GetClassType())) clone = (FCDEffect*) _clone;
 
 	Parent::Clone(clone, cloneChildren);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 		// Clone the effect profiles
 		for (const FCDEffectProfile** itR = profiles.begin(); itR != profiles.end(); ++itR)

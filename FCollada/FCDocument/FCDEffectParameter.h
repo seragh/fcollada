@@ -173,10 +173,10 @@ public:
 
 	/** Retrieves an annotation of this parameter.
 		@param index The index of the annotation.
-		@return The annotation for the given index. This pointer will be NULL
+		@return The annotation for the given index. This pointer will be nullptr
 			if the index is out-of-bounds. */
-	inline FCDEffectParameterAnnotation* GetAnnotation(size_t index) { FUAssert(index < GetAnnotationCount(), return NULL); return annotations.at(index); }
-	inline const FCDEffectParameterAnnotation* GetAnnotation(size_t index) const { FUAssert(index < GetAnnotationCount(), return NULL); return annotations.at(index); } /**< See above. */
+	inline FCDEffectParameterAnnotation* GetAnnotation(size_t index) { FUAssert(index < GetAnnotationCount(), return nullptr); return annotations.at(index); }
+	inline const FCDEffectParameterAnnotation* GetAnnotation(size_t index) const { FUAssert(index < GetAnnotationCount(), return nullptr); return annotations.at(index); } /**< See above. */
 
 	/** Adds a blank annotation to this parameter.
 		@return The blank annotation. */
@@ -203,11 +203,11 @@ public:
 	virtual bool IsValueEqual(FCDEffectParameter *parameter) = 0;
 
 	/** Creates a full copy of the effect parameter.
-		@param clone The cloned effect parameter. If this pointer is NULL,
+		@param clone The cloned effect parameter. If this pointer is nullptr,
 			a new effect parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned effect parameter. */
-	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = NULL) const;
+	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = nullptr) const;
 
 	/** [INTERNAL] Overwrites the target parameter with this parameter.
 		This function is used during the flattening of materials.
@@ -253,11 +253,11 @@ public:
 	virtual bool IsValueEqual(FCDEffectParameter *parameter);
 
 	/** Creates a full copy of the effect parameter.
-		@param clone The cloned effect parameter. If this pointer is NULL,
+		@param clone The cloned effect parameter. If this pointer is nullptr,
 			a new effect parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned effect parameter. */
-	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = NULL) const;
+	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = nullptr) const;
 
 	/** [INTERNAL] Overwrites the target parameter with this parameter.
 		This function is used during the flattening of materials.
@@ -325,11 +325,11 @@ public:
 	virtual bool IsValueEqual(FCDEffectParameter *parameter);
 
 	/** Creates a full copy of the effect parameter.
-		@param clone The cloned effect parameter. If this pointer is NULL,
+		@param clone The cloned effect parameter. If this pointer is nullptr,
 			a new effect parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned effect parameter. */
-	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = NULL) const;
+	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = nullptr) const;
 
 	/** [INTERNAL] Overwrites the target parameter with this parameter.
 		This function is used during the flattening of materials.

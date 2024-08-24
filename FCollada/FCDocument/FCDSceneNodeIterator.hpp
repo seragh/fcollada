@@ -41,7 +41,7 @@ FCDSceneNodeIteratorT<NODE_T>::FCDSceneNodeIteratorT(NODE_T* root, SearchType se
 				for (size_t i = 0; i < instanceCount; ++i)
 				{
 					const FCDEntity* entity = it->GetInstance(i)->GetEntity();
-					if (entity != NULL && entity->HasType(FCDSceneNode::GetClassType())) queue.push_back((NODE_T*) entity);
+					if (entity != nullptr && entity->HasType(FCDSceneNode::GetClassType())) queue.push_back((NODE_T*) entity);
 				}
 			}
 		}
@@ -81,7 +81,7 @@ FCDSceneNodeIteratorT<NODE_T>::FCDSceneNodeIteratorT(NODE_T* root, SearchType se
 				{
 					size_t instanceIndex = it.second - nodeChildCount;
 					const FCDEntity* entity = it.first->GetInstance(instanceIndex)->GetEntity();
-					if (entity != NULL && entity->HasType(FCDSceneNode::GetClassType()))
+					if (entity != nullptr && entity->HasType(FCDSceneNode::GetClassType()))
 					{
 						NODE_T* add = (NODE_T*) entity;
 						if (add->GetChildrenCount() == 0 && add->GetInstanceCount() == 0)
@@ -118,12 +118,12 @@ FCDSceneNodeIteratorT<NODE_T>::~FCDSceneNodeIteratorT()
 template <class NODE_T>
 NODE_T* FCDSceneNodeIteratorT<NODE_T>::GetNode()
 {
-	return iterator < queue.size() ? queue[iterator] : NULL;
+	return iterator < queue.size() ? queue[iterator] : nullptr;
 }
 
 template <class NODE_T>
 NODE_T* FCDSceneNodeIteratorT<NODE_T>::Next()
 {
 	++iterator;
-	return iterator < queue.size() ? queue[iterator] : NULL;
+	return iterator < queue.size() ? queue[iterator] : nullptr;
 }

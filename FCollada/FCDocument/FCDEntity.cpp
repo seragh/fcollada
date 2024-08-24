@@ -49,7 +49,7 @@ FCDEntity::~FCDEntity()
 // Structure cloning
 FCDEntity* FCDEntity::Clone(FCDEntity* clone, bool UNUSED(cloneChildren)) const
 {
-	if (clone == NULL)
+	if (clone == nullptr)
 	{
 		clone = new FCDEntity(const_cast<FCDocument*>(GetDocument()));
 	}
@@ -57,7 +57,7 @@ FCDEntity* FCDEntity::Clone(FCDEntity* clone, bool UNUSED(cloneChildren)) const
 	FCDObjectWithId::Clone(clone);
 	clone->name = name;
 	clone->note = note;
-	if (extra != NULL)
+	if (extra != nullptr)
 	{
 		extra->Clone(clone->extra);
 	}
@@ -98,12 +98,12 @@ void FCDEntity::SetName(const fstring& _name)
 
 FCDAsset* FCDEntity::GetAsset()
 {
-	return (asset != NULL) ? asset : (asset = new FCDAsset(GetDocument()));
+	return (asset != nullptr) ? asset : (asset = new FCDAsset(GetDocument()));
 }
 
 void FCDEntity::GetHierarchicalAssets(FCDAssetConstList& assets) const
 {
-	if (asset != NULL) assets.push_back(asset);
+	if (asset != nullptr) assets.push_back(asset);
 	else assets.push_back(GetDocument()->GetAsset());
 }
 
@@ -111,7 +111,7 @@ void FCDEntity::GetHierarchicalAssets(FCDAssetConstList& assets) const
 const FCDEntity* FCDEntity::FindDaeId(const fm::string& _daeId) const
 {
 	if (GetDaeId() == _daeId) return this;
-	return NULL;
+	return nullptr;
 }
 
 bool FCDEntity::HasNote() const

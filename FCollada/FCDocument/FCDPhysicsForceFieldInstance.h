@@ -41,7 +41,7 @@ protected:
 		@param document The COLLADA document that contains this physics model
 			instance.
 		@param parent The parent node for this force field. At the time of
-			writing, this should be NULL since only parents are physics model
+			writing, this should be nullptr since only parents are physics model
 			instances and physics scene.
 		@param entityType The entity type: FORCE_FIELD. */
 	FCDPhysicsForceFieldInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity::Type entityType = FCDEntity::FORCE_FIELD);
@@ -59,10 +59,10 @@ public:
 
 	/** Clones the physics force field instance.
 		@param clone The physics force field instance to become the clone.
-			If this pointer is NULL, a new physics force field instance will be
+			If this pointer is nullptr, a new physics force field instance will be
 			created and you will need to release it.
 		@return The clone. */
-	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = NULL) const;
+	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = nullptr) const;
 };
 
 #endif // _FCD_PHYSICS_FORCE_FIELD_INSTANCE_H_

@@ -48,7 +48,7 @@ namespace fm
 			@param count The number of elements in the array.*/
 		void sort(T* data, size_t count)
 		{
-			if (data == NULL) return;
+			if (data == nullptr) return;
 			quicksort(data, 0, count);
 		}
 

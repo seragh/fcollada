@@ -64,7 +64,7 @@ public:
 
 	/** Retrieves the parent effect.
 		This is the effect which contains this profile.
-		@return The parent effect. This pointer will never be NULL. */
+		@return The parent effect. This pointer will never be nullptr. */
 	FCDEffect* GetParent() { return parent; }
 	const FCDEffect* GetParent() const { return parent; } /**< See above. */
 
@@ -82,11 +82,11 @@ public:
 
 	/** Clones the profile effect and its parameters.
 		@param clone The cloned profile.
-			If this pointer is NULL, a new profile is created and
+			If this pointer is nullptr, a new profile is created and
 			you will need to release this new profile.
-		@return The cloned profile. This pointer will be NULL if the
+		@return The cloned profile. This pointer will be nullptr if the
 			abstract class' cloning function is used without a given clone. */
-	virtual FCDEffectProfile* Clone(FCDEffectProfile* clone = NULL) const;
+	virtual FCDEffectProfile* Clone(FCDEffectProfile* clone = nullptr) const;
 
 	/** Retrieves the number of local effect parameters
 		@return The number of local effect parameters. */
@@ -95,8 +95,8 @@ public:
 	/** Retrieves a given local effect parameter.
 		@param index An index.
 		@return The local effect parameter at the given index. */
-	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
-	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
+	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
+	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
 
 	/** Adds a local effect parameter to the local list.
 		@see FCDEffectParameter::Type

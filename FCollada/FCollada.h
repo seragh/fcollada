@@ -141,7 +141,7 @@ namespace FCollada
 
 	/** Load document.
 		@param filename the string of the file to load from
-		@return the loaded FCDocument. NULL is returned if any error occurs. */
+		@return the loaded FCDocument. nullptr is returned if any error occurs. */
 	FCOLLADA_EXPORT bool LoadDocumentFromFile(FCDocument* document, const fchar* filename);
 	DEPRECATED(3.05A, LoadDocumentFromFile) inline bool LoadDocument(FCDocument* document, const fchar* filename) { return LoadDocumentFromFile(document, filename); }
 	DEPRECATED(3.05A, NewTopDocument and LoadDocumentFromFile) FCOLLADA_EXPORT FCDocument* LoadDocument(const fchar* filename);

@@ -81,18 +81,18 @@ namespace FCDocumentTools
 				if (transform->HasType(FCDTRotation::GetClassType()))
 				{
 					FCDAnimated* animated = transform->GetAnimated();
-					if (animated != NULL && !animated->HasCurve()) animated = NULL;
-					if (animated == NULL) return (FCDTRotation*) transform;
+					if (animated != nullptr && !animated->HasCurve()) animated = nullptr;
+					if (animated == nullptr) return (FCDTRotation*) transform;
 				}
 			}
-			return NULL;
+			return nullptr;
 		}
 
 		static void SmartAddRotationPivot(FCDSceneNode* node, const FMVector3& axis, float angle)
 		{
 			// Check for an old rotation pivot to remove.
 			FCDTRotation* lastRotation = GetLastTransformForPivot(node);
-			if (lastRotation != NULL && IsEquivalent(lastRotation->GetAxis(), axis) && IsEquivalent(lastRotation->GetAngle(), -1.0f * angle))
+			if (lastRotation != nullptr && IsEquivalent(lastRotation->GetAxis(), axis) && IsEquivalent(lastRotation->GetAngle(), -1.0f * angle))
 			{
 				SAFE_RELEASE(lastRotation);
 				lastRotation = GetLastTransformForPivot(node);
@@ -204,7 +204,7 @@ namespace FCDocumentTools
 		FCDSceneNode* Next()
 		{
 			CleanQueue();
-			if (queue.empty()) return NULL;
+			if (queue.empty()) return nullptr;
 
 			FCDSceneNode* node = queue.back()->GetNode();
 			queue.back()->Next();
@@ -235,7 +235,7 @@ namespace FCDocumentTools
 	{
 		FCDAssetList assets; assets.reserve(3);
 		entity->GetHierarchicalAssets(assets);
-		if (libraryAsset != NULL) assets.push_back(libraryAsset);
+		if (libraryAsset != nullptr) assets.push_back(libraryAsset);
 		bool hasLength = false;
 		bool hasAxis = false;
 		for (FCDAssetList::iterator it = assets.begin(); it != assets.end(); ++it)
@@ -250,7 +250,7 @@ namespace FCDocumentTools
 	inline void ResetAsset(FCDEntity* entity)
 	{
 		FCDAsset* asset = const_cast<FCDAsset*>(const_cast<const FCDEntity*>(entity)->GetAsset());
-		if (asset != NULL)
+		if (asset != nullptr)
 		{
 			asset->ResetHasUnitsFlag();
 			asset->ResetHasUpAxisFlag();
@@ -259,7 +259,7 @@ namespace FCDocumentTools
 
 	void ConvertAnimationVector3(FCDAnimated* animated1, FCDAnimated* animated2, FCDAnimated* animated3, float* v1, float* v2, float* v3, FCDocument* document, FCDConversionUnitFunctor& lengthFunctor, FCDConversionSwapFunctor& upAxisFunctor, bool convertLength, bool isScale = false)
 	{
-		FUAssert(animated1 != NULL && animated2 != NULL && animated3 != NULL, return);
+		FUAssert(animated1 != nullptr && animated2 != nullptr && animated3 != nullptr, return);
 
 		size_t indices[3] = { animated1->FindValue(v1), animated2->FindValue(v2), animated3->FindValue(v3) };
 		if (indices[0] == ~(size_t)0 && indices[1] == ~(size_t)0 && indices[2] == ~(size_t)0) return; // no animations on the vector
@@ -282,7 +282,7 @@ namespace FCDocumentTools
 				}
 				animateds[i]->RemoveCurve(indices[i]);
 			}
-			else curves[i] = NULL;
+			else curves[i] = nullptr;
 		}
 
 		// transform the keys' outputs
@@ -352,7 +352,7 @@ namespace FCDocumentTools
 
 	void ConvertAnimationFloat(FCDAnimated* animated, float& f, FCDocument* document, FCDConversionUnitFunctor& lengthFunctor, FCDConversionSwapFunctor& upAxisFunctor)
 	{
-		if (animated != NULL)
+		if (animated != nullptr)
 		{
 			size_t index = animated->FindValue(&f);
 			if (index == ~(size_t)0) return; // no animations on the float
@@ -417,7 +417,7 @@ namespace FCDocumentTools
 
 	void StandardizeUpAxisAndLength(FCDocument* document, const FMVector3& upAxis, float unitInMeters, bool handleTargets)
 	{
-		if (document == NULL) return;
+		if (document == nullptr) return;
 
         // Figure out the wanted up_axis and unit values, if they are not provided.
         FCDAsset* baseAsset = document->GetAsset();
@@ -514,7 +514,7 @@ namespace FCDocumentTools
 						{
 							// Targeted entities should still point in the correct direction: do only roll up-axis changes.
 							bool rollOnly = false;
-							if (handleTargets && nodeInstance->GetEntity() != NULL && nodeInstance->GetEntity()->HasType(FCDTargetedEntity::GetClassType()))
+							if (handleTargets && nodeInstance->GetEntity() != nullptr && nodeInstance->GetEntity()->HasType(FCDTargetedEntity::GetClassType()))
 							{
 								FCDTargetedEntity* targetedEntity = (FCDTargetedEntity*) nodeInstance->GetEntity();
 								rollOnly = targetedEntity->HasTarget(); // Don't pivot fully.

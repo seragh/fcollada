@@ -41,7 +41,7 @@ void FCDGeometrySource::SetDataCount(size_t count)
 
 FCDGeometrySource* FCDGeometrySource::Clone(FCDGeometrySource* clone) const
 {
-	if (clone == NULL) clone = new FCDGeometrySource(const_cast<FCDocument*>(GetDocument()));
+	if (clone == nullptr) clone = new FCDGeometrySource(const_cast<FCDocument*>(GetDocument()));
 	FCDObjectWithId::Clone(clone);
 	clone->name = name;
 	clone->sourceType = sourceType;
@@ -52,7 +52,7 @@ FCDGeometrySource* FCDGeometrySource::Clone(FCDGeometrySource* clone) const
 	clone->sourceType = sourceType;
 
 	// Clone the extra information.
-	if (extra != NULL)
+	if (extra != nullptr)
 	{
 		extra->Clone(clone->GetExtra());
 	}
@@ -77,5 +77,5 @@ void FCDGeometrySource::SetData(const FloatList& _sourceData, uint32 _sourceStri
 
 FCDExtra* FCDGeometrySource::GetExtra()
 {
-	return (extra != NULL) ? extra : extra = new FCDExtra(GetDocument(), this);
+	return (extra != nullptr) ? extra : extra = new FCDExtra(GetDocument(), this);
 }

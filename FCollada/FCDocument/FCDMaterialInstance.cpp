@@ -80,12 +80,12 @@ FCDMaterialInstance::FCDMaterialInstance(FCDocument* document, FCDEntityInstance
 
 FCDMaterialInstance::~FCDMaterialInstance()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
 FCDObject* FCDMaterialInstance::GetGeometryTarget()
 {
-	if (parent != NULL && parent->GetEntity() != NULL)
+	if (parent != nullptr && parent->GetEntity() != nullptr)
 	{
 		FCDEntity* e = parent->GetEntity();
 		if (e->HasType(FCDController::GetClassType()))
@@ -110,7 +110,7 @@ FCDObject* FCDMaterialInstance::GetGeometryTarget()
 			}
 		}
 	}
-	return NULL;
+	return nullptr;
 }
 
 
@@ -120,7 +120,7 @@ const FCDMaterialInstanceBind* FCDMaterialInstance::FindBinding(const char* sema
 	{
 		if (IsEquivalent((*it)->semantic, semantic)) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 FCDMaterialInstanceBindVertexInput* FCDMaterialInstance::AddVertexInputBinding()
@@ -146,7 +146,7 @@ const FCDMaterialInstanceBindVertexInput* FCDMaterialInstance::FindVertexInputBi
 	{
 		if (IsEquivalent((*it)->semantic, semantic)) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 FCDMaterialInstanceBind* FCDMaterialInstance::AddBinding()
@@ -173,8 +173,8 @@ void FCDMaterialInstance::RemoveBinding(size_t index)
 
 FCDEntityInstance* FCDMaterialInstance::Clone(FCDEntityInstance* _clone) const
 {
-	FCDMaterialInstance* clone = NULL;
-	if (_clone == NULL) clone = new FCDMaterialInstance(const_cast<FCDocument*>(GetDocument()), NULL);
+	FCDMaterialInstance* clone = nullptr;
+	if (_clone == nullptr) clone = new FCDMaterialInstance(const_cast<FCDocument*>(GetDocument()), nullptr);
 	else if (!_clone->HasType(FCDMaterialInstance::GetClassType())) return Parent::Clone(_clone);
 	else clone = (FCDMaterialInstance*) _clone;
 

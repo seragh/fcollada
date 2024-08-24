@@ -119,7 +119,7 @@ struct FAXAnimationChannelDefaultValue
 	float defaultValue; /**< The default value for an animation value pointer that is not animated but may be merged. */
 
 	/** Default constructor. */
-	FAXAnimationChannelDefaultValue() : curve(NULL), defaultValue(0.0f) {}
+	FAXAnimationChannelDefaultValue() : curve(nullptr), defaultValue(0.0f) {}
 	/** Simple constructor. @param c A curve. @param f The default value. @param q The default value's qualifier. */
 	FAXAnimationChannelDefaultValue(FCDAnimationCurve* c, float f) { curve = c; defaultValue = f; }
 };

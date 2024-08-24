@@ -75,13 +75,13 @@ public:
 	void  SetRestitution(float _restitution) { restitution = _restitution; SetDirtyFlag(); }
 
 	/** Copies the physics material into a clone.
-		@param clone The empty clone. If this pointer is NULL, a new physics
+		@param clone The empty clone. If this pointer is nullptr, a new physics
 			material will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 };
 
 #endif // _FCD_MATERIAL_H_

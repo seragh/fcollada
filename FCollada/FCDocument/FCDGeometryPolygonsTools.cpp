@@ -20,7 +20,7 @@ namespace FCDGeometryPolygonsTools
 	// Triangulates a mesh.
 	void Triangulate(FCDGeometryMesh* mesh)
 	{
-		if (mesh == NULL) return;
+		if (mesh == nullptr) return;
 
 		size_t polygonsCount = mesh->GetPolygonsCount();
 		for (size_t i = 0; i < polygonsCount; ++i)
@@ -35,7 +35,7 @@ namespace FCDGeometryPolygonsTools
 	// Triangulates a polygons set.
 	void Triangulate(FCDGeometryPolygons* polygons, bool recalculate)
 	{
-		if (polygons == NULL) return;
+		if (polygons == nullptr) return;
 		if (polygons->GetPrimitiveType() == FCDGeometryPolygons::LINE_STRIPS || polygons->GetPrimitiveType() == FCDGeometryPolygons::LINES || polygons->GetPrimitiveType() == FCDGeometryPolygons::POINTS) return;
 
 		// Pre-allocate and ready the end index/count buffers
@@ -177,11 +177,11 @@ namespace FCDGeometryPolygonsTools
 	// Generates the texture tangents and binormals for a given source of texture coordinates.
 	void GenerateTextureTangentBasis(FCDGeometryMesh* mesh, FCDGeometrySource* texcoordSource, bool generateBinormals)
 	{
-		if (texcoordSource == NULL || mesh == NULL) return;
+		if (texcoordSource == nullptr || mesh == nullptr) return;
 
 		// First count the positions.
 		FCDGeometrySource* positionSource = mesh->FindSourceByType(FUDaeGeometryInput::POSITION);
-		if (positionSource == NULL) return;
+		if (positionSource == nullptr) return;
 		size_t globalVertexCount = positionSource->GetValueCount();
 
 		// Allocate the tangential vertices.
@@ -198,16 +198,16 @@ namespace FCDGeometryPolygonsTools
 
 			// Verify that this polygons set uses the given texture coordinate source.
 			FCDGeometryPolygonsInput* texcoordInput = polygons->FindInput(texcoordSource);
-			if (texcoordInput == NULL) continue;
+			if (texcoordInput == nullptr) continue;
 
 			// Retrieve the data and index buffer of positions/normals/texcoords for this polygons set.
 			FCDGeometryPolygonsInput* positionInput = polygons->FindInput(FUDaeGeometryInput::POSITION);
 			FCDGeometryPolygonsInput* normalsInput = polygons->FindInput(FUDaeGeometryInput::NORMAL);
-			if (positionInput == NULL || normalsInput == NULL) continue;
+			if (positionInput == nullptr || normalsInput == nullptr) continue;
 			FCDGeometrySource* positionSource = positionInput->GetSource();
 			FCDGeometrySource* normalsSource = normalsInput->GetSource();
 			FCDGeometrySource* texcoordSource = texcoordInput->GetSource();
-			if (positionSource == NULL || normalsSource == NULL || texcoordSource == NULL) continue;
+			if (positionSource == nullptr || normalsSource == nullptr || texcoordSource == nullptr) continue;
 			uint32 positionStride = positionSource->GetStride();
 			uint32 normalsStride = normalsSource->GetStride();
 			uint32 texcoordStride = texcoordSource->GetStride();
@@ -216,7 +216,7 @@ namespace FCDGeometryPolygonsTools
 			uint32* normalsIndices = normalsInput->GetIndices();
 			uint32* texcoordIndices = texcoordInput->GetIndices();
 			size_t indexCount = positionInput->GetIndexCount();
-			if (positionIndices == NULL || normalsIndices == NULL || texcoordIndices == NULL) continue;
+			if (positionIndices == nullptr || normalsIndices == nullptr || texcoordIndices == nullptr) continue;
 			if (indexCount == 0 || indexCount != normalsInput->GetIndexCount() || indexCount != texcoordInput->GetIndexCount()) continue;
 			float* positionData = positionSource->GetData();
 			float* normalsData = normalsSource->GetData();
@@ -310,8 +310,8 @@ namespace FCDGeometryPolygonsTools
 			}
 		}
 
-		FCDGeometrySource* tangentSource = NULL;
-		FCDGeometrySource* binormalSource = NULL;
+		FCDGeometrySource* tangentSource = nullptr;
+		FCDGeometrySource* binormalSource = nullptr;
 		FloatList tangentData;
 		FloatList binormalData;
 		UInt32List tangentCompressionIndices;
@@ -324,15 +324,15 @@ namespace FCDGeometryPolygonsTools
 
 			// Verify that this polygons set uses the given texture coordinate source.
 			FCDGeometryPolygonsInput* texcoordInput = polygons->FindInput(texcoordSource);
-			if (texcoordInput == NULL) continue;
+			if (texcoordInput == nullptr) continue;
 
 			// Retrieve the data and index buffer of positions/normals/texcoords for this polygons set.
 			FCDGeometryPolygonsInput* positionInput = polygons->FindInput(FUDaeGeometryInput::POSITION);
 			FCDGeometryPolygonsInput* normalsInput = polygons->FindInput(FUDaeGeometryInput::NORMAL);
-			if (positionInput == NULL || normalsInput == NULL) continue;
+			if (positionInput == nullptr || normalsInput == nullptr) continue;
 			FCDGeometrySource* normalsSource = normalsInput->GetSource();
 			FCDGeometrySource* texcoordSource = texcoordInput->GetSource();
-			if (normalsSource == NULL || texcoordSource == NULL) continue;
+			if (normalsSource == nullptr || texcoordSource == nullptr) continue;
 			uint32 normalsStride = normalsSource->GetStride();
 			uint32 texcoordStride = texcoordSource->GetStride();
 			if (normalsStride < 3 || texcoordStride < 2) continue;
@@ -340,7 +340,7 @@ namespace FCDGeometryPolygonsTools
 			uint32* normalsIndices = normalsInput->GetIndices();
 			uint32* texcoordIndices = texcoordInput->GetIndices();
 			size_t indexCount = positionInput->GetIndexCount();
-			if (positionIndices == NULL || normalsIndices == NULL || texcoordIndices == NULL) continue;
+			if (positionIndices == nullptr || normalsIndices == nullptr || texcoordIndices == nullptr) continue;
 			if (indexCount == 0 || indexCount != normalsInput->GetIndexCount() || indexCount != texcoordInput->GetIndexCount()) continue;
 			float* normalsData = normalsSource->GetData();
 			float* texcoordData = texcoordSource->GetData();
@@ -349,7 +349,7 @@ namespace FCDGeometryPolygonsTools
 			if (normalsDataLength == 0 || texcoordDataLength == 0) continue;
 
 			// Create the texture tangents/binormals sources
-			if (tangentSource == NULL)
+			if (tangentSource == nullptr)
 			{
 				tangentSource = mesh->AddSource(FUDaeGeometryInput::TEXTANGENT);
 				tangentSource->SetDaeId(texcoordSource->GetDaeId() + "-tangents");
@@ -374,8 +374,8 @@ namespace FCDGeometryPolygonsTools
 			FCDGeometryPolygonsInput* tangentInput = polygons->AddInput(tangentSource, inputOffset + 1);
 			tangentInput->SetSet(texcoordInput->GetSet());
 			tangentInput->ReserveIndexCount(indexCount);
-			FCDGeometryPolygonsInput* binormalInput = NULL;
-			if (binormalSource != NULL)
+			FCDGeometryPolygonsInput* binormalInput = nullptr;
+			if (binormalSource != nullptr)
 			{
 				binormalInput = polygons->AddInput(binormalSource, inputOffset + 2);
 				binormalInput->SetSet(tangentInput->GetSet());
@@ -407,7 +407,7 @@ namespace FCDGeometryPolygonsTools
 						}
 						tangentInput->AddIndex(list[v].tangentId);
 
-						if (binormalInput != NULL)
+						if (binormalInput != nullptr)
 						{
 							if (list[v].binormalId == ~(uint32)0)
 							{
@@ -423,8 +423,8 @@ namespace FCDGeometryPolygonsTools
 			}
 		}
 
-		if (tangentSource != NULL) tangentSource->SetData(tangentData, 3);
-		if (binormalSource != NULL) binormalSource->SetData(binormalData, 3);
+		if (tangentSource != nullptr) tangentSource->SetData(tangentData, 3);
+		if (binormalSource != nullptr) binormalSource->SetData(binormalData, 3);
 	}
 
 	struct HashIndexMapItem { UInt32List allValues; UInt32List newIndex; };
@@ -440,7 +440,7 @@ namespace FCDGeometryPolygonsTools
 		if (polygonsCount == 0) return;
 		size_t totalVertexCount = 0;
 
-		size_t outIndicesMinSize = (polygonsToProcess == NULL) ? polygonsCount : 1;
+		size_t outIndicesMinSize = (polygonsToProcess == nullptr) ? polygonsCount : 1;
 		if (outIndices.size() < outIndicesMinSize) outIndices.resize(outIndicesMinSize);
 
 		// Fill in the index buffers for each polygons set.
@@ -450,10 +450,10 @@ namespace FCDGeometryPolygonsTools
 			// DO NOT -EVER- TOUCH MY INDICES - (Says Psuedo-FCDGeometryPoints)
 			// Way to much code assumes (and carefully guards) the existing sorted structure
 			if (polygons->GetPrimitiveType() == FCDGeometryPolygons::POINTS) return;
-			if (polygonsToProcess != NULL && polygons != polygonsToProcess) continue;
+			if (polygonsToProcess != nullptr && polygons != polygonsToProcess) continue;
 
 			// Find the list we are going to pump our new indices into
-			UInt32List& outPolyIndices = (polygonsToProcess == NULL) ? outIndices[p] : outIndices.front();
+			UInt32List& outPolyIndices = (polygonsToProcess == nullptr) ? outIndices[p] : outIndices.front();
 
 			// Find all the indices list to determine the hash size.
 			InputList idxOwners;
@@ -560,15 +560,15 @@ namespace FCDGeometryPolygonsTools
 			for (size_t p = 0; p < polygonsCount; ++p)
 			{
 				FCDGeometryPolygons* polygons = mesh->GetPolygons(p);
-				if (polygonsToProcess != NULL && polygonsToProcess  != polygons) continue;
-				const UInt32List& outPolyIndices = (polygonsToProcess == NULL) ? outIndices[p] : outIndices.front();
+				if (polygonsToProcess != nullptr && polygonsToProcess  != polygons) continue;
+				const UInt32List& outPolyIndices = (polygonsToProcess == nullptr) ? outIndices[p] : outIndices.front();
 				FCDGeometryPolygonsInput* oldInput = polygons->FindInput(oldSource);
-				if (oldInput == NULL) continue;
+				if (oldInput == nullptr) continue;
 
 				// Retrieve the old list of indices and de-reference the data values.
 				uint32* oldIndexList = oldInput->GetIndices();
 				size_t oldIndexCount = oldInput->GetIndexCount();
-				if (oldIndexList == NULL || oldIndexCount == 0) continue;
+				if (oldIndexList == nullptr || oldIndexCount == 0) continue;
 
 				size_t indexCount = min(oldIndexCount, outPolyIndices.size());
 				for (size_t i = 0; i < indexCount; ++i)
@@ -603,7 +603,7 @@ namespace FCDGeometryPolygonsTools
 			// DO NOT -EVER- TOUCH MY INDICES - (Says Psuedo-FCDGeometryPoints)
 			// Way to much code assumes (and carefully guards) the existing sorted structure
 			if (polygons->GetPrimitiveType() == FCDGeometryPolygons::POINTS) return;
-			if (polygonsToProcess != NULL && polygons != polygonsToProcess) continue;
+			if (polygonsToProcess != nullptr && polygons != polygonsToProcess) continue;
 
 			// Find all the indices list to determine the hash size.
 			InputList idxOwners;
@@ -700,13 +700,13 @@ namespace FCDGeometryPolygonsTools
 			FCDGeometrySource* oldSource = mesh->GetSource(d);
 			uint32 stride = oldSource->GetStride();
 			const float* oldVertexData = oldSource->GetData();
-			bool isPositionSource = oldSource->GetType() == FUDaeGeometryInput::POSITION && translationMap != NULL;
+			bool isPositionSource = oldSource->GetType() == FUDaeGeometryInput::POSITION && translationMap != nullptr;
 			FloatList vertexBuffer;
 			vertexBuffer.resize(stride * totalVertexCount, 0.0f);
 
 			// When processing just one polygons set, duplicate the source
 			// so that the other polygons set can correctly point to the original source.
-			FCDGeometrySource* newSource = (polygonsToProcess != NULL) ? mesh->AddSource(oldSource->GetType()) : oldSource;
+			FCDGeometrySource* newSource = (polygonsToProcess != nullptr) ? mesh->AddSource(oldSource->GetType()) : oldSource;
 
 			FCDAnimatedList newAnimatedList;
 			newAnimatedList.clear();
@@ -714,14 +714,14 @@ namespace FCDGeometryPolygonsTools
 			{
 				const UInt32List& indexBuffer = indexBuffers[p];
 				FCDGeometryPolygons* polygons = mesh->GetPolygons(p);
-				if (polygonsToProcess != NULL && polygonsToProcess != polygons) continue;
+				if (polygonsToProcess != nullptr && polygonsToProcess != polygons) continue;
 				FCDGeometryPolygonsInput* oldInput = polygons->FindInput(oldSource);
-				if (oldInput == NULL) continue;
+				if (oldInput == nullptr) continue;
 
 				// Retrieve the old list of indices and de-reference the data values.
 				uint32* oldIndexList = oldInput->GetIndices();
 				size_t oldIndexCount = oldInput->GetIndexCount();
-				if (oldIndexList == NULL || oldIndexCount == 0) continue;
+				if (oldIndexList == nullptr || oldIndexCount == 0) continue;
 
 				size_t indexCount = min(oldIndexCount, indexBuffer.size());
 				for (size_t i = 0; i < indexCount; ++i)
@@ -731,7 +731,7 @@ namespace FCDGeometryPolygonsTools
 					if (oldIndex >= oldSource->GetValueCount()) continue;
 
 					FUObjectContainer<FCDAnimated>& animatedValues = oldSource->GetAnimatedValues();
-					FCDAnimated* oldAnimated = NULL;
+					FCDAnimated* oldAnimated = nullptr;
 					for (size_t j = 0; j < animatedValues.size(); j++)
 					{
 						FCDAnimated* animated = animatedValues[j];
@@ -741,7 +741,7 @@ namespace FCDGeometryPolygonsTools
 							break;
 						}
 					}
-					if (oldAnimated != NULL)
+					if (oldAnimated != nullptr)
 					{
 						FCDAnimated* newAnimated = oldAnimated->Clone(oldAnimated->GetDocument());
 						newAnimated->SetArrayElement(newIndex);
@@ -764,7 +764,7 @@ namespace FCDGeometryPolygonsTools
 					}
 				}
 
-				if (polygonsToProcess != NULL)
+				if (polygonsToProcess != nullptr)
 				{
 					// Change the relevant input, if it exists, to point towards the new source.
 					uint32 set = oldInput->GetSet();
@@ -791,7 +791,7 @@ namespace FCDGeometryPolygonsTools
 			}
 		}
 
-		if (polygonsToProcess == NULL)
+		if (polygonsToProcess == nullptr)
 		{
 			// Next, make all the sources per-vertex.
 			size_t _sourceCount = mesh->GetSourceCount();
@@ -810,7 +810,7 @@ namespace FCDGeometryPolygonsTools
 		{
 			const UInt32List& indexBuffer = indexBuffers[p];
 			FCDGeometryPolygons* polygons = mesh->GetPolygons(p);
-			if (polygonsToProcess != NULL && polygons != polygonsToProcess) continue;
+			if (polygonsToProcess != nullptr && polygons != polygonsToProcess) continue;
 
 			size_t inputCount = polygons->GetInputCount();
 			for (size_t i = 0; i < inputCount; i++)
@@ -985,9 +985,9 @@ namespace FCDGeometryPolygonsTools
 	// Iterate over the indices, remapping them using the provided map until we have consumed
 	// either max indices or max vertices, whichever is first
 	// return the number of indices actually consumed.
-	uint16 GenerateVertexPackingMap(size_t maxIndex, size_t maxIndices, size_t maxVertices, const uint32* inIndices, uint16* outIndices, UInt16List* outPackingMap, uint16* outNVertices/*=NULL*/)
+	uint16 GenerateVertexPackingMap(size_t maxIndex, size_t maxIndices, size_t maxVertices, const uint32* inIndices, uint16* outIndices, UInt16List* outPackingMap, uint16* outNVertices/*=nullptr*/)
 	{
-		FUAssert(inIndices != NULL && outPackingMap != NULL, return 0);
+		FUAssert(inIndices != nullptr && outPackingMap != nullptr, return 0);
 		FUAssert(maxIndices < INVALID_VTX_IDX, maxIndices = INVALID_VTX_IDX - 1);
 		outPackingMap->resize(maxIndex + 1, INVALID_VTX_IDX);
 		uint16 nIndices, nVertices = 0;
@@ -1002,7 +1002,7 @@ namespace FCDGeometryPolygonsTools
 				// force a break using the maxIndices instead
 				 if (++nVertices >= maxVertices) maxIndices = nIndices;
 			}
-			if (outIndices != NULL)
+			if (outIndices != nullptr)
 			{
 				*outIndices = outPackingMap->at(*inIndices);
 				++outIndices;
@@ -1012,7 +1012,7 @@ namespace FCDGeometryPolygonsTools
 		// Sanity check
 		FUAssert(nVertices <= nIndices, nVertices = nIndices);
 		// Extra requested return
-		if (outNVertices != NULL) *outNVertices = nVertices;
+		if (outNVertices != nullptr) *outNVertices = nVertices;
 		return nIndices;
 	}
 
@@ -1061,7 +1061,7 @@ namespace FCDGeometryPolygonsTools
 		float* outData = outSrc->GetData();
 
 		const uint32* inIndices = inPInput.GetIndices();
-		FUAssert(inIndices != NULL, return);
+		FUAssert(inIndices != nullptr, return);
 		UInt32List indices(inIndices, inPInput.GetIndexCount());
 
 		for (FCDGeometryIndexTranslationMap::const_iterator it = translationMap.begin(), itEnd = translationMap.end(); it != itEnd; ++it)
@@ -1145,7 +1145,7 @@ namespace FCDGeometryPolygonsTools
 					FCDGeometryPolygonsInput* inputCopy;
 					if (!mesh->IsVertexSource(source)) inputCopy = polygonsCopy->AddInput(source, input->GetOffset());
 					else inputCopy = polygonsCopy->FindInput(source);
-					FUAssert(inputCopy != NULL, continue);
+					FUAssert(inputCopy != nullptr, continue);
 
 					// For owners, copy the indices over.
 					size_t indexCopyCount = inputCopy->GetIndexCount();

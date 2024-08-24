@@ -51,13 +51,13 @@ FCDPhysicsRigidConstraint* FCDPhysicsModel::AddRigidConstraint()
 
 FCDEntity* FCDPhysicsModel::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
-	FCDPhysicsModel* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDPhysicsModel(const_cast<FCDocument*>(GetDocument()));
+	FCDPhysicsModel* clone = nullptr;
+	if (_clone == nullptr) _clone = clone = new FCDPhysicsModel(const_cast<FCDocument*>(GetDocument()));
 	else if (_clone->HasType(FCDPhysicsModel::GetClassType())) clone = (FCDPhysicsModel*) _clone;
 
 	Parent::Clone(_clone, cloneChildren);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 		// Clone the rigid bodies
 		for (FCDPhysicsRigidBodyContainer::const_iterator it = rigidBodies.begin(); it != rigidBodies.end(); ++it)
@@ -89,7 +89,7 @@ const FCDPhysicsRigidBody* FCDPhysicsModel::FindRigidBodyFromSid(const fm::strin
 	{
 		if ((*it)->GetSubId() == sid) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 const FCDPhysicsRigidConstraint* FCDPhysicsModel::FindRigidConstraintFromSid(const fm::string& sid) const
@@ -98,7 +98,7 @@ const FCDPhysicsRigidConstraint* FCDPhysicsModel::FindRigidConstraintFromSid(con
 	{
 		if ((*it)->GetSubId() == sid) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 bool FCDPhysicsModel::AttachModelInstances()
@@ -112,7 +112,7 @@ bool FCDPhysicsModel::AttachModelInstances()
 		if (!url.IsFile())
 		{
 			FCDEntity* entity = GetDocument()->FindPhysicsModel(TO_STRING(url.GetFragment()));
-			if (entity != NULL)
+			if (entity != nullptr)
 			{
 				FCDPhysicsModel* model = (FCDPhysicsModel*) entity;
 

@@ -40,7 +40,7 @@ void FCDEffectCode::SetFilename(const fstring& _filename)
 // Clone
 FCDEffectCode* FCDEffectCode::Clone(FCDEffectCode* clone) const
 {
-	if (clone == NULL) clone = new FCDEffectCode(const_cast<FCDocument*>(GetDocument()));
+	if (clone == nullptr) clone = new FCDEffectCode(const_cast<FCDocument*>(GetDocument()));
 	clone->type = type;
 	clone->sid = sid;
 	clone->filename = filename;

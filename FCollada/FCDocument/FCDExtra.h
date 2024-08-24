@@ -80,9 +80,9 @@ public:
 
 	/** Retrieves a specific type contained by this extra tree.
 		@param index The index of the type.
-		@return The type. This pointer will be NULL if the index is out-of-bounds. */
-	inline FCDEType* GetType(size_t index) { FUAssert(index < types.size(), return NULL); return types.at(index); }
-	inline const FCDEType* GetType(size_t index) const { FUAssert(index < types.size(), return NULL); return types.at(index); } /**< See above. */
+		@return The type. This pointer will be nullptr if the index is out-of-bounds. */
+	inline FCDEType* GetType(size_t index) { FUAssert(index < types.size(), return nullptr); return types.at(index); }
+	inline const FCDEType* GetType(size_t index) const { FUAssert(index < types.size(), return nullptr); return types.at(index); } /**< See above. */
 
 	/** Adds a new application-specific type to the extra tree.
 		If the given application-specific type already exists
@@ -95,7 +95,7 @@ public:
 	/** Retrieves a specific type contained by this extra tree.
 		@param name The application-specific name of the type.
 		@return The type that matches the name. This pointer may
-			be NULL if no type matches the name. */
+			be nullptr if no type matches the name. */
 	inline FCDEType* FindType(const char* name) { return const_cast<FCDEType*>(const_cast<const FCDExtra*>(this)->FindType(name)); }
 	const FCDEType* FindType(const char* name) const; /**< See above. */
 	inline FCDEType* FindType(const fm::string& name) { return FindType(name.c_str()); } /**< See above. */
@@ -109,10 +109,10 @@ public:
 
 	/** [INTERNAL] Clones the extra tree information.
 		@param clone The extra tree that will take in this extra tree's information.
-			If this pointer is NULL, a new extra tree will be created and you will
+			If this pointer is nullptr, a new extra tree will be created and you will
 			need to release the returned pointer manually.
 		@return The clone. */
-	FCDExtra* Clone(FCDExtra* clone = NULL) const;
+	FCDExtra* Clone(FCDExtra* clone = nullptr) const;
 };
 
 /**
@@ -168,10 +168,10 @@ public:
 
 	/** Retrieves a specific technique contained by this extra tree.
 		@param index The index of the technique.
-		@return The technique. This pointer will be NULL if the
+		@return The technique. This pointer will be nullptr if the
 			index is out-of-bounds. */
-	inline FCDETechnique* GetTechnique(size_t index) { FUAssert(index < techniques.size(), return NULL); return techniques.at(index); }
-	inline const FCDETechnique* GetTechnique(size_t index) const { FUAssert(index < techniques.size(), return NULL); return techniques.at(index); } /**< See above. */
+	inline FCDETechnique* GetTechnique(size_t index) { FUAssert(index < techniques.size(), return nullptr); return techniques.at(index); }
+	inline const FCDETechnique* GetTechnique(size_t index) const { FUAssert(index < techniques.size(), return nullptr); return techniques.at(index); } /**< See above. */
 
 	/** Adds a new application-specific profile technique to the extra tree.
 		If the given application-specific profile already exists
@@ -184,7 +184,7 @@ public:
 	/** Retrieves a specific technique contained by this extra tree.
 		@param profile The application-specific profile name of the technique.
 		@return The technique that matches the profile name. This pointer may
-			be NULL if no technique matches the profile name. */
+			be nullptr if no technique matches the profile name. */
 	FCDETechnique* FindTechnique(const char* profile) { return const_cast<FCDETechnique*>(const_cast<const FCDEType*>(this)->FindTechnique(profile)); }
 	const FCDETechnique* FindTechnique(const char* profile) const; /**< See above. */
 	inline FCDETechnique* FindTechnique(const fm::string& profile) { return FindTechnique(profile.c_str()); } /**< See above. */
@@ -195,7 +195,7 @@ public:
 		techniques.
 		@param name An element name.
 		@return The extra tree node that matches the element name. This pointer
-			will be NULL if no extra tree node matches the element name. */
+			will be nullptr if no extra tree node matches the element name. */
 	inline FCDENode* FindRootNode(const char* name) { return const_cast<FCDENode*>(const_cast<const FCDEType*>(this)->FindRootNode(name)); }
 	const FCDENode* FindRootNode(const char* name) const; /**< See above. */
 	inline FCDENode* FindRootNode(const fm::string& name) { return FindRootNode(name.c_str()); } /**< See above. */
@@ -203,10 +203,10 @@ public:
 
 	/** [INTERNAL] Clones the extra tree information.
 		@param clone The extra tree that will take in this extra tree's information.
-			If this pointer is NULL, a new extra tree will be created and you will
+			If this pointer is nullptr, a new extra tree will be created and you will
 			need to release the returned pointer manually.
 		@return The clone. */
-	FCDEType* Clone(FCDEType* clone = NULL) const;
+	FCDEType* Clone(FCDEType* clone = nullptr) const;
 };
 
 /**
@@ -294,7 +294,7 @@ public:
 		The hierarchy cannot be changed dynamically. If you to move an extra tree node,
 		you will need to clone it manually and release the old extra tree node.
 		@return The parent extra tree node within the hierarchy. This pointer
-			will be NULL if the extra tree node is a extra tree technique. */
+			will be nullptr if the extra tree node is a extra tree technique. */
 	FCDENode* GetParent() { return parent; }
 	const FCDENode* GetParent() const { return parent; } /**< See above. */
 
@@ -308,10 +308,10 @@ public:
 
 	/** Retrieves a specific child extra tree node.
 		@param index The index of the child extra tree node.
-		@return The child extra tree node. This pointer will be NULL if the index
+		@return The child extra tree node. This pointer will be nullptr if the index
 			is out-of-bounds. */
-	FCDENode* GetChildNode(size_t index) { FUAssert(index < children.size(), return NULL); return children.at(index); }
-	const FCDENode* GetChildNode(size_t index) const { FUAssert(index < children.size(), return NULL); return children.at(index); } /**< See above. */
+	FCDENode* GetChildNode(size_t index) { FUAssert(index < children.size(), return nullptr); return children.at(index); }
+	const FCDENode* GetChildNode(size_t index) const { FUAssert(index < children.size(), return nullptr); return children.at(index); } /**< See above. */
 
 	/** Adds a new child extra tree to this extra tree node.
 		@see AddParameter
@@ -328,7 +328,7 @@ public:
 	/** Retrieves the child extra tree node with the given name.
 		@param name A name.
 		@return The child extra tree node that matches the given name.
-			This pointer will be NULL if no child extra tree node matches
+			This pointer will be nullptr if no child extra tree node matches
 			the given name. */
 	inline FCDENode* FindChildNode(const char* name) { return const_cast<FCDENode*>(const_cast<const FCDENode*>(this)->FindChildNode(name)); }
 	const FCDENode* FindChildNode(const char* name) const; /**< See above. */
@@ -347,7 +347,7 @@ public:
 		The first child extra tree node where the name matches 'X' will be returned.
 		@param name The parameter name.
 		@return The first child extra tree node holding the wanted parameter within the hierarchy.
-			This pointer will be NULL to indicate that no parameter matches the given name. */
+			This pointer will be nullptr to indicate that no parameter matches the given name. */
 	const FCDENode* FindParameter(const char* name) const;
 	inline FCDENode* FindParameter(const char* name) { return const_cast<FCDENode*>(const_cast<const FCDENode*>(this)->FindParameter(name)); } /**< See above. */
 
@@ -368,10 +368,10 @@ public:
 
 	/** Retrieves a specific attribute of this extra tree node.
 		@param index The index.
-		@return The attribute at this index. This pointer will be NULL
+		@return The attribute at this index. This pointer will be nullptr
 			if the index is out-of-bounds. */
-	FCDEAttribute* GetAttribute(size_t index) { FUAssert(index < attributes.size(), return NULL); return attributes.at(index); }
-	const FCDEAttribute* GetAttribute(size_t index) const { FUAssert(index < attributes.size(), return NULL); return attributes.at(index); } /**< See above. */
+	FCDEAttribute* GetAttribute(size_t index) { FUAssert(index < attributes.size(), return nullptr); return attributes.at(index); }
+	const FCDEAttribute* GetAttribute(size_t index) const { FUAssert(index < attributes.size(), return nullptr); return attributes.at(index); } /**< See above. */
 
 	/** Adds a new attribute to this extra tree node.
 		If an attribute with the same name already exists, this function simply
@@ -393,7 +393,7 @@ public:
 	/** Retrieve the attribute of this extra tree node with the given name.
 		Attribute names are unique within an extra tree node.
 		@param name The attribute name.
-		@return The attribute that matches the name. This pointer will be NULL if
+		@return The attribute that matches the name. This pointer will be nullptr if
 			there is no attribute with the given name. */
 	inline FCDEAttribute* FindAttribute(const char* name) { return const_cast<FCDEAttribute*>(const_cast<const FCDENode*>(this)->FindAttribute(name)); }
 	const FCDEAttribute* FindAttribute(const char* name) const; /**< See above. */
@@ -422,7 +422,7 @@ public:
 
 	/** Clones the extra tree node.
 		@param clone The extra tree node that will receive the clone information.
-			This pointer cannot be NULL.
+			This pointer cannot be nullptr.
 		@return The clone. You will need to release the returned pointer manually. */
 	virtual FCDENode* Clone(FCDENode* clone) const;
 };
@@ -478,7 +478,7 @@ public:
 
 	/** Clones the extra tree node.
 		@param clone The extra tree node that will receive the clone information.
-			If this pointer is NULL, a new extra tree technique will be created and you will
+			If this pointer is nullptr, a new extra tree technique will be created and you will
 			need to release the returned pointer manually.
 		@return The clone. */
 	virtual FCDENode* Clone(FCDENode* clone) const;

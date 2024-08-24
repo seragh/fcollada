@@ -25,7 +25,7 @@ xmlNode* FArchiveXML::WriteForceField(FCDObject* object, xmlNode* parentNode)
 	xmlNode* forceFieldNode = FArchiveXML::WriteToEntityXMLFCDEntity(forceField, parentNode, DAE_FORCE_FIELD_ELEMENT);
 
 
-	if (forceField->GetInformation() != NULL)
+	if (forceField->GetInformation() != nullptr)
 	{
 		FArchiveXML::WriteTechniquesFCDExtra(forceField->GetInformation(), forceFieldNode);
 	}

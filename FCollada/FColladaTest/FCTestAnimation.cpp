@@ -30,7 +30,7 @@ TESTSUITE_TEST(0, Sampling)
 	PassIf(errorHandler.IsSuccessful());
 	PassIf(document->GetCameraLibrary()->GetEntityCount() == 1);
 	FCDSceneNode* node = document->FindSceneNode("Bone09");
-	FailIf(node == NULL);
+	FailIf(node == nullptr);
 
 	FCDSceneNodeTools::GenerateSampledAnimation(node);
 	const FloatList& keys = FCDSceneNodeTools::GetSampledAnimationKeys();
@@ -79,7 +79,7 @@ TESTSUITE_TEST(1, CurveMerging)
 	curves.push_back(c2);
 	FloatList defaultValues(2, 0.0f);
 	FCDAnimationMultiCurve* multiCurve = FCDAnimationCurveTools::MergeCurves(curves, defaultValues);
-	FailIf(multiCurve == NULL);
+	FailIf(multiCurve == nullptr);
 
 	// Verify the created multi-curve
 	static const size_t multiCurveKeyCount = 4;

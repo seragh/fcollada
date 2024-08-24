@@ -75,10 +75,10 @@ public:
 
 	/** Clones the effect pass and shaders.
 		@param clone The cloned pass.
-			If this pointer is NULL, a new pass is created and
+			If this pointer is nullptr, a new pass is created and
 			you will need to release this new pass.
 		@return The cloned pass. */
-	FCDEffectPassState* Clone(FCDEffectPassState* clone = NULL) const;
+	FCDEffectPassState* Clone(FCDEffectPassState* clone = nullptr) const;
 };
 
 #endif // _FCD_EFFECT_PASS_STATE_H_

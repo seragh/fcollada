@@ -86,7 +86,7 @@ public:
 		The initialization method is a powerful method of describing how
 		to build complex textures, such as cube maps, from one or
 		multiple image files.
-		@return The surface initialization method. This pointer will be NULL,
+		@return The surface initialization method. This pointer will be nullptr,
 			if no initialization method is provided. */
 	FCDEffectParameterSurfaceInit* GetInitMethod() { return initMethod; }
 	const FCDEffectParameterSurfaceInit* GetInitMethod() const { return initMethod; } /**< See above. */
@@ -115,9 +115,9 @@ public:
 
 	/** Retrieves a specific image.
 		@param index The index of the image.
-		@return The image. This pointer will be NULL if the index is out-of-bounds. */
-	FCDImage* GetImage(size_t index = 0) { return index < images.size() ? images.at(index) : NULL; }
-	const FCDImage* GetImage(size_t index = 0) const { return index < images.size() ? images.at(index) : NULL; } /**< See above. */
+		@return The image. This pointer will be nullptr if the index is out-of-bounds. */
+	FCDImage* GetImage(size_t index = 0) { return index < images.size() ? images.at(index) : nullptr; }
+	const FCDImage* GetImage(size_t index = 0) const { return index < images.size() ? images.at(index) : nullptr; } /**< See above. */
 
 	/** Retrieves the index that matches the given image.
 		@param image The image to match.
@@ -203,11 +203,11 @@ public:
 	virtual bool IsValueEqual(FCDEffectParameter *parameter);
 
 	/** Creates a full copy of the effect parameter.
-		@param clone The cloned effect parameter. If this pointer is NULL,
+		@param clone The cloned effect parameter. If this pointer is nullptr,
 			a new effect parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned effect parameter. */
-	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = NULL) const;
+	virtual FCDEffectParameter* Clone(FCDEffectParameter* clone = nullptr) const;
 
 	/** [INTERNAL] Overwrites the target parameter with this parameter.
 		This function is used during the flattening of materials.
@@ -223,7 +223,7 @@ public:
 	FCDFormatHint* AddFormatHint();
 
 	/** Retrieves the format hint of the surface parameter.
-		@return The format hint of the parameter. If this pointer is NULL,
+		@return The format hint of the parameter. If this pointer is nullptr,
 			no format hint is provided. */
 	inline FCDFormatHint* GetFormatHint() { return formatHint; }
 	inline const FCDFormatHint* GetFormatHint() const { return formatHint; }
@@ -316,7 +316,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::CUBE;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned surface initialization. */
@@ -359,7 +359,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::VOLUME;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned surface initialization. */
@@ -389,7 +389,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::FROM;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned surface initialization. */
@@ -424,7 +424,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::AS_NULL;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned surface initialization. */
@@ -450,7 +450,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::AS_TARGET;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The surface initialization parameter. You will need to delete this pointer. */
@@ -476,7 +476,7 @@ public:
 	virtual FCDEffectParameterSurfaceInitFactory::InitType GetInitType() const {return FCDEffectParameterSurfaceInitFactory::PLANAR;}
 
 	/** Creates a full copy of the surface initialization parameter.
-		@param clone The cloned surface initialization. If this pointer is NULL,
+		@param clone The cloned surface initialization. If this pointer is nullptr,
 			a new surface initialization parameter will be created and you
 			will need to delete this pointer.
 		@return The cloned surface initialization. */

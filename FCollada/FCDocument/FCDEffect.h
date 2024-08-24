@@ -77,9 +77,9 @@ public:
 
 	/** Retrieves a profile contained within the effect.
 		@param index The index of the profile.
-		@return The profile. This pointer will be NULL, if the given index is out-of-bounds. */
-	FCDEffectProfile* GetProfile(size_t index) { FUAssert(index < GetProfileCount(), return NULL); return profiles.at(index); }
-	const FCDEffectProfile* GetProfile(size_t index) const { FUAssert(index < GetProfileCount(), return NULL); return profiles.at(index); } /**< See above. */
+		@return The profile. This pointer will be nullptr, if the given index is out-of-bounds. */
+	FCDEffectProfile* GetProfile(size_t index) { FUAssert(index < GetProfileCount(), return nullptr); return profiles.at(index); }
+	const FCDEffectProfile* GetProfile(size_t index) const { FUAssert(index < GetProfileCount(), return nullptr); return profiles.at(index); } /**< See above. */
 
 	/** Retrieves the list of the profiles contained within the effect.
 		@return The list of effect profiles. */
@@ -89,7 +89,7 @@ public:
 		There should only be one profile of each type within an effect. This
 		function allows you to retrieve the profile for a given type.
 		@param type The profile type.
-		@return The first profile of this type. This pointer will be NULL if the effect
+		@return The first profile of this type. This pointer will be nullptr if the effect
 			does not have any profile of this type. */
 	const FCDEffectProfile* FindProfile(FUDaeProfileType::Type type) const;
 	inline FCDEffectProfile* FindProfile(FUDaeProfileType::Type type) { return const_cast<FCDEffectProfile*>(const_cast<const FCDEffect*>(this)->FindProfile(type)); } /**< See above. */
@@ -99,7 +99,7 @@ public:
 		function allows you to retrieve the profile for a given type.
 		@param type The profile type.
 		@param platform The profile platform.
-		@return The profile of this type. This pointer will be NULL if the effect
+		@return The profile of this type. This pointer will be nullptr if the effect
 			does not have any profile of this type. */
 	inline FCDEffectProfile* FindProfileByTypeAndPlatform(FUDaeProfileType::Type type, const fm::string& platform) { return const_cast<FCDEffectProfile*>(const_cast<const FCDEffect*>(this)->FindProfileByTypeAndPlatform(type, platform)); }
 	const FCDEffectProfile* FindProfileByTypeAndPlatform(FUDaeProfileType::Type type, const fm::string& platform) const; /**< See above. */
@@ -107,7 +107,7 @@ public:
 	/** Retrieves whether the effect contains a profile of the given type.
 		@param type The profile type.
 		@return Whether the effect has a profile of this type. */
-	inline bool HasProfile(FUDaeProfileType::Type type) const { return FindProfile(type) != NULL; }
+	inline bool HasProfile(FUDaeProfileType::Type type) const { return FindProfile(type) != nullptr; }
 
 	/** Creates a profile of the given type.
 		If a profile of this type already exists, it will be released, as
@@ -123,8 +123,8 @@ public:
 	/** Retrieves a given local effect parameter.
 		@param index An index.
 		@return The local effect parameter at the given index. */
-	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
-	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
+	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
+	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
 
 	/** Adds a local effect parameter to the local list.
 		@see FCDEffectParameter::Type
@@ -134,11 +134,11 @@ public:
 
 	/** Clones the effect object.
 		@param clone The clone object into which to copy the effect information.
-			If this pointer is NULL, a new effect will be created and your will
+			If this pointer is nullptr, a new effect will be created and your will
 			need to release the returned pointer.
 		@param cloneChildren Whether to recursively clone this entity's children.
 		@return The cloned effect object. You will must delete this pointer. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 	/** [INTERNAL] Flattens the effect, pushing all the common effect parameters
 		into to the effect technique level of abstraction. To correctly flatten a

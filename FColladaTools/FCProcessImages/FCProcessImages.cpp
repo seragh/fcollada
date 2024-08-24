@@ -87,8 +87,8 @@ int main(int argc, const char* argv[], char* envp[])
 		// on a COLLADA document.
 		FCDAssetContributor* contributor = document->GetAsset()->AddContributor();
 		const char* userName = getenv("USER");
-		if (userName == NULL) userName = getenv("USERNAME");
-		if (userName != NULL) contributor->SetAuthor(TO_FSTRING(userName));
+		if (userName == nullptr) userName = getenv("USERNAME");
+		if (userName != nullptr) contributor->SetAuthor(TO_FSTRING(userName));
 		contributor->SetSourceData(inputFilename);
 		char authoringTool[1024];
 		snprintf(authoringTool, 1024, "FCProcessImages sample for FCollada v%d.%02d", FCOLLADA_VERSION >> 16, FCOLLADA_VERSION & 0xFFFF);

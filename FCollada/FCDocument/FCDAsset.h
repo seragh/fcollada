@@ -96,8 +96,8 @@ public:
 	/** Retrieves a contributor tied to this asset.
 		@param index The index of the contributor.
 		@return The contributor at the given index. */
-	inline FCDAssetContributor* GetContributor(size_t index) { FUAssert(index < GetContributorCount(), return NULL); return contributors.at(index); }
-	inline const FCDAssetContributor* GetContributor(size_t index) const { FUAssert(index < GetContributorCount(), return NULL); return contributors.at(index); } /**< See above. */
+	inline FCDAssetContributor* GetContributor(size_t index) { FUAssert(index < GetContributorCount(), return nullptr); return contributors.at(index); }
+	inline const FCDAssetContributor* GetContributor(size_t index) const { FUAssert(index < GetContributorCount(), return nullptr); return contributors.at(index); } /**< See above. */
 
 	/** Inserts a new contributor to this asset.
 		@return An empty contributor structure. */
@@ -220,11 +220,11 @@ public:
 
 	/** Clones the asset structure into another asset structure.
 		@param clone The asset structure that will become the copy of this asset.
-			When this pointer is NULL, a new asset structure will be created.
+			When this pointer is nullptr, a new asset structure will be created.
 		@param cloneAllContributors Whether all the contributors of this asset
 			should be copied into the clone.
 		@return The clone. */
-	FCDAsset* Clone(FCDAsset* clone = NULL, bool cloneAllContributors = true) const;
+	FCDAsset* Clone(FCDAsset* clone = nullptr, bool cloneAllContributors = true) const;
 
 
 };
@@ -268,8 +268,8 @@ public:
 	/** Sets the name of the user that applies the current contributor.
 		It is suggested to use the following code snippet:
 			const char* userName = getenv("USER");
-			if (userName == NULL) userName = getenv("USERNAME");
-			if (userName != NULL) contributor->SetAuthor(TO_FSTRING(userName));
+			if (userName == nullptr) userName = getenv("USERNAME");
+			if (userName != nullptr) contributor->SetAuthor(TO_FSTRING(userName));
 		@param _author The name of the user. */
 	inline void SetAuthor(const fstring& _author) { author = _author; SetDirtyFlag(); }
 
@@ -319,10 +319,10 @@ public:
 
 	/** Clones a contributor structure.
 		@param clone The contributor structure that will become the copy
-			of this contributor structure. When this pointer is NULL,
+			of this contributor structure. When this pointer is nullptr,
 			a new contributor structure is created.
 		@return The clone. */
-	FCDAssetContributor* Clone(FCDAssetContributor* clone = NULL) const;
+	FCDAssetContributor* Clone(FCDAssetContributor* clone = nullptr) const;
 };
 
 #endif // _FCD_ASSET_H_

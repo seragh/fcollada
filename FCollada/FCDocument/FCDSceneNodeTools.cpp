@@ -34,7 +34,7 @@ namespace FCDSceneNodeTools
 		{
 			FCDTransform* transform = node->GetTransform(t);
 			FCDAnimated* animated = transform->GetAnimated();
-			if (animated != NULL)
+			if (animated != nullptr)
 			{
 				if (animated->HasCurve()) animateds.push_back(animated);
 

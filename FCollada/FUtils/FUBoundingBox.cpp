@@ -72,7 +72,7 @@ bool FUBoundingBox::Overlaps(const FUBoundingBox& boundingBox, FMVector3* overla
 	bool overlaps = minimum.x <= boundingBox.maximum.x && boundingBox.minimum.x <= maximum.x
 		&& minimum.y <= boundingBox.maximum.y && boundingBox.minimum.y <= maximum.y
 		&& minimum.z <= boundingBox.maximum.z && boundingBox.minimum.z <= maximum.z;
-	if (overlaps && overlapCenter != NULL)
+	if (overlaps && overlapCenter != nullptr)
 	{
 		float overlapMinX = max(minimum.x, boundingBox.minimum.x);
 		float overlapMaxX = min(maximum.x, boundingBox.maximum.x);

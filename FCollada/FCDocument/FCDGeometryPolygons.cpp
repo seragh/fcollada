@@ -46,12 +46,12 @@ FCDGeometryPolygons::FCDGeometryPolygons(FCDocument* document, FCDGeometryMesh* 
 FCDGeometryPolygons::~FCDGeometryPolygons()
 {
 	holeFaces.clear();
-	parent = NULL;
+	parent = nullptr;
 }
 
 FCDExtra* FCDGeometryPolygons::GetExtra()
 {
-	return (extra != NULL) ? extra : (extra = new FCDExtra(GetDocument(), this));
+	return (extra != nullptr) ? extra : (extra = new FCDExtra(GetDocument(), this));
 }
 
 // Creates a new face.
@@ -220,7 +220,7 @@ const FCDGeometryPolygonsInput* FCDGeometryPolygons::FindInput(FUDaeGeometryInpu
 	{
 		if ((*it)->GetSemantic() == semantic) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 const FCDGeometryPolygonsInput* FCDGeometryPolygons::FindInput(const FCDGeometrySource* source) const
@@ -229,7 +229,7 @@ const FCDGeometryPolygonsInput* FCDGeometryPolygons::FindInput(const FCDGeometry
 	{
 		if ((*it)->GetSource() == source) return (*it);
 	}
-	return NULL;
+	return nullptr;
 }
 
 FCDGeometryPolygonsInput* FCDGeometryPolygons::FindInput(const fm::string& sourceId)
@@ -242,7 +242,7 @@ FCDGeometryPolygonsInput* FCDGeometryPolygons::FindInput(const fm::string& sourc
 		FCDGeometryPolygonsInput* input = inputs[i];
 		if (input->GetSource()->GetDaeId() == s) return input;
 	}
-	return NULL;
+	return nullptr;
 }
 
 void FCDGeometryPolygons::FindInputs(FUDaeGeometryInput::Semantic semantic, FCDGeometryPolygonsInputConstList& _inputs) const
@@ -287,7 +287,7 @@ int32 FCDGeometryPolygons::TestPolyType() const
 // Clone this list of polygons
 FCDGeometryPolygons* FCDGeometryPolygons::Clone(FCDGeometryPolygons* clone, const FCDGeometrySourceCloneMap& cloneMap) const
 {
-	if (clone == NULL) return NULL;
+	if (clone == nullptr) return nullptr;
 
 	// Clone the miscellaneous information.
 	clone->materialSemantic = materialSemantic;
@@ -305,7 +305,7 @@ FCDGeometryPolygons* FCDGeometryPolygons::Clone(FCDGeometryPolygons* clone, cons
 	for (size_t i = 0; i < inputCount; ++i)
 	{
 		// Find the cloned source that correspond to the original input.
-		FCDGeometrySource* cloneSource = NULL;
+		FCDGeometrySource* cloneSource = nullptr;
 		FCDGeometrySourceCloneMap::const_iterator it = cloneMap.find(inputs[i]->GetSource());
 		if (it == cloneMap.end())
 		{
@@ -320,7 +320,7 @@ FCDGeometryPolygons* FCDGeometryPolygons::Clone(FCDGeometryPolygons* clone, cons
 
 		// Retrieve or create the input to clone.
 		FCDGeometryPolygonsInput* input = clone->FindInput(cloneSource);
-		if (input == NULL)
+		if (input == nullptr)
 		{
 			input = clone->AddInput(cloneSource, inputs[i]->GetOffset());
 		}

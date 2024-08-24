@@ -129,7 +129,7 @@ public:
 
 	/** Retrieves the convex hull of this mesh.
 		@return The convex hull geometry created using this mesh. This pointer will be
-			NULL if no convex hull was created using this mesh. */
+			nullptr if no convex hull was created using this mesh. */
 	inline FCDGeometryMesh* FindConvexHullOfMesh() { return const_cast<FCDGeometryMesh*>(const_cast<const FCDGeometryMesh*>(this)->FindConvexHullOfMesh()); }
 	const FCDGeometryMesh* FindConvexHullOfMesh() const; /**< See above. */
 
@@ -160,15 +160,15 @@ public:
 		or to assign partial texture coordinates and texture tangents to different parts of the mesh.
 		@param index The index of the polygon group. This index should be less than the number
 			of independent polygon groups returned by the GetPolygonsCount function.
-		@return The polygon group. This pointer will be NULL if the index is out-of-bounds. */
-	inline FCDGeometryPolygons* GetPolygons(size_t index) { FUAssert(index < GetPolygonsCount(), return NULL); return polygons.at(index); }
-	inline const FCDGeometryPolygons* GetPolygons(size_t index) const { FUAssert(index < GetPolygonsCount(), return NULL); return polygons.at(index); } /**< See above. */
+		@return The polygon group. This pointer will be nullptr if the index is out-of-bounds. */
+	inline FCDGeometryPolygons* GetPolygons(size_t index) { FUAssert(index < GetPolygonsCount(), return nullptr); return polygons.at(index); }
+	inline const FCDGeometryPolygons* GetPolygons(size_t index) const { FUAssert(index < GetPolygonsCount(), return nullptr); return polygons.at(index); } /**< See above. */
 
 	/** Creates a new polygon group.
 		Each polygon group is represented within a FCDGeometryPolygons object.
 		The new polygon group will be assigned all the existing per-vertex data sources.
 		No material will be assigned to the new polygon group.
-		@return The new polygon group. This pointer should never be NULL. */
+		@return The new polygon group. This pointer should never be nullptr. */
 	FCDGeometryPolygons* AddPolygons();
 
 	/** Retrieves if the mesh consists of only triangles.
@@ -198,16 +198,16 @@ public:
 		All the per-vertex data sources are also included in the list of data sources.
 		@param index The index of the per-vertex data source. This index should be less than the number of
 			per-vertex data sources returns by the GetVertexSourceCount function.
-		@return The per-vertex data source. This pointer will be NULL if the index is out-of-bounds. */
-	inline FCDGeometrySource* GetVertexSource(size_t index) { FUAssert(index < GetVertexSourceCount(), return NULL); return vertexSources.at(index); }
-	inline const FCDGeometrySource* GetVertexSource(size_t index) const { FUAssert(index < GetVertexSourceCount(), return NULL); return vertexSources.at(index); } /**< See above. */
+		@return The per-vertex data source. This pointer will be nullptr if the index is out-of-bounds. */
+	inline FCDGeometrySource* GetVertexSource(size_t index) { FUAssert(index < GetVertexSourceCount(), return nullptr); return vertexSources.at(index); }
+	inline const FCDGeometrySource* GetVertexSource(size_t index) const { FUAssert(index < GetVertexSourceCount(), return nullptr); return vertexSources.at(index); } /**< See above. */
 
 	/** Creates a new per-vertex data source for this geometric mesh.
 		The per-vertex data source will be added to both the per-vertex data source list and the data source list.
 		The new per-vertex data source will automatically be added to all the existing polygon groups.
 		@param type The type of data that will be contained within the source.
 			Defaults to UNKNOWN, so that you may provide the source type later.
-		@return The new per-vertex data source. This pointer should never be NULL. */
+		@return The new per-vertex data source. This pointer should never be nullptr. */
 	FCDGeometrySource* AddVertexSource(FUDaeGeometryInput::Semantic type = FUDaeGeometryInput::UNKNOWN);
 
 	/** Sets a source as per-vertex data.
@@ -226,20 +226,20 @@ public:
 
 	/** [INTERNAL] Retrieves the data source that matches the given COLLADA id.
 		@param id A valid COLLADA id.
-		@return The data source. This pointer will be NULL if no matching data source was found. */
+		@return The data source. This pointer will be nullptr if no matching data source was found. */
 	FCDGeometrySource* FindSourceById(const fm::string& id) { return const_cast<FCDGeometrySource*>(const_cast<const FCDGeometryMesh*>(this)->FindSourceById(id)); }
 	const FCDGeometrySource* FindSourceById(const fm::string& id) const; /**< See above. */
 
 	/** Retrieves the first data source that matches the given geometry data type.
 		@param type A geometry data type.
-		@return The first data source that matches the data type. This pointer will be NULL
+		@return The first data source that matches the data type. This pointer will be nullptr
 			if no matching data source was found. */
 	FCDGeometrySource* FindSourceByType(FUDaeGeometryInput::Semantic type) { return const_cast<FCDGeometrySource*>(const_cast<const FCDGeometryMesh*>(this)->FindSourceByType(type)); }
 	const FCDGeometrySource* FindSourceByType(FUDaeGeometryInput::Semantic type) const; /**< See above. */
 
 	/** Retrieves the first data source that matches the given name.
 		@param name A valid COLLADA name.
-		@return The first data source that matches the name. This pointer will be NULL
+		@return The first data source that matches the name. This pointer will be nullptr
 			if no matching data source was found. */
 	FCDGeometrySource* FindSourceByName(const fstring& name) { return const_cast<FCDGeometrySource*>(const_cast<const FCDGeometryMesh*>(this)->FindSourceByName(name)); }
 	const FCDGeometrySource* FindSourceByName(const fstring& name) const; /**< See above. */
@@ -254,7 +254,7 @@ public:
 	/** Retrieves the per-vertex data that specifically contains the vertex positions.
 		If there are more than one per-vertex data source that contains vertex positions, the first one is returned.
 		@deprecated Use FindSourceByType instead.
-		@return A per-vertex data source that contains vertex positions. This pointer will be NULL
+		@return A per-vertex data source that contains vertex positions. This pointer will be nullptr
 			in the unlikely possibility that there are no per-vertex data source that contains vertex positions. */
 	FCDGeometrySource* GetPositionSource() { return FindSourceByType(FUDaeGeometryInput::POSITION); }
 	const FCDGeometrySource* GetPositionSource() const { return FindSourceByType(FUDaeGeometryInput::POSITION); } /**< See above. */
@@ -271,23 +271,23 @@ public:
 	/** Retrieves a specific data source.
 		@param index The index of the data source. This index should be less than the number of
 			data sources returns by the GetSourceCount function.
-		@return The data source. This pointer will be NULL if the index is out-of-bounds. */
-	inline FCDGeometrySource* GetSource(size_t index) { FUAssert(index < GetSourceCount(), return NULL); return sources.at(index); }
-	inline const FCDGeometrySource* GetSource(size_t index) const { FUAssert(index < GetSourceCount(), return NULL); return sources.at(index); } /**< See above. */
+		@return The data source. This pointer will be nullptr if the index is out-of-bounds. */
+	inline FCDGeometrySource* GetSource(size_t index) { FUAssert(index < GetSourceCount(), return nullptr); return sources.at(index); }
+	inline const FCDGeometrySource* GetSource(size_t index) const { FUAssert(index < GetSourceCount(), return nullptr); return sources.at(index); } /**< See above. */
 
 	/** Creates a new data source for this geometric mesh.
 		The new data source will not be added to any of the existing polygon groups.
 		@param type The type of data that will be contained within the source.
 			Defaults to UNKNOWN, so that you may provide the source type later.
-		@return The new per-vertex data source. This pointer should never be NULL. */
+		@return The new per-vertex data source. This pointer should never be nullptr. */
 	FCDGeometrySource* AddSource(FUDaeGeometryInput::Semantic type = FUDaeGeometryInput::UNKNOWN);
 
 	/** Copies the mesh into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. If this pointer is NULL, a new mesh
+		@param clone The empty clone. If this pointer is nullptr, a new mesh
 			will be created and you will need to release the returned pointer manually.
 		@return The clone. */
-	FCDGeometryMesh* Clone(FCDGeometryMesh* clone = NULL) const;
+	FCDGeometryMesh* Clone(FCDGeometryMesh* clone = nullptr) const;
 
 	/** [INTERNAL] Forces the recalculation of the hole count, vertex count, face-vertex counts and their offsets.
 		Since the counts and offsets are buffered at the geometric mesh object level, this function allows the polygon

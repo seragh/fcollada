@@ -73,13 +73,13 @@ public:
 	float GetShapeMassFactor() const;
 
 	/** Copies the rigid body into a clone.
-		@param clone The empty clone. If this pointer is NULL, a new rigid
+		@param clone The empty clone. If this pointer is nullptr, a new rigid
 			body will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 };
 
 #endif // _FCD_PHYSICSRIGIDBODY_H_

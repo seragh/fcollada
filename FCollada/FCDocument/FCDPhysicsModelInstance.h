@@ -65,30 +65,30 @@ public:
 		index.
 		@param index The index.
 		@return The instance. */
-	FCDEntityInstance* GetInstance(size_t index) { FUAssert(index < GetInstanceCount(), return NULL); return instances.at(index); }
-	const FCDEntityInstance* GetInstance(size_t index) const { FUAssert(index < GetInstanceCount(), return NULL); return instances.at(index); } /**< See above. */
+	FCDEntityInstance* GetInstance(size_t index) { FUAssert(index < GetInstanceCount(), return nullptr); return instances.at(index); }
+	const FCDEntityInstance* GetInstance(size_t index) const { FUAssert(index < GetInstanceCount(), return nullptr); return instances.at(index); } /**< See above. */
 
 	/** Adds an instantiated rigid body to this physics model instance.
 		@param rigidBody The rigid body to be instanced in this physics model
-			instance. If this value is NULL, then there is no associated
+			instance. If this value is nullptr, then there is no associated
 			rigid body for the instance yet. It should be filled in.
 		@return The new rigid body instance. */
-	FCDPhysicsRigidBodyInstance* AddRigidBodyInstance(FCDPhysicsRigidBody* rigidBody = NULL);
+	FCDPhysicsRigidBodyInstance* AddRigidBodyInstance(FCDPhysicsRigidBody* rigidBody = nullptr);
 
 	/** Adds an instantiated rigid constraint to this physics model instance.
 		@param rigidConstraint The rigid constraint to be instanced in this
-			physics model instance. If this value is NULL, then there is no
+			physics model instance. If this value is nullptr, then there is no
 			associated rigid constraint for the instance yet. It should be
 			filled in.
 		@return The new rigid constraint instance. */
-	FCDPhysicsRigidConstraintInstance* AddRigidConstraintInstance(FCDPhysicsRigidConstraint* rigidConstraint = NULL);
+	FCDPhysicsRigidConstraintInstance* AddRigidConstraintInstance(FCDPhysicsRigidConstraint* rigidConstraint = nullptr);
 
 	/** Adds an instantiated force field to this physics model instance.
 		@param forceField The force field to be instanced in this physics model
-			instance. If this value is NULL, then there is no associated
+			instance. If this value is nullptr, then there is no associated
 			force field for the instance yet. It should be filled in.
 		@return The new force field instance. */
-	FCDPhysicsForceFieldInstance* AddForceFieldInstance(FCDForceField* forceField = NULL);
+	FCDPhysicsForceFieldInstance* AddForceFieldInstance(FCDForceField* forceField = nullptr);
 
 	/** Removes and deletes the instance from the model.
 		@param instance The instance to remove.
@@ -96,11 +96,11 @@ public:
 	DEPRECATED(3.05A, instance->Release() or SAFE_RELEASE(instance)) bool RemoveInstance(FCDEntityInstance* instance);
 
 	/** Copies the physics model instance into a clone.
-		@param clone The empty clone. If this pointer is NULL, a new physics
+		@param clone The empty clone. If this pointer is nullptr, a new physics
 			model instance will be created and you will need to release the
 			returned pointer manually.
 		@return The clone. */
-	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = NULL) const;
+	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = nullptr) const;
 
 	/** [INTERNAL] Cleans up the sub identifiers.
 		The sub identifiers must be unique with respect to its parent. This method corrects the sub ids if there are conflicts.

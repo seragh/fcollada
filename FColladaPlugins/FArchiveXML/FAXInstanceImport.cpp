@@ -36,7 +36,7 @@ bool FArchiveXML::LoadEntityInstance(FCDObject* object, xmlNode* instanceNode)
 
 	FUUri uri = ReadNodeUrl(instanceNode);
 	entityInstance->GetEntityReference()->SetUri(uri);
-	if (!entityInstance->IsExternalReference() && entityInstance->GetEntity() == NULL)
+	if (!entityInstance->IsExternalReference() && entityInstance->GetEntity() == nullptr)
 	{
 		FUError::Error(FUError::WARNING_LEVEL, FUError::WARNING_INST_ENTITY_MISSING, instanceNode->line);
 	}
@@ -86,9 +86,9 @@ bool FArchiveXML::LoadGeometryInstance(FCDObject* object, xmlNode* instanceNode)
 
 	// Look for the <bind_material> element. The others are discarded for now.
 	xmlNode* bindMaterialNode = FindChildByType(instanceNode, DAE_BINDMATERIAL_ELEMENT);
-	if (bindMaterialNode != NULL)
+	if (bindMaterialNode != nullptr)
 	{
-		for (xmlNode* child = bindMaterialNode->children; child != NULL; child = child->next)
+		for (xmlNode* child = bindMaterialNode->children; child != nullptr; child = child->next)
 		{
 			if (child->type != XML_ELEMENT_NODE) continue;
 
@@ -114,7 +114,7 @@ bool FArchiveXML::LoadGeometryInstance(FCDObject* object, xmlNode* instanceNode)
 	{
 		// Blinding attempt to use the material semantic from the polygons as a material id.
 		FCDGeometry* geometry = (FCDGeometry*) geometryInstance->GetEntity();
-		if (geometry != NULL && geometry->HasType(FCDGeometry::GetClassType()) && geometry->IsMesh())
+		if (geometry != nullptr && geometry->HasType(FCDGeometry::GetClassType()) && geometry->IsMesh())
 		{
 			FCDGeometryMesh* mesh = geometry->GetMesh();
 			size_t polyCount = mesh->GetPolygonsCount();
@@ -125,7 +125,7 @@ bool FArchiveXML::LoadGeometryInstance(FCDObject* object, xmlNode* instanceNode)
 				fm::string semanticUTF8 = TO_STRING(semantic);
 				semanticUTF8 = FCDObjectWithId::CleanId(semanticUTF8.c_str());
 				FCDMaterial* material = geometry->GetDocument()->FindMaterial(semanticUTF8);
-				if (material != NULL)
+				if (material != nullptr)
 				{
 					geometryInstance->AddMaterialInstance(material, polys);
 				}
@@ -202,7 +202,7 @@ bool FArchiveXML::LoadPhysicsForceFieldInstance(FCDObject* object, xmlNode* inst
 
 	bool status = true;
 	FCDPhysicsForceFieldInstance* physicsForceFieldInstance = (FCDPhysicsForceFieldInstance*)object;
-	if (physicsForceFieldInstance->GetEntity() == NULL && !physicsForceFieldInstance->IsExternalReference())
+	if (physicsForceFieldInstance->GetEntity() == nullptr && !physicsForceFieldInstance->IsExternalReference())
 	{
 		FUError::Error(FUError::ERROR_LEVEL, FUError::ERROR_INVALID_URI,
 				instanceNode->line);
@@ -229,7 +229,7 @@ bool FArchiveXML::LoadPhysicsModelInstance(FCDObject* object, xmlNode* instanceN
 	bool status = true;
 	FCDPhysicsModelInstance* physicsModelInstance = (FCDPhysicsModelInstance*)object;
 
-	if (physicsModelInstance->GetEntity() == NULL)
+	if (physicsModelInstance->GetEntity() == nullptr)
 	{
 		FUError::Error(FUError::ERROR_LEVEL, FUError::WARNING_MISSING_URI_TARGET, instanceNode->line);
 	}
@@ -249,7 +249,7 @@ bool FArchiveXML::LoadPhysicsModelInstance(FCDObject* object, xmlNode* instanceN
 	FindChildrenByType(instanceNode, DAE_INSTANCE_RIGID_BODY_ELEMENT, rigidBodyNodes);
 	for (xmlNodeList::iterator itB = rigidBodyNodes.begin(); itB != rigidBodyNodes.end(); ++itB)
 	{
-		FCDPhysicsRigidBodyInstance* instance = physicsModelInstance->AddRigidBodyInstance(NULL);
+		FCDPhysicsRigidBodyInstance* instance = physicsModelInstance->AddRigidBodyInstance(nullptr);
 		status &= (FArchiveXML::LoadPhysicsRigidBodyInstance(instance, *itB));
 	}
 
@@ -257,7 +257,7 @@ bool FArchiveXML::LoadPhysicsModelInstance(FCDObject* object, xmlNode* instanceN
 	FindChildrenByType(instanceNode, DAE_INSTANCE_RIGID_CONSTRAINT_ELEMENT, rigidConstraintNodes);
 	for (xmlNodeList::iterator itC = rigidConstraintNodes.begin(); itC != rigidConstraintNodes.end(); ++itC)
 	{
-		FCDPhysicsRigidConstraintInstance* instance = physicsModelInstance->AddRigidConstraintInstance(NULL);
+		FCDPhysicsRigidConstraintInstance* instance = physicsModelInstance->AddRigidConstraintInstance(nullptr);
 		status &= (FArchiveXML::LoadPhysicsRigidConstraintInstance(instance, *itC));
 	}
 
@@ -265,7 +265,7 @@ bool FArchiveXML::LoadPhysicsModelInstance(FCDObject* object, xmlNode* instanceN
 	FindChildrenByType(instanceNode, DAE_INSTANCE_FORCE_FIELD_ELEMENT, forceFieldNodes);
 	for (xmlNodeList::iterator itN = forceFieldNodes.begin(); itN != forceFieldNodes.end(); ++itN)
 	{
-		FCDPhysicsForceFieldInstance* instance = physicsModelInstance->AddForceFieldInstance(NULL);
+		FCDPhysicsForceFieldInstance* instance = physicsModelInstance->AddForceFieldInstance(nullptr);
 		status &= (FArchiveXML::LoadPhysicsForceFieldInstance(instance, *itN));
 	}
 
@@ -281,7 +281,7 @@ bool FArchiveXML::LoadPhysicsRigidBodyInstance(FCDObject* object, xmlNode* insta
 	FCDPhysicsRigidBodyInstance* physicsRigidBodyInstance = (FCDPhysicsRigidBodyInstance*)object;
 
 	// Check for the expected instantiation node type
-	if (!IsEquivalent(instanceNode->name, DAE_INSTANCE_RIGID_BODY_ELEMENT) || physicsRigidBodyInstance->GetModelParentInstance() == NULL)
+	if (!IsEquivalent(instanceNode->name, DAE_INSTANCE_RIGID_BODY_ELEMENT) || physicsRigidBodyInstance->GetModelParentInstance() == nullptr)
 	{
 		FUError::Error(FUError::ERROR_LEVEL, FUError::ERROR_UNKNOWN_ELEMENT, instanceNode->line);
 		status = false;
@@ -296,13 +296,13 @@ bool FArchiveXML::LoadPhysicsRigidBodyInstance(FCDObject* object, xmlNode* insta
 	}
 
 	// Find the instantiated rigid body
-	FCDPhysicsRigidBody* body = NULL;
+	FCDPhysicsRigidBody* body = nullptr;
 	fm::string physicsRigidBodySid = ReadNodeProperty(instanceNode, DAE_BODY_ATTRIBUTE);
-	if (physicsRigidBodyInstance->GetModelParentInstance()->GetEntity() != NULL &&  physicsRigidBodyInstance->GetModelParentInstance()->GetEntity()->GetType() == FCDEntity::PHYSICS_MODEL)
+	if (physicsRigidBodyInstance->GetModelParentInstance()->GetEntity() != nullptr &&  physicsRigidBodyInstance->GetModelParentInstance()->GetEntity()->GetType() == FCDEntity::PHYSICS_MODEL)
 	{
 		FCDPhysicsModel* model = (FCDPhysicsModel*) physicsRigidBodyInstance->GetModelParentInstance()->GetEntity();
 		body = model->FindRigidBodyFromSid(physicsRigidBodySid);
-		if (body == NULL)
+		if (body == nullptr)
 		{
 			FUError::Error(FUError::ERROR_LEVEL, FUError::WARNING_MISSING_URI_TARGET, instanceNode->line);
 			return false;
@@ -312,7 +312,7 @@ bool FArchiveXML::LoadPhysicsRigidBodyInstance(FCDObject* object, xmlNode* insta
 
 	//Read in the same children as rigid_body + velocity and angular_velocity
 	xmlNode* techniqueNode = FindChildByType(instanceNode, DAE_TECHNIQUE_COMMON_ELEMENT);
-	if (techniqueNode == NULL)
+	if (techniqueNode == nullptr)
 	{
 		FUError::Error(FUError::ERROR_LEVEL, FUError::ERROR_TECHNIQUE_NODE_MISSING,
 				instanceNode->line);
@@ -321,7 +321,7 @@ bool FArchiveXML::LoadPhysicsRigidBodyInstance(FCDObject* object, xmlNode* insta
 
 	xmlNode* param =
 			FindChildByType(techniqueNode, DAE_ANGULAR_VELOCITY_ELEMENT);
-	if (param != NULL)
+	if (param != nullptr)
 	{
 		physicsRigidBodyInstance->SetAngularVelocity(FUStringConversion::ToVector3(
 				ReadNodeContentDirect(param)));
@@ -332,7 +332,7 @@ bool FArchiveXML::LoadPhysicsRigidBodyInstance(FCDObject* object, xmlNode* insta
 	}
 
 	param = FindChildByType(techniqueNode, DAE_VELOCITY_ELEMENT);
-	if (param != NULL)
+	if (param != nullptr)
 	{
 		physicsRigidBodyInstance->SetVelocity(FUStringConversion::ToVector3(ReadNodeContentDirect(param)));
 	}
@@ -356,8 +356,8 @@ bool FArchiveXML::LoadPhysicsRigidConstraintInstance(FCDObject* object, xmlNode*
 
 	// Check for the expected instantiation node type
 	if (!IsEquivalent(instanceNode->name, DAE_INSTANCE_RIGID_CONSTRAINT_ELEMENT)
-		|| physicsRigidConstraintInstance->GetModelParentInstance() == NULL
-		|| physicsRigidConstraintInstance->GetModelParentInstance()->GetEntity() == NULL)
+		|| physicsRigidConstraintInstance->GetModelParentInstance() == nullptr
+		|| physicsRigidConstraintInstance->GetModelParentInstance()->GetEntity() == nullptr)
 	{
 		FUError::Error(FUError::ERROR_LEVEL, FUError::ERROR_UNKNOWN_ELEMENT, instanceNode->line);
 		status = false;
@@ -379,7 +379,7 @@ bool FArchiveXML::LoadPhysicsRigidConstraintInstance(FCDObject* object, xmlNode*
 bool FArchiveXML::LinkControllerInstance(FCDControllerInstance* controllerInstance)
 {
 	const FCDSkinController* skin =  FArchiveXML::FindSkinController(controllerInstance, controllerInstance->GetEntity());
-	if (skin == NULL) return true;
+	if (skin == nullptr) return true;
 	FCDSkinControllerData& data = FArchiveXML::documentLinkDataMap[skin->GetDocument()].skinControllerDataMap.find(const_cast<FCDSkinController*>(skin))->second;
 
 	// Look for each joint, by COLLADA id, within the scene graph
@@ -393,7 +393,7 @@ bool FArchiveXML::LinkControllerInstance(FCDControllerInstance* controllerInstan
 	for (size_t i = 0; i < jointCount; ++i)
 	{
 		const fm::string& jid = skin->GetJoint(i)->GetId();
-		FCDSceneNode* boneNode = NULL;
+		FCDSceneNode* boneNode = nullptr;
 
 		if (data.jointAreSids)
 		{
@@ -401,7 +401,7 @@ bool FArchiveXML::LinkControllerInstance(FCDControllerInstance* controllerInstan
 			for (size_t i = 0; i < numRoots; i++)
 			{
 				boneNode = (FCDSceneNode*)rootNodes[i]->FindSubId(jid);
-				if (boneNode != NULL) break;
+				if (boneNode != nullptr) break;
 			}
 		}
 		else
@@ -410,11 +410,11 @@ bool FArchiveXML::LinkControllerInstance(FCDControllerInstance* controllerInstan
 			for (size_t i = 0; i < numRoots; i++)
 			{
 				boneNode = (FCDSceneNode*)rootNodes[i]->FindDaeId(jid);
-				if (boneNode != NULL) break;
+				if (boneNode != nullptr) break;
 			}
 		}
 
-		if (boneNode != NULL)
+		if (boneNode != nullptr)
 		{
 			controllerInstance->AddJoint(boneNode);
 		}

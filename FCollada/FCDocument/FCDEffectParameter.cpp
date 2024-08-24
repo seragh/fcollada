@@ -63,17 +63,17 @@ void FCDEffectParameter::AddAnnotation(const fchar* name, FCDEffectParameter::Ty
 
 bool FCDEffectParameter::IsValueEqual(FCDEffectParameter* parameter)
 {
-	return (parameter != NULL && this->GetType() == parameter->GetType());
+	return (parameter != nullptr && this->GetType() == parameter->GetType());
 }
 
 // Clones the base parameter values
 FCDEffectParameter* FCDEffectParameter::Clone(FCDEffectParameter* clone) const
 {
-	if (clone == NULL)
+	if (clone == nullptr)
 	{
 		// Recursively call the cloning function in an attempt to clone the up-class parameters
 		clone = FCDEffectParameterFactory::Create(const_cast<FCDocument*>(GetDocument()), GetType());
-		return clone != NULL ? Clone(clone) : NULL;
+		return clone != nullptr ? Clone(clone) : nullptr;
 	}
 	else
 	{

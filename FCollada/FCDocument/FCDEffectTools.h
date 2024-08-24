@@ -82,7 +82,7 @@ namespace FCDEffectTools
 		@param semantic The effect parameter semantic to match.
 		@param localOnly Whether to search below this level of abstraction.
 		@return The first effect parameter that matches the semantic.
-			This pointer will be NULL if no effect parameter matches the given semantic. */
+			This pointer will be nullptr if no effect parameter matches the given semantic. */
 	FCOLLADA_EXPORT const FCDEffectParameter* FindEffectParameterBySemantic(const FCDMaterialInstance* materialInstance, const char* semantic, bool localOnly = false);
 	FCOLLADA_EXPORT inline FCDEffectParameter* FindEffectParameterBySemantic(FCDMaterialInstance* materialInstance, const char* semantic, bool localOnly = false) { return const_cast<FCDEffectParameter*>(FindEffectParameterBySemantic(const_cast<const FCDMaterialInstance*>(materialInstance), semantic, localOnly)); } /**< See above. */
 	FCOLLADA_EXPORT const FCDEffectParameter* FindEffectParameterBySemantic(const FCDGeometryInstance* geometryInstance, const char* semantic); /**< See above. */
@@ -103,7 +103,7 @@ namespace FCDEffectTools
 		@param materialInstance The material instance being considered.
 		@param reference The effect parameter reference to match.
 		@return The first effect parameter that matches the reference.
-			This pointer will be NULL if no effect parameter matches the given reference. */
+			This pointer will be nullptr if no effect parameter matches the given reference. */
 	FCOLLADA_EXPORT const FCDEffectParameter* FindEffectParameterByReference(const FCDMaterialInstance* materialInstance, const char* reference, bool localOnly = false);
 	FCOLLADA_EXPORT inline FCDEffectParameter* FindEffectParameterByReference(FCDMaterialInstance* materialInstance, const char* reference, bool localOnly = false) { return const_cast<FCDEffectParameter*>(FindEffectParameterByReference(const_cast<const FCDMaterialInstance*>(materialInstance), reference, localOnly)); } /**< See above. */
 	FCOLLADA_EXPORT const FCDEffectParameter* FindEffectParameterByReference(const FCDGeometryInstance* geometryInstance, const char* reference); /**< See above. */

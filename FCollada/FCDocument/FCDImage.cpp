@@ -51,13 +51,13 @@ void FCDImage::SetFilename(const fstring& _filename)
 // Copies the image entity into a clone.
 FCDEntity* FCDImage::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
-	FCDImage* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDImage(const_cast<FCDocument*>(GetDocument()));
+	FCDImage* clone = nullptr;
+	if (_clone == nullptr) _clone = clone = new FCDImage(const_cast<FCDocument*>(GetDocument()));
 	else if (_clone->HasType(FCDImage::GetClassType())) clone = (FCDImage*) _clone;
 
 	FCDEntity::Clone(_clone, cloneChildren);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 		clone->width = width;
 		clone->height = height;

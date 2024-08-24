@@ -58,11 +58,11 @@ namespace fm
 
 	public:
 		/** Default constructor. */
-		vector() : reserved(0), sized(0), heapBuffer(NULL) {}
+		vector() : reserved(0), sized(0), heapBuffer(nullptr) {}
 
 		/** Constructor. Builds a dynamically-sized array of the wanted size.
 			@param size The wanted size of the array. */
-		vector(size_t size) : reserved(0), sized(0), heapBuffer(NULL)
+		vector(size_t size) : reserved(0), sized(0), heapBuffer(nullptr)
 		{
 			resize(size);
 		}
@@ -70,14 +70,14 @@ namespace fm
 		/** Constructor. Builds a dynamically-sized array of the wanted size.
 			@param size The wanted size of the array
 			@param defaultValue The default value to use for all the entries of the array. */
-		vector(size_t size, const T& defaultValue) : reserved(0), sized(0), heapBuffer(NULL)
+		vector(size_t size, const T& defaultValue) : reserved(0), sized(0), heapBuffer(nullptr)
 		{
 			resize(size, defaultValue);
 		}
 
 		/** Copy constructor.
 			@param copy The dynamically-sized array to copy the values from. */
-		vector(const fm::vector<T>& copy) : reserved(0), sized(0), heapBuffer(NULL)
+		vector(const fm::vector<T>& copy) : reserved(0), sized(0), heapBuffer(nullptr)
 		{
 			insert(heapBuffer, copy.begin(), copy.size());
 		}
@@ -85,7 +85,7 @@ namespace fm
 		/** Constructor. Builds a dynamically-sized array from a constant-sized array.
 			@param values A constant-sized array of floating-point values.
 			@param count The size of the constant-sized array. */
-		vector(const T* values, size_t count) : reserved(0), sized(0), heapBuffer(NULL)
+		vector(const T* values, size_t count) : reserved(0), sized(0), heapBuffer(nullptr)
 		{
 			insert(heapBuffer, values, count);
 		}
@@ -100,7 +100,7 @@ namespace fm
 					heapBuffer[i].~T();
 				}
 			}
-			if (heapBuffer != NULL)
+			if (heapBuffer != nullptr)
 			{
 				fm::Release(heapBuffer);
 			}
@@ -341,10 +341,10 @@ namespace fm
 						}
 					}
 				}
-				else newValues = NULL;
+				else newValues = nullptr;
 
 				// Free the old buffer.
-				if (heapBuffer != NULL)
+				if (heapBuffer != nullptr)
 				{
 					fm::Release(heapBuffer);
 				}

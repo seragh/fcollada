@@ -23,7 +23,7 @@ FUTestBed::FUTestBed(const fchar* _filename, bool _isVerbose)
 
 bool FUTestBed::RunTestbed(FUTestSuite* headTestSuite)
 {
-	if (headTestSuite == NULL) return false;
+	if (headTestSuite == nullptr) return false;
 
 	testPassed = testFailed = 0;
 
@@ -41,7 +41,7 @@ bool FUTestBed::RunTestbed(FUTestSuite* headTestSuite)
 
 void FUTestBed::RunTestSuite(FUTestSuite* testSuite)
 {
-	if (testSuite == NULL) return;
+	if (testSuite == nullptr) return;
 
 	bool testSuiteDone = false;
 	testSuite->RunTest(*this, fileOut, testSuiteDone, (size_t) ~0);

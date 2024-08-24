@@ -26,7 +26,7 @@
 	fstring FUStringConversion::ToFString(const char* value)
 	{
 		FUStringBuilder builder;
-		if (value != NULL)
+		if (value != nullptr)
 		{
 			uint32 length = (uint32) strlen(value);
 			builder.reserve(length + 1);
@@ -49,7 +49,7 @@
 	fm::string FUStringConversion::ToString(const fchar* value)
 	{
 		FUSStringBuilder builder;
-		if (value != NULL)
+		if (value != nullptr)
 		{
 			uint32 length = (uint32) fstrlen(value);
 			builder.reserve(length + 1);

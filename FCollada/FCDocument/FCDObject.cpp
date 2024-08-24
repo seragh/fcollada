@@ -17,7 +17,7 @@ ImplementObjectType(FCDObject)
 
 FCDObject::FCDObject(FCDocument* _document)
 :	FUParameterizable(), document(_document)
-,	userHandle(NULL)
+,	userHandle(nullptr)
 {
 	SetDirtyFlag();
 }

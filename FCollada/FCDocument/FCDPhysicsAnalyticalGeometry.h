@@ -68,13 +68,13 @@ public:
 	virtual float CalculateVolume() const = 0;
 
 	/** Copies the analytical geometry into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 };
 
 /**
@@ -105,13 +105,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics box into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	FMVector3 halfExtents; /**< Half extents of the box in 3 dimensions. */
@@ -146,13 +146,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics plane into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	FMVector3 normal; /**< The normal for the plane. */
@@ -188,13 +188,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics sphere into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	float radius; /**< The radius of the sphere. */
@@ -229,13 +229,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics cylinder into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	float height; /**< The height of the cylinder. */
@@ -271,13 +271,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics capsule into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	float height; /**< The height of the capsule. */
@@ -313,13 +313,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics tapered capsule into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	//inherits all other attributes from Capsule
@@ -355,13 +355,13 @@ public:
 	virtual float CalculateVolume() const;
 
 	/** Copies the physics tapered cylinder into a clone.
-		@param clone The empty clone. If this pointer is NULL, a analytical
+		@param clone The empty clone. If this pointer is nullptr, a analytical
 			geometry will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 public:
 	//inherits all other attributes from Cylinder

@@ -65,7 +65,7 @@ public:
 		Instead, use the FCDEffectStandard::AddTexture function.
 		@param document The COLLADA document that owns this texture.
 		@param parent The standard effect that contains this texture. */
-	FCDTexture(FCDocument* document, FCDEffectStandard* parent = NULL);
+	FCDTexture(FCDocument* document, FCDEffectStandard* parent = nullptr);
 
 	/** Destructor. */
 	virtual ~FCDTexture();
@@ -75,7 +75,7 @@ public:
 	FCDEffectStandard* GetParent() const { return parent; }
 
 	/** Retrieves the image information for this texture.
-		@return The image. This pointer will be NULL if this texture is not yet
+		@return The image. This pointer will be nullptr if this texture is not yet
 			tied to a valid image. */
 	inline FCDImage* GetImage() { return const_cast<FCDImage*>(const_cast<const FCDTexture*>(this)->GetImage()); }
 	const FCDImage* GetImage() const; /**< See above. */
@@ -84,7 +84,7 @@ public:
 		This is a shortcut that generates the sampler/surface parameters
 		to access the given image.
 		@param image The image information. This pointer may be
-			NULL to disconnect an image. */
+			nullptr to disconnect an image. */
 	void SetImage(FCDImage* image);
 
 	/** Retrieves the surface sampler for this texture.
@@ -99,7 +99,7 @@ public:
 
 	/** Determines whether this texture targets a sampler.
 		@return Whether the texture targets a sampler. */
-	inline bool HasSampler() { return sampler != NULL; }
+	inline bool HasSampler() { return sampler != nullptr; }
 
 	/** Retrieves the texture coordinate set to use with this texture.
 		This information is duplicated from the material instance abstraction level.
@@ -113,10 +113,10 @@ public:
 	inline const FCDExtra* GetExtra() const { return extra; } /**< See above. */
 
 	/** Clones the texture.
-		@param clone The cloned texture. If this pointer is NULL,
+		@param clone The cloned texture. If this pointer is nullptr,
 			a new texture is created and you will need to release this new texture.
-		@return The cloned texture. This pointer will never be NULL. */
-	virtual FCDTexture* Clone(FCDTexture* clone = NULL) const;
+		@return The cloned texture. This pointer will never be nullptr. */
+	virtual FCDTexture* Clone(FCDTexture* clone = nullptr) const;
 };
 
 #endif // _FCD_TEXTURE_H_

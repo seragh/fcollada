@@ -30,13 +30,13 @@ FCDEmitter::~FCDEmitter()
 
 FCDEntity* FCDEmitter::Clone(FCDEntity* _clone, bool cloneChildren) const
 {
-	FCDEmitter* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDEmitter(const_cast<FCDocument*>(GetDocument()));
+	FCDEmitter* clone = nullptr;
+	if (_clone == nullptr) _clone = clone = new FCDEmitter(const_cast<FCDocument*>(GetDocument()));
 	else if (_clone->HasType(FCDEmitter::GetClassType())) clone = (FCDEmitter*) _clone;
 
 	Parent::Clone(_clone, cloneChildren);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 	}
 	return _clone;

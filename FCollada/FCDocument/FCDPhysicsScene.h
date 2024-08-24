@@ -81,8 +81,8 @@ public:
 		physics scene by index.
 		@param index The index of the physics model instance.
 		@return The physics model instance. */
-	FCDPhysicsModelInstance* GetPhysicsModelInstance(size_t index) { FUAssert(index < GetPhysicsModelInstancesCount(), return NULL); return physicsModelInstances.at(index); }
-	const FCDPhysicsModelInstance* GetPhysicsModelInstance(size_t index) const { FUAssert(index < GetPhysicsModelInstancesCount(), return NULL); return physicsModelInstances.at(index); } /**< See above. */
+	FCDPhysicsModelInstance* GetPhysicsModelInstance(size_t index) { FUAssert(index < GetPhysicsModelInstancesCount(), return nullptr); return physicsModelInstances.at(index); }
+	const FCDPhysicsModelInstance* GetPhysicsModelInstance(size_t index) const { FUAssert(index < GetPhysicsModelInstancesCount(), return nullptr); return physicsModelInstances.at(index); } /**< See above. */
 
 	/** Retrieves the physics force field instances that are a part of this
 		physics scene.
@@ -99,21 +99,21 @@ public:
 		tihs physics scene by index.
 		@param index The index of the physics force field instance.
 		@return The physics force field instance. */
-	FCDPhysicsForceFieldInstance* GetForceFieldInstance(size_t index) { FUAssert(index < GetForceFieldInstancesCount(), return NULL); return forceFieldInstances.at(index); }
-	const FCDPhysicsForceFieldInstance* GetForceFieldInstance(size_t index) const { FUAssert(index < GetForceFieldInstancesCount(), return NULL); return forceFieldInstances.at(index); } /**< See above. */
+	FCDPhysicsForceFieldInstance* GetForceFieldInstance(size_t index) { FUAssert(index < GetForceFieldInstancesCount(), return nullptr); return forceFieldInstances.at(index); }
+	const FCDPhysicsForceFieldInstance* GetForceFieldInstance(size_t index) const { FUAssert(index < GetForceFieldInstancesCount(), return nullptr); return forceFieldInstances.at(index); } /**< See above. */
 
 	/** Adds an instantiated physics model to this physics model.
 		@param model The physics model to be instanced in this physics model.
-			If this value is NULL, then there is no associated physics model
+			If this value is nullptr, then there is no associated physics model
 			for the instance yet. It should be filled in.
 		@return The new physics model instance. */
-	FCDPhysicsModelInstance* AddPhysicsModelInstance(FCDPhysicsModel* model = NULL);
+	FCDPhysicsModelInstance* AddPhysicsModelInstance(FCDPhysicsModel* model = nullptr);
 
 	/** Adds an instantiated force field to this physics model.
 		@param forceField The force field to be instanced in this physics
 			model.
 		@return The new force field instance. */
-	FCDPhysicsForceFieldInstance* AddForceFieldInstance(FCDForceField* forceField = NULL);
+	FCDPhysicsForceFieldInstance* AddForceFieldInstance(FCDForceField* forceField = nullptr);
 
 	/** Retrieves the gravity magnitude and direction as a 3 dimensional
 		vector.
@@ -133,13 +133,13 @@ public:
 	void SetTimestep(float _timestep) { timestep = _timestep; SetDirtyFlag(); }
 
 	/** Copies the physics scene into a clone.
-		@param clone The empty clone. If this pointer is NULL, a new physics
+		@param clone The empty clone. If this pointer is nullptr, a new physics
 			scene will be created and you will need to release the returned
 			pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's
 			children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 	/** [INTERNAL] Cleans up the sub identifiers.
 		The sub identifiers must be unique with respect to its parent.

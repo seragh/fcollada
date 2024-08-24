@@ -43,7 +43,7 @@ FCDEntityInstance::FCDEntityInstance(FCDocument* document, FCDSceneNode* _parent
 FCDEntityInstance::~FCDEntityInstance()
 {
 
-	if (entityReference != NULL)
+	if (entityReference != nullptr)
 	{
 		UntrackObject(entityReference);
 		SAFE_RELEASE(entityReference);
@@ -78,20 +78,20 @@ void FCDEntityInstance::SetName(const fstring& _name)
 
 FCDExtra* FCDEntityInstance::GetExtra()
 {
-	return (extra != NULL) ? extra : (extra = new FCDExtra(GetDocument(), this));
+	return (extra != nullptr) ? extra : (extra = new FCDExtra(GetDocument(), this));
 }
 
 bool FCDEntityInstance::IsExternalReference() const
 {
-	return entityReference->GetPlaceHolder() != NULL;
+	return entityReference->GetPlaceHolder() != nullptr;
 }
 
 /*
 void FCDEntityInstance::LoadExternalEntity(FCDocument* externalDocument, const fm::string& daeId)
 {
-	if (externalDocument == NULL || entity != NULL) return;
+	if (externalDocument == nullptr || entity != nullptr) return;
 
-	FCDEntity* instancedEntity = NULL;
+	FCDEntity* instancedEntity = nullptr;
 	switch (entityType)
 	{
 	case FCDEntity::ANIMATION: instancedEntity = (FCDEntity*) externalDocument->FindAnimation(daeId); break;
@@ -109,7 +109,7 @@ void FCDEntityInstance::LoadExternalEntity(FCDocument* externalDocument, const f
 	default: break;
 	}
 
-	if (instancedEntity != NULL)
+	if (instancedEntity != nullptr)
 	{
 		SetEntity(instancedEntity);
 	}
@@ -117,8 +117,8 @@ void FCDEntityInstance::LoadExternalEntity(FCDocument* externalDocument, const f
 */
 bool FCDEntityInstance::HasForParent(FCDSceneNode* node) const
 {
-	if (node == NULL) return false;
-	if (parent == NULL) return false;
+	if (node == nullptr) return false;
+	if (parent == nullptr) return false;
 	FCDSceneNodeList parentStack;
 	parentStack.push_back(parent);
 	while (!parentStack.empty())
@@ -136,7 +136,7 @@ bool FCDEntityInstance::HasForParent(FCDSceneNode* node) const
 
 void FCDEntityInstance::CleanSubId(FUSUniqueStringMap* parentStringMap)
 {
-	if (!wantedSubId->empty() && (parentStringMap != NULL))
+	if (!wantedSubId->empty() && (parentStringMap != nullptr))
 	{
 		parentStringMap->insert(wantedSubId);
 	}
@@ -144,7 +144,7 @@ void FCDEntityInstance::CleanSubId(FUSUniqueStringMap* parentStringMap)
 
 FCDEntityInstance* FCDEntityInstance::Clone(FCDEntityInstance* clone) const
 {
-	if (clone == NULL)
+	if (clone == nullptr)
 	{
 		clone = new FCDEntityInstance(const_cast<FCDocument*>(GetDocument()), const_cast<FCDSceneNode*>(parent), entityType);
 	}
@@ -156,7 +156,7 @@ FCDEntityInstance* FCDEntityInstance::Clone(FCDEntityInstance* clone) const
 void FCDEntityInstance::OnObjectReleased(FUTrackable* object)
 {
 	FUAssert(object == entityReference, return);
-	entityReference = NULL;
+	entityReference = nullptr;
 	Release();
 }
 
@@ -188,7 +188,7 @@ FCDEntityInstance* FCDEntityInstanceFactory::CreateInstance(FCDocument* document
 
 FCDEntityInstance* FCDEntityInstanceFactory::CreateInstance(FCDocument* document, FCDSceneNode* parent, FCDEntity* entity)
 {
-	FUAssert(entity != NULL, return NULL);
+	FUAssert(entity != nullptr, return nullptr);
 
 	FCDEntityInstance* instance = CreateInstance(document, parent, entity->GetType());
 	instance->SetEntity(entity);

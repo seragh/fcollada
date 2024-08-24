@@ -79,7 +79,7 @@ public:
 
 	/** Retrieves the effect instantiated for this material.
 		The parameters of the effect may be overwritten by this material.
-		@return The instantiated effect. This pointer will be NULL if the material has no rendering. */
+		@return The instantiated effect. This pointer will be nullptr if the material has no rendering. */
 	FCDEffect* GetEffect() { return const_cast<FCDEffect*>(const_cast<const FCDMaterial*>(this)->GetEffect()); }
 	const FCDEffect* GetEffect() const; /**< See above. */
 
@@ -106,8 +106,8 @@ public:
 	/** Retrieves a given local effect parameter.
 		@param index An index.
 		@return The local effect parameter at the given index. */
-	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
-	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return NULL); return parameters.at(index); }
+	inline FCDEffectParameter* GetEffectParameter(size_t index) { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
+	inline const FCDEffectParameter* GetEffectParameter(size_t index) const { FUAssert(index < parameters.size(), return nullptr); return parameters.at(index); }
 
 	/** Adds a local effect parameter to the local list.
 		@see FCDEffectParameter::Type
@@ -117,11 +117,11 @@ public:
 
 	/** Clones the material object.
 		Everything is cloned, including the effect parameters.
-		@param clone The material clone. If this pointer is NULL, a new material object
+		@param clone The material clone. If this pointer is nullptr, a new material object
 			will be created and you will need to release the returned pointer.
 		@param cloneChildren Whether to recursively clone this entity's children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 	/** [INTERNAL] Flattens the material, pushing all the effect parameter overrides
 		into the effect parameter generators and moving all the parameters to the

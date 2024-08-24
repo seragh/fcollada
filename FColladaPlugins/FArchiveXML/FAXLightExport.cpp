@@ -101,6 +101,6 @@ xmlNode* FArchiveXML::WriteLight(FCDObject* object, xmlNode* parentNode)
 	// Export the <extra> elements and release the temporarily-added parameters/technique
 	FArchiveXML::WriteTargetedEntityExtra(light, lightNode);
 	CLEAR_POINTER_VECTOR(extraParameterNodes);
-	if (techniqueNode != NULL && techniqueNode->GetChildNodeCount() == 0) SAFE_RELEASE(techniqueNode);
+	if (techniqueNode != nullptr && techniqueNode->GetChildNodeCount() == 0) SAFE_RELEASE(techniqueNode);
 	return lightNode;
 }

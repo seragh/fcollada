@@ -32,13 +32,13 @@ FCDControllerInstance::~FCDControllerInstance()
 
 FCDEntityInstance* FCDControllerInstance::Clone(FCDEntityInstance* _clone) const
 {
-	FCDControllerInstance* clone = NULL;
-	if (_clone == NULL) _clone = clone = new FCDControllerInstance(const_cast<FCDocument*>(GetDocument()), NULL, GetEntityType());
+	FCDControllerInstance* clone = nullptr;
+	if (_clone == nullptr) _clone = clone = new FCDControllerInstance(const_cast<FCDocument*>(GetDocument()), nullptr, GetEntityType());
 	else if (_clone->HasType(FCDControllerInstance::GetClassType())) clone = (FCDControllerInstance*) _clone;
 
 	Parent::Clone(_clone);
 
-	if (clone != NULL)
+	if (clone != nullptr)
 	{
 		// Clone the URI list.
 		clone->skeletonRoots = skeletonRoots;
@@ -57,7 +57,7 @@ void FCDControllerInstance::CalculateRootIds()
 	for (const FCDSceneNode* const* itJ = joints.begin(); itJ != joints.end(); ++itJ)
 	{
 		const FCDSceneNode* joint = (*itJ);
-		if (joint == NULL) continue;
+		if (joint == nullptr) continue;
 
 		bool addToList = true;
 		size_t parentCount = joint->GetParentCount();
@@ -82,7 +82,7 @@ void FCDControllerInstance::CalculateRootIds()
 
 bool FCDControllerInstance::AddJoint(FCDSceneNode* j)
 {
-	if (j != NULL)
+	if (j != nullptr)
 	{
 		j->SetJointFlag(true);
 		AppendJoint(j);
@@ -115,7 +115,7 @@ void FCDControllerInstance::AppendJoint(FCDSceneNode* j)
 
 const FCDSkinController* FCDControllerInstance::FindSkin(const FCDEntity* entity) const
 {
-	if (entity != NULL && entity->GetType() == FCDEntity::CONTROLLER)
+	if (entity != nullptr && entity->GetType() == FCDEntity::CONTROLLER)
 	{
 		const FCDController* controller = (const FCDController*) entity;
 
@@ -125,7 +125,7 @@ const FCDSkinController* FCDControllerInstance::FindSkin(const FCDEntity* entity
 		}
 		else return FindSkin(controller->GetBaseTarget());
 	}
-	return NULL;
+	return nullptr;
 }
 
 void FCDControllerInstance::FindSkeletonNodes(FCDSceneNodeList& skeletonNodes) const
@@ -136,7 +136,7 @@ void FCDControllerInstance::FindSkeletonNodes(FCDSceneNodeList& skeletonNodes) c
 	for (size_t i = 0; i < numRoots; ++i)
 	{
 		const FCDSceneNode* aRoot = document->FindSceneNode(TO_STRING(skeletonRoots[i].GetFragment()).c_str());
-		if (aRoot == NULL)
+		if (aRoot == nullptr)
 		{
 			FUError::Error(FUError::WARNING_LEVEL, FUError::WARNING_UNKNOWN_JOINT, 0);
 		}

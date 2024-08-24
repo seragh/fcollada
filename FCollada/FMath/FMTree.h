@@ -82,7 +82,7 @@ namespace fm
 			pair data;
 
 		public:
-			node() : left(NULL), right(NULL), parent(NULL), weight(0) {}
+			node() : left(nullptr), right(nullptr), parent(nullptr), weight(0) {}
 
 			void rotateLeft()
 			{
@@ -94,7 +94,7 @@ namespace fm
 				// detach right's left and attach to the parent's right.
 				node* right_left = right->left;
 				right = right_left;
-				if (right_left != NULL) right_left->parent = this;
+				if (right_left != nullptr) right_left->parent = this;
 
 				// attach the right to the double parent.
 				oldRight->left = this;
@@ -119,7 +119,7 @@ namespace fm
 				// detach left's right and attach to the parent's left.
 				node* left_right = left->right;
 				left = left_right;
-				if (left_right != NULL) left_right->parent = this;
+				if (left_right != nullptr) left_right->parent = this;
 
 				// attach the parent on the left's right.
 				oldLeft->right = this;
@@ -137,17 +137,17 @@ namespace fm
 #ifdef TREE_DEBUG
 			intptr_t depth() const
 			{
-				intptr_t leftDepth = left != NULL ? left->depth() : 0;
-				intptr_t rightDepth = right != NULL ? right->depth() : 0;
+				intptr_t leftDepth = left != nullptr ? left->depth() : 0;
+				intptr_t rightDepth = right != nullptr ? right->depth() : 0;
 				return max(leftDepth, rightDepth) + 1;
 			}
 
 			void is_correct()
 			{
-				if (left != NULL) left->is_correct();
-				if (right != NULL) right->is_correct();
-				intptr_t leftDepth = left != NULL ? left->depth() : 0;
-				intptr_t rightDepth = right != NULL ? right->depth() : 0;
+				if (left != nullptr) left->is_correct();
+				if (right != nullptr) right->is_correct();
+				intptr_t leftDepth = left != nullptr ? left->depth() : 0;
+				intptr_t rightDepth = right != nullptr ? right->depth() : 0;
 				FUAssert(rightDepth - leftDepth == weight,);
 				FUAssert(abs(weight) < 2,);
 			}
@@ -194,7 +194,7 @@ namespace fm
 			iterator& operator++()
 			{
 				// Go one right or one up.
-				if (currentNode->right == NULL)
+				if (currentNode->right == nullptr)
 				{
 					node* oldNode;
 					do
@@ -202,11 +202,11 @@ namespace fm
 						oldNode = currentNode;
 
 						// Go one up.
-						// We control the root node, which is the only with parent == NULL.
+						// We control the root node, which is the only with parent == nullptr.
 						// if you crash here, you don't check for iterator == end() correctly.
 						currentNode = currentNode->parent;
 					}
-					while (currentNode->right == oldNode && currentNode->parent != NULL);
+					while (currentNode->right == oldNode && currentNode->parent != nullptr);
 				}
 				else
 				{
@@ -214,7 +214,7 @@ namespace fm
 					currentNode = currentNode->right;
 
 					// Go all the way left.
-					while (currentNode->left != NULL) currentNode = currentNode->left;
+					while (currentNode->left != nullptr) currentNode = currentNode->left;
 				}
 				return (*this);
 			}
@@ -224,7 +224,7 @@ namespace fm
 			iterator& operator--()
 			{
 				// Go one left or one up.
-				if (currentNode->left == NULL)
+				if (currentNode->left == nullptr)
 				{
 					node* oldNode;
 					do
@@ -232,11 +232,11 @@ namespace fm
 						oldNode = currentNode;
 
 						// Go one up.
-						// We control the root node, which is the only with parent == NULL.
+						// We control the root node, which is the only with parent == nullptr.
 						// if you crash here, you don't check for iterator == begin() correctly.
 						currentNode = currentNode->parent;
 					}
-					while (currentNode->left == oldNode && currentNode->parent != NULL);
+					while (currentNode->left == oldNode && currentNode->parent != nullptr);
 				}
 				else
 				{
@@ -244,7 +244,7 @@ namespace fm
 					currentNode = currentNode->left;
 
 					// Go all the way right.
-					while (currentNode->right != NULL) currentNode = currentNode->right;
+					while (currentNode->right != nullptr) currentNode = currentNode->right;
 				}
 				return (*this);
 			}
@@ -295,7 +295,7 @@ namespace fm
 			const_iterator& operator++()
 			{
 				// Go one right or one up.
-				if (currentNode->right == NULL)
+				if (currentNode->right == nullptr)
 				{
 					const node* oldNode;
 					do
@@ -303,11 +303,11 @@ namespace fm
 						oldNode = currentNode;
 
 						// Go one up.
-						// We control the root node, which is the only with parent == NULL.
+						// We control the root node, which is the only with parent == nullptr.
 						// if you crash here, you don't check for iterator == end() correctly.
 						currentNode = currentNode->parent;
 					}
-					while (currentNode->right == oldNode && currentNode->parent != NULL);
+					while (currentNode->right == oldNode && currentNode->parent != nullptr);
 				}
 				else
 				{
@@ -315,7 +315,7 @@ namespace fm
 					currentNode = currentNode->right;
 
 					// Go all the way left.
-					while (currentNode->left != NULL) currentNode = currentNode->left;
+					while (currentNode->left != nullptr) currentNode = currentNode->left;
 				}
 				return (*this);
 			}
@@ -325,7 +325,7 @@ namespace fm
 			const_iterator& operator--()
 			{
 				// Go one left or one up.
-				if (currentNode->left == NULL)
+				if (currentNode->left == nullptr)
 				{
 					const node* oldNode;
 					do
@@ -333,11 +333,11 @@ namespace fm
 						oldNode = currentNode;
 
 						// Go one up.
-						// We control the root node, which is the only with parent == NULL.
+						// We control the root node, which is the only with parent == nullptr.
 						// if you crash here, you don't check for iterator == end() correctly.
 						currentNode = currentNode->parent;
 					}
-					while (currentNode->left == oldNode && currentNode->parent != NULL);
+					while (currentNode->left == oldNode && currentNode->parent != nullptr);
 				}
 				else
 				{
@@ -345,7 +345,7 @@ namespace fm
 					currentNode = currentNode->left;
 
 					// Go all the way right.
-					while (currentNode->right != NULL) currentNode = currentNode->right;
+					while (currentNode->right != nullptr) currentNode = currentNode->right;
 				}
 				return (*this);
 			}
@@ -362,7 +362,7 @@ namespace fm
 
 	public:
 		/** Constructor. */
-		tree() : root(NULL), sized(0)
+		tree() : root(nullptr), sized(0)
 		{
 			root = (node*) fm::Allocate(sizeof(node));
 			fm::Construct(root);
@@ -375,13 +375,13 @@ namespace fm
 			root->data.first.~KEY();
 			root->data.second.~DATA();
 			fm::Release(root);
-			root = NULL;
+			root = nullptr;
 		}
 
 		/** Retrieves the first ordered element within the tree.
 			@return An iterator that points to the first tree element. */
-		inline iterator begin() { iterator it(root); return (root->right == NULL) ? it : ++it; }
-		inline const_iterator begin() const { const_iterator it(root); return (root->right == NULL) ? it : ++it; } /**< See above. */
+		inline iterator begin() { iterator it(root); return (root->right == nullptr) ? it : ++it; }
+		inline const_iterator begin() const { const_iterator it(root); return (root->right == nullptr) ? it : ++it; } /**< See above. */
 
 		/** Retrieves an iterator that points just passed the last
 			ordered element within the tree.
@@ -391,8 +391,8 @@ namespace fm
 
 		/** Retrieves the last ordered element within the tree.
 			@return An iterator that points to the last tree element. */
-		inline iterator last() { node* n = root; while (n->right != NULL) n = n->right; return iterator(n); }
-		inline const_iterator last() const { const node* n = root; while (n->right != NULL) n = n->right; return const_iterator(n); } /**< See above. */
+		inline iterator last() { node* n = root; while (n->right != nullptr) n = n->right; return iterator(n); }
+		inline const_iterator last() const { const node* n = root; while (n->right != nullptr) n = n->right; return const_iterator(n); } /**< See above. */
 
 		/** Retrieves an existing data element using its key.
 			@param key The key.
@@ -403,7 +403,7 @@ namespace fm
 		iterator find(const KEY& key)
 		{
 			node* out = root->right;
-			while (out != NULL)
+			while (out != nullptr)
 			{
 				if (key < out->data.first) out = out->left;
 				else if (key == out->data.first) return iterator(out);
@@ -423,7 +423,7 @@ namespace fm
 		{
 			// First step: look for an already existing entry.
 			node** insertAt = &root->right,* parent = root;
-			while (*insertAt != NULL)
+			while (*insertAt != nullptr)
 			{
 				parent = *insertAt;
 				if (key < parent->data.first) insertAt = &parent->left;
@@ -507,19 +507,19 @@ namespace fm
 			if (n != root)
 			{
 				node* release;
-				if (n->left == NULL && n->right == NULL) release = n;
+				if (n->left == nullptr && n->right == nullptr) release = n;
 				else
 				{
 					// choose whether to reduce on the left or right.
-					if (n->weight <= 0 && n->left != NULL)
+					if (n->weight <= 0 && n->left != nullptr)
 					{
 						// take out the left's rightmost node.
 						release = n->left;
-						while (release->right != NULL) release = release->right;
+						while (release->right != nullptr) release = release->right;
 						n->data = release->data;
 
 						// push up any left node on the rightmost node.
-						if (release->left != NULL)
+						if (release->left != nullptr)
 						{
 							release->data = release->left->data;
 							release = release->left;
@@ -529,11 +529,11 @@ namespace fm
 					{
 						// take out the right's leftmost node.
 						release = n->right;
-						while (release->left != NULL) release = release->left;
+						while (release->left != nullptr) release = release->left;
 						n->data = release->data;
 
 						// push up any right node on the leftmost node.
-						if (release->right != NULL)
+						if (release->right != nullptr)
 						{
 							release->data = release->right->data;
 							release = release->right;
@@ -543,8 +543,8 @@ namespace fm
 
 				// Release the selected node and re-adjust its parent's weight.
 				node* rebalance = release->parent;
-				if (rebalance->left == release) { rebalance->left = NULL; ++rebalance->weight; }
-				else { rebalance->right = NULL; --rebalance->weight; }
+				if (rebalance->left == release) { rebalance->left = nullptr; ++rebalance->weight; }
+				else { rebalance->right = nullptr; --rebalance->weight; }
 				release->data.first.~KEY();
 				release->data.second.~DATA();
 				fm::Release(release);
@@ -576,7 +576,7 @@ namespace fm
 			}
 
 #ifdef TREE_DEBUG
-			if (root->right != NULL) root->right->is_correct();
+			if (root->right != nullptr) root->right->is_correct();
 #endif // TREE_DEBUG
 		}
 
@@ -593,27 +593,27 @@ namespace fm
 		void clear()
 		{
 			// Need to delete all the nodes.
-			if (root->right != NULL)
+			if (root->right != nullptr)
 			{
 				node* n = root->right;
 				while (n != root)
 				{
-					if (n->left != NULL) n = n->left;
-					else if (n->right != NULL) n = n->right;
+					if (n->left != nullptr) n = n->left;
+					else if (n->right != nullptr) n = n->right;
 					else
 					{
 						// destroy this node.
 						node* release = n;
 						n = n->parent;
-						if (n->left == release) n->left = NULL;
-						else if (n->right == release) n->right = NULL;
+						if (n->left == release) n->left = nullptr;
+						else if (n->right == release) n->right = nullptr;
 						release->data.first.~KEY();
 						release->data.second.~DATA();
 						fm::Release(release);
 						--sized;
 					}
 				}
-				root->right = NULL;
+				root->right = nullptr;
 			}
 		}
 
@@ -629,11 +629,11 @@ namespace fm
 			// Go one right or one up.
 			node* currentNode = copy.root;
 			node* cloneNode = root;
-			if (currentNode->right != NULL)
+			if (currentNode->right != nullptr)
 			{
 				do
 				{
-					if (currentNode->right == NULL)
+					if (currentNode->right == nullptr)
 					{
 						const node* oldNode;
 						do
@@ -641,12 +641,12 @@ namespace fm
 							oldNode = currentNode;
 
 							// Go one up.
-							// We control the root node, which is the only with parent == NULL.
+							// We control the root node, which is the only with parent == nullptr.
 							// if you crash here, you don't check for iterator == end() correctly.
 							currentNode = currentNode->parent;
 							cloneNode = cloneNode->parent;
 						}
-						while (currentNode->right == oldNode && currentNode->parent != NULL);
+						while (currentNode->right == oldNode && currentNode->parent != nullptr);
 					}
 					else
 					{
@@ -663,7 +663,7 @@ namespace fm
 						cloneNode = cloneNode->right;
 
 						// Create and go one all the way left.
-						while (currentNode->left != NULL)
+						while (currentNode->left != nullptr)
 						{
 							currentNode = currentNode->left;
 

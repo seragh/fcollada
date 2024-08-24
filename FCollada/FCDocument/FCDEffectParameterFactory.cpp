@@ -15,7 +15,7 @@
 // Creates a new effect parameter, given a type.
 FCDEffectParameter* FCDEffectParameterFactory::Create(FCDocument* document, uint32 type)
 {
-	FCDEffectParameter* parameter = NULL;
+	FCDEffectParameter* parameter = nullptr;
 
 	switch (type)
 	{

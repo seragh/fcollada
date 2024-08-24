@@ -31,12 +31,12 @@ FCDAnimationChannel::FCDAnimationChannel(FCDocument* document, FCDAnimation* _pa
 
 FCDAnimationChannel::~FCDAnimationChannel()
 {
-	parent = NULL;
+	parent = nullptr;
 }
 
 FCDAnimationChannel* FCDAnimationChannel::Clone(FCDAnimationChannel* clone) const
 {
-	if (clone == NULL) clone = new FCDAnimationChannel(const_cast<FCDocument*>(GetDocument()), NULL);
+	if (clone == nullptr) clone = new FCDAnimationChannel(const_cast<FCDocument*>(GetDocument()), nullptr);
 
 	// Clone the curves
 	for (const FCDAnimationCurve** it = curves.begin(); it != curves.end(); ++it)

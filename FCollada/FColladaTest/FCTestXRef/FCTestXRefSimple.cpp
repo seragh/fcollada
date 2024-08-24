@@ -40,14 +40,14 @@ TESTSUITE_TEST(1, ReimportSceneNode)
 	PassIf(FCollada::LoadDocumentFromFile(doc1, FC("XRefDoc1.dae")));
 	FailIf(!errorHandler.IsSuccessful());
 	FCDSceneNode* visualScene = doc1->GetVisualSceneInstance();
-	FailIf(visualScene == NULL || visualScene->GetChildrenCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetChildrenCount() == 0);
 	visualScene = visualScene->GetChild(0);
-	FailIf(visualScene == NULL || visualScene->GetInstanceCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetInstanceCount() == 0);
 	FCDEntityInstance* instance = visualScene->GetInstance(0);
-	FailIf(instance == NULL);
+	FailIf(instance == nullptr);
 	PassIf(instance->GetEntityType() == FCDEntity::LIGHT);
 	FCDLight* light = (FCDLight*) instance->GetEntity();
-	FailIf(light == NULL);
+	FailIf(light == nullptr);
 	PassIf(light->GetLightType() == FCDLight::AMBIENT);
 	PassIf(IsEquivalent(light->GetColor(), FMVector3::XAxis));
 	SAFE_RELEASE(doc1);
@@ -64,14 +64,14 @@ TESTSUITE_TEST(2, ReimportBothEasyOrder)
 	FailIf(!errorHandler.IsSuccessful());
 
 	FCDSceneNode* visualScene = doc1->GetVisualSceneInstance();
-	FailIf(visualScene == NULL || visualScene->GetChildrenCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetChildrenCount() == 0);
 	visualScene = visualScene->GetChild(0);
-	FailIf(visualScene == NULL || visualScene->GetInstanceCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetInstanceCount() == 0);
 	FCDEntityInstance* instance = visualScene->GetInstance(0);
-	FailIf(instance == NULL);
+	FailIf(instance == nullptr);
 	PassIf(instance->GetEntityType() == FCDEntity::LIGHT);
 	FCDLight* light = (FCDLight*) instance->GetEntity();
-	FailIf(light == NULL);
+	FailIf(light == nullptr);
 	PassIf(light->GetLightType() == FCDLight::AMBIENT);
 	PassIf(IsEquivalent(light->GetColor(), FMVector3::XAxis));
 	SAFE_RELEASE(doc1);
@@ -81,21 +81,21 @@ TESTSUITE_TEST(3, ReimportBothHardOrder)
 	FUErrorSimpleHandler errorHandler;
 
 	// Import the scene node document only, first.
-	// And verify that the instance is created, but NULL.
+	// And verify that the instance is created, but nullptr.
 	PassIf(FCollada::GetTopDocumentCount() == 0);
 	FCollada::SetDereferenceFlag(false);
 	FCDocument* doc1 = FCollada::NewTopDocument();
 	PassIf(FCollada::LoadDocumentFromFile(doc1, FC("XRefDoc1.dae")));
 	PassIf(errorHandler.IsSuccessful());
 	FCDSceneNode* visualScene = doc1->GetVisualSceneInstance();
-	FailIf(visualScene == NULL || visualScene->GetChildrenCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetChildrenCount() == 0);
 	visualScene = visualScene->GetChild(0);
-	FailIf(visualScene == NULL || visualScene->GetInstanceCount() == 0);
+	FailIf(visualScene == nullptr || visualScene->GetInstanceCount() == 0);
 	FCDEntityInstance* instance = visualScene->GetInstance(0);
-	FailIf(instance == NULL);
+	FailIf(instance == nullptr);
 	PassIf(instance->GetEntityType() == FCDEntity::LIGHT);
 	FCDLight* light = (FCDLight*) instance->GetEntity();
-	PassIf(light == NULL);
+	PassIf(light == nullptr);
 
 	// Now, import the second document and verify that the instance is now valid.
 	FCDocument* doc2 = FCollada::NewTopDocument();
@@ -103,7 +103,7 @@ TESTSUITE_TEST(3, ReimportBothHardOrder)
 	doc2->GetAsset()->SetUpAxis(FMVector3::XAxis);
 	PassIf(errorHandler.IsSuccessful());
 	light = (FCDLight*) instance->GetEntity();
-	FailIf(light == NULL);
+	FailIf(light == nullptr);
 	PassIf(light->GetLightType() == FCDLight::AMBIENT);
 	PassIf(IsEquivalent(light->GetColor(), FMVector3::XAxis));
 	SAFE_RELEASE(doc1);

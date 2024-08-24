@@ -10,7 +10,7 @@
 
 #ifdef FCOLLADA_DLL
 #ifdef WIN32
-HINSTANCE hInstance = NULL;
+HINSTANCE hInstance = nullptr;
 
 BOOL WINAPI DllMain(HINSTANCE _hInstance, ULONG fdwReason, LPVOID UNUSED(lpvReserved))
 {

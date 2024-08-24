@@ -81,11 +81,11 @@ public:
 
 	/** Retrieves whether the type of this geometry is a mesh.
 		@return Whether this geometry is a mesh. */
-	bool IsMesh() const { return mesh != NULL; }
+	bool IsMesh() const { return mesh != nullptr; }
 
 	/** Retrieves the mesh information structure for this geometry.
 		Verify that this geometry is a mesh using the IsMesh function prior to calling this function.
-		@return The mesh information structure. This pointer will be NULL when the geometry is a spline or is undefined. */
+		@return The mesh information structure. This pointer will be nullptr when the geometry is a spline or is undefined. */
 	FCDGeometryMesh* GetMesh() { return mesh; }
 	const FCDGeometryMesh* GetMesh() const { return mesh; } /**< See above. */
 
@@ -96,11 +96,11 @@ public:
 
 	/** Retrieves whether the type of this geometry is a spline.
 		@return Whether this geometry is a spline. */
-	bool IsSpline() const { return spline != NULL; }
+	bool IsSpline() const { return spline != nullptr; }
 
 	/** Retrieves the spline information structure for this geometry.
 		Verify that this geometry is a spline using the IsSpline function prior to calling this function.
-		@return The spline information structure. This pointer will be NULL when the geometry is a mesh or is undefined. */
+		@return The spline information structure. This pointer will be nullptr when the geometry is a mesh or is undefined. */
 	FCDGeometrySpline* GetSpline() { return spline; }
 	const FCDGeometrySpline* GetSpline() const { return spline; } /**< See above. */
 
@@ -116,11 +116,11 @@ public:
 
 	/** Copies the geometry entity into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. If this pointer is NULL, a new geometry entity
+		@param clone The empty clone. If this pointer is nullptr, a new geometry entity
 			will be created and you will need to release the returned pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 };
 
 #endif // _FCD_GEOMETRY_H_

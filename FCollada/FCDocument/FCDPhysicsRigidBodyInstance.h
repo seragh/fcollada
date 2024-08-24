@@ -56,7 +56,7 @@ public:
 		@param _parent The physics model instance holding this rigid body
 			instance.
 		@param body The rigid body to instance. Default values are taken from
-			here. This should not be NULL unless it is expected to be filled in
+			here. This should not be nullptr unless it is expected to be filled in
 			by LoadFromXML. */
 	FCDPhysicsRigidBodyInstance(FCDocument* document, FCDPhysicsModelInstance* _parent, FCDPhysicsRigidBody* body);
 
@@ -119,10 +119,10 @@ public:
 
 	/** Clones the rigid body instance.
 		@param clone The rigid body instance to become the clone.
-			If this pointer is NULL, a new rigid body instance will be created
+			If this pointer is nullptr, a new rigid body instance will be created
 			and you will need to release it.
 		@return The clone. */
-	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = NULL) const;
+	virtual FCDEntityInstance* Clone(FCDEntityInstance* clone = nullptr) const;
 
 	/** [INTERNAL] Sets the rigid body for this rigid body instance. Default values are
 		taken from the rigid body.

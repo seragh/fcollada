@@ -60,11 +60,11 @@ public:
 
 	/** Copies the animation clip entity into a clone.
 		The clone may reside in another document.
-		@param clone The empty clone. If this pointer is NULL, a new animation clip
+		@param clone The empty clone. If this pointer is nullptr, a new animation clip
 			will be created and you will need to release the returned pointer manually.
 		@param cloneChildren Whether to recursively clone this entity's children.
 		@return The clone. */
-	virtual FCDEntity* Clone(FCDEntity* clone = NULL, bool cloneChildren = false) const;
+	virtual FCDEntity* Clone(FCDEntity* clone = nullptr, bool cloneChildren = false) const;
 
 	/** Retrieves the entity type for this class. This function is part
 		of the FCDEntity class interface.
@@ -107,7 +107,7 @@ public:
     /** Retrieves a given animation instanced by this clip.
         @param index The index of the animation to retrieve.
         @return The animation object at the given index. */
-	inline FCDAnimation* GetAnimation(size_t index) const { FUAssert(GetAnimationCount() > index, return NULL); return (FCDAnimation*) animations[index]->GetEntity(); }
+	inline FCDAnimation* GetAnimation(size_t index) const { FUAssert(GetAnimationCount() > index, return nullptr); return (FCDAnimation*) animations[index]->GetEntity(); }
 
     /** Sets the name of the animation at a given index.
         @param name The name to give the animation at the given index.
