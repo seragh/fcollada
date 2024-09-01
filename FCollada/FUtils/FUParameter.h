@@ -16,9 +16,9 @@
 
 /** @defgroup FUParameter The generic FCollada parameter interface. */
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning(disable:4355) // 'this' : used in base member initializer list.
-#endif // _WIN32
+#endif // _MSC_VER
 
 /** Contains the supported qualifiers for parameter types. */
 namespace FUParameterQualifiers

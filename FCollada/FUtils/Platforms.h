@@ -17,11 +17,13 @@
 
 #include "fcollada_export.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 // Disable the "private member not available for export" warning,
 // because I don't feel like writing interfaces
 #pragma warning(disable:4251)
-#endif // _WIN32
+
+#pragma warning(disable:4702)
+#endif // _MSC_VER
 
 #ifdef __PPU__
 #define UNICODE
@@ -41,8 +43,6 @@
 #include <cmath>
 
 #ifdef _WIN32
-
-#pragma warning(disable:4702)
 #ifndef _WIN32_WINNT		// Allow use of features specific to Windows XP or later.
 #define _WIN32_WINNT 0x0501	// Change this to the appropriate value to target other versions of Windows.
 #endif

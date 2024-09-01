@@ -30,8 +30,11 @@
 #ifndef _CRT_SECURE_NO_DEPRECATE
 #define _CRT_SECURE_NO_DEPRECATE 1 // MSVS 2005 support.
 #endif // _CRT_SECURE_NO_DEPRECATE
-#pragma warning(disable:4702)
 #endif // _WIN32
+
+#ifdef _MSC_VER
+#pragma warning(disable:4702)
+#endif // _MSC_VER
 
 #define NOMINMAX /**< Rid us of the default versions of MINMAX. */
 #ifdef max
@@ -55,9 +58,9 @@ template <class T>
 inline const T& min(const T& x,const T& y) { return (x < y) ? x : y; } /**< See above. */
 #endif // FCOLLADA_NOMINMAX
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning(default:4702)
-#endif
+#endif // _MSC_VER
 
 // Conversion macros
 #define UNUSED(a) /**< Removes a piece of code during the pre-process. This macro is useful for these pesky unused variable warnings. */

@@ -23,9 +23,9 @@
 
 #include <type_traits>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning(disable:4127)
-#endif //_WIN32
+#endif //_MSC_VER
 
 /** Namespace that contains the overwritten STL classes. */
 namespace fm
@@ -655,7 +655,7 @@ inline bool IsEquivalent(const T* al, size_t acount, const T* bl, size_t bcount)
 	return equivalent;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning(default:4127)
-#endif //_WIN32
+#endif // _MSC_VER
 #endif // _FM_ARRAY_H_
