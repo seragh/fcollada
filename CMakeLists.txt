@@ -112,7 +112,7 @@ add_test(NAME runTests
 
 # TODO: clumsy approch without changing the test runner
 set(TEST_LOG "$<SHELL_PATH:$<TARGET_FILE_DIR:FColladaTest>/FColladaTestLog.txt>")
-if(WIN32)
+if(WIN32 AND NOT MINGW)
     add_test(NAME checkTestLog
         COMMAND powershell type ${TEST_LOG}
     )
