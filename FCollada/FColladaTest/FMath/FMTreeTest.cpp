@@ -6,9 +6,10 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
-#include "FMath/FMTree.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
 #include "FUtils/FUTestBed.h"
+#include "FMath/FMTree.h"
 
 ////////////////////////////////////////////////////////////////////////
 static bool IsEquivalent(const fm::tree<uint32, bool>& tree, uint32* keys, size_t keyCount)

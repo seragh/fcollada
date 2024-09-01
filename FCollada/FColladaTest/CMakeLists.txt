@@ -7,8 +7,6 @@ target_sources(FColladaTest
         FCTestGeometryPolygonsTools.cpp
         FCTestParameters.cpp
         FCTestSceneGraph.cpp
-        StdAfx.cpp
-        StdAfx.h
 )
 
 

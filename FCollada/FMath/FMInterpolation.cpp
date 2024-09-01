@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FUtils/FUtils.h"
 #include "FMInterpolation.h"
 
 // TODO: Move the float-float interpolations here, instead of within the animation system: va_list, anyone?

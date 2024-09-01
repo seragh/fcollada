@@ -7,4 +7,4 @@
 */
 
 
-#include "StdAfx.h"
+#include "FCollada.h"

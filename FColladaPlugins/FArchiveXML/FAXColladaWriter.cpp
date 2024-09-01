@@ -6,10 +6,15 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FAXColladaParser.h"
 #include "FAXColladaWriter.h"
+#include "FUtils/FUXmlDocument.h"
+#include "FUtils/FUFileManager.h"
+#include "FUtils/FUUniqueStringMap.h"
 using namespace FUDaeParser;
+using namespace FUDaeWriter;
+#include "FAXStructures.h"
 
 #define FLOAT_STR_ESTIMATE 12
 

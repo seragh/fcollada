@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FCDocument/FCDSceneNode.h"
 #include "FCDocument/FCDSceneNodeTools.h"
 #include "FCDocument/FCDTransform.h"

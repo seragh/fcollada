@@ -13,7 +13,8 @@
 	TODO: Add schema validation.
 */
 
-#include "StdAfx.h"
+#include <iostream>
+#include "FCollada.h"
 #include "FCDocument/FCDocument.h"
 
 int main(int argc, const char* argv[])

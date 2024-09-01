@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FUtils/FUtils.h"
 #include "FMath.h"
 #include "FMVector3.h"
 #include "FMQuaternion.h"

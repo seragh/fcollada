@@ -6,12 +6,11 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDExternalReferenceManager.h"
 #include "FCDocument/FCDPlaceHolder.h"
 #include "FColladaPlugin.h"
-#include "FCollada.h"
 
 // This function is defined for all standard plug-ins.
 // Create at least one default archiving plug-in.

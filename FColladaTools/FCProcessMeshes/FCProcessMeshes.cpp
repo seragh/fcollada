@@ -14,7 +14,21 @@
 	COLLADA document.
 */
 
-#include "StdAfx.h"
+#define UNICODE
+#define _UNICODE
+
+//See StdAfx.h in the FCProcessImages folder for explanation.
+
+#ifndef _WIN32
+#include <iostream>
+#endif
+
+#include "FCollada.h"
+
+#ifdef _WIN32
+#include <iostream>
+#endif
+
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDAsset.h"
 #include "FCDocument/FCDLibrary.h"

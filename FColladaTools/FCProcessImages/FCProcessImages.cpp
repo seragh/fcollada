@@ -15,7 +15,24 @@
 	and power of 2 width/height.
 */
 
-#include "StdAfx.h"
+
+#define UNICODE
+#define _UNICODE
+
+//On Windows, iostream should be included last
+//On Linux, include it first. Otherwise doesn't compile because of
+//INT_MAX contingeancy.
+
+#ifndef _WIN32
+#include <iostream>
+#endif
+
+#include "FCollada.h"
+
+#ifdef _WIN32
+#include <iostream>
+#endif
+
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDAsset.h"
 #include "FCDocument/FCDEffect.h"

@@ -6,12 +6,13 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
+#include "FUtils/FUTestBed.h"
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDExtra.h"
 #include "FCDocument/FCDImage.h"
 #include "FCDocument/FCDLibrary.h"
-#include "FUtils/FUTestBed.h"
 
 TESTSUITE_START(FCTAMCrossCloning)
 

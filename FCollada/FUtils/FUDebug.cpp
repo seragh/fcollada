@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FUtils/FUtils.h"
 #include "FUDebug.h"
 #include "FULogFile.h"
 #include "FUStringConversion.h"

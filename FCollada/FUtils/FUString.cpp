@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-#include "StdAfx.h"
+#include "FUtils/FUtils.h"
 #include "FUString.h"
 
 template class fm::stringT<char>;

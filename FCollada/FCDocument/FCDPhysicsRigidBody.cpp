@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FCDocument/FCDPhysicsRigidBody.h"
 #include "FCDocument/FCDPhysicsRigidBodyParameters.h"
 #include "FCDocument/FCDPhysicsShape.h"

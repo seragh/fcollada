@@ -6,9 +6,10 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
-#include "FMath/FMArray.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
 #include "FUtils/FUTestBed.h"
+#include "FMath/FMArray.h"
 
 ////////////////////////////////////////////////////////////////////////
 static const uint32 testValues[] = { 1, 2, 3, 5, 7 };

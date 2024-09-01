@@ -6,7 +6,9 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
+#include "FUtils/FUTestBed.h"
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDCamera.h"
 #include "FCDocument/FCDExtra.h"

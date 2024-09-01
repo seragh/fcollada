@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FCDocument/FCDAnimationCurve.h"
 #include "FCDocument/FCDAnimationChannel.h"
 #include "FCDocument/FCDAnimationCurveTools.h"

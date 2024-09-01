@@ -12,7 +12,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FUtils/FUtils.h"
 #include "FUXmlParser.h"
 
 #define xmlT(a) (const xmlChar*) (a)

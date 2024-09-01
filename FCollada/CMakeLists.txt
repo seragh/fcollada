@@ -3,8 +3,6 @@ target_sources(FCollada
         DLLEntry.cpp
         FCollada.cpp
         FColladaPlugin.cpp
-        StdAfx.cpp
-        StdAfx.h
     PUBLIC FILE_SET HEADERS
     FILES
         FCollada.h

@@ -6,7 +6,9 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
+#include "FUtils/FUTestBed.h"
 #include "FCDocument/FCDEmitter.h"
 #include "FCDocument/FCDEmitterInstance.h"
 #include "FCDocument/FCDForceField.h"

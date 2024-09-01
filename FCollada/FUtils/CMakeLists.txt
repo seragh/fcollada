@@ -26,8 +26,6 @@ target_sources(FCollada
         FUXmlDocument.cpp
         FUXmlParser.cpp
         FUXmlWriter.cpp
-        StdAfx.cpp
-        StdAfx.h
     PUBLIC FILE_SET HEADERS
     FILES
         FUAssert.h

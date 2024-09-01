@@ -12,8 +12,6 @@ target_sources(FCollada
         FMSkew.cpp
         FMVector3.cpp
         FMVolume.cpp
-        StdAfx.cpp
-        StdAfx.h
     PUBLIC FILE_SET HEADERS
     FILES
         FMAllocator.h

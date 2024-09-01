@@ -14,7 +14,12 @@
     extension of the output file.
 */
 
-#include "StdAfx.h"
+#define UNICODE
+#define _UNICODE
+
+#include <iostream>
+
+#include "FCollada.h"
 #include "FCDocument/FCDocument.h"
 
 int main(int argc, const char* argv[], char* envp[])

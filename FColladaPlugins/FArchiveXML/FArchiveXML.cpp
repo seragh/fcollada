@@ -6,7 +6,15 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
+#include "FAXColladaParser.h"
+#include "FAXColladaWriter.h"
+#include "FUtils/FUXmlDocument.h"
+#include "FUtils/FUFileManager.h"
+#include "FUtils/FUUniqueStringMap.h"
+using namespace FUDaeParser;
+using namespace FUDaeWriter;
+#include "FAXStructures.h"
 #include "FArchiveXML.h"
 #include "FCDocument/FCDObject.h"
 #include "FCDocument/FCDAnimated.h"
@@ -75,7 +83,6 @@
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDLibrary.h"
 #include "FCDocument/FCDVersion.h"
-#include "FUtils/FUXmlDocument.h"
 
 #include <libxml/xmlIO.h>
 

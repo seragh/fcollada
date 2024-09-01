@@ -6,7 +6,7 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
+#include "FCollada.h"
 #include "FCDocument/FCDocument.h"
 #include "FCDocument/FCDAnimated.h"
 #include "FCDocument/FCDForceDrag.h"

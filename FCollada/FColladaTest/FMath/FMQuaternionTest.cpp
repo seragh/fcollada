@@ -6,9 +6,10 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
-#include "StdAfx.h"
-#include "FMath/FMQuaternion.h"
+#include "FCollada.h"
+#include "FUtils/FUAssert.h"
 #include "FUtils/FUTestBed.h"
+#include "FMath/FMQuaternion.h"
 
 //
 // IMPORTANT: Many of the comparison numbers below were gotten using Maya.
