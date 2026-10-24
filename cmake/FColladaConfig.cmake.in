@@ -1,0 +1,15 @@
+@PACKAGE_INIT@
+
+if (NOT TARGET FCollada::FCollada)
+    include(CMakeFindDependencyMacro)
+    find_dependency(LibXml2)
+    find_dependency(fmt)
+
+    include("${CMAKE_CURRENT_LIST_DIR}/FColladaTargets.cmake")
+    include(FindPackageMessage)
+    if(TARGET FCollada::FCollada)
+        find_package_message(FCollada "Found FCollada: ${FCollada_LIBRARY} (found version \"${FCollada_VERSION}\")" "[${FCollada_LIB}][${FCollada_INCLUDE_DIR}]")
+    endif()
+endif()
+
+check_required_components(FCollada)

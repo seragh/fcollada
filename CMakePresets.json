@@ -13,9 +13,9 @@
             "installDir": "${sourceDir}/out/install/${presetName}",
             "hidden": true,
             "cacheVariables": {
-                "BUILD_DOCS": "OFF",
-                "BUILD_SHARED_LIBS": "OFF",
-                "BUILD_TESTING": "ON",
+                "FCOLLADA_BUILD_DOCS": "OFF",
+                "FCOLLADA_SHARED": "OFF",
+                "FCOLLADA_BUILD_TESTING": "ON",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },

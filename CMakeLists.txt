@@ -19,13 +19,14 @@ if(NOT DEFINED CMAKE_POSITION_INDEPENDENT_CODE)
 endif()
 
 
-option(BUILD_SHARED_LIBS "Build FCollada as a shared library." OFF)
-option(BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
-option(BUILD_TESTING "Build the test suite." OFF)
-option(BUILD_DOCS "Build html docs using doxygen" OFF)
-option(USE_FMT_HEADER_ONLY "Use header only fmt library" OFF)
-
+option(FCOLLADA_SHARED "Build FCollada as a shared library." OFF)
+option(FCOLLADA_BUILD_UNICODE "Build FCollada in wide-character mode." OFF)
+option(FCOLLADA_BUILD_TESTING "Build the test suite." OFF)
+option(FCOLLADA_BUILD_DOCS "Build html docs using doxygen" OFF)
+option(FCOLLADA_USE_FMT_HEADER_ONLY "Use header only fmt library" OFF)
 option(FCOLLADA_ENABLE_COVERAGE "Build with coverage support." OFF)
+option(FCOLLADA_INSTALL "Enables the installation target" ON)
+
 mark_as_advanced(FCOLLADA_ENABLE_COVERAGE)
 
 find_package(LibXml2 REQUIRED)
@@ -36,14 +37,19 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     add_definitions(-D_DEBUG)
 endif()
 
-if(BUILD_UNICODE)
+if(FCOLLADA_BUILD_UNICODE)
     add_definitions(-DUNICODE -D_UNICODE)
 endif()
 
-if(USE_FMT_HEADER_ONLY)
+if(FCOLLADA_USE_FMT_HEADER_ONLY)
     add_definitions(-DFMT_HEADER_ONLY)
 endif()
 
+if(FCOLLADA_SHARED)
+    set(FCOLLADA_LIB_TYPE SHARED)
+else()
+    set(FCOLLADA_LIB_TYPE STATIC)
+endif()
 
 if(NOT MSVC)
     # clang-14 enabled it by default and on aarch64 this results
@@ -52,31 +58,33 @@ if(NOT MSVC)
 endif()
 
 
-set(LIBRARY_NAME FCollada)
-if(NOT BUILD_SHARED_LIBS AND NOT MSVC)
+set(LIBRARY_NAME ${PROJECT_NAME})
+if(NOT FCOLLADA_SHARED AND NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}S")
 endif()
-if(BUILD_UNICODE)
+if(FCOLLADA_BUILD_UNICODE)
     set(LIBRARY_NAME "${LIBRARY_NAME}U")
 endif()
 if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}D")
 endif()
 
-add_library(FCollada)
-target_compile_features(FCollada PUBLIC cxx_std_17)
-target_link_libraries(FCollada
+add_library(${PROJECT_NAME} ${FCOLLADA_LIB_TYPE})
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+target_link_libraries(${PROJECT_NAME}
     LibXml2::LibXml2
     fmt::fmt
     ${CMAKE_DL_LIBS})
-set_target_properties(FCollada
+set_target_properties(${PROJECT_NAME}
     PROPERTIES
         OUTPUT_NAME "${LIBRARY_NAME}"
 )
+target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<NOT:$<BOOL:${FCOLLADA_BUILD_UNICODE}>>>:FMT_UNICODE=0>)
+target_compile_options(${PROJECT_NAME} PRIVATE $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<BOOL:${FCOLLADA_BUILD_UNICODE}>>:/utf-8>)
 include(GenerateExportHeader)
-generate_export_header(FCollada)
+generate_export_header(${PROJECT_NAME})
 
-target_sources(FCollada
+target_sources(${PROJECT_NAME}
     PUBLIC
         FILE_SET HEADERS
         BASE_DIRS
@@ -87,16 +95,16 @@ target_sources(FCollada
 )
 
 
-add_executable(FColladaTest)
-set_target_properties(FColladaTest
+add_executable(${PROJECT_NAME}Test)
+set_target_properties(${PROJECT_NAME}Test
     PROPERTIES
-        EXCLUDE_FROM_ALL "$<NOT:$<BOOL:${BUILD_TESTING}>>"
+        EXCLUDE_FROM_ALL "$<NOT:$<BOOL:${FCOLLADA_BUILD_TESTING}>>"
 )
-target_link_libraries(FColladaTest FCollada)
-target_include_directories(FColladaTest PRIVATE FCollada/FColladaTest)
+target_link_libraries(${PROJECT_NAME}Test ${PROJECT_NAME})
+target_include_directories(${PROJECT_NAME}Test PRIVATE FCollada/FColladaTest)
 
 add_custom_command(
-    TARGET FColladaTest POST_BUILD
+    TARGET ${PROJECT_NAME}Test POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_CURRENT_SOURCE_DIR}/FCollada/FColladaTest/Samples/Eagle.DAE
         "$<TARGET_FILE_DIR:FColladaTest>"
@@ -131,7 +139,7 @@ if(FCOLLADA_ENABLE_COVERAGE)
 endif()
 
 
-if(BUILD_DOCS)
+if(FCOLLADA_BUILD_DOCS)
     find_package(Doxygen REQUIRED)
     doxygen_add_docs(doxygen
         "${CMAKE_SOURCE_DIR}/FCollada"
@@ -141,15 +149,45 @@ if(BUILD_DOCS)
         COMMENT "Generate html pages")
 endif()
 
+if(FCOLLADA_INSTALL)
+    include(GNUInstallDirs)
+    install(TARGETS ${PROJECT_NAME}
+        EXPORT ${PROJECT_NAME}Targets
+        FILE_SET HEADERS
+    )
+    configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"
+            DESTINATION "lib/pkgconfig"
+    )
+    # CMake find_package support
+    include(CMakePackageConfigHelpers)
+    set(FCOLLADA_CONFIG_FILE_NAME ${PROJECT_NAME}Config)
+    # CMake configuration files installation directory
+    set(FCOLLADA_TARGET_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
-install(TARGETS FCollada
-    FILE_SET HEADERS
-)
+    write_basic_package_version_file(
+        "${CMAKE_CURRENT_BINARY_DIR}/${FCOLLADA_CONFIG_FILE_NAME}Version.cmake"
+        VERSION ${PROJECT_VERSION}
+        COMPATIBILITY SameMajorVersion
+    )
+    # Configures the meta-file FColladaConfig.cmake.in to replace variables with paths/values/etc.
+    configure_package_config_file("cmake/${FCOLLADA_CONFIG_FILE_NAME}.cmake.in"
+        "${CMAKE_CURRENT_BINARY_DIR}/${FCOLLADA_CONFIG_FILE_NAME}.cmake"
+        INSTALL_DESTINATION "${FCOLLADA_TARGET_INSTALL_CMAKEDIR}"
+    )
 
-configure_file("fcollada.pc.in" "fcollada.pc" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/fcollada.pc"
-    DESTINATION "lib/pkgconfig")
-
+    install(EXPORT ${PROJECT_NAME}Targets
+        # Puts the targets into the FCollada namespace
+        # So this makes FCollada::FCollada linkable after doing find_package(FCollada)
+        NAMESPACE ${PROJECT_NAME}::
+        DESTINATION ${FCOLLADA_TARGET_INSTALL_CMAKEDIR}
+    )
+    install(FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/${FCOLLADA_CONFIG_FILE_NAME}.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/${FCOLLADA_CONFIG_FILE_NAME}Version.cmake"
+        DESTINATION ${FCOLLADA_TARGET_INSTALL_CMAKEDIR}
+    )
+endif()
 
 add_subdirectory(FCollada)
 add_subdirectory(FColladaPlugins)
